@@ -1,14 +1,14 @@
 import { useForm, ValidationError } from '@formspree/react'
-import './ContactForm.css'
+import './form.css'
 import React from 'react'
 
-// const formKey=process.env.REACT_APP_FORM_ID
+const formKey=process.env.REACT_APP_FORM_ID
 
 const ContactForm = () => {
-	const [state, handleSubmit] = useForm('xnqwvqpl')
+	const [state, handleSubmit] = useForm(formKey)
 
 	if (state.succeeded) {
-		return (<p>Thanks for Submitting</p>)
+		return <p>Thanks for Submitting</p>
 	}
 
 	return (
@@ -26,7 +26,6 @@ const ContactForm = () => {
 			<ValidationError prefix='Message' field='message' className='fieldErrors' errors={state.errors} />
 
 			<button type='submit' disabled={state.submitting}>
-				{' '}
 				Submit
 			</button>
 			<ValidationError className='formErrors' errors={state.errors} />
