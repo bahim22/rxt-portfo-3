@@ -1,19 +1,17 @@
+
 # `Dionysus Era Development (DED)`
 
-___
-title: 'Portfolio Information'
-author: 'Hima 'Dionysus' Balde'
-date: 01-26-2022
-description: React Portfolio App(custom WebPack, Babel, EsLint, Prettier Config).
-tag: web dev, jsx, react, md, webpack
+## React Portfolio
+
 ___
 
-## React Portfolio Single Page App
+![CodeSnippet](https://user-images.githubusercontent.com/78245175/155941220-025a4ea3-27e1-47e8-b428-746b08fc6c48.png)
+___
 
 ___
 | Title            | Date       | Author       | Description            |
 | ---------------- | ---------- | ------------ | ---------------------- |
-| react-portfo2 | 01/26/2022 | `Hima Balde` | Custom React Portfolio App|
+| react-form | 02/22/2022 | `Hima Balde` | Custom React Portfolio App|
 
 | Extended             | Use Case        | Completed | OS   |
 | -------------------- | --------------- | --------- | -------- |
@@ -23,12 +21,12 @@ ___
 ## Updates and Changes
 
 1. scripts in package.json
-2. css dep
-3. eslint
-   1. added lint pretest and fix scripts
+2. css styling 
+3. eslint: added lint pretest and fix scripts
 4. babel
-5. prettier
-   1. added prettier write and check scripts
+5. prettier: added prettier write and check scripts
+7.  forms for contacting me
+8. components and dir changes
 
 ## _Bug Fixes_
 
@@ -67,16 +65,6 @@ ___
 
 ___
 
-`**Resources & Citation**`
-
-> Links
-
-- [tailwindcss](https://tailwindcss.com/)
-- [webpack](https://webpack.js.org/configuration/other-options/)
-- [freecodecamp]<https://www.freecodecamp.org/news/build-portfolio-website-react/>
-- [react-ded-boiler]<https://www.github.com/bahim22/react-ded-boiler>
-- [createapp.dev](https://createapp.dev/)
-
 ### `Current GitHub Repos`
 
 | Projects            | Type                       | Version         | Status      |
@@ -86,9 +74,9 @@ ___
 | _DioBlog_           |  Next.js Blog       | Dev v1.2      | [ ] done |
 | _Next-Tail_         |  Next.js Base App   | Dev v2.1      | [ ] dev  |
 | `react-portfo2`     | Portfolio SPA       | Final v 3     | [ ] dev  |
-| `Mern Gym Tracker` | Todo/Scheduler PWA   | Build v 2     | [ ] dev 📋 |
-| `Mern  Dashboard`  |  workflow/analytics  | Build v 1     | [ ] dev 📋 |
-| `Mern ISM-DED Npo` | non-profit org Base  | Build: v1     | [ ] dev 📋 |
+| `MERN Stack` | Todo/Scheduler   | Build v 2     | [ ] dev 📋 |
+| `Apollo, GraphQl, PostgreSQL Stack`  |  workflow/analytics  | Build v 1   | [ ] dev 📋 |
+| `MERN Stack: ISM-DED` | non-profit org Base  | Build: v1     | [ ] dev 📋 |
 
 ___
 
