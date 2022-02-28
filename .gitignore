@@ -39,7 +39,6 @@ yarn-error.log*
 .env.production.local
 package-lock.json
 
-config.env
 .cache/
 coverage/
 dist/*
