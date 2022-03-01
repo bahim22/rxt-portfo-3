@@ -21,12 +21,12 @@ ___
 ## Updates and Changes
 
 1. scripts in package.json
-2. css styling 
+2. css styling
 3. eslint: added lint pretest and fix scripts
 4. babel
 5. prettier: added prettier write and check scripts
-7.  forms for contacting me
-8. components and dir changes
+6. forms for contacting me
+7. components and dir changes
 
 ## _Bug Fixes_
 

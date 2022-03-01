@@ -25,7 +25,8 @@ Posts/
 # misc
 .DS_Store
 .env*
-
+notes.md
+./designZ.html
 # debug
 *.log
 npm-debug.log*

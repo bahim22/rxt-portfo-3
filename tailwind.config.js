@@ -10,11 +10,14 @@
 //     require('@tailwindcss/typography'),
 //   ],
 // }
-const defaultTheme = require('tailwindcss/defaultTheme')
+//const defaultTheme = require('tailwindcss/defaultTheme')
 const colors = require('tailwindcss/colors')
 
 module.exports = {
 	content: ['./src/**/*.{js,jsx,ts,tsx}', './components/**/*.js', './layouts/**/*.js', './lib/**/*.js', './components/**/*.{js,ts,jsx,tsx}'],
+  exlude: [
+      "**/.git/**", "**/node_modules/**", "**/.hg/**", "**/.md/**", "**/.json/**"
+    ],
 	darkMode: 'class',
 	theme: {
 		extend: {
