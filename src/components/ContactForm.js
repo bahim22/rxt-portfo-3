@@ -1,5 +1,5 @@
 import { useForm, ValidationError } from '@formspree/react'
-import './form.css'
+import 'styles/form.css'
 import React from 'react'
 
 const formKey=process.env.REACT_APP_FORM_ID

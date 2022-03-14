@@ -1,5 +1,5 @@
 import React from 'react'
-import ContactForm from './ContactForm'
+// import ContactForm from './ContactForm'
 
 const info = {
   email: 'ibalde222@icloud.com',
@@ -33,7 +33,7 @@ const Contact = () => {
               <a className='text-slate-500 leading-relaxed'>{info.email}</a>
               <h2 className='title-font font-semibold text-white tracking-widest text-xs'>Phone Number</h2>
               <p className='leading-snug'>{info.cellPhone}</p>
-              <ContactForm  />
+              {/* <ContactForm  /> */}
             </div>
           </div>
         </div>
