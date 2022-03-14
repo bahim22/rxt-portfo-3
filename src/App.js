@@ -6,7 +6,8 @@ import Projects from './components/Projects';
 import Skills from './components/Skills';
 import Software from './components/Software';
 import Navbar from './components/Navbar';
-
+// import ContactForm from './components/ContactForm';
+// import { ButtonForm } from './components/ButtonForm';
 
 function App() {
   return (
@@ -17,6 +18,8 @@ function App() {
       <Skills />
       <Software />
       <Contact />
+      {/* <ContactForm  /> */}
+      {/* <ButtonForm  /> */}
     </main>
   )
 }

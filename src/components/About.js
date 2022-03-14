@@ -17,13 +17,13 @@ const About = () => {
           <div className='flex justify-center'>
             <a
               href='#contact'
-              className='inline-flex text-black bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded text-2xl'>
-              Contact for more Info
+              className='inline-flex text-black bg-red-800 border-1 py-2 px-6 focus:outline-none hover:bg-blue-400 rounded text-2xl'>
+              Contact
             </a> <br />
             <a
               href='#projects'
-              className='ml-4 inline-flex  bg-gray-800 border-0 py-2 px-6 focus:outline-none hover:bg-gray-700 hover:text-black rounded  text-black text-2xl'>
-              Current GitHub | Az Projects
+              className='ml-4 inline-flex  bg-red-800 border-1 py-2 px-6 focus:outline-none hover:bg-gray-700 hover:text-blue-400 rounded  text-black text-2xl'>
+               Projects
             </a>
           </div>
         </div>

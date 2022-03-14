@@ -3,14 +3,14 @@ export const projects = [
 		title: 'Next.js Blog',
 		subtitle: 'DioBlog',
 		description: 'React based JS website with custom styling and tool config.',
-		image: '/img/MapProject.png',
+		image: '/img/ismPic.webp',
 		link: 'https://github.com/bahim22/react-portfo2',
 	},
 	{
 		title: 'Next.js Boilerplate',
 		subtitle: 'Next-ded-boiler',
 		description: 'React based JS website with custom styling and tool config.',
-		image: '/img/dedIsm2.png',
+		image: '/img/MapProject.png',
 		link: 'https://github.com/bahim22/react-portfo2',
 	},
 	{
@@ -80,29 +80,31 @@ export const futureProjects = [
 ]
 
 export const softwares = [
-	{
-		name: 'Azure',
-		tools: 'Dev, Saas',
-		image: '/public/purp9.png',
-	},
-	{
-		name: 'GitHub',
-		tools: 'Dev, hosting, collab, Version Control',
-		image: '/public/purp9.png',
-	},
-	/*   {
+  {
+    name: 'Azure',
+    tools: 'DevOps, SAAS, IAAS',
+    image: '/purp9.png',
+  },
+  {
+    name: 'GitHub',
+    tools: 'Dev, hosting, collab, Version Control',
+    image: '/logo512.png',
+  },
+  {
     name: 'Jira',
     tools: 'Dev, Planning, workflow, Kanban Board',
-    image: '/purp9.png',
+    image: '/img/bg7.jpg',
   },
   {
     name: 'Office 365',
     tools: 'office, excel, powerpoint, Planning, Admin',
-    image: '/purp9.png',
-  }, */
+    image: '/img/profile-bg.jpg',
+  },
 ]
 
-export const skills = ['JavaScript', 'TypeScript']
+export const skills = [
+  'JavaScript', 'TypeScript', 'JSX', 'HTML5', 'CSS3', 'Python', 'JSON'
+]
 
 //1. Edit: skills into object containing arrays for langauges, tools, frameworks, libs
 //2. Edit: software: adjust keys and add better value pairs

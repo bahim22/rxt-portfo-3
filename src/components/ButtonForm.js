@@ -1,8 +1,8 @@
-/*
-//import React from 'react'
-//import { FormspreeProvider } from '@formspree/react'
 
-export const formbutton = () => {
+import React from 'react'
+import { FormspreeProvider } from '@formspree/react'
+
+export const ButtonForm = () => {
 return ('create', {
 	action: 'https://formspree.io/f/key',
 	title: 'How can we help?',
@@ -32,4 +32,3 @@ return ('create', {
 	},
 })
 }
-*/
