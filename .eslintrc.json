@@ -23,16 +23,14 @@
     "rules": {
 			"react/react-in-jsx-scope": "off",
       "import/no-anonymous-default-export": "off",
-      "space-before-function-paren":"warn",
       "lines-around-comment":"off",
       // "semi-style":"warn",
-      "no-trailing-spaces":"warn",
       "no-ternary":"off",
       "handle-callback-err":"error",
       "no-inline-comments":"off",
       "no-restricted-properties":"off",
       // "no-tabs": ["off", {"allowIndentationTabs": true}],
-      "no-confusing-arrow": ["warning", { "allowParens": false }]
+      "no-confusing-arrow": ["warn", { "allowParens": false }]
     },
 		"ignorePatterns": ["node_modules/"],
 		"settings": {
@@ -42,6 +40,8 @@
 		}
   }
   //npm init @eslint/config
-/*   "globals": {
-   "Atomics": "readonly",
-   "SharedArrayBuffer": "readonly", */
+/*
+"globals": {
+  "Atomics": "readonly",
+  "SharedArrayBuffer": "readonly",
+   */

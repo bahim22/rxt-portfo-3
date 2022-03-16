@@ -1,6 +1,6 @@
 {
   "endOfLine": "lf",
-  "printWidth": 120,
+  "printWidth": 100,
   "semi": false,
   "tabWidth": 4,
   "useTabs": false,
@@ -13,6 +13,4 @@
   "arrowParens": "avoid",
   "embeddedLanguageFormatting": "auto",
   "htmlWhitespaceSensitivity": "css"
-  // "plugins":
-  // "parser":"babel-flow",
 }
