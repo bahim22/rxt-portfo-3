@@ -39,7 +39,7 @@ yarn-error.log*
 .env.test.local
 .env.production.local
 package-lock.json
-
+prac/*
 .cache/
 coverage/
 dist/*
@@ -63,3 +63,4 @@ Ex
 cypress
 vercel.json
 Home.js
+./prac

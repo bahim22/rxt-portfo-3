@@ -1,5 +1,11 @@
+
+// current WP config for rxt-portfo-3
 const path = require('path')
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+// const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+// const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
 	// the output bundle mode: prod or dev; changed via scripts in pack.json
@@ -15,7 +21,7 @@ module.exports = {
 	devServer: {
 		port: 3222,
 		//watchContentBase: true,
-	}, // Rules of how webpack will take files, complie/bundle them for browser
+	}, // Rules of how WP will take files, compile/bundle them for browser
 	module: {
 		rules: [
 			{
@@ -49,7 +55,21 @@ module.exports = {
           'postcss-loader'
         ]
       },
-            {
+      // change css & postcss loaders to the minifier option below
+   /*    {
+        test: /\.css$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1
+            }
+          },
+          'postcss-loader'
+        ]
+      }, */
+      {
         test: /\.svg$/,
         use: 'file-loader'
       },
@@ -72,55 +92,18 @@ module.exports = {
 			template: './public/index.html',
 			fileName: './index.html'
 		}),
-	], // add a custom index.html as the template updated for this proj
-}
-
-/**
-/////\\\\\\\\\\\\\\\\\\\\
-****** ISSUE WITH RESOLVING INDEX.HTML IN SRC || PUBLIC
-//POSSIBLE fix of adding the templatecontent to plugins htmlWPPlugin
-
-// Config Option 2 (needs tested)
-
-const webpack = require('webpack');
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-
-const config = {
-  entry: './src/index.js',
-  output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
-  },
-  module: {
-    rules: [
-      {
-        test: /\.(js|jsx)$/,
-        use: 'babel-loader',
-        exclude: /node_modules/
-      },
-      {
-        test: /\.css$/,
-        use: [
-          'style-loader',
-          {
-            loader: 'css-loader',
-            options: {
-              importLoaders: 1
-            }
-          },
-          'postcss-loader'
-        ]
-      }
+/*  new MiniCssExtractPlugin(),
+    new CleanWebpackPlugin(),
+    new BundleAnalyzerPlugin({
+      analyzerMode: 'static',
+      openAnalyzer: false,
+    }) */
+  ],
+/*   resolve: {
+    extensions: [
+      '.tsx',
+      '.ts',
+      '.js'
     ]
-  },
-  plugins: [
-    new HtmlWebpackPlugin({
-      templateContent: ({ htmlWebpackPlugin }) => '<!DOCTYPE html><html><head><meta charset=\"utf-8\"><title>' + htmlWebpackPlugin.options.title + '</title></head><body><div id=\"app\"></div></body></html>',
-      filename: 'index.html',
-    })
-  ]
-};
-
-module.exports = config;
-*/
+  }, */ // add a custom index.html as the template updated for this proj
+}

@@ -73,7 +73,7 @@ import { homeButton } from './styles.css'
 - use default imports/exports if the module has 1 component
 - use named exports w/ utility mods exporting multiple func
 
-## CSS Options: Bootstrap ||  MUI
+## CSS Options: Bootstrap || MUI
 
 - Add below imports to App.tsx if using bootstrap (also imp styles.css to index and add custom attr.)
 import 'bootstrap';
