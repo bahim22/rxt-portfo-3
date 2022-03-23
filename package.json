@@ -1,5 +1,5 @@
 {
-	"name": "react-form",
+	"name": "rxt-portfo-3",
 	"version": "4.0.0",
 	"main": "index.js",
 	"license": "MIT",
@@ -21,7 +21,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/bahim22/"
+		"url": "git+https://github.com/bahim22/rxt-portfo-3"
 	},
 	"keywords": [
 		"React",
@@ -35,9 +35,9 @@
 	],
 	"author": "Hima Balde (Dionysus Era Dev)",
 	"bugs": {
-		"url": "https://github.com/bahim22/s"
+		"url": "https://github.com/bahim22/rxt-portfo-3"
 	},
-	"homepage": "https://github.com/bahim22/",
+	"homepage": "https://github.com/bahim22/rxt-portfo-3",
 	"dependencies": {
 		"@formspree/react": "^2.2.4",
 		"@headlessui/react": "^1.4.3",
