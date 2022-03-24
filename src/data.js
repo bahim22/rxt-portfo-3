@@ -102,7 +102,9 @@ export const softwares = [
     },
 ]
 
-export const skills = ['JavaScript', 'TypeScript', 'JSX', 'HTML5', 'CSS3', 'Python', 'JSON']
+export const skills = [
+  'JavaScript', 'TypeScript', 'JSX', 'HTML5', 'CSS3', 'Python', 'JSON'
+]
 
 //1. Edit: skills into object containing arrays for langauges, tools, frameworks, libs
 //2. Edit: software: adjust keys and add better value pairs
