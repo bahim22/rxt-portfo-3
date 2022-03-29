@@ -45,6 +45,7 @@
 		"@tailwindcss/aspect-ratio": "^0.4.0",
 		"@tailwindcss/forms": "^0.4.0",
 		"@tailwindcss/typography": "^0.5.0",
+		"axios": "^0.26.1",
 		"formik": "^2.2.9",
 		"prop-types": "^15.8.0",
 		"react": "^17.0.2",
