@@ -22,7 +22,8 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 },
   devServer: {
   port: 3222,
-  //watchContentBase: true,
+  watchContentBase: // *? look up these options, especially headers and proxy, server, allowed hosts, livereload since I know most of those just not how to use w/ webpack
+	{ allowedHosts?, bonjour?, client?, compress?, devMiddleware?, headers?, historyApiFallback?, host?, hot?, http2?, https?, ipc?, liveReload?, magicHtml?, onAfterSetupMiddleware?, onBeforeSetupMiddleware?, onListening?, open?, port?, proxy?, server?, setupExitSignals?, setupMiddlewares?, static?, watchFiles?, webSocketServer? }
 },
   module: {
     rules: [

@@ -1,4 +1,26 @@
 {
 	"presets": ["@babel/preset-env", "@babel/preset-react"],
-	"plugins": ["@babel/plugin-syntax-dynamic-import", "@babel/plugin-proposal-class-properties"]
+	"plugins": ["@babel/plugin-syntax-dynamic-import", "@babel/plugin-proposal-class-properties"],
+	"targets": {
+		"esmodules": true,
+		"browsers": [
+			"> 0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"node": "12.0"
+	  },
+	  "exclude": [
+		"node_modules",
+		"Docs"
+	  ]
+	//   "compact": "auto", 
+	//   "env": 
+	// 	{"production": 
+	// 		{ "plugins": ["transform-react-remove-prop-types" ],
+	// 		"sourceMaps": true, 
+	// 		"highlightCode": true, 
+	// 		"generatorOpts": { "minified": true, "compact": true, "quotes": "single" }
+	// 		}
+	// 	}
 }

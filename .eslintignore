@@ -13,4 +13,6 @@
 ./cypress
 ./Posts
 ,/prac
-./FormPro.js
+./data/HeadSec.js
+src/components/FormPro.js
+
