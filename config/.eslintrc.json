@@ -1,0 +1,54 @@
+{
+    "env": {
+        "browser": true,
+		"es2020": true,
+        "node": true
+    },
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
+    },
+    "extends": [
+      "eslint:recommended",
+      "plugin:react/recommended"
+    //   "plugin:prettier/recommended"
+    //   "prettier"
+    ],
+    "parserOptions": {
+      "ecmaFeatures": {
+          "jsx": true,
+          "modules": true,
+		  "version": "latest"
+        },
+        "sourceType": "module",
+        "react": {
+          "version": "latest"
+        }
+    },
+    "plugins": [
+		"react",
+        "prettier"
+        // "prettier"
+
+    ],
+    "rules": {
+	"react/react-in-jsx-scope": "off",
+      "import/no-anonymous-default-export": "off",
+      "lines-around-comment":"off",
+      "no-inline-comments":"off"
+    //   "no-restricted-properties":"off",
+    //   "no-tabs": ["off", {"allowIndentationTabs": true}],
+    //   "no-duplicate-imports": 1
+	  //   "no-confusing-arrow": ["off", { "allowParens": true }],
+    //   "prefer-destructuring":"warn",
+    //   "prefer-rest-params":"warn",
+    //   "prefer-spread":"warn"
+	  },
+	  "ignorePatterns": ["node_modules/"]
+
+/* 	  "globals": {
+		  "Atomics": "readonly",
+		  "SharedArrayBuffer": "readonly"
+		}, */
+}

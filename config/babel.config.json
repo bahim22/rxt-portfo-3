@@ -1,0 +1,39 @@
+{
+    "presets": [
+    "@babel/preset-env",
+    "@babel/preset-react"
+],
+"plugins": ["@babel/plugin-syntax-dynamic-import", "@babel/plugin-proposal-class-properties"],
+"builtins": "usage",
+"modules": "auto",
+"exclude": [
+    "node_modules",
+    "Docs"
+  ],
+  "env": {
+    "production": {
+        "presets": ["minify"],
+        "production": true,
+        "minified": true,
+        "compact": true,
+        "debug": false,
+        "parser": "babel-eslint",
+        "parserOptions": {
+            "ecmaVersion": 6,
+            "sourceType": "module",
+            "ecmaFeatures": {
+                "jsx": true,
+                "experimentalObjectRestSpread": true
+            }
+        },
+        "modules": "auto"
+    },
+    "target": {
+        "es6": true,
+        "node": ">= 10.0.0 || <=16.0.0",
+        "browsers": ["last 2 versions", "ie >= 11"],
+        "esmodules": true,
+        "react": true,
+    }
+}
+}

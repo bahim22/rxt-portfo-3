@@ -31,7 +31,6 @@ Posts/
 .DS_Store
 .env*
 notes.md
-./designZ.html
 # debug
 *.log
 npm-debug.log*
@@ -67,5 +66,6 @@ Ex
 ./dist
 cypress
 vercel.json
-Home.js
 ./prac
+Docs/
+bootstrap.css
