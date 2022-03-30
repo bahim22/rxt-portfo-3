@@ -7,21 +7,31 @@
     "extends": [
       "eslint:recommended",
       "plugin:react/recommended",
+    //   "plugin:import/warnings"
+      "plugin:prettier/recommended",
       "prettier"
     ],
     "parserOptions": {
       "ecmaFeatures": {
-          "jsx": true
+          "jsx": true,
+          "modules": true
+          // "experimentalObjectRestSpread": true,
+          // "experimentalDecorators": true
       },
       "ecmaVersion": "latest",
       "sourceType": "module"
     },
     "plugins": [
-        "react"
-        // "prettier"
+        "react",
+        "import",
+        "jsx-a11y",
+        // "config-prettier",
+        "prettier"
+        // "react-hooks",
+        // "react-hooks-rules"
     ],
     "rules": {
-			"react/react-in-jsx-scope": "off",
+		"react/react-in-jsx-scope": "off",
       "import/no-anonymous-default-export": "off",
       "lines-around-comment":"off",
       // "semi-style":"warn",
@@ -29,19 +39,23 @@
       "handle-callback-err":"error",
       "no-inline-comments":"off",
       "no-restricted-properties":"off",
-      // "no-tabs": ["off", {"allowIndentationTabs": true}],
-      "no-confusing-arrow": ["warn", { "allowParens": false }]
+      "no-tabs": ["off", {"allowIndentationTabs": true}],
+      "no-duplicate-imports": 1,
+      "no-confusing-arrow": ["warn", { "allowParens": false }],
+      "prefer-destructuring":"warn",
+      "prefer-rest-params":"warn",
+      "prefer-spread":"warn",
     },
-		"ignorePatterns": ["node_modules/"],
+		"ignorePatterns": ["node_modules/", "dist/*"],
 		"settings": {
 			"react": {
 				"version": "detect"
 			}
 		}
-  }
-  //npm init @eslint/config
+}
 /*
 "globals": {
   "Atomics": "readonly",
   "SharedArrayBuffer": "readonly",
-   */
+*/
+

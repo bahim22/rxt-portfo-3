@@ -109,7 +109,7 @@ A. `Babel`
 
 B. `Eslint`
 package.json scripts (need to fix this test)
-"test:lint-rules": "eslint index.js --config test-config/.eslintrc.js --format json"
+"test:lint-rules2": "eslint index.js --config test-config/.eslintrc.js --format json"
 // Optional: Can remove eslint if adding TypeScript and TS devDep.
 
 C. `Prettier`

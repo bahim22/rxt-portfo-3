@@ -6,9 +6,10 @@
 import { resolve } from 'path';
 import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-// const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-// const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+const MiniCssExtractPlugin = require();
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
  const config = {
  mode: 'production',
@@ -28,7 +29,6 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
     {
       // for any file with a suffix of js or jsx
       test: /\.(js|jsx)$/,
-
       // ignore transpiling JS from node_modules as it should be that state
       exclude: /node_modules/,
       // use the babel-loader for transpiling JavaScript to a suitable format
