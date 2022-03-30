@@ -11,7 +11,7 @@
 		"test:lint": "eslint \"src/**/*.{js,jsx}\"",
 		"test:lint-rules": "eslint src/index.js --config .eslintrc.json",
 		"test:webpack": "npx webpack --config webpack.config.js",
-		"clean": "rm dist/bundle.js",
+		"clean": "rm dist/*",
 		"prettier:check": "prettier --check \"src/**/*.{js,jsx}\"",
 		"prettier:write": "npx prettier --write \"src/**/*.{js,jsx}\"",
 		"build": "webpack --mode production",
