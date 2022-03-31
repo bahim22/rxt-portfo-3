@@ -7,7 +7,7 @@
 		"prettier"
 	],
 	"plugins": ["react", "import", "jsx-a11y"],
-	"ignorePatterns": ["node_modules/"],
+	"ignorePatterns": ["node_modules/", "dist/", "build/", "config/", "webpack.*.js"],
 	"parserOptions": {
 		"ecmaVersion": 2021,
 		"sourceType": "module",

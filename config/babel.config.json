@@ -3,12 +3,26 @@
     "@babel/preset-env",
     "@babel/preset-react"
 ],
-"plugins": ["@babel/plugin-syntax-dynamic-import", "@babel/plugin-proposal-class-properties"],
+"plugins": [
+    "@babel/plugin-syntax-dynamic-import",
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-proposal-object-rest-spread",
+    "@babel/plugin-transform-arrow-functions",
+    "@babel/transform-es2015-modules-commonjs",
+    "@babel/plugin-transform-arrow-functions"
+],
 "builtins": "usage",
 "modules": "auto",
+"settings": {
+    "react": {
+        "version": "detect"
+    }
+},
 "exclude": [
     "node_modules",
-    "Docs"
+    "Docs",
+    "build",
+    "dist"
   ],
   "env": {
     "production": {
@@ -33,7 +47,7 @@
         "node": ">= 10.0.0 || <=16.0.0",
         "browsers": ["last 2 versions", "ie >= 11"],
         "esmodules": true,
-        "react": true,
+        "react": true
     }
 }
 }

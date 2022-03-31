@@ -2,13 +2,15 @@
   "endOfLine": "lf",
   "printWidth": 120,
   "tabWidth": 4,
+  "parser":"babel",
+  "semi": false,
   "useTabs": false,
   "bracketSpacing": true,
   "trailingComma": "es5",
   "bracketSameLine": false,
   "singleQuote": true,
   "jsxSingleQuote": true,
-  "proseWrap": "preserve",
+  "proseWrap": "always",
   "embeddedLanguageFormatting": "auto",
   "htmlWhitespaceSensitivity": "css"
 }

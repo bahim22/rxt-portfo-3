@@ -11,44 +11,8 @@ module.exports = {
 	mode: 'production',
 	entry: path.resolve(__dirname, 'src', 'index.js'),
 	output: {
-		path: path.resolve(__dirname, 'dist'),
-		filename: 'bundle.js', //path.join(_dirname, 'dist')
-	},
-	devServer: {
-		port: 3222,
-        watchContentBase: [
-            {
-                    'development': true,
-                    'headers': {
-                        'Access-Control-Allow-Origin': '*',
-                        'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
-                        'Access-Control-Allow-Headers':
-                        'X-Requested-With, content-type Authorization',
-                        'Access-Control-Allow-Credentials': true,
-                        'Access-Control-Max-Age': '3600'
-                    },
-                    'hot': true,
-                    'liveReload': true,
-                    'client': {
-                    },
-                    'server': 'http://localhost:3000',
-                    'open': true,
-                    'overlay': true,
-                    'proxy': {
-                        '/api': {
-                            target: 'http://localhost:3000',
-                            secure: false
-                            }
-                        }
-                }
-            ],
-            // watchContentBase: ,
-                /* allowedHosts?, bonjour?, client?, compress?, devMiddleware?, headers?,
-                historyApiFallback?, host?, hot?, http2?, https?, ipc?, liveReload?, magicHtml?,
-                onAfterSetupMiddleware?, onBeforeSetupMiddleware?, onListening?, open?, port?,
-                proxy?, server?, setupExitSignals?, setupMiddlewares?, static?, watchFiles?,
-                webSocketServer?
-            */
+		path: path.resolve(__dirname, 'build'),
+		filename: 'build.bundle.js', //path.join(_dirname, 'dist')
 	},
 	module: {
 		rules: [

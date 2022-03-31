@@ -9,9 +9,33 @@ export const output = {
     filename: 'bundle.js', //path.join(_dirname, 'dist')
 }
 export const devServer = {
-    port: 3222,
-    // watchContentBase:
-}
+		port: 3222,
+        devTool: 'source-map',
+        watchContentBase: [
+            {
+                'development': true,
+                'headers': {
+                    'Access-Control-Allow-Origin': '*',
+                    'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
+                    'Access-Control-Allow-Headers': 'X-Requested-With, content-type Authorization',
+                    'Access-Control-Allow-Credentials': true,
+                    'Access-Control-Max-Age': '3600'
+                },
+                'hot': true,
+                'liveReload': true,
+                'server': 'http://localhost:3000',
+                'client':{},
+                'open': true,
+                // 'overlay': true,
+                // 'proxy': {
+                //     '/api': {
+                //         target: 'http://localhost:3000',
+                //         secure: false
+                //         }
+                //     }
+            }
+            ],
+	}
 export const module = {
     rules: [
         {
