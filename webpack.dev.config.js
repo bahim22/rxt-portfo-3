@@ -1,16 +1,21 @@
-import { resolve as _resolve } from 'path'
-import HtmlWebpackPlugin from 'html-webpack-plugin'
+const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
-
-export const mode = 'development'
-export const entry = _resolve( __dirname, 'src', 'index.js' )
-export const output = {
-    path: _resolve( __dirname, 'dist' ),
-    filename: 'bundle.js', //path.join(_dirname, 'dist')
-}
-export const devServer = {
+module.exports = {
+	// the output bundle mode: prod or dev; changed via scripts in pack.json
+	mode: 'development',
+	// the app entry point is /src/index.js
+	entry: path.resolve(__dirname, 'src', 'index.js'),
+	output: {
+		// the output of the webpack build will be in /dist directory
+		path: path.resolve(__dirname, 'dist'),
+		// the filename of the JS bundle will be bundle.js
+		filename: 'bundle.js', //path.join(_dirname, 'dist')
+	},
+	devtool: 'source-map',
+	devServer: {
 		port: 3222,
-        devTool: 'source-map',
+        devTool: 'inline-source-map',
         watchContentBase: [
             {
                 'development': true,
@@ -26,6 +31,11 @@ export const devServer = {
                 'server': 'http://localhost:3000',
                 'client':{},
                 'open': true,
+				'port': 4500,
+				'host': 'localhost',
+				'historyApiFallback': true,
+				'compress': true,
+
                 // 'overlay': true,
                 // 'proxy': {
                 //     '/api': {
@@ -35,8 +45,8 @@ export const devServer = {
                 //     }
             }
             ],
-	}
-export const module = {
+	},
+module: {
     rules: [
         {
             test: /\.(js|jsx)$/,
@@ -52,11 +62,17 @@ export const module = {
                 {
                     loader: 'css-loader',
                     options: {
-                        importLoaders: 1
+                        importLoaders: 1,
+						sourceMap: true,
                     }
                 },
-                'postcss-loader'
-            ]
+                {
+					loader: 'postcss-loader',
+					options: {
+						sourceMap: true,
+					}
+				},
+            ],
         },
         {
             test: /\.svg$/,
@@ -74,14 +90,15 @@ export const module = {
             ]
         },
     ],
-}
-export const plugins = [
+},
+plugins: [
     new HtmlWebpackPlugin( {
         // template: path.resolve(__dirname, 'public', 'index.html'),
         template: './public/index.html',
         fileName: './index.html'
     } ),
-]
-export const resolve = {
+],
+resolve: {
     extensions: [ '.js', '.jsx' ],
+},
 }

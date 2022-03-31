@@ -3,8 +3,11 @@ node_modules
 
 # dependencies
 /node_modules
+/config
 /.pnp
 .pnp.js
+config/.eslintrc.json
+config/babel.config.json
 .env
 .env.local
 .env.development
@@ -24,6 +27,9 @@ Posts/
 # production
 /build
 *.xml
+/config/**
+./config/**
+/config/
 /dist
 # rss feed
 /public/feed.xml

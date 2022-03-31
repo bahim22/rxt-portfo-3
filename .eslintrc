@@ -1,15 +1,17 @@
 {
+    "plugins": ["react", "import", "jsx-a11y", "prettier"],
 	"extends": [
 		"eslint:recommended",
 		"plugin:import/errors",
 		"plugin:react/recommended",
-		"plugin:jsx-a11y/recommended",
-		"prettier"
+		"plugin:jsx-a11y/recommended"
+		// "plugin:prettier/recommended"
 	],
-	"plugins": ["react", "import", "jsx-a11y"],
-	"ignorePatterns": ["node_modules/", "dist/", "build/", "config/", "webpack.*.js"],
+	"ignorePatterns": ["node_modules/", "dist/", "build/", "webpack.*.js"],
+	// "module": true,
 	"parserOptions": {
 		"ecmaVersion": 2021,
+		// "allowImportExportEverywhere": true,
 		"sourceType": "module",
 		"ecmaFeatures": {
 			"jsx": true
@@ -19,6 +21,8 @@
 		"es6": true,
 		"browser": true,
 		"node": true
+		// "development": true,
+		// "module": true
 	},
 	"settings": {
 		"react": {

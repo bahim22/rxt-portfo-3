@@ -1,0 +1,9 @@
+{
+	"MD032": true,
+	"line-length": false,
+	"single-title": false,
+	"no-hard-tabs": false,
+	"MD006": false,
+	"MD005": false,
+	"code-block-style": false
+}

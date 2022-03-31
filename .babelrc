@@ -8,57 +8,5 @@
         "@babel/plugin-proposal-class-properties"
         // "@babel/transform-es2015-modules-commonjs",
         // "@babel/plugin-transform-arrow-functions"
-    ],
-    "root": true,
-    "builtins": "usage",
-    // "modules": "auto",
-    "exclude": [
-		"**/node_modules",
-		"**/Docs"
-	  ],
-    "env": {
-        "development":{
-            "presets":
-            [
-                "@babel/preset-react",
-                "@babel/preset-env"
-                ]
-                }
-            },
-/*       "env": {
-        "development": {
-            "presets": ["env", "react"],
-            "debug": true,
-            "highlightCode": true,
-            "sourceMaps": true,
-            "comments": true,
-            "compact": false,
-            "minified": false,
-            "codeFrame": true,
-            "auxiliaryCommentBefore": "true",
-            "parser": "babel-eslint",
-            "parserOptions": {
-                "ecmaVersion": 2018,
-                "sourceType": "module",
-                "ecmaFeatures": {
-                    "jsx": true,
-                    "experimentalObjectRestSpread": true,
-                    "experimentalDecorators": true,
-                    "legacyDecorators": true
-                }
-            }
-        }
-    }, */
-        "target": {
-            "es6": true,
-            "node": ">= 10.0.0 || <=16.0.0",
-            "browsers": ["last 2 versions", "ie >= 11"],
-            "esmodules": true,
-            "react": true
-        },
-        "settings": {
-            "react": {
-                "version": "detect"
-            }
-        }
-    }
+    ]
+}
