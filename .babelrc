@@ -10,3 +10,21 @@
         // "@babel/plugin-transform-arrow-functions"
     ]
 }
+/*
+	"development": {
+		"debug": true,
+		"highlightCode": true,
+		"sourceMaps": true,
+		"comments": true,
+		"compact": false,
+		"minified": false,
+		"codeFrame": true,
+		"auxiliaryCommentBefore": "true"
+	},
+	"production": {
+		"minified": true,
+		"compact": true,
+		"debug": false,
+		"modules": "auto"
+	}
+*/

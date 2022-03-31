@@ -13,39 +13,34 @@ module.exports = {
 		filename: 'bundle.js', //path.join(_dirname, 'dist')
 	},
 	devtool: 'source-map',
-	devServer: {
+	/* devServer: {
 		port: 3222,
-        devTool: 'inline-source-map',
-        watchContentBase: [
-            {
-                'development': true,
-                'headers': {
-                    'Access-Control-Allow-Origin': '*',
-                    'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
-                    'Access-Control-Allow-Headers': 'X-Requested-With, content-type Authorization',
-                    'Access-Control-Allow-Credentials': true,
-                    'Access-Control-Max-Age': '3600'
-                },
-                'hot': true,
-                'liveReload': true,
-                'server': 'http://localhost:3000',
-                'client':{},
-                'open': true,
-				'port': 4500,
-				'host': 'localhost',
-				'historyApiFallback': true,
-				'compress': true,
+        // watchContentBase: true,
+		'headers': {
+			'Access-Control-Allow-Origin': '*',
+			'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
+			'Access-Control-Allow-Headers': 'X-Requested-With, content-type Authorization',
+			'Access-Control-Allow-Credentials': true,
+			'Access-Control-Max-Age': '3600'
+		},
+		'hot': true,
+		'liveReload': true,
+		'server': 'http://localhost:3000',
+		'client':{},
+		'open': true,
+		'port': 4500,
+		// 'host': 'localhost',
+		'historyApiFallback': true,
+		'compress': true,
 
-                // 'overlay': true,
-                // 'proxy': {
-                //     '/api': {
-                //         target: 'http://localhost:3000',
-                //         secure: false
-                //         }
-                //     }
-            }
-            ],
-	},
+		// 'overlay': true,
+		// 'proxy': {
+		//     '/api': {
+		//         target: 'http://localhost:3000',
+		//         secure: false
+		//         }
+		//     }
+	}, */
 module: {
     rules: [
         {
