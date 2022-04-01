@@ -13,7 +13,7 @@ module.exports = {
 	],
 	output: {
 		path: path.resolve(__dirname, 'dist'),
-		filename: '[name].bundle.js',
+		filename: 'bundle.js',
 		publicPath: '/',
 		chunkFilename: '[name].[chunkhash].js',
 	},
@@ -75,24 +75,24 @@ module.exports = {
 				test: /\.svg$/,
 				use: 'file-loader',
 			},
-			{ test: /\.txt$/, use: 'raw-loader' },
 			{
 				test: /\.png$/,
-				use: [
-					{
-						loader: 'url-loader',
-						options: {
-							mimetype: 'image/png',
-						},
-					},
-				],
+				use: 'url-loader',
+				// use: [
+				// 	{
+				// 		loader: 'url-loader',
+				// 		// options: {
+				// 		// 	mimetype: 'image/png',
+				// 		// },
+				// 	},
+				// ],
 			},
 		],
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
-			// template: path.resolve(__dirname, 'public', 'index.html'),
-			template: './public/index.html',
+			template: path.resolve(__dirname, 'public', 'index.html'),
+			// template: './public/index.html',
 			fileName: './index.html',
 			inject: true,
 			esModule: true,
@@ -127,12 +127,12 @@ module.exports = {
 		}),
 	],
 	performance: {
-		hints: 'error',
-		maxEntrypointSize: 775000,
-		maxAssetSize: 775000,
+		hints: 'warning',
+		maxEntrypointSize: 1250000,
+		maxAssetSize: 1250000,
 	},
 	resolve: {
-		extensions: ['.js', '.jsx'],
+		extensions: ['.js', '.jsx', '.json', '.css', '.png', '.jpg', '.jpeg'],
 		modules: [path.resolve(__dirname, 'src'), path.resolve(__dirname, 'node_modules')]
 	},
 }

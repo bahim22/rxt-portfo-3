@@ -1,5 +1,4 @@
 const webpack = require('webpack');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -88,33 +87,29 @@ module.exports = {
 			minify: {
 				removeComments: true,
 				collapseWhitespace: true,
-				removeEmptyAttributes: true,
 				keepClosingSlash: true,
-				minifyJS: true,
-				minifyCSS: true,
-				minifyURLs: true,
+				// minifyJS: true,
+				// minifyCSS: true,
+				// minifyURLs: true,
 			},
 			hash: true,
 			inject: true,
 		}),
 		new webpack.BannerPlugin({
 			banner: 'Hima Balde Production Setup 2022',
-			raw: false,
-			entryOnly: false,
 		}),
 		new MiniCssExtractPlugin({
 			filename: 'styles/[name].[contenthash]css',
 			chunkFilename: '[id].css',
 			ignoreOrder: true,
 		}),
-		new CleanWebpackPlugin('...'),
-		'...',
+		new CleanWebpackPlugin({}),
 		new BundleAnalyzerPlugin({ analyzerMode: 'json' }),
 	],
 	optimization: {
 		minimize: true,
 		minimizer: [
-			new MiniCssExtractPlugin('...'),
+			new MiniCssExtractPlugin({}),
 			'...',
 			new CssMinimizerPlugin({
 				// minify: CssMinimizerPlugin.cleanCssMinify,
@@ -128,7 +123,7 @@ module.exports = {
 				},
 			}),
 		],
-		runtimeChunk: '...',
+		runtimeChunk: true,
 		moduleIds: 'deterministic',
 		splitChunks: {
 			chunks: 'all',
@@ -154,6 +149,6 @@ module.exports = {
 		maxAssetSize: 775000,
 	},
 	resolve: {
-		extensions: ['.js', '.jsx']
+		extensions: ['.js','.jsx']
 	},
 }
