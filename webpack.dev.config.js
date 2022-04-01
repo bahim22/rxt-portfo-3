@@ -1,26 +1,19 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const webpack = require('webpack')
-// const WebpackDevServer = require('webpack-dev-server')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-// const WebpackPluginServer = require('webpack-plugin-serve');
-
+// const BannerPlugin = require('webpack').BannerPlugin;
 
 module.exports = {
-	// the output bundle mode: prod or dev; changed via scripts in pack.json
 	mode: 'development',
-	// the app entry point is /src/index.js
 	entry: [
 		// "core-js/modules/es.promise",
 		// "core-js/modules/es.array.iterator",
-		// 'webpack-plugin-serve/client',
 		path.resolve(__dirname, 'src', 'index.js'),
 	],
 	output: {
-		// the output of the webpack build will be in /dist directory
 		path: path.resolve(__dirname, 'dist'),
-		// the filename of the JS bundle will be bundle.js
-		filename: '[name].bundle.js', //path.join(_dirname, 'dist')
+		filename: '[name].bundle.js',
 		publicPath: '/',
 		chunkFilename: '[name].[chunkhash].js',
 	},
@@ -32,7 +25,7 @@ module.exports = {
 		},
 		port: 5500,
 		headers: {
-			'Access-Control-Allow-Origin': '*',
+			'Access-Control-Allow-Origin': 'origin',
 			'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
 			'Access-Control-Allow-Headers': 'X-Requested-With, content-type Authorization',
 			'Access-Control-Allow-Credentials': true,
@@ -40,7 +33,7 @@ module.exports = {
 		},
 		hot: true,
 		open: true,
-		// compress: true
+		compress: true,
 	},
 	module: {
 		rules: [
@@ -49,12 +42,15 @@ module.exports = {
 				exclude: /node_modules/,
 				use: {
 					loader: 'babel-loader',
+					options: {
+						presets: ['@babel/preset-env', '@babel/preset-react'],
+					},
 				},
 			},
 			{
 				test: /\.css$/, // /[\\/].(css)$/
 				use: [
-					{	loader: 'style-loader'},
+					{ loader: 'style-loader' },
 					{
 						loader: 'css-loader',
 						options: {
@@ -79,7 +75,7 @@ module.exports = {
 				test: /\.svg$/,
 				use: 'file-loader',
 			},
-			 {test: /\.txt$/, use: 'raw-loader' },
+			{ test: /\.txt$/, use: 'raw-loader' },
 			{
 				test: /\.png$/,
 				use: [
@@ -98,31 +94,45 @@ module.exports = {
 			// template: path.resolve(__dirname, 'public', 'index.html'),
 			template: './public/index.html',
 			fileName: './index.html',
-			cache: true,
+			inject: true,
+			esModule: true,
 		}),
 		new HtmlWebpackPlugin({
-			// Also generate a test.html
 			filename: '[name].html',
 			title: 'Hima Webpack Dev Run Test',
 			template: './public/index.html',
+			cache: true,
+			inject: 'body',
+			esModule: true,
+			chunks: 'all' || [
+				'vendor',
+				'app',
+				'manifest',
+				'polyfills',
+				'styles',
+				'scripts',
+				'vendor-styles',
+				'vendor-scripts',
+			],
+			hash: true,
 		}),
 		new webpack.BannerPlugin({
-			banner: 'Hima Balde (@bahim22) 2022',
+			banner: 'Hima Balde Dev Webpack Setup  2022',
+			raw: false,
+			entryOnly: false,
 		}),
 		new BundleAnalyzerPlugin({
-		analyzerMode: 'static',
-		openAnalyzer: false
+			analyzerMode: 'static',
+			openAnalyzer: false,
 		}),
-		/* new WebpackPluginServer({
-			port: 5500,
-			host: 'localhost',
-			contentBase: path.resolve(__dirname, 'dist'),
-			open: true,
-			hot: true,
-			compress: true,
-		}), */
 	],
+	performance: {
+		hints: 'error',
+		maxEntrypointSize: 775000,
+		maxAssetSize: 775000,
+	},
 	resolve: {
 		extensions: ['.js', '.jsx'],
+		modules: [path.resolve(__dirname, 'src'), path.resolve(__dirname, 'node_modules')]
 	},
 }

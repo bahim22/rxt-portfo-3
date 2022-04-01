@@ -1,5 +1,5 @@
 
-# Notes for new components and functionality for v2
+# Notes for new components and functionality for v3.5
 
 # Forms
 
@@ -67,5 +67,3 @@ const handleChange = event => {
 ```
 
 ## Formspree
-
-## React Hook Forms

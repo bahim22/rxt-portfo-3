@@ -1,4 +1,5 @@
-// const webpack = require('webpack');
+const webpack = require('webpack');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -6,6 +7,8 @@ const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+
+const BannerPlugin = require('webpack').BannerPlugin;
 
 module.exports = {
 	mode: 'production',
@@ -32,7 +35,7 @@ module.exports = {
 			{
 				test: /\.css$/,
 				use: [
-					{ loader: MiniCssExtractPlugin.loader },
+					MiniCssExtractPlugin.loader,
 					{
 						loader: 'css-loader',
 						options: {
@@ -40,16 +43,23 @@ module.exports = {
 							sourceMap: true,
 						},
 					},
-					{ loader: 'postcss-loader' },
+					'postcss-loader',
 				],
+			},
+			{
+				test: /\.svg$/,
+				type: 'asset/resource',
+				generator: {
+					filename: 'icons/[hash][ext]',
+				},
+			},
+			{
+				test: /\.(woff|woff2|eot|ttf|otf|svg)$/i,
+				type: 'asset/resource',
 			},
 			{
 				test: /\.(?:ico|png|jpg|jpeg)$/i,
 				type: 'asset/resource',
-			},
-			{
-				test: /[\\/].(woff(2)?|eot|ttf|otf|svg)$/,
-				type: 'asset/inline',
 			},
 			{
 				test: /[\\/].svg$/,
@@ -74,35 +84,40 @@ module.exports = {
 		new HtmlWebpackPlugin({
 			template: './public/index.html',
 			fileName: './index.html',
-			// minify: 'auto',
-			cache: true,
-			hash: true,
 			favicon: './public/favicon.ico',
-			// removeComments: true,
-			// collapseWhitespace: true,
-			/* {
-			removeRedundantAttributes: true,
-			minifyJS: true,
-			minifyCSS: true,
-			minifyURLs: true,
-		}, */
+			minify: {
+				removeComments: true,
+				collapseWhitespace: true,
+				removeEmptyAttributes: true,
+				keepClosingSlash: true,
+				minifyJS: true,
+				minifyCSS: true,
+				minifyURLs: true,
+			},
+			hash: true,
+			inject: true,
+		}),
+		new webpack.BannerPlugin({
+			banner: 'Hima Balde Production Setup 2022',
+			raw: false,
+			entryOnly: false,
 		}),
 		new MiniCssExtractPlugin({
-			// filename: '[name].css',
 			filename: 'styles/[name].[contenthash]css',
 			chunkFilename: '[id].css',
 			ignoreOrder: true,
 		}),
-		new CleanWebpackPlugin(),
-		new BundleAnalyzerPlugin({ analyzerMode: 'json'}),
+		new CleanWebpackPlugin('...'),
+		'...',
+		new BundleAnalyzerPlugin({ analyzerMode: 'json' }),
 	],
 	optimization: {
 		minimize: true,
 		minimizer: [
-			new MiniCssExtractPlugin(),
+			new MiniCssExtractPlugin('...'),
 			'...',
 			new CssMinimizerPlugin({
-				minify: CssMinimizerPlugin.cleanCssMinify,
+				// minify: CssMinimizerPlugin.cleanCssMinify,
 			}),
 			new TerserPlugin({
 				parallel: true,
@@ -113,26 +128,32 @@ module.exports = {
 				},
 			}),
 		],
-		runtimeChunk: 'single',
+		runtimeChunk: '...',
 		moduleIds: 'deterministic',
 		splitChunks: {
 			chunks: 'all',
 			cacheGroups: {
 				styles: {
-					name: false,
+					name: 'styles',
+					test: /\.css$/,
 					type: 'css/mini-extract',
 					chunks: 'all',
+				},
+				vendor: {
+					test: /[\\/]node_modules[\\/]/,
+					name: 'vendor',
+					chunks: 'all',
+					priority: -10,
 				},
 			},
 		},
 	},
 	performance: {
-		hints: false,
-		maxEntrypointSize: 512000,
-		maxAssetSize: 512000,
+		hints: 'warning',
+		maxEntrypointSize: 775000,
+		maxAssetSize: 775000,
 	},
 	resolve: {
-		extensions: ['.js', '.jsx'],
-		modules: [path.resolve(__dirname, 'src'), path.resolve(__dirname, 'node_modules')]
-	}
+		extensions: ['.js', '.jsx']
+	},
 }

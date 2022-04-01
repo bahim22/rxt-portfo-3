@@ -18,7 +18,16 @@ ___
 | React-ded-boiler ⚛️ | Personal Portfolio | Master 🏁 | macOS ✔️ |
 ___
 
-## Updates and Changes
+___
+
+[Hima Dionysus Balde Tool Chain] How to Optimize and build for Production |
+| [Updates](#Updates) | [Bug-fix](#bug-fixes) | [code-splitting](#code-splitting) |
+| [browserslist](#browsers-list) | [Dev Config](#development) | [Tools](#common-plugins) |
+| --- | --- | --- |
+
+___
+
+## Updates
 
 1. scripts in package.json
 2. css styling
@@ -28,7 +37,7 @@ ___
 6. forms for contacting me
 7. components and dir changes
 
-## _Bug Fixes_
+## Bug Fixes
 
 - Issue: start script from template not running dev server
   - upgraded dep and added devDep
@@ -40,11 +49,27 @@ ___
   - added content values, postcss and autoprefixer
   - adjusted postcss config
 
-## Dir Structure
+## New Features
 
-## App Layout and Design
+___
+
+- Added new features such as:
+  - Optimized Production Build
+  - Major and minor Updates to dependency toolchain
+  - In depth analysis of dependency graph
+  - Options for: Axios, MUI, Bootstrap
+
+___
 
 ## Custom Toolchain
+
+1. `Es-lint`
+2. `Babel`
+3. `Prettier`
+4. `GitHub`
+5. `VS Code`
+6. `Bash`
+7. `Jira`
 
 ## Test and Debug
 
