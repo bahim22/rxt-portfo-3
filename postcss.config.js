@@ -5,6 +5,10 @@ module.exports = {
             grid: true,
             flexbox: true
         },
-        'postcss-preset-env': {},
+        'postcss-preset-env': {
+			// 'cssnano': {
+			// 	'preset': 'default'
+			// }
+		},
     },
 }

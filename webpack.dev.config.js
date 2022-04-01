@@ -2,6 +2,9 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const webpack = require('webpack')
 // const WebpackDevServer = require('webpack-dev-server')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+// const WebpackPluginServer = require('webpack-plugin-serve');
+
 
 module.exports = {
 	// the output bundle mode: prod or dev; changed via scripts in pack.json
@@ -10,6 +13,7 @@ module.exports = {
 	entry: [
 		// "core-js/modules/es.promise",
 		// "core-js/modules/es.array.iterator",
+		// 'webpack-plugin-serve/client',
 		path.resolve(__dirname, 'src', 'index.js'),
 	],
 	output: {
@@ -20,7 +24,7 @@ module.exports = {
 		publicPath: '/',
 		chunkFilename: '[name].[chunkhash].js',
 	},
-	devtool: 'source-map',
+	devtool: 'inline-source-map',
 	devServer: {
 		static: {
 			directory: path.resolve(__dirname, 'dist'),
@@ -35,10 +39,8 @@ module.exports = {
 			'Access-Control-Max-Age': '3600',
 		},
 		hot: true,
-		// open: true,
-		// historyApiFallback: true,
-		// compress: true,
-		// overlay: true,
+		open: true,
+		// compress: true
 	},
 	module: {
 		rules: [
@@ -50,9 +52,9 @@ module.exports = {
 				},
 			},
 			{
-				test: /\.css$/,
+				test: /\.css$/, // /[\\/].(css)$/
 				use: [
-					'style-loader',
+					{	loader: 'style-loader'},
 					{
 						loader: 'css-loader',
 						options: {
@@ -70,13 +72,14 @@ module.exports = {
 				type: 'asset/resource',
 			},
 			{
-				test: /\.(woff(2)?|eot|ttf|otf|svg)$/,
+				test: /[\\/].(woff(2)?|eot|ttf|otf|svg)$/,
 				type: 'asset/inline',
 			},
 			{
 				test: /\.svg$/,
 				use: 'file-loader',
 			},
+			 {test: /\.txt$/, use: 'raw-loader' },
 			{
 				test: /\.png$/,
 				use: [
@@ -106,6 +109,18 @@ module.exports = {
 		new webpack.BannerPlugin({
 			banner: 'Hima Balde (@bahim22) 2022',
 		}),
+		new BundleAnalyzerPlugin({
+		analyzerMode: 'static',
+		openAnalyzer: false
+		}),
+		/* new WebpackPluginServer({
+			port: 5500,
+			host: 'localhost',
+			contentBase: path.resolve(__dirname, 'dist'),
+			open: true,
+			hot: true,
+			compress: true,
+		}), */
 	],
 	resolve: {
 		extensions: ['.js', '.jsx'],

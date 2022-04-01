@@ -5,26 +5,22 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-// const CopyWebpackPlugin = require('copy-webpack-plugin');
-// const WebpackPwaManifest = require('webpack-pwa-manifest');
-// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
 	mode: 'production',
 	entry: path.resolve(__dirname, 'src', 'index.js'),
 	output: {
 		path: path.resolve(__dirname, 'dist'),
-		publicPath: 'dist/',
-		// publicPath: '/',
+		publicPath: 'dist/', // || '/',
 		chunkFilename: 'js/[name].[contenthash].js',
 		filename: '[name].bundle.js',
 	},
-	devtool: false,
-
+	devtool: 'source-map',
 	module: {
 		rules: [
 			{
-				test: /\.(js|jsx)$/, //test: /\.jsx?$/
+				test: /\.(js|jsx)$/,
 				exclude: /node_modules/,
 				use: {
 					loader: 'babel-loader',
@@ -36,9 +32,15 @@ module.exports = {
 			{
 				test: /\.css$/,
 				use: [
-					MiniCssExtractPlugin.loader,
-					{ loader: 'css-loader', options: { sourceMap: true } },
-					{ loader: 'postcss-loader', options: { sourceMap: true } },
+					{ loader: MiniCssExtractPlugin.loader },
+					{
+						loader: 'css-loader',
+						options: {
+							importLoaders: 1,
+							sourceMap: true,
+						},
+					},
+					{ loader: 'postcss-loader' },
 				],
 			},
 			{
@@ -46,11 +48,11 @@ module.exports = {
 				type: 'asset/resource',
 			},
 			{
-				test: /\.(woff(2)?|eot|ttf|otf|svg)$/,
+				test: /[\\/].(woff(2)?|eot|ttf|otf|svg)$/,
 				type: 'asset/inline',
 			},
 			{
-				test: /\.svg$/,
+				test: /[\\/].svg$/,
 				use: 'file-loader',
 			},
 			{
@@ -60,7 +62,7 @@ module.exports = {
 						loader: 'url-loader',
 						options: {
 							mimetype: 'image/png',
-							limit: 8192,
+							// limit: 8192,
 							name: 'images/[name].[ext]',
 						},
 					},
@@ -70,17 +72,15 @@ module.exports = {
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
-			// template: path.resolve(__dirname, 'public', 'index.html'),
 			template: './public/index.html',
 			fileName: './index.html',
-			// inject: 'body',
-			minify: 'auto',
+			// minify: 'auto',
 			cache: true,
 			hash: true,
 			favicon: './public/favicon.ico',
+			// removeComments: true,
+			// collapseWhitespace: true,
 			/* {
-			removeComments: true,
-			collapseWhitespace: true,
 			removeRedundantAttributes: true,
 			minifyJS: true,
 			minifyCSS: true,
@@ -88,21 +88,13 @@ module.exports = {
 		}, */
 		}),
 		new MiniCssExtractPlugin({
-			filename: '[name].css',
+			// filename: '[name].css',
 			filename: 'styles/[name].[contenthash]css',
 			chunkFilename: '[id].css',
-			ignoreOrder: false,
+			ignoreOrder: true,
 		}),
-		new CleanWebpackPlugin()
-		/* new webpack.EnvironmentPlugin({
-  			NODE_ENV: 'development', // use 'development' unless process.env.NODE_ENV is defined
-  			DEBUG: false,
-		}) */
-		// new
-		/* new BundleAnalyzerPlugin({
-		analyzerMode: 'static',
-		openAnalyzer: true
-	}), */
+		new CleanWebpackPlugin(),
+		new BundleAnalyzerPlugin({ analyzerMode: 'json'}),
 	],
 	optimization: {
 		minimize: true,
@@ -116,25 +108,20 @@ module.exports = {
 				parallel: true,
 				minify: TerserPlugin.swcMinify,
 				terserOptions: {
-					// ecma: 6,
-					include: /\.min\.js$/,
-					exclude: /node_modules/,
+					include: /[\\/].min[\\/].js$/,
+					exclude: /[\\/]node_modules/,
 				},
 			}),
 		],
 		runtimeChunk: 'single',
 		moduleIds: 'deterministic',
 		splitChunks: {
-			// chunks: 'all',
+			chunks: 'all',
 			cacheGroups: {
 				styles: {
-					name: 'styles',
+					name: false,
 					type: 'css/mini-extract',
 					chunks: 'all',
-					enforce: true,
-				},
-				vendors: {
-					test: /[\\/]node_modules[\\/]/,
 				},
 			},
 		},
@@ -145,15 +132,7 @@ module.exports = {
 		maxAssetSize: 512000,
 	},
 	resolve: {
-		extensions: ['.js', '.jsx', '.json'],
-		modules: [path.resolve(__dirname, 'src'), path.resolve(__dirname, 'node_modules')],
-		/* alias: {
-			'@': path.resolve(__dirname, 'src'),
-			'@components': path.resolve(__dirname, 'src/components'),
-			'@assets': path.resolve(__dirname, 'public/assets'),
-			'@styles': path.resolve(__dirname, 'src/styles'),
-			// '@pages': path.resolve(__dirname, 'src/pages'),
-			// '@utils': path.resolve(__dirname, 'src/utils'),
-		} */
-	},
+		extensions: ['.js', '.jsx'],
+		modules: [path.resolve(__dirname, 'src'), path.resolve(__dirname, 'node_modules')]
+	}
 }
