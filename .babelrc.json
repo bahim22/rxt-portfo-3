@@ -1,0 +1,60 @@
+{
+	// "assumptions": {
+	// 	"iterableIsArray": true,
+	// 	"noNewArrows": true,
+	// 	"ObjectRestNoSymbols": true,
+	// 	"setSpreadProperties": true
+	// },
+	"presets": [
+		[
+			"@babel/preset-env",
+			{
+			"targets": {
+				"node": ">= 12.0.0",
+				"edge": "17",
+        		"firefox": "60",
+				"chrome": "67",
+				"safari": "11.1"
+			},
+			"useBuiltIns": "usage",
+			"corejs": "3.6.5",
+			"modules": "auto",
+			"env": {
+				"process.env.BABEL_ENV === production": {
+					"debug": false,
+					"minified": true,
+					"compact": true,
+					"comments": false,
+					"modules": "auto"
+				}
+				/* "process.env.BABEL_ENV === development": {
+					"targets": {
+						"node": " >= 10.0.0"
+						},
+					"debug": true,
+					"minified": false,
+					"sourceMaps": true,
+					"modules": true
+				} */
+			}
+			}
+		],
+        [
+			"@babel/preset-react"
+		]
+    ],
+
+	"plugins": [
+        "@babel/plugin-syntax-dynamic-import",
+        "@babel/plugin-proposal-class-properties",
+		[
+			"@babel/plugin-transform-react-jsx",
+			{
+				"throwIfNamespace": false,
+				"runtime": "automatic"
+			}
+		]
+        // "@babel/transform-es2015-modules-commonjs",
+        // "@babel/plugin-transform-arrow-functions"
+    ]
+}

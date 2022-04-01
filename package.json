@@ -2,20 +2,19 @@
 	"name": "rxt-portfo-3",
 	"version": "4.0.0",
 	"main": "index.js",
-    "publish": "private",
+	"publish": "private",
 	"license": "MIT",
 	"description": "Hima Dionysus Balde React.js Portfolio Website that highlights my coding journey thus far.",
-    "sourceType": "module",
+	"sourceType": "module",
 	"scripts": {
 		"lint:pretest": "eslint \"src/**/*.{js,jsx}\"",
 		"lint:fix": "eslint \"src/**/*.{js,jsx}\" --fix",
-        "prettier:check": "prettier --check \"src/**/*.{js,jsx}\"",
-        "prettier:write": "npx prettier --write \"src/**/*.{js,jsx}\"",
-        "test:espretty": "npx eslint-config-prettier App.js",
+		"prettier:check": "prettier --check \"src/**/*.{js,jsx}\"",
+		"prettier:write": "npx prettier --write \"src/**/*.{js,jsx}\"",
+		"test:espretty": "npx eslint-config-prettier App.js",
 		"test:lint": "eslint \"src/**/*.{js,jsx}\"",
-		"test:lint-rules": "eslint src/components/*.js --config .eslintrc",
-		"test:lint-rules-pro": "eslint src/components/*.js --config config/.eslintrc.json",
-        "clean": "rm dist/*",
+		"test:lint-rules": "eslint src/components/*.js --config .eslintrc.json",
+		"clean": "rm dist/*",
 		"test:webpack": "npx webpack --config webpack.dev.config.js",
 		"test:webpack-pro": "npx webpack --config webpack.prod.config.js",
 		"build": "webpack --config webpack.prod.config.js --mode production",
@@ -43,14 +42,14 @@
 	},
 	"homepage": "https://github.com/bahim22/rxt-portfo-3",
 	"dependencies": {
+		"@emotion/react": "latest",
+		"@emotion/styled": "latest",
 		"@fontsource/roboto": "latest",
 		"@formspree/react": "^2.2.4",
 		"@heroicons/react": "^1.0.5",
 		"@mui/material": "latest",
 		"@mui/styles": "latest",
 		"@mui/system": "latest",
-		"@emotion/react": "latest",
-		"@emotion/styled": "latest",
 		"@tailwindcss/aspect-ratio": "^0.4.0",
 		"@tailwindcss/forms": "^0.4.0",
 		"@tailwindcss/typography": "^0.5.0",
@@ -72,6 +71,7 @@
 		"babel-loader": "^8.2.3",
 		"clean-webpack-plugin": "^4.0.0",
 		"css-loader": "^6.5.1",
+		"css-minimizer-webpack-plugin": "^3.4.1",
 		"cypress": "^9.3.1",
 		"eslint": "^8.7.0",
 		"eslint-plugin-import": "^2.25.4",
@@ -88,6 +88,7 @@
 		"postcss-preset-env": "^7.4.2",
 		"prettier": "2.5.1",
 		"style-loader": "^3.3.1",
+		"terser-webpack-plugin": "^5.3.1",
 		"url-loader": "^4.1.1",
 		"webpack": "^5.65.0",
 		"webpack-bundle-analyzer": "^4.5.0",
@@ -98,14 +99,21 @@
 	},
 	"browserslist": {
 		"production": [
-			">0.2%",
-			"not dead",
-			"not op_mini all"
+			"> .5%",
+			"ie 10",
+			"not dead"
 		],
 		"development": [
 			"last 1 chrome version",
 			"last 1 firefox version",
 			"last 1 safari version"
+		],
+		"modern": [
+			"last 1 chrome version",
+			"last 1 firefox version"
+		],
+		"ssr": [
+			"node 12"
 		]
 	}
 }

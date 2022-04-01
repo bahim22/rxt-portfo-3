@@ -14,7 +14,10 @@
 const colors = require('tailwindcss/colors')
 
 module.exports = {
-	content: ['./src/**/*.{js,jsx,ts,tsx}', './components/**/*.js', './layouts/**/*.js', './lib/**/*.js', './components/**/*.{js,ts,jsx,tsx}'],
+	content: [
+		'./src/**/*.{html,js,jsx}', './components/**/*.{js,jsx}',
+		'./public/index.html'
+	],
   exlude: [
       "**/.git/**", "**/node_modules/**", "**/.hg/**", "**/.md/**", "**/.json/**", "**/package.json/**"
     ],
