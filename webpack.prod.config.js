@@ -65,6 +65,10 @@ module.exports = {
 				use: 'file-loader',
 			},
 			{
+				test: /\.html$/i,
+				loader: 'html-loader',
+			},
+			{
 				test: /\.png$/,
 				use: [
 					{
@@ -107,6 +111,7 @@ module.exports = {
 		new BundleAnalyzerPlugin({ analyzerMode: 'json' }),
 	],
 	optimization: {
+		nodeEnv: 'production',
 		minimize: true,
 		minimizer: [
 			new MiniCssExtractPlugin({}),
@@ -149,6 +154,6 @@ module.exports = {
 		maxAssetSize: 775000,
 	},
 	resolve: {
-		extensions: ['.js','.jsx']
+		extensions: ['.js', '.jsx'],
 	},
 }

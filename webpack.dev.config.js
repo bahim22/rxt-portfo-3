@@ -76,16 +76,19 @@ module.exports = {
 				use: 'file-loader',
 			},
 			{
+				test: /\.html$/i,
+				loader: 'html-loader',
+			},
+			{
 				test: /\.png$/,
-				use: 'url-loader',
-				// use: [
-				// 	{
-				// 		loader: 'url-loader',
-				// 		// options: {
-				// 		// 	mimetype: 'image/png',
-				// 		// },
-				// 	},
-				// ],
+				use: [
+					{
+						loader: 'url-loader',
+						options: {
+							mimetype: 'image/png',
+						},
+					},
+				],
 			},
 		],
 	},
@@ -133,6 +136,6 @@ module.exports = {
 	},
 	resolve: {
 		extensions: ['.js', '.jsx', '.json', '.css', '.png', '.jpg', '.jpeg'],
-		modules: [path.resolve(__dirname, 'src'), path.resolve(__dirname, 'node_modules')]
+		modules: [path.resolve(__dirname, 'src'), path.resolve(__dirname, 'node_modules')],
 	},
 }
