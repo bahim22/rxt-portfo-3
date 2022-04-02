@@ -17,21 +17,18 @@
 	],
 	"extends": [
 		"eslint:recommended",
-		"plugin:import/errors",
+		// "plugin:import/errors",
 		"plugin:react/recommended",
 		"plugin:jsx-a11y/recommended"
 		// "plugin:prettier/recommended"
 	],
 	"ignorePatterns": [
-		"node_modules/",
-		"dist/",
-		"build/",
-		"webpack.*.js"
+		"node_modules/"
 	],
     "parserOptions": {
       "ecmaFeatures": {
           "jsx": true,
-          "modules": true,
+        //   "modules": true,
 		  "version": "latest",
 		  "es6": true
         },
@@ -44,8 +41,8 @@
     {
 	  "react/react-in-jsx-scope": "off",
       "import/no-anonymous-default-export": "off",
-      "lines-around-comment":"off",
-      "no-inline-comments":"off",
+    //   "lines-around-comment":"off",
+    //   "no-inline-comments":"off",
       "no-tabs": ["off", {"allowIndentationTabs": true}]
 	}
 }

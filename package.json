@@ -16,7 +16,7 @@
 		"test:lint-rules": "eslint src/components/*.js --config .eslintrc.json",
 		"clean": "rm dist/*",
 		"test:webpack": "npx webpack --config webpack.dev.config.js",
-		"test:webpack-pro": "npx webpack --config webpack.prod.config.js",
+		"test:webpack-pro": "NODE_ENV=production npx webpack --config webpack.prod.config.js",
 		"build": "webpack --config webpack.prod.config.js --mode production",
 		"dev": "webpack serve --config webpack.dev.config.js --mode development",
 		"start-dev": "npx webpack-dev-server --config webpack.dev.config.js --mode development",

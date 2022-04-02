@@ -6,7 +6,7 @@ import Projects from './components/Projects'
 import Skills from './components/Skills'
 import Software from './components/Software'
 import Navbar from './components/Navbar'
-import './bootstrap.css'
+// import './bootstrap.css'
 
 function App() {
 	return (
