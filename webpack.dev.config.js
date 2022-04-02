@@ -6,16 +6,14 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 
 module.exports = {
 	mode: 'development',
-	entry: [
-		// "core-js/modules/es.promise",
-		// "core-js/modules/es.array.iterator",
-		path.resolve(__dirname, 'src', 'index.js'),
-	],
+	entry: {
+		main: './src/index.js',
+	},
 	output: {
 		path: path.resolve(__dirname, 'dist'),
-		filename: 'bundle.js',
 		publicPath: '/',
 		chunkFilename: '[name].[chunkhash].js',
+		filename: '[name].[chunkhash].js',
 	},
 	devtool: 'inline-source-map',
 	devServer: {
@@ -73,6 +71,13 @@ module.exports = {
 			},
 			{
 				test: /\.svg$/,
+				type: 'asset/resource',
+				generator: {
+					filename: 'icons/[hash][ext]',
+				},
+			},
+			/* {
+				test: /\.svg$/,
 				use: 'file-loader',
 			},
 			{
@@ -89,7 +94,7 @@ module.exports = {
 						},
 					},
 				],
-			},
+			}, */
 		],
 	},
 	plugins: [
@@ -107,8 +112,14 @@ module.exports = {
 			cache: true,
 			inject: true,
 			esModule: true,
-			chunks: 'all',
-			hash: true,
+			minify: {
+				removeComments: true,
+				collapseWhitespace: true,
+				keepClosingSlash: true,
+				minifyJS: true,
+				minifyCSS: true,
+				minifyURLs: true,
+			},
 		}),
 		new webpack.BannerPlugin({
 			banner: 'Hima Balde Dev Webpack Setup  2022',
@@ -121,10 +132,15 @@ module.exports = {
 			statsFilename: './bundle-stats.json',
 		}),
 	],
+	optimization: {
+		minimize: true,
+		/* minimizer: [
+			new TerserPlugin({
+			}),
+		], */
+	},
 	performance: {
 		hints: 'warning',
-		maxEntrypointSize: 1250000,
-		maxAssetSize: 1250000,
 	},
 	resolve: {
 		extensions: ['.js', '.jsx', '.json', '.css', '.png', '.jpg', '.jpeg'],

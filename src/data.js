@@ -1,16 +1,21 @@
+import "/src/assets/images/himacard.png";
+// import React from "react";
+// have to make projects a module to import into projects component and then make certain props to import pictures and other assets
+// props = {image, link, title, description};
 export const projects = [
 	{
 		title: 'Next.js Blog',
 		subtitle: 'DioBlog',
 		description: 'React based JS website with custom styling and tool config.',
-		image: './assets/images/ismPic.webp',
+		image: 'assets/images/ismPic.webp',
 		link: 'https://github.com/bahim22/react-portfo2',
 	},
 	{
 		title: 'Next.js Boilerplate',
 		subtitle: 'Next-ded-boiler',
 		description: 'React based JS website with custom styling and tool config.',
-		image: './assets/images/MapProject.png',
+		// image: {image},
+		image: '../public/himacard.png',
 		link: 'https://github.com/bahim22/react-portfo2',
 	},
 	{
