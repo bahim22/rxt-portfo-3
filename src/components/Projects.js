@@ -1,7 +1,10 @@
 import React from 'react'
 // import { CodeIcon } from '@heroicons/react/solid'
-import { projects } from '../data'
-import { projInfo } from '../projInfo'
+import ProjectList from './ProjectList'
+
+
+ const projInfo =
+	'I initially started developing Python Projects with Django.Then I transitioned to building websites with HTML and CSS3, eventually  implementing bootstrap packages with pre-built minified JavaScript for interactivity. I improved my vanilla JavaScript skills and learned ES6 and TypeScript and was able to start developing React.js and Next.js Web Apps. I was able to learn how to configure my toolchain and start building JAMstack Apps. I am currently building Full-Stack projects using multiple frameworks, libraries,and packages.'
 
 const Projects = () => {
 	return (
@@ -15,7 +18,7 @@ const Projects = () => {
 					<p className='lg:w-2/3 mx-auto leading-relaxed text-base'>{projInfo}</p>
 				</div>
 				<div className='flex flex-wrap -m-4'>
-					{projects.map((project) => (
+					{ProjectList.map((project) => (
 						<a href={project.link} key={project.image} className='sm:w-1/2 w-100 p-4'>
 							<div className='flex relative'>
 								<img

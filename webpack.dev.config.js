@@ -62,7 +62,7 @@ module.exports = {
 				],
 			},
 			{
-				test: /\.(?:ico|png|jpg|jpeg)$/i,
+				test: /\.(?:ico|png|jpg|jpeg|webp)$/i,
 				type: 'asset/resource',
 			},
 			{
@@ -76,6 +76,7 @@ module.exports = {
 					filename: 'icons/[hash][ext]',
 				},
 			},
+
 			/* {
 				test: /\.svg$/,
 				use: 'file-loader',

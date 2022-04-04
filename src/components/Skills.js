@@ -1,6 +1,15 @@
 // import { ChipIcon, BadgeCheckIcon } from '@heroicons/react/solid'
 import React from 'react'
-import { skills } from '../data'
+
+const skillList = [
+	'JavaScript',
+	'TypeScript',
+	'JSX',
+	'HTML5',
+	'CSS3',
+	'Python',
+	'JSON'
+]
 
 const Skills = () => {
 	return (
@@ -12,16 +21,15 @@ const Skills = () => {
 						Skills &amp; Technologies
 					</h1>
 					<p className='text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto'>
-						I`&apos;`m skilled in <strong>Bash, Powershell, Command Line</strong> and am advancing my
-						knowledge in Object-Oriented-Programming.
+						I am skilled in <strong>Bash, Powershell, Command Line</strong> and am advancing my skills in <strong>JavaScript, React, Node.js, Express, MongoDB, SQL, Git, Azure, AWS, Linux.</strong>.
 					</p>
 				</div>
 				<div className='flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb- -mx-2'>
-					{skills.map((skill) => (
-						<div key={skill} className='p-2 sm:w-1/2 w-full'>
+					{skillList.map((s) => (
+						<div key={s} className='p-2 sm:w-1/2 w-full'>
 							<div className='bg-gray-800 rounded flex p-4 h-full items-center'>
 								{/* <BadgeCheckIcon className='text-blue-300 w-6 h-6 flex-shrinl-0 mr-4' /> */}
-								<span className='title-font font-medium text-red-700'>{skill}</span>
+								<span className='title-font font-medium text-red-700'>{s}</span>
 							</div>
 						</div>
 					))}
