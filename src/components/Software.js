@@ -2,6 +2,8 @@ import React from 'react'
 import { TerminalIcon, UsersIcon } from '@heroicons/react/solid'
 import bg7 from '../assets/images/bg7.jpg'
 
+
+// check which image import is correct
 export const softwareList = [
 	{
 		name: 'Azure',

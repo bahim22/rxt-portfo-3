@@ -1,7 +1,5 @@
 import { ChipIcon, BadgeCheckIcon } from '@heroicons/react/solid'
 import React from 'react'
-import CardMain from "CardMain";
-// import { Card } from '@mui/material';
 
 
 export const skillList = [
@@ -37,7 +35,6 @@ const Skills = () => {
 						</div>
 					))}
 				</div>
-				<CardMain  />
 			</div>
 		</section>
 	)

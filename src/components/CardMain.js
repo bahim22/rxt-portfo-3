@@ -6,15 +6,15 @@ import CardMedia from '@mui/material/CardMedia'
 import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
 
-
+// convert to module with props for skill list mapping
 function CardMain() {
   return (
 	<Card sx={{ maxWidth: 345}}>
 		<CardMedia
 			sx={{ height: 0, paddingTop: '56.25%' }}
-			// component="img"
+			component="img"
 			height="140"
-			media="https://source.unsplash.com/random"
+			image={require('../assets/images/bg7.jpg')}
 			title="Contemplative Reptile"
 		/>
 		<CardContent>
