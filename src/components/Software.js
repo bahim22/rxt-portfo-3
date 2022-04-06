@@ -2,7 +2,7 @@ import React from 'react'
 import { TerminalIcon, UsersIcon } from '@heroicons/react/solid'
 import bg7 from '../assets/images/bg7.jpg'
 
-const softwareList = [
+export const softwareList = [
 	{
 		name: 'Azure',
 		tools: 'DevOps, SAAS, IAAS',
