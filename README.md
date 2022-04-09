@@ -21,8 +21,9 @@ ___
 ___
 
 [Hima Dionysus Balde Tool Chain] How to Optimize and build for Production |
-| [Updates](#Updates) | [Bug-fix](#bug-fixes) | [code-splitting](#code-splitting) |
-| [browserslist](#browsers-list) | [Dev Config](#development) | [Tools](#common-plugins) |
+| [Updates](#Updates) | [Bug-fix](#bug-fixes) | [New Features](#New-Features) |
+| --- | --- | --- |
+| [Custom Toolchain](#Custom-Toolchain) | [Test/Debug](#Test/Debug) | [Current Projects](#Current-Github-Repos) |
 | --- | --- | --- |
 
 ___
@@ -71,7 +72,7 @@ ___
 6. `Bash`
 7. `Jira`
 
-## Test and Debug
+## Test/Debug
 
 - `VS Code` task dir/file for debugging
 - `Jest` dep and config
