@@ -19,7 +19,6 @@ config/babel.config.json
 src/data/**
 # next.js
 /.next/
-Docs/configOptions.md
 /out/
 public/sitemap.xml
 .vercel

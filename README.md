@@ -4,25 +4,28 @@
 `Dionysus Era Development (DED)`
 
 ___
+| Title            | Initial Date       | Author       | Description            |
+| --------- | ---------- | ------------ | ----------- |
+| rxt-portfo-3 | 02/22/2022 | `Hima Balde` | Custom React Portfolio App|
+
+| Extended     | Use Case        | Completed | OS   |
+| ------- | -------- | --------- | -------- |
+| React-ded-boiler ⚛️ | Personal Portfolio | Master 🏁 | macOS / Windows 11 ✔️ |
+___
+___
+|/_Development Toolchain_/|/_Optimizations for Production_/|
+| ---------- | ---------- |
+
+| [1. Updates](#Updates) | [2. Fixes](#bug-fixes) | [3. Updated Features](#New-Features) |
+| --- | --- | --- |
+___
+| [4. Custom Toolchain](#Custom-Toolchain) | [5. App Info](#App-Info) | [6. Current Projects](#Current-Github-Repos) |
+| --- | --- | --- |
+___
+
+___
 
 ![CodeSnippet](https://user-images.githubusercontent.com/78245175/155941220-025a4ea3-27e1-47e8-b428-746b08fc6c48.png)
-___
-
-___
-| Title            | Date       | Author       | Description            |
-| ---------------- | ---------- | ------------ | ---------------------- |
-| react-form | 02/22/2022 | `Hima Balde` | Custom React Portfolio App|
-
-| Extended             | Use Case        | Completed | OS   |
-| -------------------- | --------------- | --------- | -------- |
-| React-ded-boiler ⚛️ | Personal Portfolio | Master 🏁 | macOS ✔️ |
-___
-
-___
-| [Hima Dionysus Balde Tool Chain] | [Development toolchain] | [Optimizations for Production] |
-| [Updates](#Updates) | [Fixes](#bug-fixes) | [New Features](#New-Features) |
-| [Custom Toolchain](#Custom-Toolchain) | [Test/Debug](#Test/Debug) | [Current Projects](#Current-Github-Repos) |
-| --- | --- | --- |
 ___
 
 ## Updates
