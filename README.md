@@ -20,7 +20,7 @@ ___
 
 ___
 | [Hima Dionysus Balde Tool Chain] | [Development toolchain] | [Optimizations for Production] |
-| [Updates](#Updates) | [Fixes](#bug-fixes) | [New Features](#New-Features) |
+| [Updates](#Updates) | [Fixes](#bug-fixes) | [Updated Features](#New-Features) |
 | [Custom Toolchain](#Custom-Toolchain) | [Test/Debug](#Test/Debug) | [Current Projects](#Current-Github-Repos) |
 | --- | --- | --- |
 ___
