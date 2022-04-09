@@ -17,9 +17,9 @@
 	],
 	"extends": [
 		"eslint:recommended",
-		// "plugin:import/errors",
 		"plugin:react/recommended",
 		"plugin:jsx-a11y/recommended"
+		// "plugin:import/errors",
 		// "plugin:prettier/recommended"
 	],
 	"ignorePatterns": [
@@ -46,15 +46,4 @@
       "no-tabs": ["off", {"allowIndentationTabs": true}]
 	}
 }
-      // *? other rules
-	//   "no-restricted-properties":"off",
-    //   "no-duplicate-imports": 1
-	  //   "no-confusing-arrow": ["off", { "allowParens": true }],
-    //   "prefer-destructuring":"warn",
-    //   "prefer-rest-params":"warn",
-    //   "prefer-spread":"warn"
-// *? look up globals before adding to proj
-// "globals": {
-// 		  "Atomics": "readonly",
-// 		  "SharedArrayBuffer": "readonly"
-// 		},
+

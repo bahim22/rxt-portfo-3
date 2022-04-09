@@ -1,7 +1,7 @@
 
-# `Dionysus Era Development (DED)`
+# Hima Balde React Portfolio
 
-## React Portfolio
+`Dionysus Era Development (DED)`
 
 ___
 
@@ -19,13 +19,10 @@ ___
 ___
 
 ___
-
-[Hima Dionysus Balde Tool Chain] How to Optimize and build for Production |
-| [Updates](#Updates) | [Bug-fix](#bug-fixes) | [New Features](#New-Features) |
-| --- | --- | --- |
+| [Hima Dionysus Balde Tool Chain] | [Development toolchain] | [Optimizations for Production] |
+| [Updates](#Updates) | [Fixes](#bug-fixes) | [New Features](#New-Features) |
 | [Custom Toolchain](#Custom-Toolchain) | [Test/Debug](#Test/Debug) | [Current Projects](#Current-Github-Repos) |
 | --- | --- | --- |
-
 ___
 
 ## Updates
