@@ -4,7 +4,7 @@
 `Dionysus Era Development (DED)`
 
 ___
-| Title            | Initial Date       | Author       | Description            |
+| Title            | Initial Commit       | Author       | Description            |
 | --------- | ---------- | ------------ | ----------- |
 | rxt-portfo-3 | 02/22/2022 | `Hima Balde` | Custom React Portfolio App|
 

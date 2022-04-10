@@ -2,7 +2,7 @@
 
 ___
 
-| `Hima Dionysus Balde` Tool Chain |
+| `Hima Dionysus Balde` |
 | --- |
 
 ___
