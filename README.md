@@ -13,7 +13,7 @@ ___
 | React-ded-boiler ⚛️ | Personal Portfolio | Master 🏁 | macOS / Windows 11 ✔️ |
 ___
 ___
-|/_Development Toolchain_/|/_Optimizations for Production_/|
+|_Development Toolchain_|_Optimizations for Production_|
 | ---------- | ---------- |
 
 | [1. Updates](#Updates) | [2. Fixes](#bug-fixes) | [3. Updated Features](#New-Features) |
