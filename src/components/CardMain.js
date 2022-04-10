@@ -15,7 +15,7 @@ function CardMain() {
 			component="img"
 			height="140"
 			image={require('../assets/images/bg7.jpg')}
-			title="Contemplative Reptile"
+			title="Skills List"
 		/>
 		<CardContent>
 			<Typography gutterBottom variant="h5" component="h2">

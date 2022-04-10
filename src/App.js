@@ -6,7 +6,7 @@ import Projects from './components/Projects'
 import Skills from './components/Skills'
 import Software from './components/Software'
 import Navbar from './components/Navbar'
-import CardMain from './components/CardMain'
+// import CardMain from './components/CardMain'
 
 function App() {
 	return (
@@ -15,7 +15,6 @@ function App() {
 			<About />
 			<Projects />
 			<Skills />
-			<CardMain  />
 			<Software />
 			<Contact />
 		</main>
