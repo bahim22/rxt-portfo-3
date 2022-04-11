@@ -2,8 +2,7 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const webpack = require('webpack')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-// const BannerPlugin = require('webpack').BannerPlugin;
-
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 module.exports = {
 	mode: 'development',
 	entry: {
@@ -117,6 +116,7 @@ module.exports = {
 				minifyURLs: true,
 			},
 		}),
+		new CopyWebpackPlugin({}),
 		new webpack.BannerPlugin({
 			banner: 'Hima Balde Dev Webpack Setup 2022',
 		}),
