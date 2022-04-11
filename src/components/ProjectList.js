@@ -1,22 +1,24 @@
-import card from "/src/assets/images/himacard.png";
-// import React from "react";
-// have to make projects a module to import into projects component and then make certain props to import pictures and other assets
+import card from '/src/assets/images/himacard.png'
+import ism from '../assets/images/ismPic.webp'
+
 // props = {image, link, title, description};
- const ProjectList = [
+
+const ProjectList = [
 	{
 		title: 'Next.js Blog',
 		id: 'nb',
 		subtitle: 'DioBlog',
 		description: 'React based JS website with custom styling and tool config.',
 		image: 'assets/images/ismPic.webp',
+		images: {ism},
 		link: 'https://github.com/bahim22/react-portfo2',
 	},
 	{
 		title: 'Next.js Boilerplate',
+		id: 'nt',
 		subtitle: 'Next-ded-boiler',
 		description: 'React based JS website with custom styling and tool config.',
-		image: {card},
-		id: 'nt',
+		image: { card },
 		// image: '../public/himacard.png',
 		link: 'https://github.com/bahim22/react-portfo2',
 	},
@@ -24,7 +26,7 @@ import card from "/src/assets/images/himacard.png";
 		title: 'Next.js TailwindCss App',
 		subtitle: 'next-tail-22',
 		id: 'ntw',
-		description: 'React based JS website with custom styling and tool config.',
+		description: 'Next.js App from Vercel Template to work on building larger Apps.',
 		image: './assets/images/ismHome.png',
 		link: 'https://github.com/bahim22/react-portfo2',
 	},
@@ -32,17 +34,17 @@ import card from "/src/assets/images/himacard.png";
 		title: 'React.js Boilerplate',
 		subtitle: 'react-ded-boiler',
 		id: 'rb',
-		description: 'React based JS website with custom styling and tool config.',
+		description: 'Reusable boilerplate skeleton for React.js projects.',
 		image: '../public/logo512.png',
-		link: 'https://github.com/bahim22/react-portfo2',
+		link: 'https://github.com/bahim22/react-ded-boiler',
 	},
 	{
 		title: 'React.js Azure Authorization',
 		subtitle: 'auth-react-azure',
 		id: 'raz',
-		description: 'React based JS website with custom styling and tool config.',
+		description: 'React App with TypeScript using Azure AD to authenticate users.',
 		image: '../public/purp9.png',
-		link: 'https://github.com/bahim22/react-portfo2',
+		link: 'https://github.com/bahim22/auth-react-azure',
 	},
 	{
 		title: 'MERN Stack',
@@ -52,50 +54,46 @@ import card from "/src/assets/images/himacard.png";
 		image: './assets/images/himaPropng.png',
 		link: 'https://github.com/bahim22/react-portfo2',
 	},
-	/*   {
-    title: 'Mern FullStack Dashboard',
-    subtitle: 'menan-ded',
-    description: 'React based JS website with custom styling and tool config.',
-    image: 'public/purp9.pngd',
-    link: 'https://github.com/bahim22/react-portfo2',
-  }, */
 	{
-		title: 'ISM Company Site',
-		subtitle: 'ism',
+		title: 'Mern FullStack Dashboard',
+		subtitle: 'menan-ded',
 		description: 'React based JS website with custom styling and tool config.',
+		image: 'public/purp9.pngd',
+		link: 'https://github.com/bahim22/react-portfo2',
+	},
+	{
+		title: 'Inner Sity Market',
+		subtitle: 'ism',
+		id: 'ism',
+		description: 'HTML, CSS, Bootstrap website for an advertising company.',
 		image: './assets/images/ismHome.png',
 		link: 'https://github.com/bahim22/ism',
 	},
-
-	/* 	{
-		title: 'Html, Css, JS Portfolio',
-		subtitle: 'dioportfo',
-		description: 'React based JS website with custom styling and tool config.',
+	{
+		title: 'Prisma GraphQL API',
+		subtitle: 'waves-prisma',
+		description: 'Prisma GraphQL API using MongoDb.',
 		image: '/public/purp9.png',
-		link: 'https://github.com/bahim22/dioportfo',
-	}, */
+		link: 'https://github.com/bahim22/waves-prisma',
+	},
 ]
-export default ProjectList;
+export default ProjectList
 
 export const progressProjects = [
 	{
-		Athena: {
-			title: 'Athena',
-			id: 'be',
-			subtitle: 'Athena',
-			description: 'React based JS website with custom styling and tool config.',
-			image: './assets/images/ismHome.png',
-		},
+		title: 'Athena',
+		id: 'ath',
+		subtitle: 'Athena',
+		description: 'React based JS website with custom styling and tool config.',
+		image: './assets/images/ismHome.png',
 	},
 	{
-		DedPy: {
-			title: 'Ded-py',
-			subtitle: 'Ded-py',
-			description: 'React based JS website with custom styling and tool config.',
-			image: './assets/images/ismHome.png',
-		},
-	}
-
+		title: 'Ded-py',
+		subtitle: 'Ded-py',
+		id: 'py',
+		description: 'React based JS website with custom styling and tool config.',
+		image: './assets/images/ismHome.png',
+	},
 ]
 
 export const futureProjects = [
@@ -113,7 +111,5 @@ export const futureProjects = [
 	},
 ]
 
-
-//1. Edit: skills into object containing arrays for langauges, tools, frameworks, libs
-//2. Edit: software: adjust keys and add better value pairs
-//3. Edit: deploy all finished projects and get LH stats, Links and screenshots
+export const projInfo =
+	'I initially started developing Python Projects with Django.Then I transitioned to building websites with HTML and CSS3, eventually  implementing bootstrap packages with pre-built minified JavaScript for interactivity. I improved my vanilla JavaScript skills and learned ES6 and TypeScript and was able to start developing React.js and Next.js Web Apps. I was able to learn how to configure my toolchain and start building JAMstack Apps. I am currently building Full-Stack projects using multiple frameworks, libraries,and packages.'

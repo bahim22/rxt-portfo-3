@@ -2,7 +2,6 @@ import React from 'react'
 import { TerminalIcon, UsersIcon } from '@heroicons/react/solid'
 import bg7 from '../assets/images/bg7.jpg'
 
-
 // check which image import is correct
 export const softwareList = [
 	{
@@ -24,7 +23,7 @@ export const softwareList = [
 		name: 'Office 365',
 		tools: 'office, excel, powerpoint, Planning, Admin',
 		image: './assets/images/profile-bg.jpg',
-		images: {bg7}
+		images: { bg7 },
 	},
 ]
 const Software = () => {

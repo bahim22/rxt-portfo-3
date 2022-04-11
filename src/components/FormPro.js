@@ -57,9 +57,5 @@ export default function FormPro() {
 				handleServerResponse(false, error.response.data.error)
 			})
 	}
-	return (
-		<main>
-
-		</main>
-	)
+	return <main></main>
 }

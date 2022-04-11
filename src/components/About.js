@@ -1,5 +1,6 @@
 import React from 'react'
 // import * as React from 'react';
+import CardMain from './CardMain'
 
 const About = () => {
 	return (
@@ -31,6 +32,7 @@ const About = () => {
 						</a>
 					</div>
 				</div>
+				<CardMain />
 				<div className='lg:max-w-lg lg:w-full md:w-1/2 w-5/6'>
 					<img className='object-cover object-center rounded' alt='hima balde' src='/src/assets/hima.jpg' />
 				</div>
