@@ -1,29 +1,29 @@
-import { ChipIcon, BadgeCheckIcon } from '@heroicons/react/solid'
+import { ChipIcon } from '@heroicons/react/solid'
 import React from 'react'
-import { JavascriptSharpIcon, PythonIcon, Html5Icon, Css3Icon } from '@heroicons/react/outline'
+import CssSharpIcon from '@mui/icons-material/CssSharp'
+import JavascriptSharpIcon from '@mui/icons-material/JavascriptSharp'
+// import PythonSharpIcon from '@mui/icons-material/PythonSharp'
+import CodeIcon from '@mui/icons-material/Code'
+import HtmlSharpIcon from '@mui/icons-material/HtmlSharp'
+import SkillList from './SkillList';
+import GitHubIcon from '@mui/icons-material/GitHub'
+/* const SkillInfo =
+	[{Name: Javascript,},
+		Name: Python,
+		Html,
+		Css] */
 
-const skillList = [
-	{
-		Name: 'JavaScript',
-		component: <JavascriptSharpIcon className='text-blue-300 w-6 h-6 flex-shrink-0 mr-4' />,
-		id: 1,
-	},
-	{
-		Name: 'Python',
-		component: <PythonIcon className='text-blue-300 w-6 h-6 flex-shrink-0 mr-4' />,
-		id: 2,
-	},
-	{
-		Name: 'HTML',
-		component: <Html5Icon className='text-blue-300 w-6 h-6 flex-shrink-0 mr-4' />,
-		id: 3,
-	},
-	{
-		Name: 'CSS',
-		component: <Css3Icon className='text-blue-300 w-6 h-6 flex-shrink-0 mr-4' />,
-		id: 4,
-	},
-]
+/* const SkillCompo = () => {
+	return (
+		<div className='flex flex-wrap justify-center'>
+			<JavascriptSharpIcon />
+			<PythonSharpIcon />
+			<HtmlSharpIcon />
+			<CssSharpIcon />
+		</div>
+	)
+} */
+
 const Skills = () => {
 	return (
 		<section id='skills'>
@@ -39,19 +39,29 @@ const Skills = () => {
 					</p>
 				</div>
 				<div className='flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb- -mx-2'>
-					{skillList.map((s) => (
-						<div key={s} className='p-2 sm:w-1/2 w-full'>
+					{/* {SkillInfo.map((s) => (
+						<div key={s.id} className='p-2 sm:w-1/2 w-full'>
 							<div className='bg-gray-800 rounded flex p-4 h-full items-center'>
 								<BadgeCheckIcon className='text-blue-300 w-6 h-6 flex-shrinl-0 mr-4' />
 								<span className='title-font font-medium text-red-700'>{s.Name}</span>
 								<span className='text-gray-500'> {s.component}</span>
 							</div>
 						</div>
-					))}
+					))} */}
+					<SkillList />
+					<JavascriptSharpIcon />
+					<CodeIcon />
+					<HtmlSharpIcon />
+					<GitHubIcon	 />
+					<CssSharpIcon />
 				</div>
+				{/* <div className='flex flex-wrap -m-4'>
+					<SkillCompo />
+				</div> */}
 			</div>
 		</section>
 	)
-}
+	}
+
 
 export default Skills

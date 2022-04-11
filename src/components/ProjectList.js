@@ -1,5 +1,9 @@
 import card from '/src/assets/images/himacard.png'
 import ism from '../assets/images/ismPic.webp'
+import ism2 from '../assets/images/ismHome.png'
+import bg7 from '../assets/images/bg7.jpg'
+import bb from '../assets/images/bbman.png'
+import mapPro from '../assets/images/MapProject.png'
 
 // props = {image, link, title, description};
 
@@ -9,8 +13,8 @@ const ProjectList = [
 		id: 'nb',
 		subtitle: 'DioBlog',
 		description: 'React based JS website with custom styling and tool config.',
-		image: 'assets/images/ismPic.webp',
-		images: {ism},
+		// image: 'assets/images/ismPic.webp',
+		image: { ism },
 		link: 'https://github.com/bahim22/react-portfo2',
 	},
 	{
@@ -27,7 +31,8 @@ const ProjectList = [
 		subtitle: 'next-tail-22',
 		id: 'ntw',
 		description: 'Next.js App from Vercel Template to work on building larger Apps.',
-		image: './assets/images/ismHome.png',
+		// image: './assets/images/ismHome.png',
+		image: { bg7 },
 		link: 'https://github.com/bahim22/react-portfo2',
 	},
 	{
@@ -35,7 +40,8 @@ const ProjectList = [
 		subtitle: 'react-ded-boiler',
 		id: 'rb',
 		description: 'Reusable boilerplate skeleton for React.js projects.',
-		image: '../public/logo512.png',
+		// image: '../public/logo512.png',
+		image: { bb },
 		link: 'https://github.com/bahim22/react-ded-boiler',
 	},
 	{
@@ -43,7 +49,8 @@ const ProjectList = [
 		subtitle: 'auth-react-azure',
 		id: 'raz',
 		description: 'React App with TypeScript using Azure AD to authenticate users.',
-		image: '../public/purp9.png',
+		// image: '../public/purp9.png',
+		image: { mapPro },
 		link: 'https://github.com/bahim22/auth-react-azure',
 	},
 	{
@@ -66,7 +73,8 @@ const ProjectList = [
 		subtitle: 'ism',
 		id: 'ism',
 		description: 'HTML, CSS, Bootstrap website for an advertising company.',
-		image: './assets/images/ismHome.png',
+		// image: './assets/images/ismHome.png',
+		image: { ism2 },
 		link: 'https://github.com/bahim22/ism',
 	},
 	{
@@ -76,10 +84,6 @@ const ProjectList = [
 		image: '/public/purp9.png',
 		link: 'https://github.com/bahim22/waves-prisma',
 	},
-]
-export default ProjectList
-
-export const progressProjects = [
 	{
 		title: 'Athena',
 		id: 'ath',
@@ -95,8 +99,26 @@ export const progressProjects = [
 		image: './assets/images/ismHome.png',
 	},
 ]
+export default ProjectList
 
-export const futureProjects = [
+/* export const progressProjects = [
+	{
+		title: 'Athena',
+		id: 'ath',
+		subtitle: 'Athena',
+		description: 'React based JS website with custom styling and tool config.',
+		image: './assets/images/ismHome.png',
+	},
+	{
+		title: 'Ded-py',
+		subtitle: 'Ded-py',
+		id: 'py',
+		description: 'React based JS website with custom styling and tool config.',
+		image: './assets/images/ismHome.png',
+	},
+] */
+
+/* export const futureProjects = [
 	{
 		title: 'Marketing and Comms for NPOs',
 		Info: 'Fullstack Mern Web App',
@@ -109,7 +131,7 @@ export const futureProjects = [
 		title: 'Next.js Business Analytics',
 		Info: 'Progressive Web App',
 	},
-]
+] */
 
 export const projInfo =
 	'I initially started developing Python Projects with Django.Then I transitioned to building websites with HTML and CSS3, eventually  implementing bootstrap packages with pre-built minified JavaScript for interactivity. I improved my vanilla JavaScript skills and learned ES6 and TypeScript and was able to start developing React.js and Next.js Web Apps. I was able to learn how to configure my toolchain and start building JAMstack Apps. I am currently building Full-Stack projects using multiple frameworks, libraries,and packages.'

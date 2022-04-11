@@ -76,14 +76,9 @@ module.exports = {
 					filename: 'icons/[hash][ext]',
 				},
 			},
-
 			/* {
 				test: /\.svg$/,
 				use: 'file-loader',
-			},
-			{
-				test: /\.html$/i,
-				loader: 'html-loader',
 			},
 			{
 				test: /\.png$/,
@@ -112,7 +107,7 @@ module.exports = {
 			template: './public/index.html',
 			cache: true,
 			inject: true,
-			esModule: true,
+			// esModule: true,
 			minify: {
 				removeComments: true,
 				collapseWhitespace: true,
@@ -123,7 +118,7 @@ module.exports = {
 			},
 		}),
 		new webpack.BannerPlugin({
-			banner: 'Hima Balde Dev Webpack Setup  2022',
+			banner: 'Hima Balde Dev Webpack Setup 2022',
 		}),
 		new BundleAnalyzerPlugin({
 			analyzerMode: 'static',
@@ -141,10 +136,13 @@ module.exports = {
 		], */
 	},
 	performance: {
-		hints: 'warning',
+		// hints: 'warning',
 	},
 	resolve: {
-		extensions: ['.js', '.jsx', '.json', '.css', '.png', '.jpg', '.jpeg'],
-		modules: [path.resolve(__dirname, 'src'), path.resolve(__dirname, 'node_modules')],
+		extensions: ['.js', '.jsx'],
+		modules: [
+			path.resolve(__dirname, 'src'),
+			path.resolve(__dirname, 'node_modules')
+		],
 	},
 }
