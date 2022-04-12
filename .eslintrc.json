@@ -18,8 +18,10 @@
 	"extends": [
 		"eslint:recommended",
 		"plugin:react/recommended",
-		"plugin:jsx-a11y/recommended"
-		// "plugin:import/errors",
+		"plugin:jsx-a11y/recommended",
+		"plugin:import/errors",
+		"prettier/react",
+		"prettier"
 		// "plugin:prettier/recommended"
 	],
 	"ignorePatterns": [
@@ -34,7 +36,7 @@
         },
         "sourceType": "module",
         "react": {
-          "version": "latest"
+          "version": "detect"
         }
     },
     "rules":
