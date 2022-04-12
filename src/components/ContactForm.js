@@ -1,15 +1,15 @@
-import { useForm, ValidationError, FormspreeProvider } from '@formspree/react'
-import '../styles/form.css'
-import React from 'react'
+import { useForm, ValidationError, FormspreeProvider } from '@formspree/react';
+import '../styles/form.css';
+import React from 'react';
 // import mail from 'assets/icons/mail.svg'
 // const formKey = process.env.REACT_APP_FORM_ID
 // const projectId = process.env.REACT_APP_PROJECT_ID
 
 const ContactForm = () => {
-	const [state, handleSubmit] = useForm('contactForm')
+	const [state, handleSubmit] = useForm('contactForm');
 
 	if (state.succeeded) {
-		return <p>Thanks for Submitting</p>
+		return <p>Thanks for Submitting</p>;
 	}
 
 	return (
@@ -40,7 +40,7 @@ const ContactForm = () => {
 				<ValidationError className='formErrors' errors={state.errors} />
 			</form>
 		</FormspreeProvider>
-	)
-}
+	);
+};
 
-export default ContactForm
+export default ContactForm;

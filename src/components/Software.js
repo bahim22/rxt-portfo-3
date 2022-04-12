@@ -1,31 +1,31 @@
-import React from 'react'
-import { TerminalIcon, UsersIcon } from '@heroicons/react/solid'
-import bg7 from '../assets/images/bg7.jpg'
+import React from 'react';
+import { TerminalIcon, UsersIcon } from '@heroicons/react/solid';
+import bg7 from '../assets/bg7.jpg';
 
-// check which image import is correct
 export const softwareList = [
 	{
 		name: 'Azure',
 		tools: 'DevOps, SAAS, IAAS',
-		image: '../public/purp9.png',
+		// image: '../public/purp9.png',
+		image: '../../public/carbon.1.png'
 	},
 	{
 		name: 'GitHub',
 		tools: 'Dev, hosting, collab, Version Control',
-		image: '../public/logo512.png',
+		image: '../../public/logo512.png',
 	},
 	{
 		name: 'Jira',
 		tools: 'Dev, Planning, workflow, Kanban Board',
-		image: 'assets/images/bg7.jpg',
+		image: '../assets/bg7.jpg',
 	},
 	{
 		name: 'Office 365',
 		tools: 'office, excel, powerpoint, Planning, Admin',
-		image: './assets/images/profile-bg.jpg',
+		image: '../assets/profile-bg.jpg',
 		images: { bg7 },
 	},
-]
+];
 const Software = () => {
 	return (
 		<section id='software'>
@@ -54,7 +54,7 @@ const Software = () => {
 				</div>
 			</div>
 		</section>
-	)
-}
+	);
+};
 
-export default Software
+export default Software;

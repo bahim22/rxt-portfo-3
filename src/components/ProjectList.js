@@ -1,9 +1,9 @@
-import card from '/src/assets/images/himacard.png'
-import ism from '../assets/images/ismPic.webp'
-import ism2 from '../assets/images/ismHome.png'
-import bg7 from '../assets/images/bg7.jpg'
-import bb from '../assets/images/bbman.png'
-import mapPro from '../assets/images/MapProject.png'
+import card from '../assets/himacard.png';
+import ism from '../assets/ismPic.webp';
+import ism2 from '../assets/ismHome.png';
+import bg7 from '../assets/bg7.jpg';
+import bb from '../assets/bbman.png';
+import mapPro from '../assets/MapProject.png';
 
 // props = {image, link, title, description};
 
@@ -98,8 +98,8 @@ const ProjectList = [
 		description: 'React based JS website with custom styling and tool config.',
 		image: './assets/images/ismHome.png',
 	},
-]
-export default ProjectList
+];
+export default ProjectList;
 
 /* export const progressProjects = [
 	{
@@ -134,4 +134,4 @@ export default ProjectList
 ] */
 
 export const projInfo =
-	'I initially started developing Python Projects with Django.Then I transitioned to building websites with HTML and CSS3, eventually  implementing bootstrap packages with pre-built minified JavaScript for interactivity. I improved my vanilla JavaScript skills and learned ES6 and TypeScript and was able to start developing React.js and Next.js Web Apps. I was able to learn how to configure my toolchain and start building JAMstack Apps. I am currently building Full-Stack projects using multiple frameworks, libraries,and packages.'
+	'I initially started developing Python Projects with Django.Then I transitioned to building websites with HTML and CSS3, eventually  implementing bootstrap packages with pre-built minified JavaScript for interactivity. I improved my vanilla JavaScript skills and learned ES6 and TypeScript and was able to start developing React.js and Next.js Web Apps. I was able to learn how to configure my toolchain and start building JAMstack Apps. I am currently building Full-Stack projects using multiple frameworks, libraries,and packages.';

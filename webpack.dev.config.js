@@ -2,7 +2,8 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const webpack = require('webpack')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+// const CopyWebpackPlugin = require('copy-webpack-plugin');
+
 module.exports = {
 	mode: 'development',
 	entry: {
@@ -26,7 +27,7 @@ module.exports = {
 			'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
 			'Access-Control-Allow-Headers': 'X-Requested-With, content-type Authorization',
 			'Access-Control-Allow-Credentials': true,
-			'Access-Control-Max-Age': '3600',
+			// 'Access-Control-Max-Age': '3600',
 		},
 		hot: true,
 		open: true,
@@ -72,7 +73,7 @@ module.exports = {
 				test: /\.svg$/,
 				type: 'asset/resource',
 				generator: {
-					filename: 'icons/[hash][ext]',
+					filename: '[hash][ext]',
 				},
 			},
 			/* {
@@ -96,14 +97,15 @@ module.exports = {
 		new HtmlWebpackPlugin({
 			template: path.resolve(__dirname, 'public', 'index.html'),
 			// template: './public/index.html',
-			fileName: './index.html',
+			filename: '[name].html',
 			// inject: true,
 			// esModule: true,
 		}),
 		new HtmlWebpackPlugin({
-			filename: '[name].html',
+			fileName: './index.html',
 			title: 'Hima Webpack Dev Run Test',
 			template: './public/index.html',
+			favicon: './public/favicon.ico',
 			cache: true,
 			inject: true,
 			// esModule: true,
@@ -113,16 +115,26 @@ module.exports = {
 				keepClosingSlash: true,
 				minifyJS: true,
 				minifyCSS: true,
-				minifyURLs: true,
+				// minifyURLs: true,
 			},
 		}),
-		new CopyWebpackPlugin({}),
+		// new CopyWebpackPlugin({
+		// 	patterns: [
+		// 		{
+		// 			from: './src/assets/** */',
+		// 			to: './dist/',
+		// 			globOptions: {
+		// 				ignore: ['*.js', '*.css'],
+		// 			},
+		// 		},
+		// 	],
+		// }),
 		new webpack.BannerPlugin({
 			banner: 'Hima Balde Dev Webpack Setup 2022',
 		}),
 		new BundleAnalyzerPlugin({
 			analyzerMode: 'static',
-			openAnalyzer: false,
+			openAnalyzer: true,
 			reportFilename: './bundle-report.html',
 			generateStatsFile: true,
 			statsFilename: './bundle-stats.json',
@@ -140,9 +152,6 @@ module.exports = {
 	},
 	resolve: {
 		extensions: ['.js', '.jsx'],
-		modules: [
-			path.resolve(__dirname, 'src'),
-			path.resolve(__dirname, 'node_modules')
-		],
+		modules: [path.resolve(__dirname, 'src'), path.resolve(__dirname, 'node_modules')],
 	},
-}
+};

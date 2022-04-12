@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 // import * as React from 'react';
 // import CardMain from './CardMain'
-// import Hima from './assets/hima.jpg'
+import Hima from '../../public/hima.1.jpg'
 
 const About = () => {
 	return (
@@ -35,14 +35,20 @@ const About = () => {
 				</div>
 				{/* <CardMain /> */}
 				<div className='lg:max-w-lg lg:w-full md:w-1/2 w-5/6'>
-					<img className='object-cover object-center rounded' alt='hima balde'
-					src='./assets/hima.jpg'
-					// src={Hima}
+					<img
+						className='object-cover object-center rounded'
+						alt='hima balde'
+						src='./assets/himacard.png'
+					/>
+					<img
+						className='object-cover object-center rounded'
+						alt='hima b'
+						src={Hima}
 					/>
 				</div>
 			</div>
 		</section>
-	)
-}
+	);
+};
 
-export default About
+export default About;

@@ -4,11 +4,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+// const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
-// const BannerPlugin = require('webpack').BannerPlugin;
-process.env.NODE_ENV = 'production'
+// process.env.NODE_ENV = 'production'
+process.env.NODE_ENV === 'production';
 
 module.exports = {
 	mode: 'production',
@@ -47,7 +47,6 @@ module.exports = {
 						loader: 'css-loader',
 						options: {
 							importLoaders: 1,
-							// sourceMap: true,
 						},
 					},
 					'postcss-loader',
@@ -56,9 +55,9 @@ module.exports = {
 			{
 				test: /\.svg$/,
 				type: 'asset/resource',
-				generator: {
+				/* generator: {
 					filename: 'icons/[hash][ext]',
-				},
+				}, */
 			},
 			{
 				test: /\.(woff|woff2|eot|ttf|otf)$/i,
@@ -79,7 +78,6 @@ module.exports = {
 			// 			loader: 'url-loader',
 			// 			options: {
 			// 				mimetype: 'image/png',
-			// 				// limit: 8192,
 			// 				name: 'images/[name].[ext]',
 			// 			},
 			// 		},
@@ -101,7 +99,6 @@ module.exports = {
 				keepClosingSlash: true,
 				minifyJS: true,
 				minifyCSS: true,
-				minifyURLs: true,
 			},
 		}),
 		new webpack.BannerPlugin({
@@ -112,7 +109,7 @@ module.exports = {
 			chunkFilename: '[id].[contenthash].css',
 			ignoreOrder: true,
 		}),
-		new CleanWebpackPlugin(),
+		// new CleanWebpackPlugin(),
 		// new BundleAnalyzerPlugin({
 		// 	analyzerMode: 'json',
 		// 	chunkFilename: 'bundle-report/[name].json',
@@ -125,7 +122,7 @@ module.exports = {
 		nodeEnv: 'production',
 		minimize: true,
 		minimizer: [
-			// new MiniCssExtractPlugin(),
+			new MiniCssExtractPlugin(),
 			new CssMinimizerPlugin({
 					parallel: true,
 					minify: CssMinimizerPlugin.cleanCssMinify
@@ -149,17 +146,17 @@ module.exports = {
 			automaticNameDelimiter: '~',
 			maxInitialRequests: 20, // for HTTP2
 			maxAsyncRequests: 20, // for HTTP2
-			/* cacheGroups: {
+			cacheGroups: {
 				defaultVendors: {
 					idHint: 'vendors',
 					reuseExistingChunk: true,
 					filename: '[name].bundle.js',
 				},
-			}, */
+			},
 		},
 	},
 	performance: {
-		hints: 'warning',
+		// hints: 'warning',
 	},
 	resolve: {
 		extensions: ['.js', '.jsx'],

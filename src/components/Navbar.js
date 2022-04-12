@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 // import { ArrowRightIcon } from '@heroicons/react/solid'
 
 const Navbar = () => {
@@ -41,8 +41,8 @@ const Navbar = () => {
 			{/* // </header> */}
 			{/* </main> */}
 		</>
-	)
-}
+	);
+};
 
-export default Navbar
+export default Navbar;
 /* <main className="dark:bg-gray-800 font-mono bg-white relative overflow-hidden h-screen">{/* </main>*/

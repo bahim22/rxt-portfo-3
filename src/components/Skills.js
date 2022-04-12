@@ -1,12 +1,12 @@
-import { ChipIcon } from '@heroicons/react/solid'
-import React from 'react'
-import CssSharpIcon from '@mui/icons-material/CssSharp'
-import JavascriptSharpIcon from '@mui/icons-material/JavascriptSharp'
+import { ChipIcon } from '@heroicons/react/solid';
+import React from 'react';
+import CssSharpIcon from '@mui/icons-material/CssSharp';
+import JavascriptSharpIcon from '@mui/icons-material/JavascriptSharp';
 // import PythonSharpIcon from '@mui/icons-material/PythonSharp'
-import CodeIcon from '@mui/icons-material/Code'
-import HtmlSharpIcon from '@mui/icons-material/HtmlSharp'
+import CodeIcon from '@mui/icons-material/Code';
+import HtmlSharpIcon from '@mui/icons-material/HtmlSharp';
 import SkillList from './SkillList';
-import GitHubIcon from '@mui/icons-material/GitHub'
+import GitHubIcon from '@mui/icons-material/GitHub';
 /* const SkillInfo =
 	[{Name: Javascript,},
 		Name: Python,
@@ -52,7 +52,7 @@ const Skills = () => {
 					<JavascriptSharpIcon />
 					<CodeIcon />
 					<HtmlSharpIcon />
-					<GitHubIcon	 />
+					<GitHubIcon />
 					<CssSharpIcon />
 				</div>
 				{/* <div className='flex flex-wrap -m-4'>
@@ -60,8 +60,7 @@ const Skills = () => {
 				</div> */}
 			</div>
 		</section>
-	)
-	}
+	);
+};
 
-
-export default Skills
+export default Skills;

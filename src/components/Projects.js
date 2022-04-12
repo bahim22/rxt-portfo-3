@@ -1,7 +1,7 @@
-import React from 'react'
-import { CodeIcon } from '@heroicons/react/solid'
-import ProjectList from './ProjectList'
-import { projInfo } from './ProjectList'
+import React from 'react';
+import { CodeIcon } from '@heroicons/react/solid';
+import ProjectList from './ProjectList';
+import { projInfo } from './ProjectList';
 
 const Projects = () => {
 	return (
@@ -36,7 +36,7 @@ const Projects = () => {
 				</div>
 			</div>
 		</section>
-	)
-}
+	);
+};
 
-export default Projects
+export default Projects;

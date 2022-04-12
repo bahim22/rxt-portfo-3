@@ -1,10 +1,10 @@
-import React from 'react'
+import React from 'react';
 // import ContactForm from './ContactForm'
 
 const info = {
 	email: 'ibalde222@icloud.com',
 	cellPhone: '412-495-0760',
-}
+};
 
 const Contact = () => {
 	return (
@@ -41,7 +41,7 @@ const Contact = () => {
           </div> */}
 			</div>
 		</section>
-	)
-}
+	);
+};
 
-export default Contact
+export default Contact;

@@ -5,7 +5,6 @@
 	"publish": "private",
 	"license": "MIT",
 	"description": "Hima Dionysus Balde React.js Portfolio Website that highlights my coding journey thus far.",
-	"sourceType": "module",
 	"scripts": {
 		"lint:pretest": "eslint \"src/**/*.{js,jsx}\"",
 		"lint:fix": "eslint \"src/**/*.{js,jsx}\" --fix",
@@ -102,14 +101,18 @@
 	},
 	"browserslist": {
 		"production": [
-			"> .5%",
+			"> 0.2%",
 			"ie 10",
 			"not dead"
 		],
 		"development": [
 			"last 1 chrome version",
 			"last 1 firefox version",
-			"last 1 safari version"
+			"last 1 safari version",
+			"last 1 edge version"
+		],
+		"ssr": [
+			"node 10"
 		]
 	}
 }

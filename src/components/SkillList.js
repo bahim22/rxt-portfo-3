@@ -1,6 +1,6 @@
 // import JavascriptSharpIcon from '@mui/icons-material/JavascriptSharp'
 
-import React from 'react'
+import React from 'react';
 
 export const SkillInfo = [
 	{
@@ -27,7 +27,7 @@ export const SkillInfo = [
 		Id: '3',
 		Time: '2 years',
 	},
-]
+];
 
 const SkillList = () => {
 	return (
@@ -48,7 +48,7 @@ const SkillList = () => {
 				</div>
 			</div>
 		</div>
-	)
-}
+	);
+};
 
-export default SkillList
+export default SkillList;
