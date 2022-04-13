@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
 // const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
@@ -11,13 +12,12 @@ process.env.NODE_ENV = 'production';
 
 module.exports = {
 	mode: 'production',
-	// entry: path.resolve(__dirname, 'src', 'index.js'),
 	entry: {
 		main: './src/index.js',
 	},
 	output: {
-		path: path.resolve(__dirname, 'dist'),
-		publicPath: '/',
+		path: path.resolve(__dirname, './dist'),
+		publicPath: '/', // 'dist/'
 		chunkFilename: '[name].[chunkhash].js',
 		filename: '[name].[chunkhash].js',
 		/* filename: 'bundle.js', */
@@ -84,6 +84,13 @@ module.exports = {
 		],
 	},
 	plugins: [
+		new ESLintPlugin({
+			lintDirtyModulesOnly: true,
+			fix: false,
+			// cache: true,
+			// cacheLocation: './.eslintcache',
+			outputReport: true,
+		}),
 		new HtmlWebpackPlugin({
 			template: './public/index.html',
 			filename: 'index.html',
@@ -121,6 +128,7 @@ module.exports = {
 		minimize: true,
 		minimizer: [
 			// new MiniCssExtractPlugin(),
+			// new CssMinimizer(), '...',
 			new CssMinimizerPlugin({
 				parallel: true,
 				minify: CssMinimizerPlugin.cleanCssMinify,
@@ -130,8 +138,14 @@ module.exports = {
 				parallel: true,
 				minify: TerserPlugin.swcMinify,
 				terserOptions: {
-					include: /[\\/].min[\\/].js$/,
-					exclude: /[\\/]node_modules/,
+					compress: {},
+					ecma: 2020,
+					parse: {},
+					nameCache: {},
+					mangle: {},
+					module: true,
+					// include: /[\\/].min[\\/].js$/,
+					// exclude: /[\\/]node_modules/,
 				},
 			}),
 		],

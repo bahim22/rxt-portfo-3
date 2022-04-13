@@ -1,43 +1,69 @@
-const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const webpack = require('webpack')
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const ESLintPlugin = require('eslint-webpack-plugin');
+
 // const CopyWebpackPlugin = require('copy-webpack-plugin');
 // const TerserPlugin = require('terser-webpack-plugin');
-
 
 // const dev = process.env.NODE_ENV === 'development';
 
 module.exports = {
-	mode: 'development',
-	// mode: {dev},
+	mode: 'development', // mode: {dev}
 	// entry: path.resolve(__dirname, 'src', 'index.js'),
 	entry: {
 		main: './src/index.js',
 	},
 	output: {
 		path: path.resolve(__dirname, 'dist'),
+		// path: path.resolve(__dirname, 'public'),
 		publicPath: '/', // '/dist'
 		chunkFilename: '[name].[chunkhash].js',
 		filename: '[name].[chunkhash].js',
+		// filename: 'bundle.js',
 	},
 	devtool: 'inline-source-map',
 	devServer: {
 		static: {
-			directory: path.resolve(__dirname, 'dist'),
-			// contentBase: path.resolve(__dirname, 'dist')
+			directory: path.join(__dirname, 'public'),
+			publicPath: '/',
+			serveIndex: true,
+			// directory: path.resolve(__dirname, 'dist'), //** from dist or public? */
+			// contentBase: path.resolve(__dirname, 'dist'),
 		},
-		port: 5500,
-		headers: {
+		port: 7222,
+		client: {
+			logging: 'info',
+			reconnect: 10,
+			progress: true,
+			// webSocketURL: 'auto://0.0.0.0:0/ws', // || 'ws://localhost:7222',
+		},
+		// webSocketServer: 'ws://localhost:7222',//* ? relation to express; useful?
+		allowedHosts: 'auto',
+		watchFiles: ['public/**/*', 'src/**/*'],
+		watch: true,
+		// devMiddleware: {}, //* ? Learn more before using
+		/* headers: {
 			'Access-Control-Allow-Origin': 'origin',
 			'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
 			'Access-Control-Allow-Headers': 'X-Requested-With, content-type Authorization',
 			'Access-Control-Allow-Credentials': true,
 			'Access-Control-Max-Age': '3600',
-		},
+		}, */
 		hot: true,
 		open: false,
 		compress: true,
+		server: {
+			type: 'https',
+			// options: {},
+		},
+		/* setupMiddlewares: (middlewares, options) => {
+			//* ? Learn more before using; Express w/ nodemailer?
+		}, */
+		host: '0.0.0.0',
+		historyApiFallback: true,
+		magicHtml: true,
 	},
 	module: {
 		rules: [
@@ -52,7 +78,7 @@ module.exports = {
 				},
 			},
 			{
-				test: /\.css$/, // /[\\/].(css)$/
+				test: /\.css$/i, // /[\\/].(css)$/
 				use: [
 					'style-loader',
 					{
@@ -95,13 +121,13 @@ module.exports = {
 		],
 	},
 	plugins: [
-		/* new HtmlWebpackPlugin({
-			template: path.resolve(__dirname, 'public', 'index.html'),
-			// template: './public/index.html',
-			filename: '[name].html',
-			// inject: true,
-			// esModule: true,
-		}), */
+		new ESLintPlugin({
+			lintDirtyModulesOnly: false,
+			fix: false,
+			cache: true,
+			cacheLocation: './.eslintcache',
+			outputReport: true,
+		}),
 		new HtmlWebpackPlugin({
 			fileName: 'index.html',
 			template: './public/index.html',

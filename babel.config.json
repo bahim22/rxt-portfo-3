@@ -10,7 +10,7 @@
 			"ie 10",
 			"not dead"
 		],
-		"node":"> 12.10.0",
+		"node":"12.10.0",
 		"esmodules": true
 	},
 	"parserOpts": {
