@@ -3,7 +3,10 @@
         "browser": true,
 		"es2020": true,
         "node": true
-},
+	},
+	/* "globals": {
+		"":"off"
+	}, */
     "settings": {
         "react": {
             "version": "detect"
@@ -19,7 +22,8 @@
 		"eslint:recommended",
 		"plugin:react/recommended",
 		"plugin:import/errors",
-		"plugin:jsx-a11y/recommended"
+		"plugin:jsx-a11y/recommended",
+		"plugin:prettier/recommended"
 	],
 	"ignorePatterns": [
 		"node_modules/"
@@ -27,7 +31,7 @@
     "parserOptions": {
       "ecmaFeatures": {
           "jsx": true,
-        //   "modules": true,
+          "modules": true,
 		  "version": "latest",
 		  "es6": true
         },
@@ -40,14 +44,24 @@
     {
 	  "react/react-in-jsx-scope": "off",
       "import/no-anonymous-default-export": "off",
-    //   "lines-around-comment":"off",
-    //   "no-inline-comments":"off",
-	"no-confusing-arrow": [
-		"off",
-		{
-			"allowParens": true
-		}
-	],
-      "no-tabs": ["off", {"allowIndentationTabs": true}]
+      "lines-around-comment":"off",
+      "no-inline-comments":"off",
+	  "no-confusing-arrow": [
+			"warn",
+			{
+				"allowParens": false
+			}
+		],
+      "no-tabs": ["off", {"allowIndentationTabs": true}],
+	  "curly":"warn",
+	  "multiline-ternary":"off",
+	  "no-unexpected-multiline":"warn",
+	  "no-extra-semi":"off",
+	  "no-mixed-spaces-and-tabs": "off",
+		"no-restricted-syntax": [
+			"error",
+			"SequenceExpression"
+		]
+
 	}
 }
