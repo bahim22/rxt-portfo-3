@@ -3,9 +3,14 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const webpack = require('webpack')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 // const CopyWebpackPlugin = require('copy-webpack-plugin');
+// const TerserPlugin = require('terser-webpack-plugin');
+
+
+// const dev = process.env.NODE_ENV === 'development';
 
 module.exports = {
 	mode: 'development',
+	// mode: {dev},
 	entry: {
 		main: './src/index.js',
 	},
@@ -30,7 +35,7 @@ module.exports = {
 			// 'Access-Control-Max-Age': '3600',
 		},
 		hot: true,
-		open: true,
+		open: false,
 		compress: true,
 	},
 	module: {
@@ -48,7 +53,7 @@ module.exports = {
 			{
 				test: /\.css$/, // /[\\/].(css)$/
 				use: [
-					{ loader: 'style-loader' },
+					'style-loader',
 					{
 						loader: 'css-loader',
 						options: {
@@ -56,25 +61,20 @@ module.exports = {
 							sourceMap: true,
 						},
 					},
-					{
-						loader: 'postcss-loader',
-					},
+					'postcss-loader',
 				],
+			},
+			{
+				test: /\.svg$/,
+				type: 'asset/resource',
 			},
 			{
 				test: /\.(?:ico|png|jpg|jpeg|webp)$/i,
 				type: 'asset/resource',
 			},
 			{
-				test: /[\\/].(woff(2)?|eot|ttf|otf)$/,
-				type: 'asset/inline',
-			},
-			{
-				test: /\.svg$/,
+				test: /\.(woff(2)?|eot|ttf|otf)$/i,
 				type: 'asset/resource',
-				generator: {
-					filename: '[hash][ext]',
-				},
 			},
 			/* {
 				test: /\.svg$/,
@@ -94,19 +94,20 @@ module.exports = {
 		],
 	},
 	plugins: [
-		new HtmlWebpackPlugin({
+		/* new HtmlWebpackPlugin({
 			template: path.resolve(__dirname, 'public', 'index.html'),
 			// template: './public/index.html',
 			filename: '[name].html',
 			// inject: true,
 			// esModule: true,
-		}),
+		}), */
 		new HtmlWebpackPlugin({
-			fileName: './index.html',
-			title: 'Hima Webpack Dev Run Test',
-			template: './public/index.html',
+			fileName: 'index.html',
+			// template: './public/index.html',
+			template: path.resolve(__dirname, 'public', 'index.html'),
 			favicon: './public/favicon.ico',
 			cache: true,
+			hash: true,
 			inject: true,
 			// esModule: true,
 			minify: {
@@ -115,7 +116,6 @@ module.exports = {
 				keepClosingSlash: true,
 				minifyJS: true,
 				minifyCSS: true,
-				// minifyURLs: true,
 			},
 		}),
 		// new CopyWebpackPlugin({
@@ -134,18 +134,15 @@ module.exports = {
 		}),
 		new BundleAnalyzerPlugin({
 			analyzerMode: 'static',
-			openAnalyzer: true,
-			reportFilename: './bundle-report.html',
+			openAnalyzer: false,
+			reportFilename: 'bundle-report.html',
 			generateStatsFile: true,
-			statsFilename: './bundle-stats.json',
+			statsFilename: 'bundle-stats.json',
 		}),
 	],
 	optimization: {
+		nodeEnv: 'development',
 		minimize: true,
-		/* minimizer: [
-			new TerserPlugin({
-			}),
-		], */
 	},
 	performance: {
 		// hints: 'warning',

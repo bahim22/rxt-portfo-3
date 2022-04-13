@@ -6,7 +6,6 @@ package-lock.json
 package.json
 tw.js
 tailwind.config.js
-webpack.config.js
 public
 build
 dist

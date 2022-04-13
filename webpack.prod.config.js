@@ -7,7 +7,6 @@ const TerserPlugin = require('terser-webpack-plugin');
 // const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
-// process.env.NODE_ENV = 'production'
 process.env.NODE_ENV === 'production';
 
 module.exports = {
@@ -16,10 +15,9 @@ module.exports = {
 	entry: {
 		main: './src/index.js',
 	},
-	/* entry: './src/index.js', */
 	output: {
 		path: path.resolve(__dirname, 'dist'),
-		publicPath: '/', // || '/',
+		publicPath: '/',
 		chunkFilename: '[name].[chunkhash].js',
 		filename: '[name].[chunkhash].js',
 		/* filename: 'bundle.js', */

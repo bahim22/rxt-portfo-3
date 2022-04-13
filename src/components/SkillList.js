@@ -1,5 +1,5 @@
 // import JavascriptSharpIcon from '@mui/icons-material/JavascriptSharp'
-
+import glad from '../../public/carbon.png';
 import React from 'react';
 
 export const SkillInfo = [
@@ -10,6 +10,7 @@ export const SkillInfo = [
 		Skills: ['ES6', 'ES5', 'JSX', 'TypeScript', 'JSON'],
 		Id: '1',
 		Time: '2 years',
+		image: { glad },
 	},
 	{
 		Name: 'HTML5 and CSS3',
@@ -18,6 +19,7 @@ export const SkillInfo = [
 		Skills: ['HTML5', 'CSS3', 'Bootstrap', 'Material-UI', 'TailwindCss'],
 		Id: '2',
 		Time: '2 years',
+		image: { glad },
 	},
 	{
 		Name: 'Python',
@@ -26,6 +28,7 @@ export const SkillInfo = [
 		Skills: ['Django'],
 		Id: '3',
 		Time: '2 years',
+		image: { glad },
 	},
 ];
 
@@ -41,7 +44,7 @@ const SkillList = () => {
 								<span className='title-font font-medium text-red-700'>{s.Name}</span>
 								<span className='text-gray-500'> {s.Description}</span>
 								<span className='text-gray-500'> {s.Skills.join(', ')}</span>
-								<span className='text-gray-500'> {s.Time}</span>
+								<span className='text-gray-500'> {s.image}</span>
 							</div>
 						</div>
 					))}

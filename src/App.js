@@ -6,7 +6,7 @@ import Projects from './components/Projects';
 import Skills from './components/Skills';
 import Software from './components/Software';
 import Navbar from './components/Navbar';
-// import CardMain from './components/CardMain'
+import FormPro from './components/FormPro';
 
 function App() {
 	return (
@@ -16,6 +16,7 @@ function App() {
 			<Projects />
 			<Skills />
 			<Software />
+			<FormPro  />
 			<Contact />
 		</main>
 	);

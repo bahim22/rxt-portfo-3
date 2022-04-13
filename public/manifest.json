@@ -1,8 +1,8 @@
 {
-    "name": "Dionysus Era Dev React SWA",
+    "name": "Hima Dionysus Balde React Web App",
     "lang": "en-us",
-    "short_name": "DED React SWA",
-    "description": "PWA, static web app, react, JAMstack portfolio and design website by Ibrahima Balde, Dionysus Era",
+    "short_name": "rxt-portfo-3",
+    "description": "This is a JAMstack, progressive web app using React.js, Webpack 5 and much more. Coded by Ibrahima Balde, Dionysus Era Dev, ",
     "start_url": "/",
     "scope": "/",
     "display": "standalone",
@@ -11,7 +11,7 @@
     "orientation": "any",
     "icons": [
         {
-            "src": "logod2.ico",
+            "src": "/public/logod2.ico",
             "sizes": "64x64 32x32 24x24 16x16",
             "type": "image/x-icon"
         },
