@@ -1,5 +1,5 @@
 import { useForm, ValidationError, FormspreeProvider } from '@formspree/react';
-import '../styles/form.css';
+import '../styles/formik.css';
 import React from 'react';
 // import mail from 'assets/icons/mail.svg'
 // const formKey = process.env.REACT_APP_FORM_ID

@@ -1,0 +1,22 @@
+{
+  "name": "portfo-server",
+  "version": "3.0.0",
+  "description": "Back-end for rxt-portfo-3 app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "express",
+    "nodemailer",
+    "npm",
+    "mac"
+  ],
+  "author": "Hima Dionysus Balde",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.3",
+    "nodemailer": "^6.7.3"
+  }
+}

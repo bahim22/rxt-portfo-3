@@ -2,7 +2,7 @@ import React from 'react';
 import { TerminalIcon, UsersIcon } from '@heroicons/react/solid';
 import bg7 from '../../public/bg7.jpg';
 import carbon1 from '../../public/carbon.1.png';
-import logo180 from '../../public/logo180.png'
+import logo180 from '../../public/logo180.png';
 import logo5 from '../../public/logo512.png';
 export const softwareList = [
 	{
@@ -13,12 +13,12 @@ export const softwareList = [
 	{
 		name: 'GitHub',
 		tools: 'Dev, hosting, collab, Version Control',
-		image:{logo5},
+		image: { logo5 },
 	},
 	{
 		name: 'Jira',
 		tools: 'Dev, Planning, workflow, Kanban Board',
-		image: {logo180},
+		image: { logo180 },
 	},
 	{
 		name: 'Office 365',

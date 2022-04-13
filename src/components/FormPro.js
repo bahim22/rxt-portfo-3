@@ -2,24 +2,24 @@
 import { useState } from 'react';
 import axios from 'axios';
 import '../styles/formik.css';
-const key = process.env.KEY
+const key = process.env.KEY;
 
 const FormPro = () => {
 	const [status, setStatus] = useState({
 		submitted: false,
 		submitting: false,
-		info: { error: false, msg: null }
+		info: { error: false, msg: null },
 	});
 	const [inputs, setInputs] = useState({
 		email: '',
-		message: ''
+		message: '',
 	});
 	const handleServerResponse = (ok, msg) => {
 		if (ok) {
 			setStatus({
 				submitted: true,
 				submitting: false,
-				info: { error: false, msg: msg }
+				info: { error: false, msg: msg },
 			});
 			setInputs({
 				email: '',
@@ -31,9 +31,9 @@ const FormPro = () => {
 			});
 		}
 	};
-	const handleOnChange = e => {
+	const handleOnChange = (e) => {
 		e.persist();
-		setInputs(prev => ({
+		setInputs((prev) => ({
 			...prev,
 			[e.target.id]: e.target.value,
 		}));
@@ -43,35 +43,28 @@ const FormPro = () => {
 			info: { error: false, msg: null },
 		});
 	};
-	const handleOnSubmit = e => {
+	const handleOnSubmit = (e) => {
 		e.preventDefault();
-		setStatus(prevStatus => ({ ...prevStatus, submitting: true }));
+		setStatus((prevStatus) => ({ ...prevStatus, submitting: true }));
 		axios({
 			method: 'POST',
 			url: `https://formspree.io/f/${key}`,
 			data: inputs,
 		})
 			// eslint-disable-next-line no-unused-vars
-			.then(response => {
-				handleServerResponse(
-					true,
-					'Message Submitted Successfully. Thank you!'
-				);
+			.then((response) => {
+				handleServerResponse(true, 'Message Submitted Successfully. Thank you!');
 			})
-			.catch(error => {
+			.catch((error) => {
 				handleServerResponse(false, error.response.data.error);
-			})
+			});
 	};
 	return (
 		<main>
-			<h1>
-				Contact Me Today
-			</h1>
-			<hr  />
+			<h1>Contact Me Today</h1>
+			<hr />
 			<form onSubmit={handleOnSubmit}>
-				<label htmlFor='email'>
-					Email
-				</label>
+				<label htmlFor='email'>Email</label>
 				<input
 					id='email'
 					type='email'
@@ -80,33 +73,16 @@ const FormPro = () => {
 					required
 					value={inputs.email}
 				/>
-				<label htmlFor='message'>
-					Message
-				</label>
-				<textarea
-					id='message'
-					name='message'
-					onChange={handleOnChange}
-					required
-					value={inputs.message}
-				/>
+				<label htmlFor='message'>Message</label>
+				<textarea id='message' name='message' onChange={handleOnChange} required value={inputs.message} />
 				<button type='submit' disabled={status.submitting}>
-					{!status.submitting
-						? !status.submitted
-							? 'Submit'
-							: 'Submitted'
-						: 'Submitting...'}
+					{!status.submitting ? (!status.submitted ? 'Submit' : 'Submitted') : 'Submitting...'}
 				</button>
 			</form>
-			{status.info.error && (
-				<div className='error'>
-					Error: {status.info.msg}
-				</div>
-			)}
-			{!status.info.error && status.info.msg &&
-				<p>{status.info.msg}</p>}
+			{status.info.error && <div className='error'>Error: {status.info.msg}</div>}
+			{!status.info.error && status.info.msg && <p>{status.info.msg}</p>}
 		</main>
-	)
-}
+	);
+};
 
 export default FormPro;

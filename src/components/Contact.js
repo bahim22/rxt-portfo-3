@@ -36,9 +36,6 @@ const Contact = () => {
 						<p className='leading-snug'>{info.cellPhone}</p>
 					</div>
 				</div>
-				{/*           <div>
-              <ContactForm  />
-          </div> */}
 			</div>
 		</section>
 	);

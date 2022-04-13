@@ -5,10 +5,9 @@ import bg7 from '../../public/bg7.jpg';
 import bb from '../../public/bbman.png';
 import mapPro from '../../public/MapProject.png';
 import purp from '../../public/purp9.png';
-import check from '../../public/icons/check-circle.svg'
-import check2 from '../../public/icons/check.svg'
-import rocket from '../../public/icons/rocket.svg'
-
+import check from '../../public/icons/check-circle.svg';
+import check2 from '../../public/icons/check.svg';
+import rocket from '../../public/icons/rocket.svg';
 
 const ProjectList = [
 	{
@@ -56,7 +55,7 @@ const ProjectList = [
 		subtitle: 'gullo-db',
 		id: 'mern1',
 		description: 'React based JS website with custom styling and tool config.',
-		image: {rocket},
+		image: { rocket },
 		link: 'https://github.com/bahim22/react-portfo2',
 	},
 	{
@@ -87,14 +86,14 @@ const ProjectList = [
 		id: 'ath',
 		subtitle: 'Athena',
 		description: 'React based JS website with custom styling and tool config.',
-		image: {check}
+		image: { check },
 	},
 	{
 		title: 'Ded-py',
 		subtitle: 'Ded-py',
 		id: 'py',
 		description: 'React based JS website with custom styling and tool config.',
-		image: {check2}
+		image: { check2 },
 	},
 ];
 export default ProjectList;

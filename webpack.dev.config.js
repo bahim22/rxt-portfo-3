@@ -11,12 +11,13 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 module.exports = {
 	mode: 'development',
 	// mode: {dev},
+	// entry: path.resolve(__dirname, 'src', 'index.js'),
 	entry: {
 		main: './src/index.js',
 	},
 	output: {
 		path: path.resolve(__dirname, 'dist'),
-		publicPath: '/',
+		publicPath: '/', // '/dist'
 		chunkFilename: '[name].[chunkhash].js',
 		filename: '[name].[chunkhash].js',
 	},
@@ -32,7 +33,7 @@ module.exports = {
 			'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
 			'Access-Control-Allow-Headers': 'X-Requested-With, content-type Authorization',
 			'Access-Control-Allow-Credentials': true,
-			// 'Access-Control-Max-Age': '3600',
+			'Access-Control-Max-Age': '3600',
 		},
 		hot: true,
 		open: false,
@@ -74,7 +75,7 @@ module.exports = {
 			},
 			{
 				test: /\.(woff(2)?|eot|ttf|otf)$/i,
-				type: 'asset/resource',
+				type: 'asset/inline',
 			},
 			/* {
 				test: /\.svg$/,
@@ -103,15 +104,15 @@ module.exports = {
 		}), */
 		new HtmlWebpackPlugin({
 			fileName: 'index.html',
-			// template: './public/index.html',
-			template: path.resolve(__dirname, 'public', 'index.html'),
+			template: './public/index.html',
+			// template: path.resolve(__dirname, 'public', 'index.html'),
 			favicon: './public/favicon.ico',
 			cache: true,
 			hash: true,
-			inject: true,
+			inject: 'head',
 			// esModule: true,
 			minify: {
-				removeComments: true,
+				// removeComments: true,
 				collapseWhitespace: true,
 				keepClosingSlash: true,
 				minifyJS: true,

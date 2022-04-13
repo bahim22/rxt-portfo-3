@@ -7,7 +7,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 // const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
-process.env.NODE_ENV === 'production';
+process.env.NODE_ENV = 'production';
 
 module.exports = {
 	mode: 'production',
@@ -59,7 +59,7 @@ module.exports = {
 			},
 			{
 				test: /\.(woff|woff2|eot|ttf|otf)$/i,
-				type: 'asset/resource',
+				type: 'asset/inline',
 			},
 			{
 				test: /\.(?:ico|png|jpg|jpeg|webp)$/i,
@@ -120,11 +120,11 @@ module.exports = {
 		nodeEnv: 'production',
 		minimize: true,
 		minimizer: [
-			new MiniCssExtractPlugin(),
+			// new MiniCssExtractPlugin(),
 			new CssMinimizerPlugin({
-					parallel: true,
-					minify: CssMinimizerPlugin.cleanCssMinify
-				}),
+				parallel: true,
+				minify: CssMinimizerPlugin.cleanCssMinify,
+			}),
 			'...',
 			new TerserPlugin({
 				parallel: true,
@@ -158,5 +158,6 @@ module.exports = {
 	},
 	resolve: {
 		extensions: ['.js', '.jsx'],
+		modules: [path.resolve(__dirname, 'src'), path.resolve(__dirname, 'node_modules')],
 	},
-}
+};

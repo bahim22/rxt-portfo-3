@@ -1,0 +1,43 @@
+{
+	"plugins": [
+		"@babel/plugin-syntax-dynamic-import",
+        "@babel/plugin-proposal-class-properties",
+		"@babel/plugin-transform-react-jsx"
+    ],
+	"targets": {
+		"browsers": [
+			"last 2 versions",
+			"ie 10",
+			"not dead"
+		],
+		"node": 12.0,
+		"esmodules": true
+	},
+	"parserOpts": {
+		"plugins": [
+			"jsx",
+			"flow"
+		]
+	},
+	/* "generatorOpts": {
+		"minified": true,
+		"compact": true
+	}, */
+	"sourceType": "unambiguous",
+	"presets": [
+		[
+			"@babel/preset-env",
+			{
+				"modules": "auto",
+				"bugfixes": true,
+				"useBuiltIns": "usage"
+			}
+		],
+        [
+			"@babel/preset-react",
+			{
+				"runtime": "automatic"
+			}
+		]
+    ]
+}
