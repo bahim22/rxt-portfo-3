@@ -14,7 +14,7 @@
 		"test:espretty2": "npx eslint-config-prettier App.js components/About.js components/FormPro.js",
 		"test:lint": "eslint \"src/**/*.{js,jsx}\"",
 		"test:lint-rules": "eslint src/components/*.js --config .eslintrc.json",
-		"clean": "rm -rf dist/**/* && rm -rf dist/vendors && rm -rf dist/styles && rm -rf dist/src",
+		"clean": "rm dist/* && rm -rf dist/vendors && rm -rf dist/styles && rm -rf dist/src",
 		"test:webpack": "npx webpack --config webpack.dev.config.js",
 		"test:webpack-pro": "NODE_ENV=production npx webpack --config webpack.prod.config.js",
 		"build": "npx webpack build --config webpack.prod.config.js --mode production",

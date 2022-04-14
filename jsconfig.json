@@ -2,10 +2,12 @@
 	"compilerOptions": {
 		"baseUrl": "./",
 		"paths": {
-			"@/*": ["*.js"]
+			"src/*": ["./src/*"],
+			"components/*": ["src/components/*"],
+			"assets/*": ["src/assets/*"],
+			"styles/*": ["src/styles/*"],
 		}
 	},
 	"include": ["src"],
-	"exclude": ["node_modules"],
-	"allowJs": true
+	"exclude": ["node_modules"]
 }
