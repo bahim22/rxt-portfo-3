@@ -64,18 +64,6 @@ module.exports = {
 				test: /\.(?:ico|png|jpg|jpeg|webp|svg)$/i,
 				type: 'asset/resource',
 			},
-			// {
-			// 	test: /\.png$/,/[\\/].svg$/.png$/,
-			// 	use: ['file-loader','url-loader',
-			// 		{
-			// 			loader: ,
-			// 			options: {
-			// 				mimetype: 'image/png',
-			// 				name: 'images/[name].[ext]',
-			// 			},
-			// 		},
-			// 	],
-			// },
 		],
 	},
 	plugins: [
@@ -110,14 +98,6 @@ module.exports = {
 			ignoreOrder: true,
 		}),
 		new CleanWebpackPlugin(),
-		'...',
-		// new BundleAnalyzerPlugin({
-		// 	analyzerMode: 'json',
-		// 	chunkFilename: 'bundle-report/[name].json',
-		// 	openAnalyzer: false,
-		// 	generateStatsFile: true,
-		// 	statsFilename: 'stats-report/[name].json',
-		// }),
 	],
 	optimization: {
 		nodeEnv: 'production',

@@ -10,7 +10,7 @@ import Navbar from './components/Navbar';
 
 function App() {
 	return (
-		<main>
+		<>
 			<Navbar />
 			<About />
 			<Projects />
@@ -18,7 +18,7 @@ function App() {
 			<Software />
 			{/* <FormPro /> */}
 			<Contact />
-		</main>
+		</>
 	);
 }
 
