@@ -17,7 +17,7 @@ module.exports = {
 	},
 	output: {
 		path: path.resolve(__dirname, 'dist'),
-		publicPath: 'dist/', // *? '/dist'
+		publicPath: '/', // *? '/dist'
 		chunkFilename: '[name].[chunkhash].js',
 		filename: '[name].[chunkhash].js', // *? 'bundle.js'
 		clean: true,
@@ -75,9 +75,9 @@ module.exports = {
 			outputReport: true,
 		}),
 		new HtmlWebpackPlugin({
-			template: 'public/index.html',
+			template: './public/index.html',
 			filename: 'index.html',
-			favicon: 'public/favicon2.ico',
+			favicon: './public/favicon2.ico',
 			cache: true,
 			hash: true,
 			inject: true,
@@ -120,8 +120,8 @@ module.exports = {
 					nameCache: {},
 					mangle: {},
 					module: true,
-					// include: /[\\/].min[\\/].js$/,
-					// exclude: /[\\/]node_modules/,
+					include: /[\\/].min[\\/].js$/,
+					exclude: /[\\/]node_modules/,
 				},
 			}),
 		],
@@ -138,7 +138,7 @@ module.exports = {
 				defaultVendors: {
 					idHint: 'vendors',
 					reuseExistingChunk: true,
-					filename: '[name].bundle.js',
+					filename: 'vendors/[name].bundle.js',
 				},
 			},
 		},

@@ -10,9 +10,9 @@
         }
     },
     "plugins": [
-		"babel",
+		// "babel",
 		"react",
-		"react-hooks",
+		// "react-hooks",
 		"import",
 		"jsx-a11y",
 		"prettier"
@@ -44,27 +44,27 @@
     "rules":
     {
 	  "react/react-in-jsx-scope": "off",
-	  "react/jsx-uses-react": "error",
+	  "react/jsx-uses-react": "warn",
 	  "react/jsx-uses-vars": "error",
-	  "react/jsx-no-bind": "error",
-    //   "import/no-anonymous-default-export": "off",
+	  "react/jsx-no-bind": "off",
+      "import/no-anonymous-default-export": "warn",
       "lines-around-comment":"off",
       "no-inline-comments":"off",
-	//   "no-confusing-arrow": [
-	// 		"off",
-	// 		{
-	// 			"allowParens": true
-	// 		}
-	// 	],
+	  "no-confusing-arrow": [
+			"off",
+			{
+				"allowParens": true
+			}
+		],
       "no-tabs": ["off", {"allowIndentationTabs": true}],
 	  "curly":"warn",
 	  "multiline-ternary":"off",
 	  "no-unexpected-multiline":"warn",
-	  "no-extra-semi":"off"
-	//   "no-mixed-spaces-and-tabs": "off",
-	// 	"no-restricted-syntax": [
-	// 		"error",
-	// 		"SequenceExpression"
-	// 	]
+	  "no-extra-semi":"off",
+	  "no-mixed-spaces-and-tabs": "off",
+	  "no-restricted-syntax": [
+		  "warn",
+		  "SequenceExpression"
+		]
 	}
 }

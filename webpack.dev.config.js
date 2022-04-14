@@ -5,8 +5,6 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 const ESLintPlugin = require('eslint-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
-// const TerserPlugin = require('terser-webpack-plugin');
-
 // const dev = process.env.NODE_ENV === 'development';
 
 module.exports = {
@@ -17,7 +15,7 @@ module.exports = {
 	},
 	output: {
 		// path: path.resolve(__dirname, 'dist'),
-		path: path.resolve(__dirname, '/dist'),
+		path: path.resolve(__dirname, 'dist'),
 		publicPath: 'auto', //* '/' | 'dist/
 		chunkFilename: '[name].[chunkhash].js',
 		filename: '[name].[chunkhash].js',
@@ -26,7 +24,7 @@ module.exports = {
 	devtool: 'inline-source-map',
 	devServer: {
 		static: {
-			directory: path.join(__dirname, '/dist'),
+			directory: path.join(__dirname, 'dist'),
 			publicPath: '/',
 			// serveIndex: true,
 			// directory: path.resolve(__dirname, 'dist'), //** from dist or public? */
@@ -113,7 +111,7 @@ module.exports = {
 			outputReport: true,
 		}),
 		new HtmlWebpackPlugin({
-			fileName: 'index.html',
+			fileName: 'dev.html',
 			title: 'Dev Ded',
 			template: './public/index.html',
 			// template: path.resolve(__dirname, 'public', 'index.html'),
@@ -132,7 +130,6 @@ module.exports = {
 			patterns: [
 				{
 					from: 'src/assets',
-					to: 'assets',
 					globOptions: {
 						ignore: ['*.js', '*.css'],
 					},
