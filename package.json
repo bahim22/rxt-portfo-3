@@ -43,6 +43,7 @@
 	},
 	"homepage": "https://github.com/bahim22/rxt-portfo-3",
 	"dependencies": {
+		"@babel/runtime": "^7.17.9",
 		"@emotion/react": "latest",
 		"@emotion/styled": "latest",
 		"@fontsource/roboto": "latest",
@@ -56,6 +57,7 @@
 		"@tailwindcss/forms": "^0.4.0",
 		"@tailwindcss/typography": "^0.5.0",
 		"axios": "^0.26.1",
+		"core-js": "^3.21.1",
 		"formik": "^2.2.9",
 		"prop-types": "^15.8.0",
 		"react": "^17.0.2",
@@ -66,6 +68,8 @@
 	},
 	"devDependencies": {
 		"@babel/core": "^7.15.0",
+		"@babel/eslint-parser": "^7.17.0",
+		"@babel/plugin-transform-runtime": "^7.17.0",
 		"@babel/preset-env": "^7.15.0",
 		"@babel/preset-react": "^7.14.5",
 		"autoprefixer": "^10.4.2",

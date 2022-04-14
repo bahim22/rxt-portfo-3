@@ -18,7 +18,7 @@ module.exports = {
 	output: {
 		path: path.resolve(__dirname, 'dist'),
 		// path: path.resolve(__dirname, 'public'),
-		publicPath: '/', // '/dist'
+		publicPath: 'auto', //* '/' | 'dist/
 		chunkFilename: '[name].[chunkhash].js',
 		filename: '[name].[chunkhash].js',
 		// filename: 'bundle.js',
@@ -42,7 +42,6 @@ module.exports = {
 		// webSocketServer: 'ws://localhost:7222',//* ? relation to express; useful?
 		allowedHosts: 'auto',
 		watchFiles: ['public/**/*', 'src/**/*'],
-		watch: true,
 		// devMiddleware: {}, //* ? Learn more before using
 		/* headers: {
 			'Access-Control-Allow-Origin': 'origin',
@@ -129,14 +128,25 @@ module.exports = {
 			outputReport: true,
 		}),
 		new HtmlWebpackPlugin({
-			fileName: 'index.html',
+			fileName: 'test.html',
+			template: path.resolve(__dirname, 'public', 'index.html'),
+			favicon: 'public/favicon.ico',
+			cache: true,
+			inject: true,
+			esModule: true,
+			minify: {
+				minifyJS: true,
+				minifyCSS: true,
+			},
+		}),
+		new HtmlWebpackPlugin({
+			fileName: 'double.html',
 			template: './public/index.html',
 			// template: path.resolve(__dirname, 'public', 'index.html'),
-			favicon: './public/favicon.ico',
+			favicon: './public/favicon2.ico',
 			cache: true,
 			hash: true,
 			inject: 'head',
-			// esModule: true,
 			minify: {
 				// removeComments: true,
 				collapseWhitespace: true,

@@ -16,15 +16,14 @@ module.exports = {
 		main: './src/index.js',
 	},
 	output: {
-		path: path.resolve(__dirname, './dist'),
-		publicPath: '/', // 'dist/'
+		path: path.resolve(__dirname, 'dist'),
+		publicPath: 'dist/', // *? '/dist'
 		chunkFilename: '[name].[chunkhash].js',
-		filename: '[name].[chunkhash].js',
-		/* filename: 'bundle.js', */
+		filename: '[name].[chunkhash].js', // *? 'bundle.js'
 		clean: true,
 	},
-	devtool: 'source-map',
-	// cache: true,
+	devtool: false,
+	cache: true,
 	module: {
 		rules: [
 			{
@@ -54,7 +53,7 @@ module.exports = {
 				test: /\.svg$/,
 				type: 'asset/resource',
 				/* generator: {
-					filename: 'icons/[hash][ext]',
+					filename: 'images/[hash][ext]',
 				}, */
 			},
 			{
@@ -62,18 +61,14 @@ module.exports = {
 				type: 'asset/inline',
 			},
 			{
-				test: /\.(?:ico|png|jpg|jpeg|webp)$/i,
+				test: /\.(?:ico|png|jpg|jpeg|webp|svg)$/i,
 				type: 'asset/resource',
 			},
 			// {
-			// 	test: /[\\/].svg$/,
-			// 	use: 'file-loader',
-			// },
-			// {
-			// 	test: /\.png$/,
-			// 	use: [
+			// 	test: /\.png$/,/[\\/].svg$/.png$/,
+			// 	use: ['file-loader','url-loader',
 			// 		{
-			// 			loader: 'url-loader',
+			// 			loader: ,
 			// 			options: {
 			// 				mimetype: 'image/png',
 			// 				name: 'images/[name].[ext]',
@@ -87,8 +82,8 @@ module.exports = {
 		new ESLintPlugin({
 			lintDirtyModulesOnly: true,
 			fix: false,
-			// cache: true,
-			// cacheLocation: './.eslintcache',
+			cache: true,
+			cacheLocation: './.eslintcache',
 			outputReport: true,
 		}),
 		new HtmlWebpackPlugin({
@@ -114,7 +109,7 @@ module.exports = {
 			chunkFilename: '[id].[contenthash].css',
 			ignoreOrder: true,
 		}),
-		// new CleanWebpackPlugin(),
+		new CleanWebpackPlugin(),'...',
 		// new BundleAnalyzerPlugin({
 		// 	analyzerMode: 'json',
 		// 	chunkFilename: 'bundle-report/[name].json',
@@ -127,8 +122,7 @@ module.exports = {
 		nodeEnv: 'production',
 		minimize: true,
 		minimizer: [
-			// new MiniCssExtractPlugin(),
-			// new CssMinimizer(), '...',
+			new MiniCssExtractPlugin(),'...',
 			new CssMinimizerPlugin({
 				parallel: true,
 				minify: CssMinimizerPlugin.cleanCssMinify,
