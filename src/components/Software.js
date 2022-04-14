@@ -2,8 +2,8 @@ import React from 'react';
 import { TerminalIcon, UsersIcon } from '@heroicons/react/solid';
 import bg7 from '../../public/bg7.jpg';
 import carbon1 from '../../public/carbon.1.png';
-import logo180 from '../../public/logo180.png';
-import logo5 from '../../public/logo512.png';
+import logo180 from '../../public/logos/logo180.png';
+import logo5 from '../../public/logos/logo512.png';
 export const softwareList = [
 	{
 		name: 'Azure',

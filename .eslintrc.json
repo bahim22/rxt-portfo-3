@@ -4,9 +4,6 @@
 		"es2020": true,
         "node": true
 	},
-	/* "globals": {
-		"":"off"
-	}, */
     "settings": {
         "react": {
             "version": "detect"
@@ -49,9 +46,9 @@
       "lines-around-comment":"off",
       "no-inline-comments":"off",
 	  "no-confusing-arrow": [
-			"warn",
+			"off",
 			{
-				"allowParens": false
+				"allowParens": true
 			}
 		],
       "no-tabs": ["off", {"allowIndentationTabs": true}],

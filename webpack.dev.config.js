@@ -3,8 +3,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const ESLintPlugin = require('eslint-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
-// const CopyWebpackPlugin = require('copy-webpack-plugin');
 // const TerserPlugin = require('terser-webpack-plugin');
 
 // const dev = process.env.NODE_ENV === 'development';
@@ -16,26 +16,26 @@ module.exports = {
 		main: './src/index.js',
 	},
 	output: {
+		// path: path.resolve(__dirname, 'dist'),
 		path: path.resolve(__dirname, 'dist'),
-		// path: path.resolve(__dirname, 'public'),
-		publicPath: 'auto', //* '/' | 'dist/
+		publicPath: '/', //* '/' | 'dist/
 		chunkFilename: '[name].[chunkhash].js',
 		filename: '[name].[chunkhash].js',
 		// filename: 'bundle.js',
 	},
 	devtool: 'inline-source-map',
 	devServer: {
-		static: {
-			directory: path.join(__dirname, 'public'),
-			publicPath: '/',
-			serveIndex: true,
-			// directory: path.resolve(__dirname, 'dist'), //** from dist or public? */
-			// contentBase: path.resolve(__dirname, 'dist'),
-		},
+		// static: {
+		// 	directory: path.join(__dirname, 'dist'),
+		// 	// publicPath: '/',
+		// 	// serveIndex: true,
+		// 	// directory: path.resolve(__dirname, 'dist'), //** from dist or public? */
+		// 	// contentBase: path.resolve(__dirname, 'dist'),
+		// },
 		port: 7222,
 		client: {
 			logging: 'info',
-			reconnect: 10,
+			// reconnect: 10,
 			progress: true,
 			// webSocketURL: 'auto://0.0.0.0:0/ws', // || 'ws://localhost:7222',
 		},
@@ -51,7 +51,7 @@ module.exports = {
 			'Access-Control-Max-Age': '3600',
 		}, */
 		hot: true,
-		open: false,
+		open: true,
 		compress: true,
 		server: {
 			type: 'https',
@@ -60,7 +60,7 @@ module.exports = {
 		/* setupMiddlewares: (middlewares, options) => {
 			//* ? Learn more before using; Express w/ nodemailer?
 		}, */
-		host: '0.0.0.0',
+		// host: '0.0.0.0',
 		historyApiFallback: true,
 		magicHtml: true,
 	},
@@ -95,77 +95,49 @@ module.exports = {
 				type: 'asset/resource',
 			},
 			{
-				test: /\.(?:ico|png|jpg|jpeg|webp)$/i,
+				test: /\.(?:ico|png|jpg|jpeg|webp|svg)$/i,
 				type: 'asset/resource',
 			},
 			{
 				test: /\.(woff(2)?|eot|ttf|otf)$/i,
 				type: 'asset/inline',
 			},
-			/* {
-				test: /\.svg$/,
-				use: 'file-loader',
-			},
-			{
-				test: /\.png$/,
-				use: [
-					{
-						loader: 'url-loader',
-						options: {
-							mimetype: 'image/png',
-						},
-					},
-				],
-			}, */
 		],
 	},
 	plugins: [
 		new ESLintPlugin({
-			lintDirtyModulesOnly: false,
+			lintDirtyModulesOnly: true,
 			fix: false,
 			cache: true,
 			cacheLocation: './.eslintcache',
 			outputReport: true,
 		}),
 		new HtmlWebpackPlugin({
-			fileName: 'test.html',
-			template: path.resolve(__dirname, 'public', 'index.html'),
-			favicon: 'public/favicon.ico',
-			cache: true,
-			inject: true,
-			esModule: true,
-			minify: {
-				minifyJS: true,
-				minifyCSS: true,
-			},
-		}),
-		new HtmlWebpackPlugin({
-			fileName: 'double.html',
-			template: './public/index.html',
+			fileName: 'index.html',
+			title: 'Hima Dev WP',
+			template: 'public/index.html',
 			// template: path.resolve(__dirname, 'public', 'index.html'),
-			favicon: './public/favicon2.ico',
+			favicon: 'public/logod2.ico',
 			cache: true,
 			hash: true,
-			inject: 'head',
-			minify: {
-				// removeComments: true,
-				collapseWhitespace: true,
-				keepClosingSlash: true,
-				minifyJS: true,
-				minifyCSS: true,
-			},
+			esModule: true,
+			inject: true,
+			// minify: {
+			// 	collapseWhitespace: true,
+			// 	minifyJS: true,
+			// 	minifyCSS: true,
+			// },
 		}),
-		// new CopyWebpackPlugin({
-		// 	patterns: [
-		// 		{
-		// 			from: './src/assets/** */',
-		// 			to: './dist/',
-		// 			globOptions: {
-		// 				ignore: ['*.js', '*.css'],
-		// 			},
-		// 		},
-		// 	],
-		// }),
+		new CopyWebpackPlugin({
+			patterns: [
+				{
+					from: 'src/assets/*',
+					globOptions: {
+						ignore: ['*.js', '*.css'],
+					},
+				},
+			],
+		}),
 		new webpack.BannerPlugin({
 			banner: 'Hima Balde Dev Webpack Setup 2022',
 		}),
@@ -179,7 +151,7 @@ module.exports = {
 	],
 	optimization: {
 		nodeEnv: 'development',
-		minimize: true,
+		// minimize: true,
 	},
 	performance: {
 		// hints: 'warning',

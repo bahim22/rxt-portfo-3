@@ -1,7 +1,7 @@
 import React from 'react';
 // import * as React from 'react';
 // import CardMain from './CardMain'
-import Hima from '../../public/hima.1.jpg';
+import Hima from '../assets/hima.jpg';
 
 const About = () => {
 	return (

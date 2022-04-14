@@ -25,7 +25,7 @@
 			"last 1 Android version",
 			"ie 11"
 		],
-		"node":"12.10.0",
+		"node":"12.0.0",
 		"esmodules": true
 	},
 	"parserOpts": {
@@ -34,10 +34,10 @@
 			"flow"
 		]
 	},
-	/* "generatorOpts": {
-		"minified": true,
-		"compact": true
-	}, */
+	// "generatorOpts": {
+	// 	"minified": true,
+	// 	"compact": true
+	// },
 	"sourceType": "unambiguous",
 	"presets": [
 		[

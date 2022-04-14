@@ -5,7 +5,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
-// const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 process.env.NODE_ENV = 'production';
@@ -22,7 +22,7 @@ module.exports = {
 		filename: '[name].[chunkhash].js', // *? 'bundle.js'
 		clean: true,
 	},
-	devtool: false,
+	devtool: 'source-map',
 	cache: true,
 	module: {
 		rules: [
@@ -87,9 +87,9 @@ module.exports = {
 			outputReport: true,
 		}),
 		new HtmlWebpackPlugin({
-			template: './public/index.html',
+			template: 'public/index.html',
 			filename: 'index.html',
-			favicon: './public/favicon.ico',
+			favicon: 'public/favicon2.ico',
 			cache: true,
 			hash: true,
 			inject: true,
@@ -109,7 +109,8 @@ module.exports = {
 			chunkFilename: '[id].[contenthash].css',
 			ignoreOrder: true,
 		}),
-		new CleanWebpackPlugin(),'...',
+		new CleanWebpackPlugin(),
+		'...',
 		// new BundleAnalyzerPlugin({
 		// 	analyzerMode: 'json',
 		// 	chunkFilename: 'bundle-report/[name].json',
@@ -122,7 +123,8 @@ module.exports = {
 		nodeEnv: 'production',
 		minimize: true,
 		minimizer: [
-			new MiniCssExtractPlugin(),'...',
+			new MiniCssExtractPlugin(),
+			'...',
 			new CssMinimizerPlugin({
 				parallel: true,
 				minify: CssMinimizerPlugin.cleanCssMinify,
@@ -166,6 +168,10 @@ module.exports = {
 	},
 	resolve: {
 		extensions: ['.js', '.jsx'],
-		modules: [path.resolve(__dirname, 'src'), path.resolve(__dirname, 'node_modules')],
+		modules: [
+			path.resolve(__dirname, 'src'),
+			path.resolve(__dirname, 'node_modules'),
+			path.resolve(__dirname, 'public'),
+		],
 	},
 };

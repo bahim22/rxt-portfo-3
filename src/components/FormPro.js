@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { useState } from 'react';
 import axios from 'axios';
 import '../styles/formik.css';
@@ -61,7 +60,13 @@ const FormPro = () => {
 	};
 	return (
 		<main>
-			<h1>Contact Me Today</h1>
+			<header>
+				<div>
+					<img src='https://i.imgur.com/qkdpN.png' alt='logo' />
+					<img src='/src/assets/himacard.png' alt='logo card' />
+				</div>
+				<h1>Contact Me Today</h1>
+			</header>
 			<hr />
 			<form onSubmit={handleOnSubmit}>
 				<label htmlFor='email'>Email</label>
