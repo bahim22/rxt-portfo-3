@@ -17,21 +17,21 @@ module.exports = {
 	},
 	output: {
 		// path: path.resolve(__dirname, 'dist'),
-		path: path.resolve(__dirname, 'dist'),
-		publicPath: '/', //* '/' | 'dist/
+		path: path.resolve(__dirname, '/dist'),
+		publicPath: 'auto', //* '/' | 'dist/
 		chunkFilename: '[name].[chunkhash].js',
 		filename: '[name].[chunkhash].js',
 		// filename: 'bundle.js',
 	},
 	devtool: 'inline-source-map',
 	devServer: {
-		// static: {
-		// 	directory: path.join(__dirname, 'dist'),
-		// 	// publicPath: '/',
-		// 	// serveIndex: true,
-		// 	// directory: path.resolve(__dirname, 'dist'), //** from dist or public? */
-		// 	// contentBase: path.resolve(__dirname, 'dist'),
-		// },
+		static: {
+			directory: path.join(__dirname, '/dist'),
+			publicPath: '/',
+			// serveIndex: true,
+			// directory: path.resolve(__dirname, 'dist'), //** from dist or public? */
+			// contentBase: path.resolve(__dirname, 'dist'),
+		},
 		port: 7222,
 		client: {
 			logging: 'info',
@@ -41,27 +41,27 @@ module.exports = {
 		},
 		// webSocketServer: 'ws://localhost:7222',//* ? relation to express; useful?
 		allowedHosts: 'auto',
-		watchFiles: ['public/**/*', 'src/**/*'],
+		// watchFiles: ['public/**/*', 'src/**/*'],
 		// devMiddleware: {}, //* ? Learn more before using
-		/* headers: {
+		headers: {
 			'Access-Control-Allow-Origin': 'origin',
 			'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
 			'Access-Control-Allow-Headers': 'X-Requested-With, content-type Authorization',
 			'Access-Control-Allow-Credentials': true,
 			'Access-Control-Max-Age': '3600',
-		}, */
+		},
 		hot: true,
 		open: true,
-		compress: true,
-		server: {
-			type: 'https',
-			// options: {},
-		},
+		// compress: true,
+		// server: {
+		// 	type: 'https',
+		// 	// options: {},
+		// },
 		/* setupMiddlewares: (middlewares, options) => {
 			//* ? Learn more before using; Express w/ nodemailer?
 		}, */
 		// host: '0.0.0.0',
-		historyApiFallback: true,
+		// historyApiFallback: true,
 		magicHtml: true,
 	},
 	module: {
@@ -90,10 +90,10 @@ module.exports = {
 					'postcss-loader',
 				],
 			},
-			{
-				test: /\.svg$/,
-				type: 'asset/resource',
-			},
+			// {
+			// 	test: /\.svg$/,
+			// 	type: 'asset/resource',
+			// },
 			{
 				test: /\.(?:ico|png|jpg|jpeg|webp|svg)$/i,
 				type: 'asset/resource',
@@ -108,16 +108,16 @@ module.exports = {
 		new ESLintPlugin({
 			lintDirtyModulesOnly: true,
 			fix: false,
-			cache: true,
-			cacheLocation: './.eslintcache',
+			// cache: true,
+			// cacheLocation: './.eslintcache',
 			outputReport: true,
 		}),
 		new HtmlWebpackPlugin({
 			fileName: 'index.html',
-			title: 'Hima Dev WP',
-			template: 'public/index.html',
+			title: 'Dev Ded',
+			template: './public/index.html',
 			// template: path.resolve(__dirname, 'public', 'index.html'),
-			favicon: 'public/logod2.ico',
+			favicon: './public/logod2.ico',
 			cache: true,
 			hash: true,
 			esModule: true,
@@ -131,7 +131,8 @@ module.exports = {
 		new CopyWebpackPlugin({
 			patterns: [
 				{
-					from: 'src/assets/*',
+					from: 'src/assets',
+					to: 'assets',
 					globOptions: {
 						ignore: ['*.js', '*.css'],
 					},
@@ -149,12 +150,12 @@ module.exports = {
 			statsFilename: 'bundle-stats.json',
 		}),
 	],
-	optimization: {
-		nodeEnv: 'development',
-		// minimize: true,
-	},
+	// optimization: {
+	// 	nodeEnv: 'development',
+	// 	// minimize: true,
+	// },
 	performance: {
-		// hints: 'warning',
+		hints: 'warning',
 	},
 	resolve: {
 		extensions: ['.js', '.jsx'],

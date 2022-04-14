@@ -1,7 +1,6 @@
 import React from 'react';
-// import * as React from 'react';
-// import CardMain from './CardMain'
-import Hima from '../assets/hima.jpg';
+// import Hima from '../assets/hima.jpg';
+import hima from 'assets/hima.jpg';
 
 const About = () => {
 	return (
@@ -10,12 +9,14 @@ const About = () => {
 				<div className='lg: flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center'>
 					<h1 className='title-font sm:text-4xl text-3xl mb-4 font-medium text-white'>
 						{' '}
-						Welcome to HimaLand
-						<br className='hidden md:inline-block' /> Dev Portfolio
+						Welcome to my portfolio{' '}
+						<br className='hidden md:inline-block' />
 					</h1>
+					<h2 className='mb-8 leading-relaxed'>
+						Custom Built with  React, Webpack, Babel, ESLint, Prettier and more!
+					</h2>
 					<p className='mb-8 leading-relaxed'>
-						Website developer and designer. Currently building websites web Apps using JAMstack and
-						Fullstack tools. Developing from concept to production with a one man team.
+						Website developer and designer. Currently building websites and web Apps using JAMstack and Fullstack tools. I research each step of the development process and take ideas from concept to production with a one man team.
 					</p>
 					<div className='flex justify-center'>
 						<a
@@ -33,9 +34,8 @@ const About = () => {
 						</a>
 					</div>
 				</div>
-				{/* <CardMain /> */}
 				<div className='lg:max-w-lg lg:w-full md:w-1/2 w-5/6'>
-					<img className='object-cover object-center rounded' alt='hima b' src={Hima} />
+					<img className='object-cover object-center rounded' alt='hima b' src={hima} />
 				</div>
 			</div>
 		</section>

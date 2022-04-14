@@ -93,9 +93,9 @@ module.exports = {
 			banner: 'Hima Balde Production Setup 2022',
 		}),
 		new MiniCssExtractPlugin({
-			filename: '[name].[contenthash]css',
+			filename: 'styles/[name].[contenthash].css',
 			chunkFilename: '[id].[contenthash].css',
-			ignoreOrder: true,
+			// ignoreOrder: true,
 		}),
 		new CleanWebpackPlugin(),
 	],

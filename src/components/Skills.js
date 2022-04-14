@@ -7,11 +7,7 @@ import CodeIcon from '@mui/icons-material/Code';
 import HtmlSharpIcon from '@mui/icons-material/HtmlSharp';
 import SkillList from './SkillList';
 import GitHubIcon from '@mui/icons-material/GitHub';
-/* const SkillInfo =
-	[{Name: Javascript,},
-		Name: Python,
-		Html,
-		Css] */
+
 
 /* const SkillCompo = () => {
 	return (
@@ -55,9 +51,6 @@ const Skills = () => {
 					<GitHubIcon />
 					<CssSharpIcon />
 				</div>
-				{/* <div className='flex flex-wrap -m-4'>
-					<SkillCompo />
-				</div> */}
 			</div>
 		</section>
 	);

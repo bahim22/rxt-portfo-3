@@ -10,7 +10,9 @@
         }
     },
     "plugins": [
+		"babel",
 		"react",
+		"react-hooks",
 		"import",
 		"jsx-a11y",
 		"prettier"
@@ -25,14 +27,14 @@
 	"ignorePatterns": [
 		"node_modules/"
 	],
-	// "parser": "@babel/eslint-parser",
+	"parser": "@babel/eslint-parser",
     "parserOptions": {
       "ecmaFeatures": {
           "jsx": true,
           "modules": true,
-		  "version": "latest",
-		  "es6": true,
-		  "experimentalObjectRestSpread": true
+		  "version": "2020",
+		  "es6": true
+		//   "experimentalObjectRestSpread": true
         },
         "sourceType": "module",
         "react": {
@@ -42,25 +44,27 @@
     "rules":
     {
 	  "react/react-in-jsx-scope": "off",
-      "import/no-anonymous-default-export": "off",
+	  "react/jsx-uses-react": "error",
+	  "react/jsx-uses-vars": "error",
+	  "react/jsx-no-bind": "error",
+    //   "import/no-anonymous-default-export": "off",
       "lines-around-comment":"off",
       "no-inline-comments":"off",
-	  "no-confusing-arrow": [
-			"off",
-			{
-				"allowParens": true
-			}
-		],
+	//   "no-confusing-arrow": [
+	// 		"off",
+	// 		{
+	// 			"allowParens": true
+	// 		}
+	// 	],
       "no-tabs": ["off", {"allowIndentationTabs": true}],
 	  "curly":"warn",
 	  "multiline-ternary":"off",
 	  "no-unexpected-multiline":"warn",
-	  "no-extra-semi":"off",
-	  "no-mixed-spaces-and-tabs": "off",
-		"no-restricted-syntax": [
-			"error",
-			"SequenceExpression"
-		]
-
+	  "no-extra-semi":"off"
+	//   "no-mixed-spaces-and-tabs": "off",
+	// 	"no-restricted-syntax": [
+	// 		"error",
+	// 		"SequenceExpression"
+	// 	]
 	}
 }

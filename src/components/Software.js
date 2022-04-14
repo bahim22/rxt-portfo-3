@@ -4,29 +4,30 @@ import bg7 from '../../public/bg7.jpg';
 import carbon1 from '../../public/carbon.1.png';
 import logo180 from '../../public/logos/logo180.png';
 import logo5 from '../../public/logos/logo512.png';
-export const softwareList = [
-	{
-		name: 'Azure',
-		tools: 'DevOps, SAAS, IAAS',
-		image: { carbon1 },
-	},
-	{
-		name: 'GitHub',
-		tools: 'Dev, hosting, collab, Version Control',
-		image: { logo5 },
-	},
-	{
-		name: 'Jira',
-		tools: 'Dev, Planning, workflow, Kanban Board',
-		image: { logo180 },
-	},
-	{
-		name: 'Office 365',
-		tools: 'office, excel, powerpoint, Planning, Admin',
-		images: { bg7 },
-	},
-];
+
 const Software = () => {
+	const softwareList = [
+		{
+			name: 'Azure',
+			tools: 'DevOps, SAAS, IAAS',
+			image: { carbon1 },
+		},
+		{
+			name: 'GitHub',
+			tools: 'Dev, hosting, collab, Version Control',
+			image: { logo5 },
+		},
+		{
+			name: 'Jira',
+			tools: 'Dev, Planning, workflow, Kanban Board',
+			image: { logo180 },
+		},
+		{
+			name: 'Office 365',
+			tools: 'office, excel, powerpoint, Planning, Admin',
+			images: { bg7 },
+		},
+	];
 	return (
 		<section id='software'>
 			<div className='container px-5 py-10 mx-auto text-center'>
