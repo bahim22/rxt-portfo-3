@@ -15,10 +15,10 @@
 		"test:lint": "eslint \"src/**/*.{js,jsx}\"",
 		"test:lint-rules": "eslint src/components/*.js --config .eslintrc.json",
 		"clean": "rm dist/* && rm -rf dist/vendors && rm -rf dist/styles && rm -rf dist/src",
-		"test:webpack": "npx webpack --config webpack.dev.config.js",
-		"test:webpack-pro": "NODE_ENV=production npx webpack --config webpack.prod.config.js",
-		"build": "npx webpack build --config webpack.prod.config.js --mode production",
-		"dev": "npx webpack serve --config webpack.dev.config.js --mode development",
+		"test:webpack": "npx webpack --config webpack.dev.js",
+		"test:webpack-pro": "NODE_ENV=production npx webpack --config webpack.prod.js",
+		"build": "npx webpack build --config webpack.prod.js --mode production",
+		"dev": "npx webpack serve --config webpack.dev.js --mode development",
 		"test:jest": "jest",
 		"cypress:open": "cypress open"
 	},
@@ -113,10 +113,9 @@
 			"last 2 edge versions"
 		],
 		"development": [
-			"last 2 chrome versions",
-			"last 2 safari versions",
-			"last 2 edge versions",
-			"> 0.5%",
+			"last 1 chrome version",
+			"last 1 safari version",
+			"last 1 edge version",
 			"ie 10",
 			"not dead"
 		]

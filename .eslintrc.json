@@ -1,7 +1,7 @@
 {
     "env": {
         "browser": true,
-		"es2020": true,
+		"es2021": true,
         "node": true
 	},
     "settings": {
@@ -27,12 +27,12 @@
 	"ignorePatterns": [
 		"node_modules/"
 	],
-	"parser": "@babel/eslint-parser",
+	// "parser": "@babel/eslint-parser",
     "parserOptions": {
       "ecmaFeatures": {
           "jsx": true,
           "modules": true,
-		  "version": "2020",
+		  "version": "2021",
 		  "es6": true
 		//   "experimentalObjectRestSpread": true
         },
@@ -44,7 +44,7 @@
     "rules":
     {
 	  "react/react-in-jsx-scope": "off",
-	  "react/jsx-uses-react": "warn",
+	  "react/jsx-uses-react": "off",
 	  "react/jsx-uses-vars": "error",
 	  "react/jsx-no-bind": "off",
       "import/no-anonymous-default-export": "warn",
@@ -63,7 +63,7 @@
 	  "no-extra-semi":"off",
 	  "no-mixed-spaces-and-tabs": "off",
 	  "no-restricted-syntax": [
-		  "warn",
+		  "off",
 		  "SequenceExpression"
 		]
 	}

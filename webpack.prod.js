@@ -8,12 +8,16 @@ const ESLintPlugin = require('eslint-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
-process.env.NODE_ENV = 'production';
+process.env.NODE_ENV == 'production';
 
 module.exports = {
 	mode: 'production',
+	target: 'web',
+	resolve: {
+		extensions: ['.js', '.jsx'],
+	},
 	entry: {
-		main: './src/index.js',
+		main: '/src/index.js',
 	},
 	output: {
 		path: path.resolve(__dirname, 'dist'),
@@ -22,22 +26,35 @@ module.exports = {
 		filename: '[name].[chunkhash].js', // *? 'bundle.js'
 		clean: true,
 	},
-	devtool: 'source-map',
+	devtool: 'eval-cheap-source-map', //'inline-sourceMap', //
 	cache: true,
 	module: {
 		rules: [
 			{
-				test: /\.(js|jsx)$/,
-				exclude: /node_modules/,
+				test: /\.(m?js|js|jsx)$/i,
+				exclude: /(node_modules|bower_components)/,
 				use: {
 					loader: 'babel-loader',
 					options: {
+						exclude: [
+							/node_modules[\\/]core-js/,
+							/node_modules[\\/]core-js/,
+							/node_modules[\\/]webpack[\\/]buildin/,
+						],
 						presets: ['@babel/preset-env', '@babel/preset-react'],
+						plugins: [
+							'@babel/plugin-proposal-class-properties',
+							'@babel/plugin-syntax-dynamic-import',
+							'@babel/plugin-transform-runtime',
+							'@babel/plugin-transform-react-jsx',
+						],
+						cacheDirectory: true,
+						cacheCompression: true,
 					},
 				},
 			},
 			{
-				test: /\.css$/,
+				test: /\.css$/i,
 				use: [
 					MiniCssExtractPlugin.loader,
 					{
@@ -50,13 +67,6 @@ module.exports = {
 				],
 			},
 			{
-				test: /\.svg$/,
-				type: 'asset/resource',
-				/* generator: {
-					filename: 'images/[hash][ext]',
-				}, */
-			},
-			{
 				test: /\.(woff|woff2|eot|ttf|otf)$/i,
 				type: 'asset/inline',
 			},
@@ -67,24 +77,29 @@ module.exports = {
 		],
 	},
 	plugins: [
+		new webpack.DefinePlugin({
+			'process.env.NODE_ENV': JSON.stringify('production'),
+		}),
 		new ESLintPlugin({
 			lintDirtyModulesOnly: true,
 			fix: false,
+			extensions: ['.js', '.jsx'],
+			exclude: 'node_modules',
+			files: ['src/**/*.js', 'src/**/*.jsx'],
 			cache: true,
 			cacheLocation: './.eslintcache',
 			outputReport: true,
 		}),
 		new HtmlWebpackPlugin({
-			template: './public/index.html',
+			template: '/public/index.html',
 			filename: 'index.html',
-			favicon: './public/favicon2.ico',
+			favicon: '/public/favicon2.ico',
 			cache: true,
 			hash: true,
 			inject: true,
 			minify: {
 				removeComments: true,
 				collapseWhitespace: true,
-				keepClosingSlash: true,
 				minifyJS: true,
 				minifyCSS: true,
 			},
@@ -115,7 +130,7 @@ module.exports = {
 				minify: TerserPlugin.swcMinify,
 				terserOptions: {
 					compress: {},
-					ecma: 2020,
+					// ecma: 2020,
 					parse: {},
 					nameCache: {},
 					mangle: {},
@@ -145,8 +160,5 @@ module.exports = {
 	},
 	performance: {
 		// hints: 'warning',
-	},
-	resolve: {
-		extensions: ['.js', '.jsx'],
 	},
 };

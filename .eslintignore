@@ -2,6 +2,7 @@
 ./tailwind.config.js
 ./build
 ./dist
+./dist/bundle-report.html
 ./node_modules
 ./public
 ./tw.js
