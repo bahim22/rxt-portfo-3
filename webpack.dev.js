@@ -1,15 +1,15 @@
-const path = require('path');
+const Path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const ESLintPlugin = require('eslint-webpack-plugin');
 // const CopyWebpackPlugin = require('copy-webpack-plugin');
 
-process.env.NODE_ENV == 'development';
+process.env.NODE_ENV === 'development';
 
 module.exports = {
 	mode: 'development', // mode: {dev}
-	target: 'web',
+	// target: 'web',
 	externals: {
 		react: true,
 	},
@@ -27,12 +27,13 @@ module.exports = {
 	// 	main: './src/index.js',
 	// },
 	output: {
-		path: path.resolve(__dirname, 'dist'),
-		publicPath: '/', //* '/' | 'dist/
+		path: Path.resolve(__dirname, './dist'),
+		// publicPath: '/', //* '/' | 'dist/
 		// filename: '[name].[chunkhash].js',
 		filename: 'bundle.js',
 	},
-	devtool: 'source-map',
+	// devtool: 'source-map',
+	devtool: false,
 	cache: true,
 	// stats: 'detailed',
 	// stats: {
@@ -55,13 +56,13 @@ module.exports = {
 	// 	publicPath: true,
 	// },
 	devServer: {
-		host: 'localhost',
-		static: {
-			directory: path.resolve(__dirname, 'dist'),
-			// publicPath: '/',
-			serveIndex: true, //** from dist or public? */
-		},
-		port: 7222,
+		// host: 'localhost',
+		// static: {
+		// 	directory: path.resolve(__dirname, 'dist'),
+		// 	// publicPath: '/',
+		// 	// serveIndex: true, //** from dist or public? */
+		// },
+		// port: 7222,
 		client: {
 			logging: 'warn',
 			// reconnect: 10,
@@ -69,18 +70,24 @@ module.exports = {
 			// webSocketURL: 'auto://0.0.0.0:0/ws', // || 'ws://localhost:7222',
 		},
 		// webSocketServer: 'ws://localhost:7222',//* ? relation to express; useful?
-		allowedHosts: 'auto',
+		// allowedHosts: 'auto',
 		// watchFiles: ['public/**/*', 'src/**/*'],
-		// devMiddleware: {}, //* ? Learn more before using
+		// devMiddleware: {}, //* ? Learn more before using,
 		// headers: {
-		// 	'Access-Control-Allow-Origin': 'origin',
+		// 	'Access-Control-Allow-Origin': '*',
+		// 	'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
+		// 	'Access-Control-Allow-Headers': 'X-Requested-With, content-type, Authorization',
+		// 	'Access-Control-Expose-Headers': '*',
+		// },
+		// headers: {
+		// 	'Access-Control-Allow-Origin': 'crossorigin',
 		// 	'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
 		// 	'Access-Control-Allow-Credentials': true,
 		// 	'Access-Control-Max-Age': '3600',
 		// },
 		hot: true,
 		open: true,
-		compress: true,
+		// compress: true,
 		// server: {
 		// 	type: 'https',
 		// 	// options: {},
@@ -90,12 +97,13 @@ module.exports = {
 		}, */
 		// host: '0.0.0.0',
 		// historyApiFallback: true,
-		magicHtml: true,
+		// magicHtml: true,
 	},
 	module: {
 		rules: [
 			{
 				test: /\.(m?js|js|jsx)$/i,
+				include: Path.resolve(__dirname, './src'),
 				exclude: /(node_modules|bower_components)/,
 				use: {
 					loader: 'babel-loader',
@@ -148,7 +156,8 @@ module.exports = {
 			lintDirtyModulesOnly: true,
 			fix: false,
 			extensions: ['.js', '.jsx'],
-			files: ['src/**/*.js', 'src/**/*.jsx'],
+			// files: ['src/**/*.js', 'src/**/*.jsx'],
+			files: Path.resolve(__dirname, './src/**/*.js'),
 			exclude: 'node_modules',
 			// eslintPath: './.eslintrc.json',
 			// eslintPath: path.resolve(__dirname, 'eslintrc.json'),
@@ -159,13 +168,13 @@ module.exports = {
 		new HtmlWebpackPlugin({
 			fileName: 'index.html',
 			title: 'Dev Ded',
-			template: './public/index.html',
-			// template: path.resolve(__dirname, 'public', 'index.html'),
+			// template: './public/index.html',
+			template: Path.resolve(__dirname, './public', 'index.html'),
 			favicon: './public/logod2.ico',
 			cache: true,
 			// hash: true,
-			// inject: 'body',
-			// esModule: true,
+			inject: true,
+			esModule: true,
 			// minify: {
 			// 	collapseWhitespace: true,
 			// 	minifyJS: true,

@@ -15,10 +15,10 @@
 		"test:lint": "eslint \"src/**/*.{js,jsx}\"",
 		"test:lint-rules": "eslint src/components/*.js --config .eslintrc.json",
 		"clean": "rm dist/* && rm -rf dist/vendors && rm -rf dist/styles && rm -rf dist/src",
-		"test:webpack": "npx webpack --config webpack.dev.js",
+		"test:webpack": "webpack --config webpack.dev.js",
 		"test:webpack-pro": "NODE_ENV=production npx webpack --config webpack.prod.js",
 		"build": "npx webpack build --config webpack.prod.js --mode production",
-		"dev": "npx webpack serve --config webpack.dev.js --mode development",
+		"dev": "webpack serve --config webpack.dev.js --mode development",
 		"test:jest": "jest",
 		"cypress:open": "cypress open"
 	},
