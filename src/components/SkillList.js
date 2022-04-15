@@ -1,6 +1,5 @@
 // import JavascriptSharpIcon from '@mui/icons-material/JavascriptSharp'
 import glad from '../../public/carbon.png';
-import React from 'react';
 
 export const SkillInfo = [
 	{

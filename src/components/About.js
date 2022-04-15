@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 import hima from '../assets/hima.jpg';
 
 const About = () => {

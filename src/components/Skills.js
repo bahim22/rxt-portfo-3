@@ -1,5 +1,4 @@
 import { ChipIcon } from '@heroicons/react/solid';
-import React from 'react';
 import CssSharpIcon from '@mui/icons-material/CssSharp';
 import JavascriptSharpIcon from '@mui/icons-material/JavascriptSharp';
 // import PythonSharpIcon from '@mui/icons-material/PythonSharp'

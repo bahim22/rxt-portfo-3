@@ -1,4 +1,3 @@
-import React from 'react';
 import { CodeIcon } from '@heroicons/react/solid';
 import ProjectList from './ProjectList';
 import { projInfo } from './ProjectList';

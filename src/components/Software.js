@@ -1,4 +1,3 @@
-import React from 'react';
 import { TerminalIcon, UsersIcon } from '@heroicons/react/solid';
 import bg7 from '../../public/bg7.jpg';
 import carbon1 from '../../public/carbon.1.png';
