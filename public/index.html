@@ -2,14 +2,16 @@
 <html lang="en">
 
 <head>
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" >
+    <meta http-equiv="Content-Script-Type" content="text/html" >
+    <meta charset="UTF-8" >
+	<meta charset="content-type" content="text/html">
+	<meta http-equiv="Content-Security-Policy" content="form-action 'none'">
+	<meta http-equiv="Content-Security-Policy" content="default-src https:">
+
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1" />
 	<!-- <meta name="image" content="" /> -->
 	<!-- <meta name="image" content="" /> -->
-    <link rel="icon" href="/public/favicon2.ico" />
-    <link rel="shortcut icon" href="/public/favicon32.ico" />
-    <link rel="apple-touch-icon" href="/public/logod2.ico" />
     <meta name="description" content="A portfolio react app by Bahim22" />
     <meta name="author" content="Hima 'Dionysus' Balde" />
 	<meta name="keywords" content="react, webpack, babel, eslint, prettier, custom" />
@@ -20,6 +22,10 @@
     <meta property="og:title" content="Hima Balde Portfolio" />
     <meta property="og:description" content="Portfolio Project by Hima Dionysus Balde, using GitHub VCS in bahim22 profile." />
     <meta property="og:type" content="website" />
+
+    <link rel="icon" href="/public/favicon2.ico" />
+    <link rel="shortcut icon" href="/public/favicon32.ico" />
+    <link rel="apple-touch-icon" href="/public/logod2.ico" />
 	<link rel="manifest" href="/public/manifest.json" />
 	<!-- Bootstrap CSS -->
 	<!-- <link rel="stylesheet" href="/src/styles/bootstrap.css"/> -->
@@ -39,7 +45,8 @@
 		</noscript>
 		<div id="main">
 		</div>
-		<!-- <script src="../dist/main.[chunkhash].js"></script> -->
-		<script src="/dist/bundle.js"></script>
+		<!-- <script src="./dist/main.[chunkhash].js"></script> -->
+		<script content-type="Text/JavaScript" async="true" defer src="../dist/bundle.js"></script>
+		<!-- <script content-type="text/javaScript" async="true" defer src="/dist/main.[chunkhash].js" ></script> -->
 	</body>
 </html>

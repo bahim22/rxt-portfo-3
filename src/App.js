@@ -8,9 +8,9 @@ import Software from './components/Software';
 import Navbar from './components/Navbar';
 // import FormPro from '@/components/FormPro';
 
-export default function App() {
+function App() {
 	return (
-		<main>
+		<main className=''>
 			<Navbar />
 			<About />
 			<Projects />
@@ -22,4 +22,4 @@ export default function App() {
 	);
 }
 
-// export default App;
+export default App;

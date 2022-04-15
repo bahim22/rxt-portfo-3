@@ -4,6 +4,7 @@ node_modules
 # dependencies
 /node_modules
 /config
+./pages
 /.pnp
 .pnp.js
 config/.eslintrc.json

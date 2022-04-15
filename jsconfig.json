@@ -5,6 +5,6 @@
 			"@/*": ["./src/*"],
 		}
 	},
-	"include": ["src", "public"],
+	"include": ["src", "public", "pages"],
 	"exclude": ["node_modules",".git", "dist"],
 }
