@@ -5,6 +5,7 @@
 ./dist/bundle-report.html
 ./node_modules
 ./public
+,/pages
 ./tw.js
 ./webpack.config.js
 ./babelrc
