@@ -31,10 +31,10 @@
 			"flow"
 		]
 	},
-	// "generatorOpts": {
-	// 	"minified": true,
-	// 	"compact": true
-	// },
+	"generatorOpts": {
+		"minified": true,
+		"compact": true
+	},
 	"sourceType": "unambiguous",
 	"presets": [
 		[

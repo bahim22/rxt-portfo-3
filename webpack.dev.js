@@ -12,33 +12,29 @@ module.exports = {
 	target: 'web',
 	externals: {
 		react: true,
-		// 'react-native': true,
-		// 'react-dom': true,
 	},
 	resolve: {
 		extensions: ['*', '.js', '.jsx'],
-		alias: {
-			'@': path.resolve(__dirname, 'src'),
-			'@assets': path.resolve(__dirname, 'src/assets'),
-			'@styles': path.resolve(__dirname, 'src/styles'),
-		},
+		// alias: {
+		// 	'@': path.resolve(__dirname, 'src'),
+		// 	'@assets': path.resolve(__dirname, 'src/assets'),
+		// 	'@styles': path.resolve(__dirname, 'src/styles'),
+		// },
 		// modules: [path.resolve(__dirname, 'src'), path.resolve(__dirname, 'node_modules')],
 	},
-	// entry: './src/index.js', //path.resolve(__dirname, 'src', 'index.js'),
-	entry: {
-		main: './index.js',
-	},
+	entry: './src/index.js', //path.resolve(__dirname, 'src', 'index.js'),
+	// entry: {
+	// 	main: './src/index.js',
+	// },
 	output: {
-		// path: path.resolve(__dirname, 'dist'),
 		path: path.resolve(__dirname, 'dist'),
-		publicPath: 'auto', //* '/' | 'dist/
-		chunkFilename: '[name].[chunkhash].js',
-		filename: '[name].[chunkhash].js',
-		// filename: 'bundle.js',
+		publicPath: '/', //* '/' | 'dist/
+		// filename: '[name].[chunkhash].js',
+		filename: 'bundle.js',
 	},
 	devtool: 'source-map',
 	cache: true,
-	stats: 'detailed',
+	// stats: 'detailed',
 	// stats: {
 	// 	preset: 'detailed',
 	// 	cachedModules: true,
@@ -62,7 +58,7 @@ module.exports = {
 		host: 'localhost',
 		static: {
 			directory: path.resolve(__dirname, 'dist'),
-			publicPath: '/',
+			// publicPath: '/',
 			serveIndex: true, //** from dist or public? */
 		},
 		port: 7222,
@@ -76,13 +72,12 @@ module.exports = {
 		allowedHosts: 'auto',
 		// watchFiles: ['public/**/*', 'src/**/*'],
 		// devMiddleware: {}, //* ? Learn more before using
-		headers: {
-			'Access-Control-Allow-Origin': 'origin',
-			'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
-			'Access-Control-Allow-Headers': 'X-Requested-With, content-type Authorization',
-			'Access-Control-Allow-Credentials': true,
-			'Access-Control-Max-Age': '3600',
-		},
+		// headers: {
+		// 	'Access-Control-Allow-Origin': 'origin',
+		// 	'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
+		// 	'Access-Control-Allow-Credentials': true,
+		// 	'Access-Control-Max-Age': '3600',
+		// },
 		hot: true,
 		open: true,
 		compress: true,
@@ -111,7 +106,6 @@ module.exports = {
 							'@babel/plugin-proposal-class-properties',
 							'@babel/plugin-syntax-dynamic-import',
 							'@babel/plugin-transform-runtime',
-							'@babel/plugin-transform-react-jsx',
 						],
 						cacheDirectory: true,
 						cacheCompression: true,
@@ -165,12 +159,12 @@ module.exports = {
 		new HtmlWebpackPlugin({
 			fileName: 'index.html',
 			title: 'Dev Ded',
-			template: '/public/index.html',
+			template: './public/index.html',
 			// template: path.resolve(__dirname, 'public', 'index.html'),
-			favicon: '/public/logod2.ico',
+			favicon: './public/logod2.ico',
 			cache: true,
-			hash: true,
-			inject: true,
+			// hash: true,
+			// inject: 'body',
 			// esModule: true,
 			// minify: {
 			// 	collapseWhitespace: true,
