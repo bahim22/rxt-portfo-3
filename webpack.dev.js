@@ -2,7 +2,6 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-const ESLintPlugin = require('eslint-webpack-plugin');
 // const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 process.env.NODE_ENV === 'development';
@@ -29,7 +28,7 @@ module.exports = {
 	// devtool: 'source-map',
 	devtool: false,
 	// cache: true,
-	stats: true,
+	// stats: true,
 	// stats: {
 	// 	preset: 'detailed',
 	// 	cachedModules: true,
@@ -67,17 +66,13 @@ module.exports = {
 		// allowedHosts: 'auto',
 		// watchFiles: ['public/**/*', 'src/**/*'],
 		// devMiddleware: {}, //* ? Learn more before using,
-		headers: {
-			'Access-Control-Allow-Origin': '*',
-			'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
-			'Access-Control-Allow-Headers': 'X-Requested-With, content-type, Authorization',
-			'Access-Control-Expose-Headers': '*',
-			'Access-Control-Max-Age': '3600',
-		},
 		// headers: {
-		// 	'Access-Control-Allow-Origin': 'crossorigin',
+		// 	'Access-Control-Allow-Origin': '*',
 		// 	'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
+		// 	'Access-Control-Allow-Headers': 'X-Requested-With, content-type, Authorization',
+		// 	'Access-Control-Expose-Headers': '*',
 		// 	'Access-Control-Allow-Credentials': true,
+		// 	'Access-Control-Max-Age': '3600',
 		// },
 		hot: true,
 		open: true,
@@ -146,29 +141,16 @@ module.exports = {
 		new webpack.DefinePlugin({
 			'process.env.NODE_ENV': JSON.stringify('development'),
 		}),
-		new ESLintPlugin({
-			lintDirtyModulesOnly: true,
-			fix: false,
-			extensions: ['.js', '.jsx'],
-			// files: ['src/**/*.js', 'src/**/*.jsx'],
-			files: path.resolve(__dirname, 'src'),
-			exclude: 'node_modules',
-			// eslintPath: './.eslintrc.json',
-			// eslintPath: path.resolve(__dirname, 'eslintrc.json'),
-			cache: true,
-			cacheLocation: './.eslintcache',
-			outputReport: true,
-		}),
 		new HtmlWebpackPlugin({
 			fileName: 'index.html',
 			title: '419 Dev Ded',
 			// template: './public/index.html',
 			template: path.resolve(__dirname, 'public', 'index.html'),
 			favicon: 'public/logod2.ico',
-			cache: true,
+			// cache: true,
 			// hash: true,
-			inject: true,
-			esModule: true,
+			// inject: true,
+			// esModule: true,
 			// minify: {
 			// 	collapseWhitespace: true,
 			// 	minifyJS: true,

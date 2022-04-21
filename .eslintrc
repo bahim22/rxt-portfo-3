@@ -27,14 +27,12 @@
 	"ignorePatterns": [
 		"node_modules/"
 	],
-	"parser": "@babel/eslint-parser",
     "parserOptions": {
       "ecmaFeatures": {
           "jsx": true,
           "modules": true,
-		  "version": "2021",
-		  "babelOptions": "./babel.config.json",
-		  "experimentalObjectRestSpread": true
+		  "version": "2021"
+		//   "experimentalObjectRestSpread": true
         },
         "sourceType": "module",
         "react": {
