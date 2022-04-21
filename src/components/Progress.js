@@ -1,6 +1,6 @@
-import purp from '../../public/purp9.png';
-import check from '../../public/icons/check-circle.svg';
-import check2 from '../../public/icons/check.svg';
+import purp from '../assets/profile-bg.jpg';
+import check from '../assets/carbon.png';
+import check2 from '../assets/himacard.png';
 // import { Link } from 'react-router-dom';
 
 export const progressProjects = [

@@ -1,5 +1,5 @@
 import Hima from '../assets/hima.jpg';
-import Ded from '../../public/icons/rocket3.png';
+// import Ded from '../../public/icons/rocket3.png';
 
 const About = () => {
 	return (
@@ -36,7 +36,7 @@ const About = () => {
 				</div>
 				<div className='lg:max-w-lg lg:w-full md:w-1/2 w-5/6'>
 					<img className='object-cover object-center rounded' alt='hima b' src={Hima} />
-					<img className='profilepic' alt='dionysus era logo' src={Ded} />
+					{/* <img className='profilepic' alt='dionysus era logo' src={Ded} /> */}
 				</div>
 			</div>
 		</section>

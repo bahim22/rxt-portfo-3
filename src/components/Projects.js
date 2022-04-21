@@ -1,6 +1,6 @@
 import { CodeIcon } from '@heroicons/react/solid';
-import ProjectList from './ProjectList';
-import { projInfo } from './ProjectList';
+import ProjectList, { projInfo } from './ProjectList';
+// import { projInfo } from './ProjectList';
 
 const Projects = () => {
 	return (

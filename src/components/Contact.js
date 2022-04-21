@@ -2,8 +2,8 @@
 // import ContactForm from './ContactForm'
 
 const info = {
-	email: 'ibalde222@icloud.com',
-	cellPhone: '412-495-0760',
+	email: 'ab123@icloud.com',
+	cellPhone: '411-111-1111',
 };
 
 const Contact = () => {
