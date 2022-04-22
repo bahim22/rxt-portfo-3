@@ -1,7 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 // const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 process.env.NODE_ENV === 'development';
@@ -49,12 +49,16 @@ module.exports = {
 	// 	publicPath: true,
 	// },
 	devServer: {
+		open: true,
 		host: 'localhost',
-		static: {
-			directory: path.resolve(__dirname, 'dist'),
-			publicPath: '/',
-			// serveIndex: true, //** from dist or public? */
-		},
+	},
+	// devServer: {
+	// 	host: 'localhost',
+	// 	static: {
+	// 		directory: path.resolve(__dirname, 'dist'),
+	// 		publicPath: '/',
+	// 		// serveIndex: true, //** from dist or public? */
+	// 	},
 		// port: 7222,
 		// client: {
 		// 	logging: 'warn',
