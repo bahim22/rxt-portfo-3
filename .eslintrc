@@ -10,9 +10,7 @@
         }
     },
     "plugins": [
-		// "babel",
 		"react",
-		// "react-hooks",
 		"import",
 		"jsx-a11y",
 		"prettier"
