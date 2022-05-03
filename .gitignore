@@ -5,6 +5,8 @@ node_modules
 /node_modules
 /config
 /pages
+Docs
+desktop.ini
 /.pnp
 .pnp.js
 config/.eslintrc.json

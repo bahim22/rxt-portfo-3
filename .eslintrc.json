@@ -1,22 +1,15 @@
-{
-    "env": {
-        "browser": true,
+/* {
+	"env": {
+		"browser": true,
 		"es2021": true,
-        "node": true
+		"node": true
 	},
-    "settings": {
-        "react": {
-            "version": "detect"
-        }
-    },
-    "plugins": [
-		// "babel",
-		"react",
-		// "react-hooks",
-		"import",
-		"jsx-a11y",
-		"prettier"
-	],
+	"settings": {
+		"react": {
+			"version": "detect"
+		}
+	},
+	"plugins": ["import", "react", "jsx-a11y", "prettier"],
 	"extends": [
 		"eslint:recommended",
 		"plugin:react/recommended",
@@ -24,53 +17,73 @@
 		"plugin:jsx-a11y/recommended",
 		"plugin:prettier/recommended"
 	],
-	"ignorePatterns": [
-		"node_modules/"
-	],
-	"parser": "@babel/eslint-parser",
-    "parserOptions": {
-      "ecmaFeatures": {
-          "jsx": true,
-          "modules": true,
-		  "version": "2021",
-		  "babelOptions": "./babel.config.json",
-		  "experimentalObjectRestSpread": true
-        },
-        "sourceType": "module",
-        "react": {
-          "version": "detect"
-        }
-    },
-    "rules":
-    {
-	  "react/react-in-jsx-scope": "off",
-	  "react/jsx-uses-react": "off",
-	  "react/jsx-uses-vars": "error",
-	  "react/propTypes": "off",
-	  "no-restricted-properties":"off",
-	  "func-name-matching":"off",
-	  "quotes":"off",
-	  "no-duplicate-imports":"warn",
-	  "no-unused-vars":"warn",
-	  "react/jsx-no-bind": "off",
-      "import/no-anonymous-default-export": "warn",
-      "lines-around-comment":"off",
-      "no-inline-comments":"off",
-	  "no-confusing-arrow": [
+	"parserOptions": {
+		"ecmaFeatures": {
+			"jsx": true
+			// "modules": true,
+			// "version": "2021"
+		},
+		"sourceType": "module",
+		"react": {
+			"version": "detect"
+		}
+	},
+	"rules": {
+		// "react/react-in-jsx-scope": "off",
+		// "react/jsx-uses-react": "off",
+		//   "react/jsx-uses-vars": "error",
+		"react/propTypes": "off",
+		"no-restricted-properties": "off",
+		"func-name-matching": "off",
+		"quotes": "off",
+		"no-duplicate-imports": "warn",
+		"no-unused-vars": "off",
+		// "react/jsx-no-bind": "off",
+		"import/no-anonymous-default-export": "warn",
+		"lines-around-comment": "off",
+		"no-inline-comments": "off",
+		"no-confusing-arrow": [
 			"off",
 			{
 				"allowParens": true
 			}
 		],
-      "no-tabs": ["off", {"allowIndentationTabs": true}],
-	  "curly":"warn",
-	  "multiline-ternary":"off",
-	  "no-unexpected-multiline":"warn",
-	  "no-extra-semi":"off",
-	  "no-mixed-spaces-and-tabs": "off",
-	  "no-restricted-syntax": [
-		  "off",
-		  "SequenceExpression"
-		]
+		//   "no-tabs": ["off", {"allowIndentationTabs": true}],
+		"curly": "warn",
+		"multiline-ternary": "off",
+		//   "no-unexpected-multiline":"warn",
+		"no-extra-semi": "off",
+		"no-mixed-spaces-and-tabs": "off",
+		"no-restricted-syntax": ["off", "SequenceExpression"]
+	}
+}
+ */
+
+{
+	"env": {
+		"browser": true,
+		"es2021": true,
+		"node": true
+	},
+	"extends": ["eslint:recommended", "plugin:react/recommended", "prettier"],
+	"parserOptions": {
+		"ecmaFeatures": {
+			"jsx": true
+		},
+		"ecmaVersion": "latest",
+		"sourceType": "module"
+	},
+	"plugins": ["react"],
+	"rules": {
+		"react/react-in-jsx-scope": "off",
+		"import/no-anonymous-default-export": "off"
+		//"no-tabs": ["off", {"allowIndentationTabs": true}]
+		//"no-confusing-arrow": ["warning", { "allowParens": false }]
+	},
+	"ignorePatterns": ["node_modules/"],
+	"settings": {
+		"react": {
+			"version": "detect"
+		}
 	}
 }

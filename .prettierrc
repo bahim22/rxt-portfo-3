@@ -2,13 +2,11 @@
   "endOfLine": "lf",
   "printWidth": 120,
   "tabWidth": 4,
-  "useTabs": true,
+  "useTabs": false,
   "bracketSpacing": true,
   "trailingComma": "es5",
   "singleQuote": true,
-  "bracketSameLine": false,
+  "bracketSameLine": true,
   "jsxSingleQuote": true,
-  "proseWrap": "always",
-  "embeddedLanguageFormatting": "auto",
-  "htmlWhitespaceSensitivity": "css"
+  "proseWrap": "preserve"
 }

@@ -14,14 +14,10 @@
 const colors = require('tailwindcss/colors')
 
 module.exports = {
-	content: [
-		'./src/**/*.{html,js,jsx}', './components/**/*.{js,jsx}',
-		'./public/index.html'
-	],
-  exlude: [
-      "**/.git/**", "**/node_modules/**", "**/.hg/**", "**/.md/**", "**/.json/**", "**/package.json/**"
-    ],
+	content: ['./src/**/*.{js,jsx}', './components/**/*.{js,jsx}'],
+    exlude: ["**/.git/**", "**/node_modules/**"],
 	darkMode: 'class',
+    plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography'), require('@tailwindcss/aspect-ratio')],
 	theme: {
 		extend: {
 			spacing: {
@@ -170,6 +166,5 @@ module.exports = {
 				},
 			}),
 		},
-	},
-	plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography'), require('@tailwindcss/aspect-ratio')],
+	}
 }

@@ -6,7 +6,7 @@ import CodeIcon from '@mui/icons-material/Code';
 import HtmlSharpIcon from '@mui/icons-material/HtmlSharp';
 import SkillList from './SkillList';
 import GitHubIcon from '@mui/icons-material/GitHub';
-
+import React from 'react';
 /* const SkillCompo = () => {
 	return (
 		<div className='flex flex-wrap justify-center'>

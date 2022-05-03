@@ -1,4 +1,4 @@
-// import React from 'react';
+import React from 'react';
 import About from './components/About';
 import './App.css';
 import Contact from './components/Contact';
@@ -7,19 +7,22 @@ import Skills from './components/Skills';
 import Software from './components/Software';
 import Navbar from './components/Navbar';
 // import FormPro from '@/components/FormPro';
-
+import ProjMain from './components/ProjMain.js'
+import SkillList from './components/SkillList'
 function App() {
 	return (
-		<main className=''>
+		<main>
 			<Navbar />
 			<About />
 			<Projects />
+            <ProjMain />
+            <SkillList />
 			<Skills />
 			<Software />
 			{/* <FormPro /> */}
 			<Contact />
 		</main>
-	);
+	)
 }
 
 export default App;

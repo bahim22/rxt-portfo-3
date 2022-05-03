@@ -1,13 +1,16 @@
 ./postcss.config.js
-./tailwind.config.js
+# ./tailwind.config.js
 ./build
 ./dist
+./src/styles.css
 ./dist/bundle-report.html
 ./node_modules
 ./public
 ,/pages
 ./tw.js
 ./webpack.config.js
+./webpack.dev.js
+./webpack.prod.js
 ./babelrc
 ./prettierrc
 ./pages
@@ -18,3 +21,5 @@
 ,/prac
 ./data/HeadSec.js
 ./Docs
+./Docs/**/*
+./Docs/ContactForm.js

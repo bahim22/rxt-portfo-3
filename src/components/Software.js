@@ -1,30 +1,30 @@
 import { TerminalIcon, UsersIcon } from '@heroicons/react/solid';
-import bg7 from '../../public/bg7.jpg';
-import carbon1 from '../../public/carbon.1.png';
-import logo180 from '../../public/logos/logo180.png';
-import logo5 from '../../public/logos/logo512.png';
-
+// import bg7 from '../../public/bg7.jpg';
+// import carbon1 from '../../public/carbon.1.png';
+// import logo180 from '../../public/logos/logo180.png';
+// import logo5 from '../../public/logos/logo512.png';
+import React from 'react';
 const Software = () => {
 	const softwareList = [
 		{
 			name: 'Azure',
 			tools: 'DevOps, SAAS, IAAS',
-			image: { carbon1 },
+			image:'/public/img/himacard.png',
 		},
 		{
 			name: 'GitHub',
 			tools: 'Dev, hosting, collab, Version Control',
-			image: { logo5 },
+			image:'/public/img/himacard.png',
 		},
 		{
 			name: 'Jira',
 			tools: 'Dev, Planning, workflow, Kanban Board',
-			image: { logo180 },
+			image:'/public/img/himacard.png',
 		},
 		{
 			name: 'Office 365',
 			tools: 'office, excel, powerpoint, Planning, Admin',
-			images: { bg7 },
+			image:'/public/img/himacard.png',
 		},
 	];
 	return (

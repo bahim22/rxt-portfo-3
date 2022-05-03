@@ -4,26 +4,23 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
-const ESLintPlugin = require('eslint-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+// const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 process.env.NODE_ENV == 'production';
 
 module.exports = {
 	mode: 'production',
-	target: 'web',
+	// target: 'web',
 	resolve: {
 		extensions: ['.js', '.jsx'],
 	},
-	entry: {
-		main: '/src/index.js',
-	},
+	entry: 'src/index.js',
 	output: {
 		path: path.resolve(__dirname, 'dist'),
 		publicPath: '/', // *? '/dist'
 		chunkFilename: '[name].[chunkhash].js',
-		filename: '[name].[chunkhash].js', // *? 'bundle.js'
+		filename: 'bundle.js', // *? 'bundle.js'
 		clean: true,
 	},
 	devtool: 'eval-cheap-source-map', //'inline-sourceMap', //
@@ -36,18 +33,8 @@ module.exports = {
 				use: {
 					loader: 'babel-loader',
 					options: {
-						exclude: [
-							/node_modules[\\/]core-js/,
-							/node_modules[\\/]core-js/,
-							/node_modules[\\/]webpack[\\/]buildin/,
-						],
+						exclude: [/node_modules[\\/]core-js/, /node_modules[\\/]webpack[\\/]buildin/],
 						presets: ['@babel/preset-env', '@babel/preset-react'],
-						plugins: [
-							'@babel/plugin-proposal-class-properties',
-							'@babel/plugin-syntax-dynamic-import',
-							'@babel/plugin-transform-runtime',
-							'@babel/plugin-transform-react-jsx',
-						],
 						cacheDirectory: true,
 						cacheCompression: true,
 					},
@@ -80,23 +67,13 @@ module.exports = {
 		new webpack.DefinePlugin({
 			'process.env.NODE_ENV': JSON.stringify('production'),
 		}),
-		new ESLintPlugin({
-			lintDirtyModulesOnly: true,
-			fix: false,
-			extensions: ['.js', '.jsx'],
-			exclude: 'node_modules',
-			files: ['src/**/*.js', 'src/**/*.jsx'],
-			cache: true,
-			cacheLocation: './.eslintcache',
-			outputReport: true,
-		}),
 		new HtmlWebpackPlugin({
-			template: '/public/index.html',
+			template: 'public/index.html',
 			filename: 'index.html',
-			favicon: '/public/favicon2.ico',
+			favicon: 'public/favicon2.ico',
 			cache: true,
 			hash: true,
-			inject: true,
+			// inject: true,
 			minify: {
 				removeComments: true,
 				collapseWhitespace: true,
@@ -112,7 +89,7 @@ module.exports = {
 			chunkFilename: '[id].[contenthash].css',
 			// ignoreOrder: true,
 		}),
-		new CleanWebpackPlugin(),
+		// new CleanWebpackPlugin(),
 	],
 	optimization: {
 		nodeEnv: 'production',
@@ -129,15 +106,15 @@ module.exports = {
 				parallel: true,
 				minify: TerserPlugin.swcMinify,
 				terserOptions: {
-					compress: {},
-					// ecma: 2020,
-					parse: {},
-					nameCache: {},
-					mangle: {},
-					module: true,
-					include: /[\\/].min[\\/].js$/,
-					exclude: /[\\/]node_modules/,
+					// compress: {},
+					// // ecma: 2020,
+					// parse: {},
+					// nameCache: {},
+					// mangle: {},
+					// module: true,
 				},
+				// include: /[\\/].min[\\/].js$/,
+				// exclude: /[\\/]node_modules/,
 			}),
 		],
 		runtimeChunk: true,
