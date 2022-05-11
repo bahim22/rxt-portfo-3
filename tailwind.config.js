@@ -7,7 +7,6 @@ module.exports = {
 	darkMode: 'class',
     plugins: [
         require('@tailwindcss/forms'), require('@tailwindcss/typography'),
-        require('tailwindcss/colors'), require('tailwindcss/defaultTheme'),
         require('@tailwindcss/aspect-ratio')
     ],
 	theme: {
