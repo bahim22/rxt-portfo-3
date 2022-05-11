@@ -1,40 +1,32 @@
-// module.exports = {
-//   content: [
-//     "./pages/**/*.{js,ts,jsx,tsx}",
-//     "./components/**/*.{js,ts,jsx,tsx}",
-//   ],
-//   theme: {
-//     extend: {},
-//   },
-//   plugins: [
-//     require('@tailwindcss/typography'),
-//   ],
-// }
-//const defaultTheme = require('tailwindcss/defaultTheme')
+// const defaultTheme = require('tailwindcss/defaultTheme');
 const colors = require('tailwindcss/colors')
 
 module.exports = {
 	content: ['./src/**/*.{js,jsx}', './components/**/*.{js,jsx}'],
     exlude: ["**/.git/**", "**/node_modules/**"],
 	darkMode: 'class',
-    plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography'), require('@tailwindcss/aspect-ratio')],
+    plugins: [
+        require('@tailwindcss/forms'), require('@tailwindcss/typography'),
+        require('tailwindcss/colors'), require('tailwindcss/defaultTheme'),
+        require('@tailwindcss/aspect-ratio')
+    ],
 	theme: {
 		extend: {
 			spacing: {
-				'9/16': '56.25%',
+				'7/16': '43.75%',
 			},
 			lineHeight: {
-				11: '2.75rem',
-				12: '3rem',
-				13: '3.25rem',
-				14: '3.5rem',
+				11: '2.5rem',
+				12: '2.75rem',
+				13: '3.0rem',
+				14: '3.25rem',
 			},
 			fontFamily: {
-				sans: ['Inter'],
+				sans: ['Inter', 'Roboto'],
 			},
 			colors: {
-				primary: colors.teal,
-				gray: colors.neutral,
+				primary: colors.slate,
+				gray: colors.black,
 			},
 			typography: (theme) => ({
 				DEFAULT: {
@@ -66,21 +58,6 @@ module.exports = {
 						},
 						pre: {
 							backgroundColor: theme('colors.gray.800'),
-						},
-						code: {
-							color: theme('colors.pink.500'),
-							backgroundColor: theme('colors.gray.100'),
-							paddingLeft: '4px',
-							paddingRight: '4px',
-							paddingTop: '2px',
-							paddingBottom: '2px',
-							borderRadius: '0.25rem',
-						},
-						'code:before': {
-							content: 'none',
-						},
-						'code:after': {
-							content: 'none',
 						},
 						details: {
 							backgroundColor: theme('colors.gray.100'),
@@ -150,18 +127,6 @@ module.exports = {
 							backgroundColor: theme('colors.gray.400'),
 						},
 						strong: {color: theme('colors.gray.100')},
-						thead: {
-							color: theme('colors.gray.100'),
-						},
-						tbody: {
-							tr: {
-								borderBottomColor: theme('colors.gray.700'),
-							},
-						},
-						blockquote: {
-							color: theme('colors.gray.100'),
-							borderLeftColor: theme('colors.gray.700'),
-						},
 					},
 				},
 			}),

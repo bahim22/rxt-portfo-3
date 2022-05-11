@@ -1,10 +1,3 @@
-// import card from '../../public/himacard.png';
-// import ism from '../../public/ismPic.webp';
-// import ism2 from '../../public/ismHome.png';
-// import bg7 from '../../public/bg7.jpg';
-// import bb from '../../public/bbman.png';
-// import mapPro from '../../public/MapProject.png';
-// import rocket from '../../public/icons/rocket.svg';
 
 
 export const ProjectList = [
@@ -47,7 +40,7 @@ export const ProjectList = [
             subtitle: 'auth-react-azure',
             id: 'raz',
             description: 'React App with TypeScript using Azure AD to authenticate users.',
-            image: '/logos/logo512.png',
+            image: '/img/logo512.png',
             link: 'https://github.com/bahim22/auth-react-azure',
         },
         {

@@ -16,32 +16,32 @@
             "type": "image/x-icon"
         },
         {
-            "src": "/logo180.png",
+            "src": "logo180.png",
             "sizes": "192x192 180x180",
             "type": "image/png"
         },
         {
-            "src": "/logo192.png",
+            "src": "logo192.png",
             "sizes": "192x192 300x300",
             "type": "image/png"
         },
         {
-            "src": "/logo512.png",
+            "src": "logo512.png",
             "sizes": "512x512 300x300",
             "type": "image/png"
         },
         {
-            "src": "/logo320.png",
+            "src": "logo320.png",
             "sizes": "512x512 320x320",
             "type": "image/png"
         },
         {
-            "src": "/logo678.png",
+            "src": "logo678.png",
             "sizes": "512x512 600x600",
             "type": "image/png"
         },
         {
-            "src": "/logoDed.png",
+            "src": "/ogoDed.png",
             "sizes": "1000x600 600x600 800x800",
             "type": "image/png"
         }

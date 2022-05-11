@@ -1,5 +1,6 @@
 import { ProjectList } from '../ProjectList'
 import React from 'react';
+
 const ProjMain = () => {
     return (
         <div className='container'>
@@ -14,6 +15,11 @@ const ProjMain = () => {
                                     GitHub
                                 </a>
                             </div>
+                            <img
+                                src={project.image}
+                                alt='gallery'
+                                className='w-40 flex-shrink-0 object-cover object-center'
+                            />
                         </div>
                     </div>
                 ))}

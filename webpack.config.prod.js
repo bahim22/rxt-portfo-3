@@ -15,26 +15,29 @@ module.exports = {
 	resolve: {
 		extensions: ['.js', '.jsx'],
 	},
-	entry: 'src/index.js',
+    // entry: {
+    //     main: './src/index.js',
+    // },
+    entry: path.resolve(__dirname, 'src', 'index.js'),
 	output: {
 		path: path.resolve(__dirname, 'dist'),
-		publicPath: '/', // *? '/dist'
+		// publicPath: '/', // *? '/dist'
 		chunkFilename: '[name].[chunkhash].js',
 		filename: 'bundle.js', // *? 'bundle.js'
 		clean: true,
 	},
-	devtool: 'eval-cheap-source-map', //'inline-sourceMap', //
+	// devtool: 'eval-cheap-source-map', //'inline-sourceMap', //
 	cache: true,
 	module: {
 		rules: [
 			{
 				test: /\.(m?js|js|jsx)$/i,
 				exclude: /(node_modules|bower_components)/,
+                // test: /\.(js|jsx)$/,
+                // exclude: /node_modules/,
 				use: {
 					loader: 'babel-loader',
 					options: {
-						exclude: [/node_modules[\\/]core-js/, /node_modules[\\/]webpack[\\/]buildin/],
-						presets: ['@babel/preset-env', '@babel/preset-react'],
 						cacheDirectory: true,
 						cacheCompression: true,
 					},
@@ -53,6 +56,30 @@ module.exports = {
 					'postcss-loader',
 				],
 			},
+            { test: /\.txt$/, use: 'raw-loader' },
+            {
+                test: /\.html$/,
+                use: [
+                    {
+                        loader: 'html-loader',
+                    },
+                ],
+            },
+                        {
+                test: /\.svg$/,
+                use: 'file-loader',
+            },
+            {
+                test: /\.png$/,
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            mimetype: 'image/png',
+                        },
+                    },
+                ],
+            },
 			{
 				test: /\.(woff|woff2|eot|ttf|otf)$/i,
 				type: 'asset/inline',
@@ -68,11 +95,11 @@ module.exports = {
 			'process.env.NODE_ENV': JSON.stringify('production'),
 		}),
 		new HtmlWebpackPlugin({
-			template: 'public/index.html',
+            template: path.join(__dirname, 'public', 'index.html'),
 			filename: 'index.html',
-			favicon: 'public/favicon2.ico',
+			favicon: './public/favicon2.ico',
 			cache: true,
-			hash: true,
+			// hash: true,
 			// inject: true,
 			minify: {
 				removeComments: true,

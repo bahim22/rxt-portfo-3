@@ -16,9 +16,9 @@ function App() {
 			<About />
 			<Projects />
             <ProjMain />
-            <SkillList />
 			<Skills />
 			<Software />
+            <SkillList />
 			{/* <FormPro /> */}
 			<Contact />
 		</main>

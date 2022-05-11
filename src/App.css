@@ -115,7 +115,7 @@ nav ul li {
 		margin-right: 10%;
 		font-family: Verdana, Geneva, Tahoma, sans-serif;
 		font-size: 18px;
-		text-emphasis-color: rgb(168, 54, 54);
+		/* text-emphasis-color: rgb(168, 54, 54); */
 	}
  .App {
 		margin: auto;

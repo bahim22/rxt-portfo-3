@@ -1,7 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
-// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 // const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
@@ -13,10 +13,6 @@ module.exports = {
     resolve: {
         extensions: ['.js', '.jsx'],
     },
-    // entry: path.resolve(__dirname, 'src', 'index.js'),
-    // entry: {
-    //     main: './src/index.js',
-    // },
     entry: path.resolve(__dirname, 'src', 'index.js'),
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -24,48 +20,17 @@ module.exports = {
         // filename: '[name].[chunkhash].js',
         filename: 'bundle.js',
     },
-    // devtool: 'source-map',
-    // cache: true,
-    stats: true,
-    // stats: {
-    // 	preset: 'detailed',
-    // 	cachedModules: true,
-    // 	cachedAssets: true,
-    // 	env: true,
-    // 	errorDetails: true,
-    // 	entrypoints: true,
-    // 	outputPath: true,
-    // 	runtimeModules: true,
-    // 	version: true,
-    // 	usedExports: false,
-    // 	logging: true,
-    // 	loggingTrace: true,
-    // 	modules: false,
-    // 	// modulesSort: 'size',
-    // 	errors: true,
-    // 	errorStack: true,
-    // 	publicPath: true,
-    // },
+    devtool: 'source-map',
+    cache: true,
+    // stats: true,
     devServer: {
         hot: true,
         port: 7222,
     },
+    // open: true,
+    // historyApiFallback: true,
+    // compress: true,
     // host: 'localhost',
-    // static: {
-    // 	directory: path.resolve(__dirname, 'dist'),
-    // 	publicPath: '/',
-    // 	// serveIndex: true, //** from dist or public? */
-    // },
-    // client: {
-    // 	logging: 'warn',
-    // 	// reconnect: 10,
-    // 	progress: true,
-    // 	// webSocketURL: 'auto://0.0.0.0:0/ws', // || 'ws://localhost:7222',
-    // },
-    // webSocketServer: 'ws://localhost:7222',//* ? relation to express; useful?
-    // allowedHosts: 'auto',
-    // watchFiles: ['public/**/*', 'src/**/*'],
-    // devMiddleware: {}, //* ? Learn more before using,
     // headers: {
     //     'Access-Control-Allow-Origin': '*',
     //     'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
@@ -73,20 +38,6 @@ module.exports = {
     //     'Access-Control-Expose-Headers': '*',
     //     'Access-Control-Max-Age': '3600',
     //     'Access-Control-Allow-Credentials': true,
-    // },
-    //* may need to set these for content type
-    // server: {
-    // 	type: 'https',
-    // 	// options: {},
-    // },
-    /* setupMiddlewares: (middlewares, options) => {
-            //* ? Learn more before using; Express w/ nodemailer?
-		}, */
-    // open: true,
-    // historyApiFallback: true,
-    // compress: true,
-    // host: '0.0.0.0',
-    // magicHtml: true,
     // },
     module: {
         rules: [
@@ -98,9 +49,6 @@ module.exports = {
                 },
                 // loader: 'babel-loader',
                 // options: {
-                // 	// exclude: [/node_modules[\\/]core-js/, /node_modules[\\/]webpack[\\/]buildin/],
-                // 	exclude: /node_modules/,
-                // 	presets: ['@babel/preset-env', '@babel/preset-react'],
                 // 	// cacheDirectory: true,
                 // 	// cacheCompression: true,
                 // },
@@ -178,15 +126,15 @@ module.exports = {
             // template: './public/index.html',
             template: path.join(__dirname, 'public', 'index.html'),
             favicon: './public/logod2.ico',
-            // cache: true,
+            cache: true,
             // 	// hash: true,
             // inject: true,
             // 	// esModule: true,
-            // 	// minify: {
-            // 	// 	collapseWhitespace: true,
-            // 	// 	minifyJS: true,
-            // 	// 	minifyCSS: true,
-            // 	// },
+            minify: {
+                collapseWhitespace: true,
+                minifyJS: true,
+                minifyCSS: true,
+            },
         }),
         // new CopyWebpackPlugin({
         // 	patterns: [
@@ -201,19 +149,19 @@ module.exports = {
         new webpack.BannerPlugin({
             banner: 'Hima Balde Dev Webpack Setup 2022',
         }),
-        // new BundleAnalyzerPlugin({
-        // 	// analyzerMode: 'static',
-        // 	// openAnalyzer: false,
-        // 	// reportFilename: 'bundle-report.html',
-        // 	generateStatsFile: true,
-        // 	statsFilename: 'bundle-stats.json',
-        // }),
+        new BundleAnalyzerPlugin({
+        analyzerMode: 'static',
+        openAnalyzer: true,
+        reportFilename: 'bundle-report.html',
+        generateStatsFile: true,
+        statsFilename: 'bundle-stats.json',
+        }),
     ],
-    // optimization: {
-    // 	nodeEnv: 'development',
-    // 	// minimize: true,
-    // },
-    performance: {
-        hints: 'warning',
+    optimization: {
+    nodeEnv: 'development',
+    minimize: true,
     },
+    // performance: {
+    //     hints: 'warning',
+    // },
 };
