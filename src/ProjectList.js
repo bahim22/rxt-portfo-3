@@ -47,7 +47,7 @@ export const ProjectList = [
             subtitle: 'auth-react-azure',
             id: 'raz',
             description: 'React App with TypeScript using Azure AD to authenticate users.',
-            image: '/logo512.png',
+            image: '/logos/logo512.png',
             link: 'https://github.com/bahim22/auth-react-azure',
         },
         {

@@ -23,7 +23,7 @@
 		"dev": "npx webpack serve --config webpack.config.dev.js --mode=development",
 		"build:prod": "webpack --mode=production --node-env=production",
 		"watch": "webpack --watch",
-		"build:dev": "webpack --mode development",
+		"build:dev": "npx webpack --mode development",
 		"serve": "webpack serve --mode development",
 		"test:jest": "jest",
 		"cypress:open": "cypress open"

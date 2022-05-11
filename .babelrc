@@ -1,6 +1,18 @@
+// {
+// 	"presets": ["@babel/preset-env", "@babel/preset-react"],
+// 	"plugins": ["@babel/plugin-syntax-dynamic-import", "@babel/plugin-proposal-class-properties"]
+// }
 {
-	"presets": ["@babel/preset-env", "@babel/preset-react"],
-	"plugins": ["@babel/plugin-syntax-dynamic-import", "@babel/plugin-proposal-class-properties"]
+    "presets": [
+        [
+            "@babel/preset-env",
+            {
+                "modules": "auto"
+            }
+        ],
+        "@babel/preset-react"
+    ],
+    "plugins": ["@babel/plugin-syntax-dynamic-import", "@babel/plugin-proposal-class-properties"]
 }
 
 // {
@@ -8,7 +20,7 @@
 // 		[
 // 			"@babel/preset-env",
 // 			{
-// 				"modules": "true"
+// 				"modules": "auto"
 // 			}
 // 		],
 // 		[
@@ -29,4 +41,3 @@
 // 		]
 // 	}
 // }
-

@@ -1,6 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-// const webpack = require('webpack');
+const webpack = require('webpack');
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 // const CopyWebpackPlugin = require('copy-webpack-plugin');
 
@@ -10,9 +10,9 @@ module.exports = {
     // externals: {
     // 	react: true,
     // },
-    // resolve: {
-    // 	extensions: ['.js', '.jsx'],
-    // },
+    resolve: {
+        extensions: ['.js', '.jsx'],
+    },
     // entry: path.resolve(__dirname, 'src', 'index.js'),
     // entry: {
     //     main: './src/index.js',
@@ -50,43 +50,43 @@ module.exports = {
         hot: true,
         port: 7222,
     },
-        // host: 'localhost',
-        // static: {
-        // 	directory: path.resolve(__dirname, 'dist'),
-        // 	publicPath: '/',
-        // 	// serveIndex: true, //** from dist or public? */
-        // },
-        // client: {
-        // 	logging: 'warn',
-        // 	// reconnect: 10,
-        // 	progress: true,
-        // 	// webSocketURL: 'auto://0.0.0.0:0/ws', // || 'ws://localhost:7222',
-        // },
-        // webSocketServer: 'ws://localhost:7222',//* ? relation to express; useful?
-        // allowedHosts: 'auto',
-        // watchFiles: ['public/**/*', 'src/**/*'],
-        // devMiddleware: {}, //* ? Learn more before using,
-        // headers: {
-        //     'Access-Control-Allow-Origin': '*',
-        //     'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
-        //     'Access-Control-Allow-Headers': 'X-Requested-With, content-type, Authorization',
-        //     'Access-Control-Expose-Headers': '*',
-        //     'Access-Control-Max-Age': '3600',
-        //     'Access-Control-Allow-Credentials': true,
-        // },
-        //* may need to set these for content type
-        // server: {
-        // 	type: 'https',
-        // 	// options: {},
-        // },
-        /* setupMiddlewares: (middlewares, options) => {
+    // host: 'localhost',
+    // static: {
+    // 	directory: path.resolve(__dirname, 'dist'),
+    // 	publicPath: '/',
+    // 	// serveIndex: true, //** from dist or public? */
+    // },
+    // client: {
+    // 	logging: 'warn',
+    // 	// reconnect: 10,
+    // 	progress: true,
+    // 	// webSocketURL: 'auto://0.0.0.0:0/ws', // || 'ws://localhost:7222',
+    // },
+    // webSocketServer: 'ws://localhost:7222',//* ? relation to express; useful?
+    // allowedHosts: 'auto',
+    // watchFiles: ['public/**/*', 'src/**/*'],
+    // devMiddleware: {}, //* ? Learn more before using,
+    // headers: {
+    //     'Access-Control-Allow-Origin': '*',
+    //     'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
+    //     'Access-Control-Allow-Headers': 'X-Requested-With, content-type, Authorization',
+    //     'Access-Control-Expose-Headers': '*',
+    //     'Access-Control-Max-Age': '3600',
+    //     'Access-Control-Allow-Credentials': true,
+    // },
+    //* may need to set these for content type
+    // server: {
+    // 	type: 'https',
+    // 	// options: {},
+    // },
+    /* setupMiddlewares: (middlewares, options) => {
             //* ? Learn more before using; Express w/ nodemailer?
 		}, */
-        // open: true,
-        // historyApiFallback: true,
-        // compress: true,
-        // host: '0.0.0.0',
-        // magicHtml: true,
+    // open: true,
+    // historyApiFallback: true,
+    // compress: true,
+    // host: '0.0.0.0',
+    // magicHtml: true,
     // },
     module: {
         rules: [
@@ -116,19 +116,19 @@ module.exports = {
             }, //updated
             {
                 // test: /[\\/].(css)$/,
+                // use: ['style-loader', 'css-loader'],
                 test: /\.css$/,
-                use: ['style-loader', 'css-loader'],
-                // use: [
-                //     'style-loader',
-                //     {
-                //         loader: 'css-loader',
-                //         options: {
-                //             importLoaders: 1,
-                //             // sourceMap: true,
-                //         },
-                //     },
-                //     'postcss-loader',
-                // ],
+                use: [
+                    'style-loader',
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            importLoaders: 1,
+                            // sourceMap: true,
+                        },
+                    },
+                    'postcss-loader',
+                ],
             },
             {
                 test: /\.svg$/,
@@ -163,18 +163,20 @@ module.exports = {
         // new webpack.DefinePlugin({
         //     'process.env.NODE_ENV': JSON.stringify('development'),
         // }),
-        // new HtmlWebpackPlugin({
-        // 	templateContent: ({ htmlWebpackPlugin }) =>
-        // 		'<!DOCTYPE html><html><head><meta charset="utf-8"><title>' +
-        // 		htmlWebpackPlugin.options.title +
-        // 		'</title></head><body><div id="root"></div></body></html>',
-        // 	filename: '[olddev].html',
-        // }),
+        new HtmlWebpackPlugin({
+            templateContent: ({ htmlWebpackPlugin }) =>
+                '<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, height=device-height, shrink-to-fit=no"><title>' +
+                htmlWebpackPlugin.options.title +
+                '</title></head><body><div id="root"></div></body></html>',
+            favicon: './public/logod2.ico',
+            filename: '[olddev].html',
+        }),
         new HtmlWebpackPlugin({
             fileName: 'index.html',
             title: '419 Dev Ded',
             // template: './public/index.html',
-            template: path.resolve(__dirname, 'public', 'index.html'),
+            // template: './public/index.html',
+            template: path.join(__dirname, 'public', 'index.html'),
             favicon: './public/logod2.ico',
             // cache: true,
             // 	// hash: true,
@@ -196,9 +198,9 @@ module.exports = {
         // 		},
         // 	],
         // }),
-        // new webpack.BannerPlugin({
-        // 	banner: 'Hima Balde Dev Webpack Setup 2022',
-        // }),
+        new webpack.BannerPlugin({
+            banner: 'Hima Balde Dev Webpack Setup 2022',
+        }),
         // new BundleAnalyzerPlugin({
         // 	// analyzerMode: 'static',
         // 	// openAnalyzer: false,

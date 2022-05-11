@@ -8,7 +8,7 @@ import Software from './components/Software';
 import Navbar from './components/Navbar';
 // import FormPro from '@/components/FormPro';
 import ProjMain from './components/ProjMain.js'
-import SkillList from './components/SkillList'
+import SkillList from './SkillList'
 function App() {
 	return (
 		<main>
