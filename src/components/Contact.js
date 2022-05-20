@@ -34,6 +34,9 @@ const Contact = () => {
 						</a>
 						<h2 className='title-font font-semibold text-white tracking-widest text-xs'>Phone Number</h2>
 						<p className='leading-snug'>{info.cellPhone}</p>
+                        <a href='https://g.page/r/CXfswPHp0DDEEAE/review' className='text-slate-500 leading-relaxed'>
+                            google review
+                        </a>
 					</div>
 				</div>
 			</div>

@@ -6,9 +6,11 @@ import Projects from './components/Projects';
 import Skills from './components/Skills';
 import Software from './components/Software';
 import Navbar from './components/Navbar';
-// import FormPro from '@/components/FormPro';
 import ProjMain from './components/ProjMain.js'
 import SkillList from './SkillList'
+// import FormPro from './FormPro';
+// import ContactForm from './ContactForm';
+
 function App() {
 	return (
 		<main>
@@ -20,6 +22,7 @@ function App() {
 			<Software />
             <SkillList />
 			{/* <FormPro /> */}
+            {/* <ContactForm /> */}
 			<Contact />
 		</main>
 	)

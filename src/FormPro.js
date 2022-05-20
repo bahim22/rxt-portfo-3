@@ -1,7 +1,10 @@
 import { useState } from 'react';
 import axios from 'axios';
-import '../styles/formik.css';
-const key = process.env.KEY;
+import './styles/formik.css';
+// const key = process.env.KEY;
+const Key = process.env.REACT_APP_FORM_ID;
+// const key = process.env.REACT_APP_FORM_ID;
+const projectId = process.env.REACT_APP_PROJID;
 
 const FormPro = () => {
 	const [status, setStatus] = useState({
@@ -46,24 +49,25 @@ const FormPro = () => {
 		e.preventDefault();
 		setStatus((prevStatus) => ({ ...prevStatus, submitting: true }));
 		axios({
-			method: 'POST',
-			url: `https://formspree.io/f/${key}`,
-			data: inputs,
-		})
-			// eslint-disable-next-line no-unused-vars
-			.then((response) => {
-				handleServerResponse(true, 'Message Submitted Successfully. Thank you!');
-			})
-			.catch((error) => {
-				handleServerResponse(false, error.response.data.error);
-			});
+            method: 'POST',
+            // url: `https://formspree.io/f/${key}`,
+            url: `${Key}`,
+            data: inputs,
+        })
+            // eslint-disable-next-line no-unused-vars
+            .then((response) => {
+                handleServerResponse(true, 'Message Submitted Successfully. Thank you!');
+            })
+            .catch((error) => {
+                handleServerResponse(false, error.response.data.error);
+            });
 	};
 	return (
 		<main>
 			<header>
 				<div>
 					<img src='https://i.imgur.com/qkdpN.png' alt='logo' />
-					<img src='/src/assets/himacard.png' alt='logo card' />
+					<img src='assets/himacard.png' alt='logo card' />
 				</div>
 				<h1>Contact Me Today</h1>
 			</header>

@@ -1,8 +1,11 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-// const CopyWebpackPlugin = require('copy-webpack-plugin');
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+
+process.env.NODE_ENV == 'development';
+const isDev = process.env.NODE_ENV == 'development';
 
 module.exports = {
     mode: 'development', // mode: {dev}
@@ -26,32 +29,32 @@ module.exports = {
     devServer: {
         hot: true,
         port: 7222,
+        historyApiFallback: true,
+        headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
+            'Access-Control-Allow-Headers': 'X-Requested-With, content-type, Authorization',
+            'Access-Control-Expose-Headers': '*',
+            'Access-Control-Max-Age': '3600',
+            'Access-Control-Allow-Credentials': true,
+        },
     },
     // open: true,
-    // historyApiFallback: true,
     // compress: true,
     // host: 'localhost',
-    // headers: {
-    //     'Access-Control-Allow-Origin': '*',
-    //     'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
-    //     'Access-Control-Allow-Headers': 'X-Requested-With, content-type, Authorization',
-    //     'Access-Control-Expose-Headers': '*',
-    //     'Access-Control-Max-Age': '3600',
-    //     'Access-Control-Allow-Credentials': true,
-    // },
     module: {
         rules: [
             {
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
                 use: {
+                    // loader: 'babel-loader',
                     loader: 'babel-loader',
+                    options: {
+                        cacheDirectory: true,
+                        cacheCompression: false,
+                    },
                 },
-                // loader: 'babel-loader',
-                // options: {
-                // 	// cacheDirectory: true,
-                // 	// cacheCompression: true,
-                // },
             },
             { test: /\.txt$/, use: 'raw-loader' },
             {
@@ -72,10 +75,15 @@ module.exports = {
                         loader: 'css-loader',
                         options: {
                             importLoaders: 1,
-                            // sourceMap: true,
+                            sourceMap: false,
                         },
                     },
-                    'postcss-loader',
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+
+                        }
+                    }
                 ],
             },
             {
@@ -122,9 +130,9 @@ module.exports = {
         new HtmlWebpackPlugin({
             fileName: 'index.html',
             title: '419 Dev Ded',
+            template: './public/index.html',
             // template: './public/index.html',
-            // template: './public/index.html',
-            template: path.join(__dirname, 'public', 'index.html'),
+            // template: path.join(__dirname, 'public', 'index.html'),
             favicon: './public/logod2.ico',
             cache: true,
             // 	// hash: true,
@@ -136,26 +144,26 @@ module.exports = {
                 minifyCSS: true,
             },
         }),
-        // new CopyWebpackPlugin({
-        // 	patterns: [
-        // 		{
-        // 			from: 'src/assets',
-        // 			globOptions: {
-        // 				ignore: ['*.js', '*.css'],
-        // 			},
-        // 		},
-        // 	],
-        // }),
+        new CopyWebpackPlugin({
+        	patterns: [
+        		{
+        			from: 'src/assets',
+        			globOptions: {
+        				ignore: ['*.js', '*.css'],
+        			},
+        		},
+        	],
+        }),
         new webpack.BannerPlugin({
             banner: 'Hima Balde Dev Webpack Setup 2022',
         }),
-        new BundleAnalyzerPlugin({
-        analyzerMode: 'static',
-        openAnalyzer: true,
-        reportFilename: 'bundle-report.html',
-        generateStatsFile: true,
-        statsFilename: 'bundle-stats.json',
-        }),
+        // new BundleAnalyzerPlugin({
+        // analyzerMode: 'static',
+        // // openAnalyzer: true,
+        // reportFilename: 'bundle-report.html',
+        // generateStatsFile: true,
+        // statsFilename: 'bundle-stats.json',
+        // }),
     ],
     optimization: {
     nodeEnv: 'development',

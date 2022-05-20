@@ -21,7 +21,7 @@ export const SkillInfo = [
         Skills: ['ES6', 'ES5', 'JSX', 'TypeScript', 'JSON'],
         Id: '1',
         Time: '2 years',
-        image: '/img/himaPropng.png',
+        image: '/assets/himaPropng.png',
     },
     {
         Name: 'HTML5 and CSS3',
@@ -30,7 +30,7 @@ export const SkillInfo = [
         Skills: ['HTML5', 'CSS3', 'Bootstrap', 'Material-UI', 'TailwindCss'],
         Id: '2',
         Time: '2 years',
-        image: '/img/himaPropng.png',
+        image: '/assets/himaPropng.png',
     },
     {
         Name: 'Python',
@@ -39,7 +39,7 @@ export const SkillInfo = [
         Skills: ['Django'],
         Id: '3',
         Time: '2 years',
-        image: '/img/crbnNxtBoil.png',
+        image: '/assets/crbnNxtBoil.png',
     },
 ];
 

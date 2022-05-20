@@ -2,6 +2,7 @@
 # ./tailwind.config.js
 ./build
 ./dist
+.env
 ./src/styles.css
 ./dist/bundle-report.html
 ./node_modules
