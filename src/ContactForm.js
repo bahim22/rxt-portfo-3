@@ -1,12 +1,15 @@
-// import { useForm, ValidationError, FormspreeProvider } from '@formspree/react';
-import '../styles/formik.css';
-// import React from 'react';
+import { useForm, ValidationError, FormspreeProvider } from '@formspree/react';
+import './styles/formik.css';
+import React from 'react';
+// import { useState } from 'react';
 // import mail from 'assets/icons/mail.svg'
-// const formKey = process.env.REACT_APP_FORM_ID
-// const projectId = process.env.REACT_APP_PROJECT_ID
+const key = process.env.REACT_APP_FORM_ID
+// const key = process.env.REACT_APP_KEY;
+// const projectId = process.env.REACT_APP_PROJID
 
 const ContactForm = () => {
-	const [state, handleSubmit] = useForm('contactForm');
+	// const [state, handleSubmit] = useForm('contactForm');
+	const [state, handleSubmit] = useForm(`${key}`);
 
 	if (state.succeeded) {
 		return <p>Thanks for Submitting</p>;
@@ -27,8 +30,7 @@ const ContactForm = () => {
 				<label htmlFor='email'>Message</label>
 				<textarea
 					id='message'
-					// @ts-ignore
-					type='message'
+					// type='message'
 					name='message'
 					required
 				></textarea>

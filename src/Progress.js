@@ -6,31 +6,31 @@ export const progress = [
         title: 'Athena',
         id: 'ath',
         description: 'React based JS website with custom styling and tool config.',
-        image: '/img/ismHome.png',
+        image: '/ismHome.png',
     },
     {
         title: 'Ded-py',
         id: 'py',
         description: 'React based JS website with custom styling and tool config.',
-        image: '/img/ismHome.png',
+        image: '/ismHome.png',
     },
     {
         title: 'Prisma GraphQL API',
         description: 'Prisma GraphQL API using MongoDb.',
-        image: '/img/bg7.jpg',
+        image: '/bg7.jpg',
         link: 'https://github.com/bahim22/waves-prisma',
     },
     {
         title: 'Athena',
         id: 'ath',
         description: 'React based JS website with custom styling and tool config.',
-        image: '/img/logo512.png',
+        image: '/logo512.png',
     },
     {
         title: 'Ded-py',
         id: 'py',
         description: 'React based JS website with custom styling and tool config.',
-        image: '/img/logo678.png',
+        image: '/logo678.png',
     }
 ];
 

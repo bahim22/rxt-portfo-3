@@ -5,15 +5,18 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 process.env.NODE_ENV == 'production';
+const isProduction = process.env.NODE_ENV == 'production';
 
 module.exports = {
-    mode: 'production',
+    // mode: 'production',
+    mode: isProduction,
     // target: 'web',
     resolve: {
-        extensions: ['.js', '.jsx']
+        extensions: ['.js', '.jsx'],
         // fallback:[
         //     { "path": false },
         //     { "os": false }
@@ -25,13 +28,14 @@ module.exports = {
     entry: path.resolve(__dirname, 'src', 'index.js'),
     output: {
         path: path.resolve(__dirname, 'dist'),
-        // publicPath: '/', // *? '/dist'
+        publicPath: '/', // *? '/dist'
         chunkFilename: '[name].[chunkhash].js',
         // filename: 'bundle.js', // *? 'bundle.js'
-        filename: 'main.[chunkhash].js',
+        // filename: 'main.[chunkhash].js',
+        filename: 'js/[name].[contenthash].bundle.js',
         clean: true,
     },
-    // devtool: 'eval-cheap-source-map', //'inline-sourceMap', //
+    devtool: 'eval-cheap-source-map', //'inline-sourceMap', // false,
     cache: true,
     module: {
         rules: [
@@ -44,7 +48,7 @@ module.exports = {
                     loader: 'babel-loader',
                     options: {
                         cacheDirectory: true,
-                        cacheCompression: true,
+                        cacheCompression: false,
                     },
                 },
             },
@@ -58,6 +62,8 @@ module.exports = {
                         loader: 'css-loader',
                         options: {
                             importLoaders: 1,
+                            sourceMap: false,
+                            // modules: false,
                         },
                     },
                     {
@@ -83,18 +89,18 @@ module.exports = {
                 use: [
                     {
                         loader: 'url-loader',
-                        options: {
-                            mimetype: 'image/png',
-                        },
+                        // options: {
+                        //     mimetype: 'image/png',
+                        // },
                     },
                 ],
             },
             {
-                test: /\.(woff|woff2|eot|ttf|otf)$/i,
+                test: /\.(woff|woff2|eot|ttf|otf)$/,
                 type: 'asset/inline',
             },
             {
-                test: /\.(?:ico|png|jpg|jpeg|webp|svg)$/i,
+                test: /\.(?:ico|png|jpg|jpeg|webp|svg)$/,
                 type: 'asset/resource',
             },
         ],
@@ -108,11 +114,12 @@ module.exports = {
             filename: 'index.html',
             favicon: './public/favicon2.ico',
             cache: true,
-            // hash: true,
-            // inject: true,
+            hash: true,
+            inject: true,
             minify: {
-                // removeComments: true,
+                removeComments: true,
                 collapseWhitespace: true,
+                removeRedundantAttributes: true,
                 minifyJS: true,
                 minifyCSS: true,
             },
@@ -126,6 +133,17 @@ module.exports = {
             // ignoreOrder: true,
         }),
         new CleanWebpackPlugin(),
+        new CopyWebpackPlugin({
+            patterns: [
+                {
+                    from: path.resolve(__dirname, 'public'),
+                    // to: 'assets',
+                    globOptions: {
+                        ignore: ['*.js', '*.css'],
+                    },
+                },
+            ],
+        }),
     ],
     optimization: {
         nodeEnv: 'production',
@@ -149,8 +167,8 @@ module.exports = {
                     // mangle: {},
                     // module: true,
                 },
-                include: /[\\/].min[\\/].js$/,
-                exclude: /[\\/]node_modules/,
+                // include: /[\\/].min[\\/].js$/,
+                // exclude: /[\\/]node_modules/,
             }),
         ],
         runtimeChunk: true,
@@ -163,17 +181,29 @@ module.exports = {
             maxInitialRequests: 20, // for HTTP2
             maxAsyncRequests: 20, // for HTTP2
             cacheGroups: {
-                // vendors: {
-                //     test: /[\\/]node_modules[\\/][\\/]vendors[\\/]|[\\/]@tailwindcss[\\/]|[\\/]@fortawesome[\\/]|[\\/]@emotionreact[\\/]|[\\/]@emotion[\\/]|[\\/]@mui/,
-                //     name: false,
-                //     chunks: 'all',
-                //     enforce: true,
-                // },
-                defaultVendors: {
-                idHint: 'vendors',
-                reuseExistingChunk: true,
-                filename: 'vendors/[name].bundle.js',
+                vendors: {
+                    test: /[\\/]node_modules[\\/][\\/]vendors[\\/]|[\\/]@tailwindcss[\\/]|[\\/]@fortawesome[\\/]|[\\/]@emotionreact[\\/]|[\\/]@emotion[\\/]|[\\/]@mui/,
+                    name: false,
+                    chunks: 'all',
+                    enforce: true,
                 },
+                defaultVendors: {
+                    test: /[\\/]node_modules[\\/]/,
+                    priority: -10,
+                    reuseExistingChunk: true,
+                    idHint: 'vendors',
+                    filename: 'vendors/[name].bundle.js',
+                },
+                default: {
+                    minChunks: 2,
+                    priority: -20,
+                    reuseExistingChunk: true,
+                },
+                // defaultVendors: {
+                // idHint: 'vendors',
+                // reuseExistingChunk: true,
+                // filename: 'vendors/[name].bundle.js',
+                // },
                 // ? prob don't need this due to minicss
                 // styles: {
                 //     name: 'styles',
