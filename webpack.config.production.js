@@ -9,11 +9,11 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 process.env.NODE_ENV == 'production';
-const isProduction = process.env.NODE_ENV == 'production';
+// const isProduction = process.env.NODE_ENV == 'production';
 
 module.exports = {
-    // mode: 'production',
-    mode: isProduction,
+    mode: 'production',
+    // mode: isProduction,
     // target: 'web',
     resolve: {
         extensions: ['.js', '.jsx'],
@@ -89,20 +89,24 @@ module.exports = {
                 use: [
                     {
                         loader: 'url-loader',
-                        // options: {
-                        //     mimetype: 'image/png',
-                        // },
+                        options: {
+                            mimetype: 'image/png',
+                        },
                     },
                 ],
-            },
-            {
-                test: /\.(woff|woff2|eot|ttf|otf)$/,
-                type: 'asset/inline',
             },
             {
                 test: /\.(?:ico|png|jpg|jpeg|webp|svg)$/,
                 type: 'asset/resource',
             },
+            // {
+            //     test: /\.(woff|woff2|eot|ttf|otf)$/,
+            //     type: 'asset/inline',
+            // },
+            // {
+            //     test: /\.(?:ico|png|jpg|jpeg|webp|svg)$/,
+            //     type: 'asset/resource',
+            // },
         ],
     },
     plugins: [

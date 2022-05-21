@@ -1,4 +1,4 @@
-import { ProjectList } from '../ProjectList'
+import { ProjectList } from '../ProjectList';
 import React from 'react';
 
 const ProjMain = () => {

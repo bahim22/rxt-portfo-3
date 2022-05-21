@@ -16,14 +16,15 @@
 		"test:lint-rules": "eslint src/components/*.js --config .eslintrc.json",
 		"clean": "rm dist/* && rm -rf dist/vendors && rm -rf dist/styles && rm -rf dist/src",
 		"configtest": "npx webpack configtest webpack.config.production.js",
+		"configtest2": "npx webpack configtest webpack.config.development.js",
 		"prodTest:webp": "NODE_ENV=production npx webpack --config webpack.config.production.js --mode production --node-env production",
 		"build": "NODE_ENV=production webpack build --config webpack.config.production.js --mode=production",
 		"build:prod": "NODE_ENV=production npx webpack --config webpack.config.production.js --mode production --node-env production",
 		"build:prod2": "NODE_ENV=production npx webpack --mode production --node-env production --config webpack.config.production.js",
-		"devTest:webp": "npx webpack --config webpack.config.dev.js --mode development --node-env development",
-		"devTest:Stats": "webpack --mode=development --node-env development --config webpack.config.dev.js --stats-error-details=true",
-		"devTest:wp-stats": "webpack --config webpack.config.dev.js --stats-error-details=true",
-		"dev": "npx webpack serve --config webpack.config.dev.js --mode=development",
+		"devTest:webp": "npx webpack --config webpack.config.development.js --mode development --node-env development",
+		"devTest:Stats": "webpack --mode=development --node-env development --config webpack.config.development.js --stats-error-details=true",
+		"devTest:wp-stats": "webpack --config webpack.config.development.js --stats-error-details=true",
+		"dev": "npx webpack serve --config webpack.config.development.js --mode=development",
 		"serve": "webpack serve --mode development",
 		"build:dev": "npx webpack --mode development"
 	},
@@ -97,7 +98,7 @@
 		"webpack": "^5.72.0",
 		"webpack-bundle-analyzer": "^4.5.0",
 		"webpack-cli": "^4.9.2",
-		"webpack-dev-server": "^4.8.1"
+		"webpack-development-server": "^4.8.1"
 	},
 	"browserslist": {
 		"production": [

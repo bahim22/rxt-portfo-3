@@ -6,27 +6,27 @@ const softwareList = [
     {
         name: 'Azure',
         tools: 'DevOps, SAAS, IAAS',
-        image:'/img/himacard.png',
+        image: '/himacard.png',
     },
     {
         name: 'GitHub',
         tools: 'Dev, hosting, collab, Version Control',
-        image:'/img/himacard.png',
+        image: '/himacard.png',
     },
     {
         name: 'Jira',
         tools: 'Dev, Planning, workflow, Kanban Board',
-        image:'/img/himacard.png',
+        image: '/himacard.png',
     },
     {
         name: 'Office 365',
         tools: 'office, excel, powerpoint, Planning, Admin',
-        image:'/img/himacard.png',
+        image: '/himacard.png',
     },
 ];
 
 const Software = () => {
-	return (
+    return (
         <section id='software'>
             <div className='container px-5 py-10 mx-auto text-center'>
                 <UsersIcon className='w-10 inline-block mb-4' />
@@ -37,15 +37,14 @@ const Software = () => {
                             <div className='h-full bg-gray-800 bg-opacity-40 p-8 rounded'>
                                 {<TerminalIcon className='block w-8 text-gray-100 mb-4' />}
                                 <p className='leading-relaxed mb-6'>{a.tools}</p>
-                                    <h2 className='text-gray-100 text-sm uppercase'>{a.name}</h2>
+                                <h2 className='text-gray-100 text-sm uppercase'>{a.name}</h2>
                                 <div className='inline-flex'>
                                     <img
                                         src={a.image}
                                         alt='software'
                                         className='w-40 flex-shrink-0 object-cover object-center'
                                     />
-                                    <span className='flex-grow flex flex-col pl-4'>
-                                    </span>
+                                    <span className='flex-grow flex flex-col pl-4'></span>
                                 </div>
                             </div>
                         </div>

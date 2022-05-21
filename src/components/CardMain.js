@@ -9,30 +9,30 @@ import Typography from '@mui/material/Typography';
 // convert to module with props for skill list mapping
 
 function CardMain() {
-	return (
-		<Card sx={{ maxWidth: 345 }}>
-			<CardMedia
-				sx={{ height: 0, paddingTop: '56.25%' }}
-				component='img'
-				height='140'
-				image='../assets/himacard.png'
-				title='Skills List'
-			/>
-			<CardContent>
-				<Typography gutterBottom variant='h5' component='h2'>
-					JavaScript (ES6, ES5); JSX (JavaScript + XML)
-				</Typography>
-				<Typography variant='body2' color='textSecondary' component='p'>
-					JavaScript is a programming language that conforms to the ECMAScript specification.
-				</Typography>
-			</CardContent>
-			<CardActions>
-				<Button size='small' color='primary'>
-					Learn More
-				</Button>
-			</CardActions>
-		</Card>
-	);
+    return (
+        <Card sx={{ maxWidth: 345 }}>
+            <CardMedia
+                sx={{ height: 0, paddingTop: '56.25%' }}
+                component='img'
+                height='140'
+                image='../assets/himacard.png'
+                title='Skills List'
+            />
+            <CardContent>
+                <Typography gutterBottom variant='h5' component='h2'>
+                    JavaScript (ES6, ES5); JSX (JavaScript + XML)
+                </Typography>
+                <Typography variant='body2' color='textSecondary' component='p'>
+                    JavaScript is a programming language that conforms to the ECMAScript specification.
+                </Typography>
+            </CardContent>
+            <CardActions>
+                <Button size='small' color='primary'>
+                    Learn More
+                </Button>
+            </CardActions>
+        </Card>
+    );
 }
 
 export default CardMain;

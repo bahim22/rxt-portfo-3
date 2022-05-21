@@ -1,14 +1,46 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true
+        // "node": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "plugin:import/errors",
+        "plugin:jsx-a11y/recommended",
+        "prettier"
+    ],
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+            // "modules": true,
+            // "version": "2021"
+        },
+        "ecmaVersion": "latest",
+        "sourceType": "module"
+    },
+    "plugins": ["react"],
+    "rules": {
+        "react/react-in-jsx-scope": "off",
+        "import/no-anonymous-default-export": "off",
+        "no-duplicate-imports": "warn",
+        "no-unused-vars": "off",
+        "no-undef":"off"
+        //"no-tabs": ["off", {"allowIndentationTabs": true}]
+        //"no-confusing-arrow": ["warning", { "allowParens": false }]
+    },
+    // "ignorePatterns": ["node_modules/"],
+    "ignorePatterns": [
+        "node_modules/"
+    ],
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
+    }
+}
 /* {
-	"env": {
-		"browser": true,
-		"es2021": true,
-		"node": true
-	},
-	"settings": {
-		"react": {
-			"version": "detect"
-		}
-	},
 	"plugins": ["import", "react", "jsx-a11y", "prettier"],
 	"extends": [
 		"eslint:recommended",
@@ -59,34 +91,3 @@
 }
  */
 
-{
-	"env": {
-		"browser": true,
-		"es11": true
-		// "node": true
-	},
-	"extends": ["eslint:recommended", "plugin:react/recommended", "prettier"],
-	"parserOptions": {
-		"ecmaFeatures": {
-			"jsx": true
-		}
-		// "ecmaVersion": "latest",
-		// "sourceType": "module"
-	},
-	"plugins": ["react"],
-	"rules": {
-		"react/react-in-jsx-scope": "off",
-		"import/no-anonymous-default-export": "off"
-		//"no-tabs": ["off", {"allowIndentationTabs": true}]
-		//"no-confusing-arrow": ["warning", { "allowParens": false }]
-	},
-	// "ignorePatterns": ["node_modules/"],
-    "ignorePatterns": [
-		"node_modules/"
-	],
-	"settings": {
-		"react": {
-			"version": "detect"
-		}
-	}
-}
