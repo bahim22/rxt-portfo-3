@@ -19,8 +19,8 @@ function App() {
             <Projects />
             <ProjMain />
             <Skills />
-            <Software />
             <SkillList />
+            <Software />
             <Contact />
         </main>
     );

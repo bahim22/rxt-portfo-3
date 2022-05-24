@@ -1,11 +1,11 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
-// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 process.env.NODE_ENV == 'development';
-const isDev = process.env.NODE_ENV == 'development';
+// const isDev = process.env.NODE_ENV == 'development';
 
 module.exports = {
     mode: 'development', // mode: {dev}
@@ -80,10 +80,10 @@ module.exports = {
                     },
                     {
                         loader: 'postcss-loader',
-                        options: {
+                        // options: {
 
-                        }
-                    }
+                        // }
+                    },
                 ],
             },
             {
@@ -101,10 +101,6 @@ module.exports = {
                     },
                 ],
             },
-            // {
-            // 	test: /\.svg$/,
-            // 	type: 'asset/resource',
-            // },
             {
                 test: /\.(?:ico|png|jpg|jpeg|webp|svg)$/,
                 type: 'asset/resource',
@@ -116,16 +112,20 @@ module.exports = {
         ],
     },
     plugins: [
-        // new webpack.DefinePlugin({
-        //     'process.env.NODE_ENV': JSON.stringify('development'),
-        // }),
+        new webpack.DefinePlugin({
+            'process.env.NODE_ENV': JSON.stringify('development'),
+        }),
         new HtmlWebpackPlugin({
             templateContent: ({ htmlWebpackPlugin }) =>
                 '<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, height=device-height, shrink-to-fit=no"><title>' +
                 htmlWebpackPlugin.options.title +
                 '</title></head><body><div id="root"></div></body></html>',
+            // template: path.resolve(__dirname, 'public', 'index.html'),
             favicon: './public/logod2.ico',
-            filename: '[olddev].html',
+            filename: 'dev.html',
+            cache: true,
+            hash: true,
+            inject: true,
         }),
         new HtmlWebpackPlugin({
             fileName: 'index.html',
@@ -145,14 +145,14 @@ module.exports = {
             },
         }),
         new CopyWebpackPlugin({
-        	patterns: [
-        		{
-        			from: 'src/assets',
-        			globOptions: {
-        				ignore: ['*.js', '*.css'],
-        			},
-        		},
-        	],
+            patterns: [
+                {
+                    from: 'src/assets',
+                    globOptions: {
+                        ignore: ['*.js', '*.css'],
+                    },
+                },
+            ],
         }),
         new webpack.BannerPlugin({
             banner: 'Hima Balde Dev Webpack Setup 2022',
@@ -166,8 +166,8 @@ module.exports = {
         // }),
     ],
     optimization: {
-    nodeEnv: 'development',
-    minimize: true,
+        nodeEnv: 'development',
+        minimize: true,
     },
     // performance: {
     //     hints: 'warning',

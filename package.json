@@ -3,7 +3,7 @@
 	"version": "4.0.0",
 	"main": "index.js",
 	"license": "MIT",
-	"description": "Hima Dionysus Balde React.js Portfolio Website that highlights my coding journey thus far.",
+	"description": "Hima Dionysus Balde customized and optimized React.js Portfolio Web App.",
 	"scripts": {
 		"lint:pretest": "eslint \"src/**/*.{js,jsx}\"",
 		"lint:fix": "eslint \"src/**/*.{js,jsx}\" --fix",
@@ -15,18 +15,17 @@
 		"test:lint": "eslint \"src/**/*.{js,jsx}\"",
 		"test:lint-rules": "eslint src/components/*.js --config .eslintrc.json",
 		"clean": "rm dist/* && rm -rf dist/vendors && rm -rf dist/styles && rm -rf dist/src",
-		"configtest": "npx webpack configtest webpack.config.production.js",
-		"configtest2": "npx webpack configtest webpack.config.development.js",
-		"prodTest:webp": "NODE_ENV=production npx webpack --config webpack.config.production.js --mode production --node-env production",
-		"build": "NODE_ENV=production webpack build --config webpack.config.production.js --mode=production",
-		"build:prod": "NODE_ENV=production npx webpack --config webpack.config.production.js --mode production --node-env production",
-		"build:prod2": "NODE_ENV=production npx webpack --mode production --node-env production --config webpack.config.production.js",
+
+		"configtestpro": "npx webpack configtest webpack.config.production.js",
+		"configtestdev": "npx webpack configtest webpack.config.development.js",
+
+        "build": "NODE_ENV=production npx webpack build --config webpack.config.production.js --mode production --node-env production",
+
+		"devTest:Stats": "npx webpack --mode=development --node-env development --config webpack.config.development.js --stats-error-details=true",
+		"devTest:wp-stats": "npx webpack --config webpack.config.development.js --stats-error-details=true",
 		"devTest:webp": "npx webpack --config webpack.config.development.js --mode development --node-env development",
-		"devTest:Stats": "webpack --mode=development --node-env development --config webpack.config.development.js --stats-error-details=true",
-		"devTest:wp-stats": "webpack --config webpack.config.development.js --stats-error-details=true",
-		"dev": "npx webpack serve --config webpack.config.development.js --mode=development",
-		"serve": "webpack serve --mode development",
-		"build:dev": "npx webpack --mode development"
+		"devServ": "npx webpack serve --config webpack.config.development.js --mode development",
+        "proServ": "serve -s dist"
 	},
 	"repository": {
 		"url": "https://github.com/bahim22/rxt-portfo-3"

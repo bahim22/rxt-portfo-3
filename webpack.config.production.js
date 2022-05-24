@@ -28,14 +28,14 @@ module.exports = {
     entry: path.resolve(__dirname, 'src', 'index.js'),
     output: {
         path: path.resolve(__dirname, 'dist'),
-        publicPath: '/', // *? '/dist'
+        // publicPath: '/', // *? '/dist'
         chunkFilename: '[name].[chunkhash].js',
         // filename: 'bundle.js', // *? 'bundle.js'
         // filename: 'main.[chunkhash].js',
-        filename: 'js/[name].[contenthash].bundle.js',
+        filename: '[name].[contenthash].bundle.js',
         clean: true,
     },
-    devtool: 'eval-cheap-source-map', //'inline-sourceMap', // false,
+    devtool: false, //'eval-cheap-source-map', //'inline-sourceMap', // false,
     cache: true,
     module: {
         rules: [
@@ -53,7 +53,7 @@ module.exports = {
                 },
             },
             {
-                test: /\.css$/i,
+                test: /\.css$/,
                 use: [
                     {
                         loader: MiniCssExtractPlugin.loader,
@@ -63,7 +63,6 @@ module.exports = {
                         options: {
                             importLoaders: 1,
                             sourceMap: false,
-                            // modules: false,
                         },
                     },
                     {
@@ -102,11 +101,7 @@ module.exports = {
             // {
             //     test: /\.(woff|woff2|eot|ttf|otf)$/,
             //     type: 'asset/inline',
-            // },
-            // {
-            //     test: /\.(?:ico|png|jpg|jpeg|webp|svg)$/,
-            //     type: 'asset/resource',
-            // },
+            // }
         ],
     },
     plugins: [
@@ -114,19 +109,20 @@ module.exports = {
             'process.env.NODE_ENV': JSON.stringify('production'),
         }),
         new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, 'public', 'index.html'),
+            // template: path.resolve(__dirname, 'public', 'index.html'),
+            template: './public/index.html',
             filename: 'index.html',
-            favicon: './public/favicon2.ico',
+            favicon: './public/logod2.ico',
             cache: true,
-            hash: true,
-            inject: true,
             minify: {
-                removeComments: true,
                 collapseWhitespace: true,
-                removeRedundantAttributes: true,
                 minifyJS: true,
                 minifyCSS: true,
+                // removeRedundantAttributes: true,
+                // removeComments: true,
             },
+            // hash: true,
+            // inject: true,
         }),
         new webpack.BannerPlugin({
             banner: 'Hima Balde Production Setup 2022',
@@ -140,8 +136,7 @@ module.exports = {
         new CopyWebpackPlugin({
             patterns: [
                 {
-                    from: path.resolve(__dirname, 'public'),
-                    // to: 'assets',
+                    from: 'src/assets',
                     globOptions: {
                         ignore: ['*.js', '*.css'],
                     },
@@ -203,22 +198,10 @@ module.exports = {
                     priority: -20,
                     reuseExistingChunk: true,
                 },
-                // defaultVendors: {
-                // idHint: 'vendors',
-                // reuseExistingChunk: true,
-                // filename: 'vendors/[name].bundle.js',
-                // },
-                // ? prob don't need this due to minicss
-                // styles: {
-                //     name: 'styles',
-                //     test: /\.css$/,
-                //     chunks: 'all',
-                //     enforce: true,
-                // },
             },
         },
-    },
-    performance: {
+    }
+    // performance: {
         // hints: 'warning',
-    },
+    // },
 };
