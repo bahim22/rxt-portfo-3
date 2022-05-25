@@ -79,28 +79,29 @@ module.exports = {
                 ],
             },
             {
-                test: /\.svg$/,
-                use: 'file-loader',
-            },
-            {
                 test: /\.png$/,
                 use: [
                     {
                         loader: 'url-loader',
                         options: {
                             mimetype: 'image/png',
+                            limit: 10000,
                         },
                     },
                 ],
             },
             {
+                test: /\.svg$/,
+                use: 'file-loader',
+            },
+            {
                 test: /\.(?:ico|png|jpg|jpeg|webp|svg)$/,
                 type: 'asset/resource',
             },
-            // {
-            //     test: /\.(woff|woff2|eot|ttf|otf)$/,
-            //     type: 'asset/inline',
-            // }
+            {
+                test: /\.(woff|woff2|eot|ttf|otf)$/,
+                type: 'asset/inline',
+            },
         ],
     },
     plugins: [

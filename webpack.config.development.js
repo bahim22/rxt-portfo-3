@@ -53,6 +53,7 @@ module.exports = {
                     options: {
                         cacheDirectory: true,
                         cacheCompression: false,
+                        // presets: ['@babel/preset-env', '@babel/preset-react'],
                     },
                 },
             },

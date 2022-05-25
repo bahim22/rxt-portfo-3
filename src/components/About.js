@@ -1,5 +1,3 @@
-// import Hima from '../assets/hima.jpg';
-// import Ded from '../../public/icons/rocket3.png';
 import React from 'react';
 
 const About = () => {
@@ -35,13 +33,12 @@ const About = () => {
                 </div>
                 <div className='lg:max-w-lg lg:w-full md:w-1/2 w-5/6'>
                     <img
-                        className=' object-cover object-center rounded'
+                        className='object-cover object-center rounded'
                         alt='hima b'
                         src='/hima.jpg'
-                        width='500'
-                        height='600'
+                        width='100%'
+                        height='300'
                     />
-                    {/* <img className='profilepic' alt='dionysus era logo' src={Ded} /> */}
                 </div>
             </div>
         </section>
