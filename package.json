@@ -3,7 +3,7 @@
 	"version": "4.0.0",
 	"main": "index.js",
 	"license": "MIT",
-	"description": "Hima Dionysus Balde React.js Portfolio Website that highlights my coding journey thus far.",
+	"description": "Hima Dionysus Balde customized and optimized React.js Portfolio Web App.",
 	"scripts": {
 		"lint:pretest": "eslint \"src/**/*.{js,jsx}\"",
 		"lint:fix": "eslint \"src/**/*.{js,jsx}\" --fix",
@@ -14,21 +14,16 @@
 		"test:espretty2": "npx eslint-config-prettier App.js components/About.js components/FormPro.js",
 		"test:lint": "eslint \"src/**/*.{js,jsx}\"",
 		"test:lint-rules": "eslint src/components/*.js --config .eslintrc.json",
-		"clean": "rm dist/* && rm -rf dist/vendors && rm -rf dist/styles && rm -rf dist/src",
-        "configtest": "npx webpack configtest webpack.config.production.js",
-		"prodTest:webp": "NODE_ENV=production npx webpack --config webpack.config.production.js --mode production --node-env production",
-		"build": "NODE_ENV=production webpack build --config webpack.config.production.js --mode=production",
-		"build:prod": "NODE_ENV=production npx webpack --config webpack.config.production.js --mode production --node-env production",
-		"build:prod2": "NODE_ENV=production npx webpack --mode production --node-env production --config webpack.config.production.js",
-		"devTest:webp": "npx webpack --config webpack.config.dev.js --mode development --node-env development",
-		"devTest:Stats": "webpack --mode=development --node-env development --config webpack.config.dev.js --stats-error-details=true",
-		"devTest:wp-stats": "webpack --config webpack.config.dev.js --stats-error-details=true",
-		"dev": "npx webpack serve --config webpack.config.dev.js --mode=development",
-		"watch": "webpack --watch",
-		"build:dev": "npx webpack --mode development",
-		"serve": "webpack serve --mode development",
-		"test:jest": "jest",
-		"cypress:open": "cypress open"
+		"clean": "rm dist/* && rm -rf dist/**/*",
+		"clean2": "rm dist/* && rm dist/vendors && rm dist/styles && rm dist/src",
+		"configtestpro": "npx webpack configtest webpack.config.production.js",
+		"configtestdev": "npx webpack configtest webpack.config.development.js",
+
+        "build": "NODE_ENV=production npx webpack build --config webpack.config.production.js --mode production --node-env production",
+
+		"devStats2": "npx webpack --mode=development --node-env development --config webpack.config.development.js --stats-error-details=true",
+		"devServ": "npx webpack serve --config webpack.config.development.js --mode development --node-env development",
+        "proServ": "serve -s dist"
 	},
 	"repository": {
 		"url": "https://github.com/bahim22/rxt-portfo-3"
@@ -52,6 +47,7 @@
 		"@emotion/react": "latest",
 		"@emotion/styled": "latest",
 		"@fontsource/roboto": "latest",
+		"@formspree/react": "^2.2.5",
 		"@heroicons/react": "^1.0.5",
 		"@mui/icons-material": "^5.6.1",
 		"@mui/material": "latest",
@@ -69,10 +65,10 @@
 		"yup": "^0.32.11"
 	},
 	"devDependencies": {
-		"autoprefixer": "^10.4.7",
 		"@babel/core": "^7.17.10",
 		"@babel/preset-env": "^7.17.10",
 		"@babel/preset-react": "^7.16.7",
+		"autoprefixer": "^10.4.7",
 		"babel-loader": "^8.2.5",
 		"clean-webpack-plugin": "^4.0.0",
 		"copy-webpack-plugin": "^10.2.4",
@@ -99,7 +95,7 @@
 		"webpack": "^5.72.0",
 		"webpack-bundle-analyzer": "^4.5.0",
 		"webpack-cli": "^4.9.2",
-		"webpack-dev-server": "^4.8.1"
+		"webpack-development-server": "^4.8.1"
 	},
 	"browserslist": {
 		"production": [

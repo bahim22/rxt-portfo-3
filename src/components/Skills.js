@@ -4,7 +4,7 @@ import JavascriptSharpIcon from '@mui/icons-material/JavascriptSharp';
 import CodeIcon from '@mui/icons-material/Code';
 import HtmlSharpIcon from '@mui/icons-material/HtmlSharp';
 import GitHubIcon from '@mui/icons-material/GitHub';
-import SkillList from '../SkillList';
+// import SkillList from '../SkillList';
 import { progress } from '../Progress';
 import React from 'react';
 
@@ -55,11 +55,11 @@ const Skills = () => {
                                 {/* <span className='text-gray-500'> {s.subtitle}</span> */}
                                 <span className='text-gray-500'> {s.description}</span>
                             </div>
-                                <img
-                                    src={s.image}
-                                    alt='progress'
-                                    className='w-30 flex-shrink-0 object-cover object-center'
-                                />
+                            <img
+                                src={s.image}
+                                alt='progress'
+                                className='w-30 flex-shrink-0 object-cover object-center'
+                            />
                         </div>
                     ))}
                     {/* <SkillList /> */}

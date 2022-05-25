@@ -2,6 +2,8 @@
 # ./tailwind.config.js
 ./build
 ./dist
+.env
+./dist/**/*
 ./src/styles.css
 ./dist/bundle-report.html
 ./node_modules
@@ -9,8 +11,8 @@
 ,/pages
 ./tw.js
 ./webpack.config.js
-./webpack.dev.js
-./webpack.prod.js
+./webpack.config.development.js
+./webpack.config.prodoction.js
 ./babelrc
 ./prettierrc
 ./pages
@@ -19,6 +21,8 @@
 ./cypress
 ./Posts
 ,/prac
+./dist
+./Dist
 ./data/HeadSec.js
 ./Docs
 ./Docs/**/*

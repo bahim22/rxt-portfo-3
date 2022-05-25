@@ -5,15 +5,18 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 process.env.NODE_ENV == 'production';
+// const isProduction = process.env.NODE_ENV == 'production';
 
 module.exports = {
     mode: 'production',
+    // mode: isProduction,
     // target: 'web',
     resolve: {
-        extensions: ['.js', '.jsx']
+        extensions: ['.js', '.jsx'],
         // fallback:[
         //     { "path": false },
         //     { "os": false }
@@ -25,13 +28,13 @@ module.exports = {
     entry: path.resolve(__dirname, 'src', 'index.js'),
     output: {
         path: path.resolve(__dirname, 'dist'),
-        // publicPath: '/', // *? '/dist'
+        publicPath: 'auto', // *? '/dist'
         chunkFilename: '[name].[chunkhash].js',
-        // filename: 'bundle.js', // *? 'bundle.js'
-        filename: 'main.[chunkhash].js',
+        // filename: 'main.[chunkhash].js',
+        filename: 'js/[name].[contenthash].js',
         clean: true,
     },
-    // devtool: 'eval-cheap-source-map', //'inline-sourceMap', //
+    devtool: false, //'eval-cheap-source-map', //'inline-sourceMap', // false,
     cache: true,
     module: {
         rules: [
@@ -44,12 +47,12 @@ module.exports = {
                     loader: 'babel-loader',
                     options: {
                         cacheDirectory: true,
-                        cacheCompression: true,
+                        cacheCompression: false,
                     },
                 },
             },
             {
-                test: /\.css$/i,
+                test: /\.css$/,
                 use: [
                     {
                         loader: MiniCssExtractPlugin.loader,
@@ -58,6 +61,7 @@ module.exports = {
                         loader: 'css-loader',
                         options: {
                             importLoaders: 1,
+                            // sourceMap: false,
                         },
                     },
                     {
@@ -75,27 +79,28 @@ module.exports = {
                 ],
             },
             {
-                test: /\.svg$/,
-                use: 'file-loader',
-            },
-            {
                 test: /\.png$/,
                 use: [
                     {
                         loader: 'url-loader',
                         options: {
                             mimetype: 'image/png',
+                            limit: 10000,
                         },
                     },
                 ],
             },
             {
-                test: /\.(woff|woff2|eot|ttf|otf)$/i,
-                type: 'asset/inline',
+                test: /\.svg$/,
+                use: 'file-loader',
             },
             {
-                test: /\.(?:ico|png|jpg|jpeg|webp|svg)$/i,
+                test: /\.(?:ico|png|jpg|jpeg|webp|svg)$/,
                 type: 'asset/resource',
+            },
+            {
+                test: /\.(woff|woff2|eot|ttf|otf)$/,
+                type: 'asset/inline',
             },
         ],
     },
@@ -104,28 +109,40 @@ module.exports = {
             'process.env.NODE_ENV': JSON.stringify('production'),
         }),
         new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, 'public', 'index.html'),
+            // template: path.resolve(__dirname, 'public', 'index.html'),
+            template: './public/index.html',
             filename: 'index.html',
-            favicon: './public/favicon2.ico',
+            favicon: './public/logod2.ico',
             cache: true,
-            // hash: true,
-            // inject: true,
             minify: {
-                // removeComments: true,
                 collapseWhitespace: true,
                 minifyJS: true,
                 minifyCSS: true,
+                // removeRedundantAttributes: true,
+                removeComments: true,
             },
+            hash: true,
         }),
         new webpack.BannerPlugin({
-            banner: 'Hima Balde Production Setup 2022',
+            banner: 'Hima Balde Production 2022',
         }),
         new MiniCssExtractPlugin({
             filename: 'styles/[name].[contenthash].css',
             chunkFilename: '[id].[contenthash].css',
-            // ignoreOrder: true,
+            ignoreOrder: true,
         }),
         new CleanWebpackPlugin(),
+        new CopyWebpackPlugin({
+            patterns: [
+                {
+                    from: 'src/assets',
+                    // to: 'assets',
+                    globOptions: {
+                        ignore: ['*.js', '*.css'],
+                    },
+                },
+            ],
+        }),
     ],
     optimization: {
         nodeEnv: 'production',
@@ -149,8 +166,8 @@ module.exports = {
                     // mangle: {},
                     // module: true,
                 },
-                include: /[\\/].min[\\/].js$/,
-                exclude: /[\\/]node_modules/,
+                // include: /[\\/].min[\\/].js$/,
+                // exclude: /[\\/]node_modules/,
             }),
         ],
         runtimeChunk: true,
@@ -163,28 +180,34 @@ module.exports = {
             maxInitialRequests: 20, // for HTTP2
             maxAsyncRequests: 20, // for HTTP2
             cacheGroups: {
-                // vendors: {
-                //     test: /[\\/]node_modules[\\/][\\/]vendors[\\/]|[\\/]@tailwindcss[\\/]|[\\/]@fortawesome[\\/]|[\\/]@emotionreact[\\/]|[\\/]@emotion[\\/]|[\\/]@mui/,
-                //     name: false,
-                //     chunks: 'all',
-                //     enforce: true,
-                // },
-                defaultVendors: {
-                idHint: 'vendors',
-                reuseExistingChunk: true,
-                filename: 'vendors/[name].bundle.js',
+                vendors: {
+                    test: /[\\/]node_modules[\\/][\\/]vendors[\\/]|[\\/]@tailwindcss[\\/]|[\\/]@fortawesome[\\/]|[\\/]@emotionreact[\\/]|[\\/]@emotion[\\/]|[\\/]@mui/,
+                    name: false,
+                    chunks: 'all',
+                    enforce: true,
                 },
-                // ? prob don't need this due to minicss
+                defaultVendors: {
+                    test: /[\\/]node_modules[\\/]/,
+                    priority: -10,
+                    reuseExistingChunk: true,
+                    idHint: 'vendors',
+                    filename: 'vendors/[name].bundle.js',
+                },
+                default: {
+                    minChunks: 2,
+                    priority: -20,
+                    reuseExistingChunk: true,
+                },
                 // styles: {
-                //     name: 'styles',
-                //     test: /\.css$/,
+                //     name: false,
+                //     type: 'css/mini-extract',
                 //     chunks: 'all',
                 //     enforce: true,
                 // },
             },
         },
     },
-    performance: {
-        // hints: 'warning',
-    },
+    // performance: {
+    // hints: 'warning',
+    // },
 };

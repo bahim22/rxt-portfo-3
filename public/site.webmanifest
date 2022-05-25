@@ -1,5 +1,5 @@
 {
-    "name": "Hima Dionysus Balde React Web App",
+    "name": "Hima Dionysus Balde",
     "lang": "en-us",
     "short_name": "rxt-portfo-3",
     "description": "This is a JAMstack, progressive web app using React.js, Webpack 5 and much more. Coded by Ibrahima Balde, Dionysus Era Dev, ",
@@ -41,7 +41,7 @@
             "type": "image/png"
         },
         {
-            "src": "/ogoDed.png",
+            "src": "logoDed.png",
             "sizes": "1000x600 600x600 800x800",
             "type": "image/png"
         }
