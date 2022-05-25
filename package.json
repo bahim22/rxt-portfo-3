@@ -18,12 +18,10 @@
 		"clean2": "rm dist/* && rm dist/vendors && rm dist/styles && rm dist/src",
 		"configtestpro": "npx webpack configtest webpack.config.production.js",
 		"configtestdev": "npx webpack configtest webpack.config.development.js",
-
-        "build": "NODE_ENV=production npx webpack build --config webpack.config.production.js --mode production --node-env production",
-
+		"build": "NODE_ENV=production npx webpack build --config webpack.config.production.js --mode production --node-env production",
 		"devStats2": "npx webpack --mode=development --node-env development --config webpack.config.development.js --stats-error-details=true",
 		"devServ": "npx webpack serve --config webpack.config.development.js --mode development --node-env development",
-        "proServ": "serve -s dist"
+		"proServ": "serve -s dist"
 	},
 	"repository": {
 		"url": "https://github.com/bahim22/rxt-portfo-3"
@@ -89,17 +87,19 @@
 		"postcss-loader": "latest",
 		"postcss-preset-env": "latest",
 		"prettier": "^2.5.1",
+		"responsive-loader": "^2.3.0",
+		"sharp": "^0.30.5",
 		"style-loader": "^3.3.1",
 		"terser-webpack-plugin": "^5.3.1",
 		"url-loader": "^4.1.1",
 		"webpack": "^5.72.0",
 		"webpack-bundle-analyzer": "^4.5.0",
 		"webpack-cli": "^4.9.2",
-		"webpack-development-server": "^4.8.1"
+		"webpack-dev-server": "^4.8.1"
 	},
 	"browserslist": {
 		"production": [
-			">0.25%",
+			">0.2%",
 			"not dead",
 			"not op_mini all"
 		],

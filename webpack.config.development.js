@@ -2,30 +2,23 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-
-process.env.NODE_ENV == 'development';
-// const isDev = process.env.NODE_ENV == 'development';
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
-    mode: 'development', // mode: {dev}
+    mode: 'development',
     // target: 'web',
-    // externals: {
-    // 	react: true,
-    // },
     resolve: {
         extensions: ['.js', '.jsx'],
     },
     entry: path.resolve(__dirname, 'src', 'index.js'),
     output: {
-        path: path.resolve(__dirname, 'dist'),
-        // publicPath: '/', //* '/' | 'dist/
+        // publicPath: '/',
         // filename: '[name].[chunkhash].js',
+        path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js',
     },
     devtool: 'source-map',
     cache: true,
-    // stats: true,
     devServer: {
         hot: true,
         port: 7222,
@@ -48,14 +41,32 @@ module.exports = {
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
                 use: {
-                    // loader: 'babel-loader',
                     loader: 'babel-loader',
                     options: {
                         cacheDirectory: true,
                         cacheCompression: false,
-                        // presets: ['@babel/preset-env', '@babel/preset-react'],
+                        presets: ['@babel/preset-env', '@babel/preset-react'],
                     },
                 },
+            },
+            {
+                test: /\.css$/,
+                use: [
+                    'style-loader',
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            importLoaders: 1,
+                            sourceMap: true,
+                        },
+                    },
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            sourceMap: true,
+                        },
+                    },
+                ],
             },
             { test: /\.txt$/, use: 'raw-loader' },
             {
@@ -65,51 +76,71 @@ module.exports = {
                         loader: 'html-loader',
                     },
                 ],
-            }, //updated
-            {
-                // test: /[\\/].(css)$/,
-                // use: ['style-loader', 'css-loader'],
-                test: /\.css$/,
-                use: [
-                    'style-loader',
-                    {
-                        loader: 'css-loader',
-                        options: {
-                            importLoaders: 1,
-                            sourceMap: false,
-                        },
-                    },
-                    {
-                        loader: 'postcss-loader',
-                        // options: {
-
-                        // }
-                    },
-                ],
             },
             {
-                test: /\.svg$/,
-                use: 'file-loader',
-            },
-            {
-                test: /\.png$/,
+                test: /\.(png|jpg)$/i,
                 use: [
                     {
                         loader: 'url-loader',
                         options: {
                             mimetype: 'image/png',
+                            esModule: true,
+                            limit: 10000,
+                            fallback: require.resolve('responsive-loader'),
+                            quality: 85,
                         },
                     },
                 ],
             },
             {
-                test: /\.(?:ico|png|jpg|jpeg|webp|svg)$/,
-                type: 'asset/resource',
+                test: /\.(jpe?g|png|webp)$/i,
+                use: [
+                    {
+                        loader: 'responsive-loader',
+                        options: {
+                            adapter: require('responsive-loader/sharp'),
+                            sizes: [180, 320, 512, 640, 1200, 1800],
+                            placeholder: true,
+                            placeholderSize: 20,
+                            esModule: true,
+                            progressive: true,
+                            format: ['webp', 'avif'],
+                            disable: false,
+                            quality: 85,
+                            name: 'hash.ext',
+                            // publicPath: '/',
+                            // outputPath: '/assets',
+                        },
+                    },
+                ],
             },
-            // {
-            // 	test: /\.(woff(2)?|eot|ttf|otf)$/,
-            // 	type: 'asset/inline',
-            // },
+            {
+                test: /\.(gif|png|jpe?g|svg)$/i,
+                use: [
+                    'file-loader',
+                    {
+                        loader: 'image-webpack-loader',
+                        options: {
+                            mozjpeg: {
+                                progressive: true,
+                            },
+                            optipng: {
+                                enabled: false,
+                            },
+                            pngquant: {
+                                quality: [0.75, 0.9],
+                                speed: 4,
+                            },
+                            gifsicle: {
+                                interlaced: false,
+                            },
+                            webp: {
+                                quality: 85,
+                            },
+                        },
+                    },
+                ],
+            },
         ],
     },
     plugins: [
@@ -117,28 +148,22 @@ module.exports = {
             'process.env.NODE_ENV': JSON.stringify('development'),
         }),
         new HtmlWebpackPlugin({
-            // templateContent: ({ htmlWebpackPlugin }) =>
-            //     '<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, height=device-height, shrink-to-fit=no"><title>' +
-            //     htmlWebpackPlugin.options.title +
-            //     '</title></head><body><div id="root"></div></body></html>',
-            template: path.resolve(__dirname, 'public', 'index.html'),
+            template: path.join(__dirname, 'public', 'index.html'),
             favicon: './public/logod2.ico',
             filename: 'dev.html',
             cache: true,
             hash: true,
             inject: 'body',
+            esModule: true,
         }),
         new HtmlWebpackPlugin({
             fileName: 'index.html',
             title: '419 Dev Ded',
             template: './public/index.html',
-            // template: './public/index.html',
             // template: path.join(__dirname, 'public', 'index.html'),
             favicon: './public/logod2.ico',
-            cache: true,
-            // 	// hash: true,
+            // cache: true,
             // inject: true,
-            // 	// esModule: true,
             minify: {
                 collapseWhitespace: true,
                 minifyJS: true,
@@ -149,30 +174,28 @@ module.exports = {
             patterns: [
                 {
                     from: 'src/assets',
-
                     globOptions: {
                         ignore: ['*.js', '*.css'],
                     },
+                    to: 'assets',
                     // force: true,
                     // toType: 'template'
-                    to: 'assets',
                 },
             ],
         }),
         new webpack.BannerPlugin({
-            banner: 'Hima Balde Dev Webpack Setup 2022',
+            banner: 'DedOps Webpack5 Dev Sprint',
         }),
-        // new BundleAnalyzerPlugin({
-        // analyzerMode: 'static',
-        // // openAnalyzer: true,
-        // reportFilename: 'bundle-report.html',
-        // generateStatsFile: true,
-        // statsFilename: 'bundle-stats.json',
-        // }),
+        new BundleAnalyzerPlugin({
+            analyzerMode: 'json',
+            openAnalyzer: false,
+            reportFilename: '/Docs/Analysis/bundle.html',
+            generateStatsFile: true,
+            statsFilename: '/Docs/Analysis/stats.html',
+        }),
     ],
     optimization: {
         nodeEnv: 'development',
-        minimize: true,
     },
     performance: {
         hints: 'warning',

@@ -6,25 +6,15 @@ const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 process.env.NODE_ENV == 'production';
-// const isProduction = process.env.NODE_ENV == 'production';
 
 module.exports = {
     mode: 'production',
-    // mode: isProduction,
-    // target: 'web',
     resolve: {
         extensions: ['.js', '.jsx'],
-        // fallback:[
-        //     { "path": false },
-        //     { "os": false }
-        // ],
     },
-    // entry: {
-    //     main: './src/index.js',
-    // },
     entry: path.resolve(__dirname, 'src', 'index.js'),
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -34,14 +24,12 @@ module.exports = {
         filename: 'js/[name].[contenthash].js',
         clean: true,
     },
-    devtool: false, //'eval-cheap-source-map', //'inline-sourceMap', // false,
-    cache: true,
+    devtool: 'source-map', // ? change before deploy
+    // cache: true,
     module: {
         rules: [
             {
-                // test: /\.(m?js|js|jsx)$/i,
-                // exclude: /(node_modules|bower_components)/,
-                test: /\.(js|jsx)$/,
+                test: /\.(js|jsx)$/i,
                 exclude: /node_modules/,
                 use: {
                     loader: 'babel-loader',
@@ -61,11 +49,14 @@ module.exports = {
                         loader: 'css-loader',
                         options: {
                             importLoaders: 1,
-                            // sourceMap: false,
+                            sourceMap: true,
                         },
                     },
                     {
                         loader: 'postcss-loader',
+                        options: {
+                            // sourceMap: true,
+                        },
                     },
                 ],
             },
@@ -79,29 +70,55 @@ module.exports = {
                 ],
             },
             {
-                test: /\.png$/,
+                test: /\.(png|jpg)$/i,
                 use: [
                     {
                         loader: 'url-loader',
                         options: {
                             mimetype: 'image/png',
                             limit: 10000,
+                            // fallback: require.resolve('responsive-loader'),
+                            quality: 85,
                         },
                     },
                 ],
             },
             {
-                test: /\.svg$/,
-                use: 'file-loader',
+                test: /\.(gif|png|jpe?g|svg)$/i,
+                // use: 'file-loader',
+                use: [
+                    'file-loader',
+                    {
+                        loader: 'image-webpack-loader',
+                        options: {
+                            mozjpeg: {
+                                progressive: true,
+                            },
+                            optipng: {
+                                enabled: false,
+                            },
+                            pngquant: {
+                                quality: [0.75, 0.9],
+                                speed: 4,
+                            },
+                            gifsicle: {
+                                interlaced: false,
+                            },
+                            webp: {
+                                quality: 85,
+                            },
+                        },
+                    },
+                ],
             },
             {
                 test: /\.(?:ico|png|jpg|jpeg|webp|svg)$/,
                 type: 'asset/resource',
             },
-            {
-                test: /\.(woff|woff2|eot|ttf|otf)$/,
-                type: 'asset/inline',
-            },
+            // {
+            //     test: /\.(woff|woff2|eot|ttf|otf)$/,
+            //     type: 'asset/inline',
+            // },
         ],
     },
     plugins: [
@@ -129,50 +146,70 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: 'styles/[name].[contenthash].css',
             chunkFilename: '[id].[contenthash].css',
-            ignoreOrder: true,
+            // ignoreOrder: true,
         }),
         new CleanWebpackPlugin(),
         new CopyWebpackPlugin({
             patterns: [
                 {
                     from: 'src/assets',
-                    // to: 'assets',
                     globOptions: {
                         ignore: ['*.js', '*.css'],
                     },
                 },
             ],
         }),
+        new BundleAnalyzerPlugin({
+            analyzerMode: 'static',
+            openAnalyzer: true,
+            reportFilename: 'bundle-report.html',
+            generateStatsFile: true,
+            statsFilename: 'bundle-stats.json',
+        }),
+        '...',
     ],
     optimization: {
         nodeEnv: 'production',
         minimize: true,
         minimizer: [
+            // minimizer: [new CssMinimizer(), '...'],
+            // new CssMinimizerPlugin({
+            //     parallel: true,
+            //     minify: CssMinimizerPlugin.cleanCssMinify,
+            // }),
             new MiniCssExtractPlugin(),
-            '...',
-            new CssMinimizerPlugin({
-                parallel: true,
-                minify: CssMinimizerPlugin.cleanCssMinify,
-            }),
             '...',
             new TerserPlugin({
                 parallel: true,
                 minify: TerserPlugin.swcMinify,
                 terserOptions: {
-                    compress: {},
-                    // // ecma: 2020,
-                    // parse: {},
-                    // nameCache: {},
-                    // mangle: {},
+                    compress: true,
+                    mangle: {
+                        safari10: true,
+                        SimpleIdentifierMangler: true,
+                        MinimizerOptions: {},
+                        ecma: 2020,
+                    },
+                    keep_classnames: true,
+                    keep_fnames: true,
+                    // ecma: 2020,
+                    parse: {},
+                    nameCache: {},
                     // module: true,
                 },
-                // include: /[\\/].min[\\/].js$/,
-                // exclude: /[\\/]node_modules/,
+                include: /[\\/].min[\\/].js$/,
+                exclude: /[\\/]node_modules/,
             }),
         ],
-        runtimeChunk: true,
+        // portableRecords: true,// ? makes records w/ rel path to move context -f
+        providedExports: true,
+        usedExports: true,
+        removeEmptyChunks: true,
+        concatenateModules: true,
+        mangleExports: 'deterministic',
         moduleIds: 'deterministic',
         chunkIds: 'deterministic',
+        runtimeChunk: 'single',
         mergeDuplicateChunks: true,
         splitChunks: {
             chunks: 'all',
@@ -193,11 +230,12 @@ module.exports = {
                     idHint: 'vendors',
                     filename: 'vendors/[name].bundle.js',
                 },
-                default: {
-                    minChunks: 2,
-                    priority: -20,
-                    reuseExistingChunk: true,
-                },
+                // default: {
+                //     minChunks: 3,
+                //     name: false,
+                //     priority: -20,
+                //     reuseExistingChunk: true,
+                // },
                 // styles: {
                 //     name: false,
                 //     type: 'css/mini-extract',
@@ -207,7 +245,7 @@ module.exports = {
             },
         },
     },
-    // performance: {
-    // hints: 'warning',
-    // },
+    performance: {
+        hints: 'warning',
+    },
 };
