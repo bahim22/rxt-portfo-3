@@ -41,7 +41,7 @@
             "type": "image/png"
         },
         {
-            "src": "/ogoDed.png",
+            "src": "logoDed.png",
             "sizes": "1000x600 600x600 800x800",
             "type": "image/png"
         }

@@ -28,11 +28,10 @@ module.exports = {
     entry: path.resolve(__dirname, 'src', 'index.js'),
     output: {
         path: path.resolve(__dirname, 'dist'),
-        // publicPath: '/', // *? '/dist'
+        publicPath: 'auto', // *? '/dist'
         chunkFilename: '[name].[chunkhash].js',
-        // filename: 'bundle.js', // *? 'bundle.js'
         // filename: 'main.[chunkhash].js',
-        filename: '[name].[contenthash].bundle.js',
+        filename: 'js/[name].[contenthash].js',
         clean: true,
     },
     devtool: false, //'eval-cheap-source-map', //'inline-sourceMap', // false,
@@ -62,7 +61,7 @@ module.exports = {
                         loader: 'css-loader',
                         options: {
                             importLoaders: 1,
-                            sourceMap: false,
+                            // sourceMap: false,
                         },
                     },
                     {
@@ -119,24 +118,24 @@ module.exports = {
                 minifyJS: true,
                 minifyCSS: true,
                 // removeRedundantAttributes: true,
-                // removeComments: true,
+                removeComments: true,
             },
-            // hash: true,
-            // inject: true,
+            hash: true,
         }),
         new webpack.BannerPlugin({
-            banner: 'Hima Balde Production Setup 2022',
+            banner: 'Hima Balde Production 2022',
         }),
         new MiniCssExtractPlugin({
             filename: 'styles/[name].[contenthash].css',
             chunkFilename: '[id].[contenthash].css',
-            // ignoreOrder: true,
+            ignoreOrder: true,
         }),
         new CleanWebpackPlugin(),
         new CopyWebpackPlugin({
             patterns: [
                 {
                     from: 'src/assets',
+                    // to: 'assets',
                     globOptions: {
                         ignore: ['*.js', '*.css'],
                     },
@@ -198,10 +197,16 @@ module.exports = {
                     priority: -20,
                     reuseExistingChunk: true,
                 },
+                // styles: {
+                //     name: false,
+                //     type: 'css/mini-extract',
+                //     chunks: 'all',
+                //     enforce: true,
+                // },
             },
         },
-    }
+    },
     // performance: {
-        // hints: 'warning',
+    // hints: 'warning',
     // },
 };

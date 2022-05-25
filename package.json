@@ -14,17 +14,15 @@
 		"test:espretty2": "npx eslint-config-prettier App.js components/About.js components/FormPro.js",
 		"test:lint": "eslint \"src/**/*.{js,jsx}\"",
 		"test:lint-rules": "eslint src/components/*.js --config .eslintrc.json",
-		"clean": "rm dist/* && rm -rf dist/vendors && rm -rf dist/styles && rm -rf dist/src",
-
+		"clean": "rm dist/* && rm -rf dist/**/*",
+		"clean2": "rm dist/* && rm dist/vendors && rm dist/styles && rm dist/src",
 		"configtestpro": "npx webpack configtest webpack.config.production.js",
 		"configtestdev": "npx webpack configtest webpack.config.development.js",
 
         "build": "NODE_ENV=production npx webpack build --config webpack.config.production.js --mode production --node-env production",
 
-		"devTest:Stats": "npx webpack --mode=development --node-env development --config webpack.config.development.js --stats-error-details=true",
-		"devTest:wp-stats": "npx webpack --config webpack.config.development.js --stats-error-details=true",
-		"devTest:webp": "npx webpack --config webpack.config.development.js --mode development --node-env development",
-		"devServ": "npx webpack serve --config webpack.config.development.js --mode development",
+		"devStats2": "npx webpack --mode=development --node-env development --config webpack.config.development.js --stats-error-details=true",
+		"devServ": "npx webpack serve --config webpack.config.development.js --mode development --node-env development",
         "proServ": "serve -s dist"
 	},
 	"repository": {

@@ -3,6 +3,7 @@
 ./build
 ./dist
 .env
+./dist/**/*
 ./src/styles.css
 ./dist/bundle-report.html
 ./node_modules

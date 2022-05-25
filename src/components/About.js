@@ -11,8 +11,8 @@ const About = () => {
                         {' '}
                         Welcome to my portfolio <br className='hidden md:inline-block' />
                     </h1>
-                    <h2 className='mb-8 leading-relaxed'>
-                        Custom Built with React, Webpack, Babel, ESLint, Prettier and more!
+                    <h2 className='mb-8 leading-relaxed '>
+                        Custom Web App Built with React, Webpack, Babel, ESLint, Prettier and more!
                     </h2>
                     <p className='mb-8 leading-relaxed'>
                         Website developer and designer. Currently building websites and web Apps using JAMstack and{' '}
@@ -34,7 +34,13 @@ const About = () => {
                     </div>
                 </div>
                 <div className='lg:max-w-lg lg:w-full md:w-1/2 w-5/6'>
-                    <img className='object-cover object-center rounded' alt='hima b' src='/hima.jpg' />
+                    <img
+                        className=' object-cover object-center rounded'
+                        alt='hima b'
+                        src='/hima.jpg'
+                        width='500'
+                        height='600'
+                    />
                     {/* <img className='profilepic' alt='dionysus era logo' src={Ded} /> */}
                 </div>
             </div>

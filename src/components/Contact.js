@@ -12,12 +12,15 @@ const Contact = () => {
             <div className='container px-5 py-10 mx-auto flex sm:flex-nowrap flex-wrap'>
                 <div className='lg:w-1/2 bg-gray-400 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative shadow-md shadow-teal-400'>
                     <iframe
+                        // width='100%'
+                        // height='100%'
                         width='100%'
-                        height='100%'
-                        title='Dionysus Era Location'
+                        height='300'
+                        title='Dionysus Era Dev Location'
+                        // className='absolute inset-0 block'
                         className='absolute inset-0'
-                        frameBorder={2}
-                        marginHeight={3}
+                        referrerPolicy='origin-when-cross-origin'
+                        loading='lazy'
                         style={{ filter: 'opacity(0.7)' }}
                         src='https://www.google.com/maps/embed/v1/place?q=dionysus+era&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8'
                     />

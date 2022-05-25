@@ -116,16 +116,16 @@ module.exports = {
             'process.env.NODE_ENV': JSON.stringify('development'),
         }),
         new HtmlWebpackPlugin({
-            templateContent: ({ htmlWebpackPlugin }) =>
-                '<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, height=device-height, shrink-to-fit=no"><title>' +
-                htmlWebpackPlugin.options.title +
-                '</title></head><body><div id="root"></div></body></html>',
-            // template: path.resolve(__dirname, 'public', 'index.html'),
+            // templateContent: ({ htmlWebpackPlugin }) =>
+            //     '<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, height=device-height, shrink-to-fit=no"><title>' +
+            //     htmlWebpackPlugin.options.title +
+            //     '</title></head><body><div id="root"></div></body></html>',
+            template: path.resolve(__dirname, 'public', 'index.html'),
             favicon: './public/logod2.ico',
             filename: 'dev.html',
             cache: true,
             hash: true,
-            inject: true,
+            inject: 'body',
         }),
         new HtmlWebpackPlugin({
             fileName: 'index.html',
@@ -148,9 +148,13 @@ module.exports = {
             patterns: [
                 {
                     from: 'src/assets',
+
                     globOptions: {
                         ignore: ['*.js', '*.css'],
                     },
+                    // force: true,
+                    // toType: 'template'
+                    to: 'assets',
                 },
             ],
         }),
@@ -169,7 +173,7 @@ module.exports = {
         nodeEnv: 'development',
         minimize: true,
     },
-    // performance: {
-    //     hints: 'warning',
-    // },
+    performance: {
+        hints: 'warning',
+    },
 };

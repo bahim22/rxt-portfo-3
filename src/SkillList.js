@@ -1,4 +1,4 @@
-import JavascriptSharpIcon from '@mui/icons-material/JavascriptSharp'
+import JavascriptSharpIcon from '@mui/icons-material/JavascriptSharp';
 
 import React from 'react';
 
@@ -64,7 +64,7 @@ const SkillList = () => {
                     {SkillInfo.map((s) => (
                         <div key={s.Id} className='p-2 sm:w-1/2 w-full'>
                             <div className='bg-gray-800 rounded flex p-4 h-full items-center'>
-                                <JavascriptSharpIcon className='text-blue-300 w-6 h-6 flex-shrinl-0 mr-4' />
+                                <JavascriptSharpIcon className='text-blue-300 w-6 h-6 flex-shrink-0 mr-4' />
                                 <span className='title-font font-medium text-red-700'>{s.Name}</span>
                                 <span className='text-gray-500'> {s.Description}</span>
                             </div>
@@ -73,11 +73,7 @@ const SkillList = () => {
                                 alt='gallery'
                                 className='w-30 flex-shrink-0 object-cover object-center'
                             />
-                            <img
-                                src={s.icon}
-                                alt='gallery'
-                                className='w-30 flex-shrink-0 object-cover object-center'
-                            />
+                            <div>{s.icon} </div>
                         </div>
                     ))}
                 </div>
