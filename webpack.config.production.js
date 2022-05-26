@@ -6,7 +6,7 @@ const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 process.env.NODE_ENV == 'production';
 
@@ -18,14 +18,14 @@ module.exports = {
     entry: path.resolve(__dirname, 'src', 'index.js'),
     output: {
         path: path.resolve(__dirname, 'dist'),
-        publicPath: 'auto', // *? '/dist'
+        // publicPath: 'auto', // *? '/dist'
         chunkFilename: '[name].[chunkhash].js',
         // filename: 'main.[chunkhash].js',
-        filename: 'js/[name].[contenthash].js',
+        filename: '[name].[contenthash].js',
         clean: true,
     },
-    devtool: 'source-map', // ? change before deploy
-    // cache: true,
+    devtool: false, // 'source-map', // ? change before deploy
+    cache: true,
     module: {
         rules: [
             {
@@ -49,13 +49,13 @@ module.exports = {
                         loader: 'css-loader',
                         options: {
                             importLoaders: 1,
-                            sourceMap: true,
+                            sourceMap: false,
                         },
                     },
                     {
                         loader: 'postcss-loader',
                         options: {
-                            // sourceMap: true,
+                            sourceMap: false,
                         },
                     },
                 ],
@@ -76,45 +76,51 @@ module.exports = {
                         loader: 'url-loader',
                         options: {
                             mimetype: 'image/png',
+                            esModule: true,
                             limit: 10000,
-                            // fallback: require.resolve('responsive-loader'),
+                            fallback: require.resolve('responsive-loader'),
                             quality: 85,
                         },
                     },
                 ],
             },
             {
-                test: /\.(gif|png|jpe?g|svg)$/i,
-                // use: 'file-loader',
+                test: /\.(jpe?g|png|webp)$/i,
                 use: [
-                    'file-loader',
                     {
-                        loader: 'image-webpack-loader',
+                        loader: 'responsive-loader',
                         options: {
-                            mozjpeg: {
-                                progressive: true,
-                            },
-                            optipng: {
-                                enabled: false,
-                            },
-                            pngquant: {
-                                quality: [0.75, 0.9],
-                                speed: 4,
-                            },
-                            gifsicle: {
-                                interlaced: false,
-                            },
-                            webp: {
-                                quality: 85,
-                            },
+                            adapter: require('responsive-loader/sharp'),
+                            sizes: [180, 320, 512, 640, 1200, 1800],
+                            placeholder: true,
+                            placeholderSize: 20,
+                            esModule: true,
+                            progressive: true,
+                            format: 'webp',
+                            disable: false,
+                            quality: 85,
+                            // name: '[path][name].[ext]',
+                            // publicPath: '/',
+                            // outputPath: 'images',
                         },
                     },
                 ],
             },
             {
-                test: /\.(?:ico|png|jpg|jpeg|webp|svg)$/,
-                type: 'asset/resource',
+                test: /\.(png|jpe?g|gif)$/i,
+                use: {
+                    loader: 'file-loader',
+                    options: {
+                        // name: '[path][name].[ext]',
+                        // outputPath: 'images',
+                        // esModule: true,
+                    },
+                },
             },
+            // {
+            //     test: /\.(?:ico|png|jpg|jpeg|webp|svg)$/,
+            //     type: 'asset/resource',
+            // },
             // {
             //     test: /\.(woff|woff2|eot|ttf|otf)$/,
             //     type: 'asset/inline',
@@ -126,7 +132,6 @@ module.exports = {
             'process.env.NODE_ENV': JSON.stringify('production'),
         }),
         new HtmlWebpackPlugin({
-            // template: path.resolve(__dirname, 'public', 'index.html'),
             template: './public/index.html',
             filename: 'index.html',
             favicon: './public/logod2.ico',
@@ -135,7 +140,7 @@ module.exports = {
                 collapseWhitespace: true,
                 minifyJS: true,
                 minifyCSS: true,
-                // removeRedundantAttributes: true,
+                removeRedundantAttributes: true,
                 removeComments: true,
             },
             hash: true,
@@ -146,7 +151,7 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: 'styles/[name].[contenthash].css',
             chunkFilename: '[id].[contenthash].css',
-            // ignoreOrder: true,
+            ignoreOrder: true,
         }),
         new CleanWebpackPlugin(),
         new CopyWebpackPlugin({
@@ -159,26 +164,25 @@ module.exports = {
                 },
             ],
         }),
-        new BundleAnalyzerPlugin({
-            analyzerMode: 'static',
-            openAnalyzer: true,
-            reportFilename: 'bundle-report.html',
-            generateStatsFile: true,
-            statsFilename: 'bundle-stats.json',
-        }),
-        '...',
+        // new BundleAnalyzerPlugin({
+        //     analyzerMode: 'json',
+        //     openAnalyzer: true,
+        //     reportFilename: 'bundle-report.html',
+        //     generateStatsFile: true,
+        //     statsFilename: 'bundle-stats.json',
+        // }),
     ],
     optimization: {
         nodeEnv: 'production',
         minimize: true,
         minimizer: [
             // minimizer: [new CssMinimizer(), '...'],
-            // new CssMinimizerPlugin({
-            //     parallel: true,
-            //     minify: CssMinimizerPlugin.cleanCssMinify,
-            // }),
             new MiniCssExtractPlugin(),
             '...',
+            new CssMinimizerPlugin({
+                parallel: true,
+                minify: CssMinimizerPlugin.cleanCssMinify,
+            }),
             new TerserPlugin({
                 parallel: true,
                 minify: TerserPlugin.swcMinify,
@@ -187,7 +191,7 @@ module.exports = {
                     mangle: {
                         safari10: true,
                         SimpleIdentifierMangler: true,
-                        MinimizerOptions: {},
+                        // MinimizerOptions: {},
                         ecma: 2020,
                     },
                     keep_classnames: true,
@@ -197,8 +201,8 @@ module.exports = {
                     nameCache: {},
                     // module: true,
                 },
-                include: /[\\/].min[\\/].js$/,
-                exclude: /[\\/]node_modules/,
+                // include: /[\\/].min[\\/].js$/,
+                // exclude: /[\\/]node_modules/,
             }),
         ],
         // portableRecords: true,// ? makes records w/ rel path to move context -f
@@ -230,22 +234,13 @@ module.exports = {
                     idHint: 'vendors',
                     filename: 'vendors/[name].bundle.js',
                 },
-                // default: {
-                //     minChunks: 3,
-                //     name: false,
-                //     priority: -20,
-                //     reuseExistingChunk: true,
-                // },
-                // styles: {
-                //     name: false,
-                //     type: 'css/mini-extract',
-                //     chunks: 'all',
-                //     enforce: true,
-                // },
+                default: {
+                    minChunks: 3,
+                    name: false,
+                    priority: -20,
+                    reuseExistingChunk: true,
+                },
             },
         },
-    },
-    performance: {
-        hints: 'warning',
     },
 };

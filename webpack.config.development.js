@@ -104,10 +104,10 @@ module.exports = {
                             placeholderSize: 20,
                             esModule: true,
                             progressive: true,
-                            format: ['webp', 'avif'],
+                            format: 'webp',
                             disable: false,
                             quality: 85,
-                            name: 'hash.ext',
+                            name: '[path][name].[ext]',
                             // publicPath: '/',
                             // outputPath: '/assets',
                         },
@@ -115,31 +115,15 @@ module.exports = {
                 ],
             },
             {
-                test: /\.(gif|png|jpe?g|svg)$/i,
-                use: [
-                    'file-loader',
-                    {
-                        loader: 'image-webpack-loader',
-                        options: {
-                            mozjpeg: {
-                                progressive: true,
-                            },
-                            optipng: {
-                                enabled: false,
-                            },
-                            pngquant: {
-                                quality: [0.75, 0.9],
-                                speed: 4,
-                            },
-                            gifsicle: {
-                                interlaced: false,
-                            },
-                            webp: {
-                                quality: 85,
-                            },
-                        },
+                test: /\.(png|jpe?g|gif)$/i,
+                use: {
+                    loader: 'file-loader',
+                    options: {
+                        name: '[path][name].[ext]',
+                        outputPath: 'images',
+                        esModule: true,
                     },
-                ],
+                },
             },
         ],
     },
@@ -160,7 +144,6 @@ module.exports = {
             fileName: 'index.html',
             title: '419 Dev Ded',
             template: './public/index.html',
-            // template: path.join(__dirname, 'public', 'index.html'),
             favicon: './public/logod2.ico',
             // cache: true,
             // inject: true,
@@ -170,28 +153,28 @@ module.exports = {
                 minifyCSS: true,
             },
         }),
-        new CopyWebpackPlugin({
-            patterns: [
-                {
-                    from: 'src/assets',
-                    globOptions: {
-                        ignore: ['*.js', '*.css'],
-                    },
-                    to: 'assets',
-                    // force: true,
-                    // toType: 'template'
-                },
-            ],
-        }),
+        // new CopyWebpackPlugin({
+        //     patterns: [
+        //         {
+        //             from: 'src/assets',
+        //             globOptions: {
+        //                 ignore: ['*.js', '*.css'],
+        //             },
+        //             to: 'assets',
+        //             // force: true,
+        //             // toType: 'template'
+        //         },
+        //     ],
+        // }),
         new webpack.BannerPlugin({
             banner: 'DedOps Webpack5 Dev Sprint',
         }),
         new BundleAnalyzerPlugin({
             analyzerMode: 'json',
             openAnalyzer: false,
-            reportFilename: '/Docs/Analysis/bundle.html',
+            reportFilename: '/Docs/Analysis/bundle.json',
             generateStatsFile: true,
-            statsFilename: '/Docs/Analysis/stats.html',
+            statsFilename: '/Docs/Analysis/stats.json',
         }),
     ],
     optimization: {

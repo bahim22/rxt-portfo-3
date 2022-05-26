@@ -13,16 +13,6 @@
         "ecmaVersion": "latest",
         "sourceType": "module"
     },
-    // "extends": [
-    //     "eslint:recommended",
-    //     "plugin:react/recommended",
-    //     "plugin:import/errors",
-    //     "plugin:jsx-a11y/recommended",
-    //     "prettier"
-    // ],
-    // "plugins": [
-    //     "react"
-    // ],
     "plugins": [
         "import",
         "react",
@@ -46,20 +36,20 @@
         //"no-confusing-arrow": ["warning", { "allowParens": false }]
     },
     "ignorePatterns": [
-        "node_modules/", "dist/"
+        "node_modules/"
     ],
     "settings": {
         "react": {
             "version": "detect"
+        },
+        "import/resolver": {
+            "webpack": {
+                "config": "webpack.config.production.js",
+                "env": {
+                    "NODE_ENV": "local",
+                    "production": true
+                }
+            }
         }
-        // "import/resolver": {
-        //     "webpack": {
-        //         "config": "webpack.config.production.js",
-        //         "env": {
-        //             "NODE_ENV": "local",
-        //             "production": true
-        //         }
-        //     }
-        // }
     }
 }
