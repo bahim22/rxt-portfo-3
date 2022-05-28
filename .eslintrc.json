@@ -41,15 +41,15 @@
     "settings": {
         "react": {
             "version": "detect"
-        },
-        "import/resolver": {
-            "webpack": {
-                "config": "webpack.config.production.js",
-                "env": {
-                    "NODE_ENV": "local",
-                    "production": true
-                }
-            }
         }
+        // "import/resolver": {
+        //     "webpack": {
+        //         "config": "webpack.config.production.js",
+        //         "env": {
+        //             "NODE_ENV": "local",
+        //             "production": true
+        //         }
+        //     }
+        // }
     }
 }

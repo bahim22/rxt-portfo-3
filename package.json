@@ -16,7 +16,8 @@
         "devStats": "npx webpack  --config webpack.config.development.js --stats-error-details=true --mode development --node-env development",
         "devServ": "npx webpack serve --config webpack.config.development.js --mode development --node-env development",
         "proServ": "serve -s dist",
-        "clean": "rm -f dist/*"
+        "clean": "rm -f dist/*",
+        "webhint": "npx hint http://localhost:7272 && hint \"public/index.html\""
     },
     "repository": {
         "url": "https://github.com/bahim22/rxt-portfo-3"

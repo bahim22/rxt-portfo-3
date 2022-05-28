@@ -20,11 +20,11 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
         // publicPath: 'auto', // *? '/dist'
         chunkFilename: '[name].[chunkhash].js',
-        // filename: 'main.[chunkhash].js',
         filename: '[name].[contenthash].js',
-        clean: true,
+        // clean: true,
+        assetModuleFilename: '[hash][ext]',
     },
-    devtool: false, // 'source-map', // ? change before deploy
+    devtool: 'source-map', // ? change before deploy
     cache: true,
     module: {
         rules: [
@@ -36,6 +36,7 @@ module.exports = {
                     options: {
                         cacheDirectory: true,
                         cacheCompression: false,
+                        // compact: true,
                     },
                 },
             },
@@ -49,23 +50,14 @@ module.exports = {
                         loader: 'css-loader',
                         options: {
                             importLoaders: 1,
-                            sourceMap: false,
+                            sourceMap: true,
                         },
                     },
                     {
                         loader: 'postcss-loader',
                         options: {
-                            sourceMap: false,
+                            sourceMap: true,
                         },
-                    },
-                ],
-            },
-            { test: /\.txt$/, use: 'raw-loader' },
-            {
-                test: /\.html$/,
-                use: [
-                    {
-                        loader: 'html-loader',
                     },
                 ],
             },
@@ -106,7 +98,7 @@ module.exports = {
                     },
                 ],
             },
-            {
+            /*  {
                 test: /\.(png|jpe?g|gif)$/i,
                 use: {
                     loader: 'file-loader',
@@ -117,14 +109,15 @@ module.exports = {
                     },
                 },
             },
-            // {
-            //     test: /\.(?:ico|png|jpg|jpeg|webp|svg)$/,
-            //     type: 'asset/resource',
-            // },
-            // {
-            //     test: /\.(woff|woff2|eot|ttf|otf)$/,
-            //     type: 'asset/inline',
-            // },
+            {
+                test: /\.(?:ico|png|jpg|jpeg|webp|svg)$/,
+                type: 'asset/resource',
+            },
+            {
+                test: /\.(woff|woff2|eot|ttf|otf)$/,
+                type: 'asset/inline',
+            }, 
+            */
         ],
     },
     plugins: [
@@ -142,15 +135,16 @@ module.exports = {
                 minifyCSS: true,
                 removeRedundantAttributes: true,
                 removeComments: true,
+                keepClosingSlash: true,
             },
             hash: true,
         }),
         new webpack.BannerPlugin({
-            banner: 'Hima Balde Production 2022',
+            banner: 'Hima Balde Production 06 2022',
         }),
         new MiniCssExtractPlugin({
-            filename: 'styles/[name].[contenthash].css',
-            chunkFilename: '[id].[contenthash].css',
+            filename: '[name].[contenthash].css',
+            chunkFilename: '[id].[chunkhash].css',
             ignoreOrder: true,
         }),
         new CleanWebpackPlugin(),
@@ -187,17 +181,21 @@ module.exports = {
                 parallel: true,
                 minify: TerserPlugin.swcMinify,
                 terserOptions: {
-                    compress: true,
+                    parse: { ecma: 2017 },
+                    compress: {
+                        ecma: 5,
+                        comparisons: false,
+                        inline: 2,
+                    },
                     mangle: {
                         safari10: true,
-                        SimpleIdentifierMangler: true,
+                        // SimpleIdentifierMangler: true,
                         // MinimizerOptions: {},
-                        ecma: 2020,
+                        // ecma: 2020,
                     },
                     keep_classnames: true,
                     keep_fnames: true,
                     // ecma: 2020,
-                    parse: {},
                     nameCache: {},
                     // module: true,
                 },
@@ -231,7 +229,7 @@ module.exports = {
                     test: /[\\/]node_modules[\\/]/,
                     priority: -10,
                     reuseExistingChunk: true,
-                    idHint: 'vendors',
+                    idHint: 'defaultvendors',
                     filename: 'vendors/[name].bundle.js',
                 },
                 default: {

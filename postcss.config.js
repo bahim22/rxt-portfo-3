@@ -1,12 +1,17 @@
-// const { default: postcss } = require( "postcss" )
+const tailwindcss = require('tailwindcss');
+const postcssPresetEnv = require('postcss-preset-env');
+const autoprefixer = require('autoprefixer');
 
 module.exports = {
-    plugins: [['autoprefixer', 'tailwindcss', 'postcss-preset-env']],
+    plugins: [
+        tailwindcss(),
+        // 'postcss-preset-env': {},
+        postcssPresetEnv(),
+        autoprefixer(),
+        require('cssnano'),
+    ],
 };
-module.exports = {
-    plugins: {
-        tailwindcss: {},
-        autoprefixer: {},
-        'postcss-preset-env': {},
-    },
-};
+
+// module.exports = {
+//     plugins: [['autoprefixer', 'tailwindcss', 'postcss-preset-env']],
+// };
