@@ -1,4 +1,4 @@
-// const defaultTheme = require('tailwindcss/defaultTheme');
+const defaultTheme = require('tailwindcss/defaultTheme');
 const colors = require('tailwindcss/colors')
 
 module.exports = {
@@ -11,6 +11,7 @@ module.exports = {
     ],
 	theme: {
 		extend: {
+            defaultTheme: {},
 			spacing: {
 				'7/16': '43.75%',
 			},

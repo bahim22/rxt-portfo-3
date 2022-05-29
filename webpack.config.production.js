@@ -19,9 +19,9 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'dist'),
         // publicPath: 'auto', // *? '/dist'
-        chunkFilename: '[name].[chunkhash].js',
-        filename: '[name].[contenthash].js',
-        // clean: true,
+        chunkFilename: 'js/[name].[chunkhash].js',
+        filename: 'js/[name].[contenthash].js',
+        clean: true,
         assetModuleFilename: '[hash][ext]',
     },
     devtool: 'source-map', // ? change before deploy
@@ -50,16 +50,24 @@ module.exports = {
                         loader: 'css-loader',
                         options: {
                             importLoaders: 1,
-                            sourceMap: true,
+                            // sourceMap: true,
                         },
                     },
                     {
                         loader: 'postcss-loader',
                         options: {
-                            sourceMap: true,
+                            // sourceMap: true,
                         },
                     },
                 ],
+            },
+            {
+                test: /\.(?:ico|png|jpg|jpeg|webp|svg)$/,
+                type: 'asset',
+            },
+            {
+                test: /\.(woff|woff2|eot|ttf|otf)$/,
+                type: 'asset/inline',
             },
             {
                 test: /\.(png|jpg)$/i,
@@ -67,7 +75,7 @@ module.exports = {
                     {
                         loader: 'url-loader',
                         options: {
-                            mimetype: 'image/png',
+                            // mimetype: 'image/png',
                             esModule: true,
                             limit: 10000,
                             fallback: require.resolve('responsive-loader'),
@@ -91,9 +99,9 @@ module.exports = {
                             format: 'webp',
                             disable: false,
                             quality: 85,
-                            // name: '[path][name].[ext]',
-                            // publicPath: '/',
-                            // outputPath: 'images',
+                            name: '[path][name].[ext]',
+                            publicPath: '/',
+                            outputPath: 'images',
                         },
                     },
                 ],
@@ -109,14 +117,6 @@ module.exports = {
                     },
                 },
             },
-            {
-                test: /\.(?:ico|png|jpg|jpeg|webp|svg)$/,
-                type: 'asset/resource',
-            },
-            {
-                test: /\.(woff|woff2|eot|ttf|otf)$/,
-                type: 'asset/inline',
-            }, 
             */
         ],
     },
@@ -140,12 +140,12 @@ module.exports = {
             hash: true,
         }),
         new webpack.BannerPlugin({
-            banner: 'Hima Balde Production 06 2022',
+            banner: 'Hima Production 05 29 22',
         }),
         new MiniCssExtractPlugin({
-            filename: '[name].[contenthash].css',
-            chunkFilename: '[id].[chunkhash].css',
-            ignoreOrder: true,
+            filename: 'css/[name].[contenthash].css',
+            chunkFilename: 'css/[id].[chunkhash].css',
+            // ignoreOrder: true,
         }),
         new CleanWebpackPlugin(),
         new CopyWebpackPlugin({
@@ -155,28 +155,33 @@ module.exports = {
                     globOptions: {
                         ignore: ['*.js', '*.css'],
                     },
+                    // transform: {
+                    //     transformer(content, path) {
+                    //         return Promise.resolve(optimize(content));
+                    //     },
+                    // },
                 },
             ],
         }),
         // new BundleAnalyzerPlugin({
         //     analyzerMode: 'json',
         //     openAnalyzer: true,
-        //     reportFilename: 'bundle-report.html',
+        //     reportFilename: 'report/bundle-report.html',
         //     generateStatsFile: true,
-        //     statsFilename: 'bundle-stats.json',
+        //     statsFilename: 'report/bundle-stats.json',
         // }),
     ],
     optimization: {
         nodeEnv: 'production',
         minimize: true,
         minimizer: [
-            // minimizer: [new CssMinimizer(), '...'],
             new MiniCssExtractPlugin(),
             '...',
             new CssMinimizerPlugin({
                 parallel: true,
                 minify: CssMinimizerPlugin.cleanCssMinify,
             }),
+            // new CssMinimizerPlugin(), '...',
             new TerserPlugin({
                 parallel: true,
                 minify: TerserPlugin.swcMinify,
@@ -199,8 +204,8 @@ module.exports = {
                     nameCache: {},
                     // module: true,
                 },
-                // include: /[\\/].min[\\/].js$/,
-                // exclude: /[\\/]node_modules/,
+                include: /[\\/].min[\\/].js$/,
+                exclude: /[\\/]node_modules/,
             }),
         ],
         // portableRecords: true,// ? makes records w/ rel path to move context -f
@@ -211,7 +216,7 @@ module.exports = {
         mangleExports: 'deterministic',
         moduleIds: 'deterministic',
         chunkIds: 'deterministic',
-        runtimeChunk: 'single',
+        runtimeChunk: true,
         mergeDuplicateChunks: true,
         splitChunks: {
             chunks: 'all',
@@ -223,21 +228,21 @@ module.exports = {
                     test: /[\\/]node_modules[\\/][\\/]vendors[\\/]|[\\/]@tailwindcss[\\/]|[\\/]@fortawesome[\\/]|[\\/]@emotionreact[\\/]|[\\/]@emotion[\\/]|[\\/]@mui/,
                     name: false,
                     chunks: 'all',
-                    enforce: true,
-                },
-                defaultVendors: {
-                    test: /[\\/]node_modules[\\/]/,
-                    priority: -10,
-                    reuseExistingChunk: true,
-                    idHint: 'defaultvendors',
-                    filename: 'vendors/[name].bundle.js',
+                    idHint: 'usedVendors',
                 },
                 default: {
-                    minChunks: 3,
+                    minChunks: 2,
                     name: false,
                     priority: -20,
                     reuseExistingChunk: true,
                 },
+                // defaultVendors: {
+                //     test: /[\\/]node_modules[\\/]/,
+                //     priority: -10,
+                //     reuseExistingChunk: true,
+                //     idHint: 'defaultVendors',
+                //     // filename: 'vendors/[name].bundle.js',
+                // },
             },
         },
     },
