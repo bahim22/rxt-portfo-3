@@ -6,7 +6,7 @@ const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 process.env.NODE_ENV == 'production';
 
@@ -35,8 +35,8 @@ module.exports = {
                     loader: 'babel-loader',
                     options: {
                         cacheDirectory: true,
-                        cacheCompression: false,
-                        // compact: true,
+                        cacheCompression: true,
+                        compact: true,
                     },
                 },
             },
@@ -50,13 +50,13 @@ module.exports = {
                         loader: 'css-loader',
                         options: {
                             importLoaders: 1,
-                            // sourceMap: true,
+                            sourceMap: true,
                         },
                     },
                     {
                         loader: 'postcss-loader',
                         options: {
-                            // sourceMap: true,
+                            sourceMap: true,
                         },
                     },
                 ],
@@ -69,43 +69,43 @@ module.exports = {
                 test: /\.(woff|woff2|eot|ttf|otf)$/,
                 type: 'asset/inline',
             },
-            {
-                test: /\.(png|jpg)$/i,
-                use: [
-                    {
-                        loader: 'url-loader',
-                        options: {
-                            // mimetype: 'image/png',
-                            esModule: true,
-                            limit: 10000,
-                            fallback: require.resolve('responsive-loader'),
-                            quality: 85,
-                        },
-                    },
-                ],
-            },
-            {
-                test: /\.(jpe?g|png|webp)$/i,
-                use: [
-                    {
-                        loader: 'responsive-loader',
-                        options: {
-                            adapter: require('responsive-loader/sharp'),
-                            sizes: [180, 320, 512, 640, 1200, 1800],
-                            placeholder: true,
-                            placeholderSize: 20,
-                            esModule: true,
-                            progressive: true,
-                            format: 'webp',
-                            disable: false,
-                            quality: 85,
-                            name: '[path][name].[ext]',
-                            publicPath: '/',
-                            outputPath: 'images',
-                        },
-                    },
-                ],
-            },
+            // {
+            //     test: /\.(png|jpg)$/i,
+            //     use: [
+            //         {
+            //             loader: 'url-loader',
+            //             options: {
+            //                 // mimetype: 'image/png',
+            //                 esModule: true,
+            //                 limit: 10000,
+            //                 fallback: require.resolve('responsive-loader'),
+            //                 quality: 85,
+            //             },
+            //         },
+            //     ],
+            // },
+            // {
+            //     test: /\.(jpe?g|png|webp)$/i,
+            //     use: [
+            //         {
+            //             loader: 'responsive-loader',
+            //             options: {
+            //                 adapter: require('responsive-loader/sharp'),
+            //                 sizes: [180, 320, 512, 640, 1200, 1800],
+            //                 placeholder: true,
+            //                 placeholderSize: 20,
+            //                 esModule: true,
+            //                 progressive: true,
+            //                 format: 'webp',
+            //                 disable: false,
+            //                 quality: 85,
+            //                 // name: '[path][name].[ext]',
+            //                 // publicPath: '/',
+            //                 // outputPath: 'images',
+            //             },
+            //         },
+            //     ],
+            // },
             /*  {
                 test: /\.(png|jpe?g|gif)$/i,
                 use: {
@@ -145,7 +145,7 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: 'css/[name].[contenthash].css',
             chunkFilename: 'css/[id].[chunkhash].css',
-            // ignoreOrder: true,
+            ignoreOrder: true,
         }),
         new CleanWebpackPlugin(),
         new CopyWebpackPlugin({
@@ -163,13 +163,13 @@ module.exports = {
                 },
             ],
         }),
-        // new BundleAnalyzerPlugin({
-        //     analyzerMode: 'json',
-        //     openAnalyzer: true,
-        //     reportFilename: 'report/bundle-report.html',
-        //     generateStatsFile: true,
-        //     statsFilename: 'report/bundle-stats.json',
-        // }),
+        new BundleAnalyzerPlugin({
+            analyzerMode: 'json',
+            openAnalyzer: false,
+            reportFilename: 'report/bundle-report.json',
+            generateStatsFile: false,
+            // statsFilename: 'report/bundle-stats.json',
+        }),
     ],
     optimization: {
         nodeEnv: 'production',
@@ -204,8 +204,8 @@ module.exports = {
                     nameCache: {},
                     // module: true,
                 },
-                include: /[\\/].min[\\/].js$/,
-                exclude: /[\\/]node_modules/,
+                // include: /[\\/].min[\\/].js$/,
+                // exclude: /[\\/]node_modules/,
             }),
         ],
         // portableRecords: true,// ? makes records w/ rel path to move context -f
@@ -225,23 +225,25 @@ module.exports = {
             maxAsyncRequests: 20, // for HTTP2
             cacheGroups: {
                 vendors: {
-                    test: /[\\/]node_modules[\\/][\\/]vendors[\\/]|[\\/]@tailwindcss[\\/]|[\\/]@fortawesome[\\/]|[\\/]@emotionreact[\\/]|[\\/]@emotion[\\/]|[\\/]@mui/,
+                    test: /[\\/]node_modules[\\/]|[\\/]vendors[\\/]|[\\/]@tailwindcss[\\/]|[\\/]@fortawesome[\\/]|[\\/]@emotionreact[\\/]|[\\/]@emotion[\\/]|[\\/]@mui/,
                     name: false,
                     chunks: 'all',
                     idHint: 'usedVendors',
-                },
-                default: {
-                    minChunks: 2,
-                    name: false,
-                    priority: -20,
-                    reuseExistingChunk: true,
                 },
                 // defaultVendors: {
                 //     test: /[\\/]node_modules[\\/]/,
                 //     priority: -10,
                 //     reuseExistingChunk: true,
+                //     name: false,
                 //     idHint: 'defaultVendors',
                 //     // filename: 'vendors/[name].bundle.js',
+                // },
+                // default: {
+                //     minChunks: 2,
+                //     idHint: 'default',
+                //     name: false,
+                //     priority: -20,
+                //     reuseExistingChunk: true,
                 // },
             },
         },

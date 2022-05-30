@@ -12,10 +12,10 @@ function CardMain() {
     return (
         <Card sx={{ maxWidth: 345 }}>
             <CardMedia
-                sx={{ height: 0, paddingTop: '56.25%' }}
+                sx={{ height: 'fit-content', paddingTop: '56.25%' }}
                 component='img'
-                height='140'
-                image='../assets/himacard.png'
+                height='fit-content'
+                image='/himacard.png'
                 title='Skills List'
             />
             <CardContent>

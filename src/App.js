@@ -8,6 +8,7 @@ import Software from './components/Software';
 import Navbar from './components/Navbar';
 import ProjMain from './components/ProjMain.js';
 import SkillList from './SkillList';
+// import ResponsiveAppBar from './components/Menu';
 // import FormPro from './FormPro';
 // import ContactForm from './ContactForm';
 
@@ -18,9 +19,9 @@ function App() {
             <About />
             <Projects />
             <ProjMain />
+            <Software />
             <Skills />
             <SkillList />
-            <Software />
             <Contact />
         </main>
     );
