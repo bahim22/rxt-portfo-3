@@ -8,7 +8,6 @@ module.exports = {
         'postcss-preset-env': {},
         autoprefixer: {},
         cssnano: {},
-        // require('cssnano')
     },
 };
 // module.exports = {
