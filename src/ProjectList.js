@@ -4,7 +4,7 @@ export const ProjectList = [
         id: 0,
         subtitle: 'DioBlog',
         description: 'React based JS website with custom styling and tool config.',
-        image: '/ismPic.webp',
+        image: '/ismPic.jpg',
         link: 'https://github.com/bahim22/react-portfo2',
     },
     {
@@ -12,7 +12,7 @@ export const ProjectList = [
         id: 1,
         subtitle: 'Next-ded-boiler',
         description: 'React based JS website with custom styling and tool config.',
-        image: '/ismPic.webp',
+        image: '/bg7.jpg',
         link: 'https://github.com/bahim22/react-portfo2',
     },
     {
@@ -28,7 +28,7 @@ export const ProjectList = [
         subtitle: 'react-ded-boiler',
         id: 3,
         description: 'Reusable boilerplate skeleton for React.js projects.',
-        image: '/himacard.png',
+        image: '/dedIsm2.jpg',
         link: 'https://github.com/bahim22/react-ded-boiler',
     },
     {
@@ -36,7 +36,7 @@ export const ProjectList = [
         subtitle: 'auth-react-azure',
         id: 4,
         description: 'React App with TypeScript using Azure AD to authenticate users.',
-        image: '/logo512.png',
+        image: '/profile-bg.jpg',
         link: 'https://github.com/bahim22/auth-react-azure',
     },
     {
@@ -44,7 +44,7 @@ export const ProjectList = [
         subtitle: 'gullo-db',
         id: 5,
         description: 'React based JS website with custom styling and tool config.',
-        image: '/purp9.png',
+        image: '/MapProject.png',
         link: 'https://github.com/bahim22/react-portfo2',
     },
     {
@@ -52,7 +52,7 @@ export const ProjectList = [
         subtitle: 'ism',
         id: 6,
         description: 'HTML, CSS, Bootstrap website for an advertising company.',
-        image: '/himaPropng.png',
+        image: '/himaPropng.jpeg',
         link: 'https://github.com/bahim22/ism',
     },
 ];

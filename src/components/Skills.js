@@ -9,17 +9,6 @@ import { progress } from '../Progress';
 import React from 'react';
 // import CardMain from './CardMain';
 
-/* const SkillCompo = () => {
-	return (
-		<div className='flex flex-wrap justify-center'>
-			<JavascriptSharpIcon />
-			<GitHubIcon />
-			<HtmlSharpIcon />
-			<CssSharpIcon />
-		</div>
-	)
-} */
-
 const Skills = () => {
     return (
         <section id='skills'>
