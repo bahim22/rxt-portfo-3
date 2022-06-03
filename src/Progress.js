@@ -1,25 +1,30 @@
-// import { Link } from 'react-router-dom';
-
 export const progress = [
     {
         title: 'Prisma',
-        id: 2,
+        id: 0,
         description: 'Prisma GraphQL API using MongoDb.',
         image: '/bg7.jpg',
         link: 'https://github.com/bahim22/waves',
     },
     {
         title: 'Athena',
-        id: 3,
+        id: 1,
         description: 'React based JS website with custom styling and tool config.',
         image: '/logo512.png',
         link: 'https://github.com/bahim22/athena',
     },
     {
         title: 'Ded-py',
-        id: 4,
+        id: 2,
         description: 'React based JS website with custom styling and tool config.',
         image: '/logo678.png',
+        link: 'https://github.com/bahim22/ded-py',
+    },
+    {
+        title: 'Next.js Business Analytics',
+        id: 3,
+        description: 'React based JS website with custom styling and tool config.',
+        image: '/carbon.png',
         link: 'https://github.com/bahim22/ded-py',
     },
 ];

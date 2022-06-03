@@ -43,7 +43,7 @@ const Software = () => {
                                         src={a.image}
                                         alt='software'
                                         width='100%'
-                                        height='200'
+                                        height='300'
                                         className='w-40 flex-shrink-0 object-cover object-center'
                                     />
                                     <span className='flex-grow flex flex-col pl-4'></span>

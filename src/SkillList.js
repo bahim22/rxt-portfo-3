@@ -1,55 +1,44 @@
 import JavascriptSharpIcon from '@mui/icons-material/JavascriptSharp';
-
+import { HtmlSharp, PlaylistAddCheckRounded, CssSharp, GitHub, DeveloperModeOutlined } from '@mui/icons-material';
 import React from 'react';
-
-/* const SkillCompo = () => {
-	return (
-		<div className='flex flex-wrap justify-center'>
-			<JavascriptSharpIcon />
-			<GitHubIcon />
-			<HtmlSharpIcon />
-			<CssSharpIcon />
-		</div>
-	)
-} */
+import { Divider } from '@mui/material';
 
 export const SkillInfo = [
     {
         Name: 'JavaScript',
-        // Icon: 'JavascriptSharpIcon',
         Description: 'JavaScript is a programming language that conforms to the ECMAScript specification.',
         Skills: ['ES6', 'ES5', 'JSX', 'TypeScript', 'JSON'],
         Id: 0,
+        Icon: <GitHub />,
         Time: '2 years',
-        image: '/himaPropng.png',
-        // icon: '/jsIcons.svg',
+        image: '/himaPropng.jpeg',
     },
     {
         Name: 'HTML5 and CSS3',
-        // Icon: 'Html5Icon',
         Description: 'HTML5 is the fifth and current version of the HTML standard.',
+        Icon: <GitHub />,
         Skills: ['HTML5', 'CSS3', 'Bootstrap', 'Material-UI', 'TailwindCss'],
         Id: 1,
         Time: '2 years',
-        image: '/himaPropng.png',
+        image: '/crbnNxtBoil.png',
     },
     {
         Name: 'Shells',
-        // Icon: 'Html5Icon',
         Description: 'HTML5 is the fifth and current version of the HTML standard.',
+        Icon: <GitHub />,
         Skills: ['Bash', 'PowerShell'],
         Id: 2,
         Time: '2 years',
-        image: '/himaPropng.png',
+        image: '/logo678.png',
     },
     {
         Name: 'Python',
-        // Icon: 'PythonIcon',
         Description: 'Python is an interpreted, high-level, general-purpose programming language',
         Skills: ['Django'],
+        Icon: <GitHub />,
         Id: 3,
         Time: '1 year',
-        image: '/crbnNxtBoil.png',
+        image: '/himaPropng.jpeg',
     },
 ];
 
@@ -63,16 +52,25 @@ const SkillList = () => {
                             <div className='bg-gray-800 rounded flex p-4 h-full items-center'>
                                 <JavascriptSharpIcon className='text-blue-300 w-6 h-6 flex-shrink-0 mr-4' />
                                 <span className='title-font font-medium text-red-700'>{s.Name}</span>
-                                <span className='text-gray-500'> {s.Description}</span>
+                                <span className='text-gray-500'>
+                                    {' '}
+                                    {s.Skills} {s.Icon}
+                                </span>
+                                <HtmlSharp className='text-blue-300 w-6 h-6 flex-shrink-0 mr-4' />
+                                <CssSharp />
                             </div>
+                            <PlaylistAddCheckRounded />
+                            <DeveloperModeOutlined className='text-blue-300 w-6 h-6 flex-shrink-0 mr-4' />
                             <img
                                 src={s.image}
                                 alt='gallery'
+                                loading='lazy'
+                                // referrerPolicy=''
                                 width='100%'
                                 height='200'
                                 className='w-30 flex-shrink-0 object-cover object-center'
                             />
-                            <div>{s.icon} </div>
+                            <Divider />
                         </div>
                     ))}
                 </div>
