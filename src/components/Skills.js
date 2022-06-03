@@ -7,6 +7,7 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 // import SkillList from '../SkillList';
 import { progress } from '../Progress';
 import React from 'react';
+// import CardMain from './CardMain';
 
 /* const SkillCompo = () => {
 	return (
@@ -46,6 +47,7 @@ const Skills = () => {
                         </ul>
                     </p>
                 </div>
+                {/* <CardMain /> */}
                 <div className='flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb- -mx-4'>
                     {progress.map((s) => (
                         <div key={s.id} className='p-2 sm:w-1/2 w-full'>
@@ -58,10 +60,13 @@ const Skills = () => {
                             <img
                                 src={s.image}
                                 alt='progress'
+                                width='100%'
+                                height='300'
                                 className='w-30 flex-shrink-0 object-cover object-center'
                             />
                         </div>
                     ))}
+                    {/* <CardMain /> */}
                     {/* <SkillList /> */}
                 </div>
             </div>

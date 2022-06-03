@@ -1,5 +1,5 @@
 import { CodeIcon } from '@heroicons/react/solid';
-import { ProjectList, projInfoDiv } from '../ProjectList';
+import { ProjectList, projInfo } from '../ProjectList';
 import React from 'react';
 export default function Projects() {
     return (
@@ -10,7 +10,7 @@ export default function Projects() {
                     <h1 className='sm:text-4xl text-3xl font-medium title-font mb-4 text-blue-400'>
                         Web Apps and Websites I Have Built
                     </h1>
-                    <p className='lg:w-2/3 mx-auto leading-relaxed text-base'>{projInfoDiv}</p>
+                    <p className='lg:w-2/3 mx-auto leading-relaxed text-base'>{projInfo}</p>
                 </div>
                 <div className='flex flex-wrap -m-4'>
                     {ProjectList.map((project) => (

@@ -59,19 +59,17 @@ export const ProjectList = [
 
 export const projInfo =
     'I initially started developing Python Projects with Django.Then I transitioned to building websites with HTML and CSS3, eventually  implementing bootstrap packages with pre-built minified JavaScript for interactivity. I improved my vanilla JavaScript skills and learned ES6 and TypeScript and was able to start developing React.js and Next.js Web Apps. I was able to learn how to configure my toolchain and start building JAMstack Apps. I am currently building Full-Stack projects using multiple frameworks, libraries,and packages.';
-export const projInfoDiv = () => {
+export const ProjInfoDiv = () => {
     return (
-        <>
-            <main className='flex flex-col article first-letter:bold'>
-                <section className='condiv'>
-                    I initially started developing Python Projects with Django. Then I transitioned to building websites
-                    with HTML and CSS3, eventually implementing bootstrap packages with pre-built minified JavaScript
-                    for interactivity. I improved my vanilla JavaScript skills and learned ES6 and TypeScript and was
-                    able to start developing React.js and Next.js Web Apps. I was able to learn how to configure my
-                    toolchain and start building JAMstack Apps. I am currently building Full-Stack projects using
-                    multiple frameworks, libraries,and packages.
-                </section>
-            </main>
-        </>
+        <main className='flex flex-col article first-letter:bold'>
+            <section className='condiv'>
+                I initially started developing Python Projects with Django. Then I transitioned to building websites
+                with HTML and CSS3, eventually implementing bootstrap packages with pre-built minified JavaScript for
+                interactivity. I improved my vanilla JavaScript skills and learned ES6 and TypeScript and was able to
+                start developing React.js and Next.js Web Apps. I was able to learn how to configure my toolchain and
+                start building JAMstack Apps. I am currently building Full-Stack projects using multiple frameworks,
+                libraries,and packages.
+            </section>
+        </main>
     );
 };

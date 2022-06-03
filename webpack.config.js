@@ -24,7 +24,7 @@ module.exports = {
         clean: true,
         assetModuleFilename: '[hash][ext]',
     },
-    devtool: 'source-map', // ? change before deploy
+    // devtool: 'source-map', // ? change before deploy
     cache: true,
     module: {
         rules: [
@@ -50,13 +50,13 @@ module.exports = {
                         loader: 'css-loader',
                         options: {
                             importLoaders: 1,
-                            sourceMap: true,
+                            // sourceMap: true,
                         },
                     },
                     {
                         loader: 'postcss-loader',
                         options: {
-                            sourceMap: true,
+                            // sourceMap: true,
                         },
                     },
                 ],
@@ -69,55 +69,54 @@ module.exports = {
                 test: /\.(woff|woff2|eot|ttf|otf)$/,
                 type: 'asset/inline',
             },
-            // {
-            //     test: /\.(png|jpg)$/i,
-            //     use: [
-            //         {
-            //             loader: 'url-loader',
-            //             options: {
-            //                 // mimetype: 'image/png',
-            //                 esModule: true,
-            //                 limit: 10000,
-            //                 fallback: require.resolve('responsive-loader'),
-            //                 quality: 85,
-            //             },
-            //         },
-            //     ],
-            // },
-            // {
-            //     test: /\.(jpe?g|png|webp)$/i,
-            //     use: [
-            //         {
-            //             loader: 'responsive-loader',
-            //             options: {
-            //                 adapter: require('responsive-loader/sharp'),
-            //                 sizes: [180, 320, 512, 640, 1200, 1800],
-            //                 placeholder: true,
-            //                 placeholderSize: 20,
-            //                 esModule: true,
-            //                 progressive: true,
-            //                 format: 'webp',
-            //                 disable: false,
-            //                 quality: 85,
-            //                 // name: '[path][name].[ext]',
-            //                 // publicPath: '/',
-            //                 // outputPath: 'images',
-            //             },
-            //         },
-            //     ],
-            // },
-            /*  {
+            {
+                test: /\.(png|jpg)$/i,
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            // mimetype: 'image/png',
+                            esModule: true,
+                            limit: 10000,
+                            fallback: require.resolve('responsive-loader'),
+                            quality: 85,
+                        },
+                    },
+                ],
+            },
+            {
+                test: /\.(jpe?g|png|webp)$/i,
+                use: [
+                    {
+                        loader: 'responsive-loader',
+                        options: {
+                            adapter: require('responsive-loader/sharp'),
+                            sizes: [180, 320, 512, 640, 1200, 1800],
+                            placeholder: true,
+                            placeholderSize: 20,
+                            esModule: true,
+                            progressive: true,
+                            format: 'webp',
+                            disable: false,
+                            quality: 85,
+                            // name: '[path][name].[ext]',
+                            // publicPath: '/',
+                            // outputPath: 'images',
+                        },
+                    },
+                ],
+            },
+            {
                 test: /\.(png|jpe?g|gif)$/i,
                 use: {
                     loader: 'file-loader',
                     options: {
-                        // name: '[path][name].[ext]',
+                        name: '[path][name].[ext]',
                         // outputPath: 'images',
                         // esModule: true,
                     },
                 },
             },
-            */
         ],
     },
     plugins: [
@@ -140,12 +139,12 @@ module.exports = {
             hash: true,
         }),
         new webpack.BannerPlugin({
-            banner: 'Hima Production 05 29 22',
+            banner: 'production 0602',
         }),
         new MiniCssExtractPlugin({
             filename: 'css/[name].[contenthash].css',
             chunkFilename: 'css/[id].[chunkhash].css',
-            ignoreOrder: true,
+            // ignoreOrder: true,
         }),
         new CleanWebpackPlugin(),
         new CopyWebpackPlugin({
@@ -201,7 +200,7 @@ module.exports = {
                     keep_classnames: true,
                     keep_fnames: true,
                     // ecma: 2020,
-                    nameCache: {},
+                    // nameCache: {},
                     // module: true,
                 },
                 // include: /[\\/].min[\\/].js$/,
@@ -216,7 +215,7 @@ module.exports = {
         mangleExports: 'deterministic',
         moduleIds: 'deterministic',
         chunkIds: 'deterministic',
-        runtimeChunk: true,
+        runtimeChunk: 'single',
         mergeDuplicateChunks: true,
         splitChunks: {
             chunks: 'all',

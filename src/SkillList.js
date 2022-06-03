@@ -22,7 +22,7 @@ export const SkillInfo = [
         Id: 0,
         Time: '2 years',
         image: '/himaPropng.png',
-        icon: '/jsIcons.svg',
+        // icon: '/jsIcons.svg',
     },
     {
         Name: 'HTML5 and CSS3',
@@ -32,7 +32,6 @@ export const SkillInfo = [
         Id: 1,
         Time: '2 years',
         image: '/himaPropng.png',
-        icon: '/jsIcons.svg',
     },
     {
         Name: 'Shells',
@@ -42,7 +41,6 @@ export const SkillInfo = [
         Id: 2,
         Time: '2 years',
         image: '/himaPropng.png',
-        icon: '/gitBlck.png',
     },
     {
         Name: 'Python',
@@ -52,7 +50,6 @@ export const SkillInfo = [
         Id: 3,
         Time: '1 year',
         image: '/crbnNxtBoil.png',
-        icon: '/pylc.svg',
     },
 ];
 
@@ -71,6 +68,8 @@ const SkillList = () => {
                             <img
                                 src={s.image}
                                 alt='gallery'
+                                width='100%'
+                                height='200'
                                 className='w-30 flex-shrink-0 object-cover object-center'
                             />
                             <div>{s.icon} </div>
