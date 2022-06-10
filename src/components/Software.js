@@ -25,7 +25,7 @@ const softwareList = [
     },
 ];
 
-const Software = () => {
+export const Software = () => {
     return (
         <section id='software'>
             <div className='container px-5 py-10 mx-auto text-center'>
@@ -57,10 +57,8 @@ const Software = () => {
     );
 };
 
-export default Software;
-
 const Software2 = () => {
-	return (
+    return (
         <section id='software'>
             <div className='container px-5 py-10 mx-auto text-center'>
                 <UsersIcon className='w-10 inline-block mb-4' />
@@ -71,15 +69,16 @@ const Software2 = () => {
                             <div className='h-full bg-gray-800 bg-opacity-40 p-8 rounded'>
                                 {<TerminalIcon className='block w-8 text-gray-100 mb-4' />}
                                 <p className='leading-relaxed mb-6'>{a.tools}</p>
-                                    <h2 className='text-gray-100 text-sm uppercase'>{a.name}</h2>
+                                <h2 className='text-gray-100 text-sm uppercase'>{a.name}</h2>
                                 <div className='inline-flex'>
                                     <img
                                         src={a.image}
+                                        title='softwareInfo'
                                         alt='software'
+                                        loading='lazy'
                                         className='w-40 flex-shrink-0 object-cover object-center'
                                     />
-                                    <span className='flex-grow flex flex-col pl-4'>
-                                    </span>
+                                    <span className='flex-grow flex flex-col pl-4'></span>
                                 </div>
                             </div>
                         </div>

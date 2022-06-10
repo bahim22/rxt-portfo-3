@@ -1,5 +1,12 @@
 import JavascriptSharpIcon from '@mui/icons-material/JavascriptSharp';
-import { HtmlSharp, PlaylistAddCheckRounded, CssSharp, GitHub, DeveloperModeOutlined } from '@mui/icons-material';
+import {
+    HtmlSharp,
+    PlaylistAddCheckRounded,
+    GitHub,
+    DeveloperModeOutlined,
+    CssTwoTone,
+    PunchClock,
+} from '@mui/icons-material';
 import React from 'react';
 import { Divider } from '@mui/material';
 
@@ -9,17 +16,19 @@ export const SkillInfo = [
         Description: 'JavaScript is a programming language that conforms to the ECMAScript specification.',
         Skills: ['ES6', 'ES5', 'JSX', 'TypeScript', 'JSON'],
         Id: 0,
-        Icon: <GitHub />,
+        Icon: <JavascriptSharpIcon className='text-blue-300 w-6 h-6 flex-shrink-0 mr-4' />,
         Time: '2 years',
+        Length: <PunchClock />,
         image: '/himaPropng.jpeg',
     },
     {
         Name: 'HTML5 and CSS3',
         Description: 'HTML5 is the fifth and current version of the HTML standard.',
-        Icon: <GitHub />,
+        Icon: [<HtmlSharp key='1a' className='text-blue-300 w-6 h-6 flex-shrink-0 mr-4' />, <CssTwoTone key='1b' />],
         Skills: ['HTML5', 'CSS3', 'Bootstrap', 'Material-UI', 'TailwindCss'],
         Id: 1,
         Time: '2 years',
+        Length: <PunchClock />,
         image: '/crbnNxtBoil.png',
     },
     {
@@ -29,15 +38,17 @@ export const SkillInfo = [
         Skills: ['Bash', 'PowerShell'],
         Id: 2,
         Time: '2 years',
-        image: '/logo678.png',
+        Length: <PunchClock />,
+        image: '/MapProject.png',
     },
     {
         Name: 'Python',
         Description: 'Python is an interpreted, high-level, general-purpose programming language',
         Skills: ['Django'],
-        Icon: <GitHub />,
+        Icon: <DeveloperModeOutlined className='text-blue-300 w-6 h-6 flex-shrink-0 mr-4' />,
         Id: 3,
-        Time: '1 year',
+        Time: '2 years',
+        Length: <PunchClock />,
         image: '/himaPropng.jpeg',
     },
 ];
@@ -50,27 +61,38 @@ const SkillList = () => {
                     {SkillInfo.map((s) => (
                         <div key={s.Id} className='p-2 sm:w-1/2 w-full'>
                             <div className='bg-gray-800 rounded flex p-4 h-full items-center'>
-                                <JavascriptSharpIcon className='text-blue-300 w-6 h-6 flex-shrink-0 mr-4' />
                                 <span className='title-font font-medium text-red-700'>{s.Name}</span>
                                 <span className='text-gray-500'>
                                     {' '}
-                                    {s.Skills} {s.Icon}
+                                    {s.Time} {s.Length}{' '}
                                 </span>
-                                <HtmlSharp className='text-blue-300 w-6 h-6 flex-shrink-0 mr-4' />
-                                <CssSharp />
+                                <span className='text-gray-500'> {s.Description}</span>
                             </div>
-                            <PlaylistAddCheckRounded />
-                            <DeveloperModeOutlined className='text-blue-300 w-6 h-6 flex-shrink-0 mr-4' />
-                            <img
-                                src={s.image}
-                                alt='gallery'
-                                loading='lazy'
-                                // referrerPolicy=''
-                                width='100%'
-                                height='200'
-                                className='w-30 flex-shrink-0 object-cover object-center'
-                            />
+                            <div className='inline-flex'>
+                                <span className='flex-grow flex flex-col pl-4'>{s.Skills}</span>
+                            </div>
                             <Divider />
+                            <div className='inline-flex'>
+                                <PlaylistAddCheckRounded />
+                                <img
+                                    src={s.image}
+                                    alt='gallery'
+                                    title='Software'
+                                    loading='lazy'
+                                    // referrerPolicy=''
+                                    width='100%'
+                                    height='200'
+                                    className='w-30 flex-shrink-0 object-cover object-center'
+                                />
+                                <img
+                                    src={s.image}
+                                    title='SoftwarePic2'
+                                    loading='lazy'
+                                    alt='software'
+                                    className='w-40 flex-shrink-0 object-cover object-center'
+                                />
+                                <span className='flex-grow flex flex-col pl-4'>{s.Icon}</span>
+                            </div>
                         </div>
                     ))}
                 </div>
