@@ -17,14 +17,14 @@ export const progress = [
         title: 'Ded-py',
         id: 2,
         description: 'React based JS website with custom styling and tool config.',
-        image: '/logo678.png',
+        image: '/logo512.png',
         link: 'https://github.com/bahim22/ded-py',
     },
     {
         title: 'Next.js Business Analytics',
         id: 3,
         description: 'React based JS website with custom styling and tool config.',
-        image: '/carbon.png',
+        image: '/logoEra.png',
         link: 'https://github.com/bahim22/ded-py',
     },
 ];

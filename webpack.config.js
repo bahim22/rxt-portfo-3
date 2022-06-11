@@ -4,9 +4,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+// const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 process.env.NODE_ENV == 'production';
 
@@ -146,7 +146,7 @@ module.exports = {
             chunkFilename: 'css/[id].[chunkhash].css',
             // ignoreOrder: true,
         }),
-        new CleanWebpackPlugin(),
+        // new CleanWebpackPlugin(),
         new CopyWebpackPlugin({
             patterns: [
                 {
@@ -162,13 +162,13 @@ module.exports = {
                 },
             ],
         }),
-        new BundleAnalyzerPlugin({
-            analyzerMode: 'static',
-            openAnalyzer: false,
-            // reportFilename: 'report/bundle-report.json',
-            // generateStatsFile: false,
-            // statsFilename: 'report/bundle-stats.json',
-        }),
+        // new BundleAnalyzerPlugin({
+        //     analyzerMode: 'static',
+        //     openAnalyzer: false,
+        //     // reportFilename: 'report/bundle-report.json',
+        //     // generateStatsFile: false,
+        //     // statsFilename: 'report/bundle-stats.json',
+        // }),
     ],
     optimization: {
         nodeEnv: 'production',
@@ -176,11 +176,11 @@ module.exports = {
         minimizer: [
             // new MiniCssExtractPlugin(),
             // '...',
-            // new CssMinimizerPlugin({
-            //     parallel: true,
-            //     minify: CssMinimizerPlugin.cleanCssMinify,
-            // }),
-            new CssMinimizerPlugin(), '...',
+            new CssMinimizerPlugin({
+                parallel: true,
+                minify: CssMinimizerPlugin.cleanCssMinify,
+            }),
+            // new CssMinimizerPlugin(), '...',
             new TerserPlugin({
                 parallel: true,
                 minify: TerserPlugin.swcMinify,
@@ -197,14 +197,14 @@ module.exports = {
                         // MinimizerOptions: {},
                         // ecma: 2020,
                     },
-                    keep_classnames: true,
-                    keep_fnames: true,
+                    keep_classnames: false,
+                    keep_fnames: false,
                     // ecma: 2020,
-                    // nameCache: {},
-                    // module: true,
+                    // nameCache: "./node_modules/.cache/terser-webpack-plugin",
+                    module: true,
                 },
                 include: /[\\/].min[\\/].js$/,
-                // exclude: /[\\/]node_modules/,
+                exclude: /[\\/]node_modules/,
             }),
         ],
         // portableRecords: true,// ? makes records w/ rel path to move context -f
@@ -224,26 +224,26 @@ module.exports = {
             maxAsyncRequests: 20, // for HTTP2
             cacheGroups: {
                 vendors: {
-                    test: /[\\/]@tailwindcss[\\/]|[\\/]@fortawesome[\\/]|[\\/]@emotionreact[\\/]|[\\/]@emotion[\\/]|[\\/]@mui/,
+                    test: /[\\/]@tailwindcss[\\/]|[\\/]@mui\/material[\\/]|[\\/]@emotionreact[\\/]|[\\/]@emotion[\\/]|[\\/]@mui[\\/]|[\\/]@mui\/icons-material[\\/]/,
                     name: false,
                     chunks: 'all',
                     idHint: 'usedVendors',
                 },
                 defaultVendors: {
                     test: /[\\/]node_modules[\\/]|[\\/]vendors[\\/]/,
-                    priority: -10,
+                    // priority: -10,
                     reuseExistingChunk: true,
                     name: false,
                     idHint: 'defaultVendors',
                     // filename: 'vendors/[name].bundle.js',
                 },
-                default: {
-                    minChunks: 2,
-                    idHint: 'default',
-                    name: false,
-                    priority: -20,
-                    reuseExistingChunk: true,
-                },
+                // default: {
+                //     minChunks: 2,
+                //     idHint: 'default',
+                //     name: false,
+                //     // priority: -20,
+                //     reuseExistingChunk: true,
+                // },
             },
         },
     },

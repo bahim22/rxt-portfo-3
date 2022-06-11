@@ -46,11 +46,9 @@
         "@emotion/react": "latest",
         "@emotion/styled": "latest",
         "@fontsource/roboto": "latest",
-        "@heroicons/react": "^1.0.5",
         "@mui/icons-material": "^5.6.1",
         "@mui/material": "latest",
         "@mui/styles": "latest",
-        "@mui/system": "latest",
         "@tailwindcss/aspect-ratio": "^0.4.0",
         "@tailwindcss/forms": "^0.5.1",
         "@tailwindcss/typography": "^0.5.2",
@@ -103,7 +101,7 @@
             "not op_mini all"
         ],
         "development": [
-            "last 1 chrome version",
+            "last 2 chrome version",
             "last 1 safari version",
             "last 1 edge version"
         ]

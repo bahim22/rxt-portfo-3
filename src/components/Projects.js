@@ -1,4 +1,4 @@
-import { ProjectList, projInfo } from '../ProjectList';
+import { ProjectList, ProjInfoDiv } from '../ProjectList';
 import React from 'react';
 import Code from '@mui/icons-material/Code';
 export default function Projects() {
@@ -10,7 +10,8 @@ export default function Projects() {
                     <h1 className='sm:text-4xl text-3xl font-medium title-font mb-4 text-blue-400'>
                         Web Apps and Websites I Have Built
                     </h1>
-                    <p className='lg:w-2/3 mx-auto leading-relaxed text-base'>{projInfo}</p>
+                    {/* <p className='lg:w-2/3 mx-auto leading-relaxed text-base'>{projInfo}</p> */}
+                    <ProjInfoDiv />
                 </div>
                 <div className='flex flex-wrap -m-4'>
                     {ProjectList.map((project) => (
@@ -19,7 +20,9 @@ export default function Projects() {
                                 <img
                                     src={project.image}
                                     alt='gallery'
-                                    className='absolute inset-0 w-full h-full object-cover object-center'
+                                    className='w-full h-full object-cover object-center rounded'
+                                    title='gallery'
+                                    loading='lazy'
                                 />
                                 <div className='px-8 py-10 relative z-10 w-full border-3 border-gray-800 bg-gray-900 opacity-0 hover:opacity-100'>
                                     <h2 className='tracking-widest text-md title-font font-medium text-green-400 mb-1'>

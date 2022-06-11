@@ -1,4 +1,5 @@
-import { TerminalIcon, UsersIcon } from '@heroicons/react/solid';
+// import { TerminalIcon, UsersIcon } from '@heroicons/react/solid';
+import { TerminalOutlined, VerifiedUserSharp } from '@mui/icons-material';
 
 import React from 'react';
 
@@ -29,13 +30,13 @@ export const Software = () => {
     return (
         <section id='software'>
             <div className='container px-5 py-10 mx-auto text-center'>
-                <UsersIcon className='w-10 inline-block mb-4' />
+                <VerifiedUserSharp className='w-10 inline-block mb-4' />
                 <h1 className='sm:text-4xl text-3xl font-medium title-font text-white mb-12'>Software and Services</h1>
                 <div className='flex flex-wrap m-4'>
                     {softwareList.map((a) => (
                         <div className='p-4 md:w-1/2 w-full' key={a.id}>
                             <div className='h-full bg-gray-800 bg-opacity-40 p-8 rounded'>
-                                {<TerminalIcon className='block w-8 text-gray-100 mb-4' />}
+                                {<TerminalOutlined className='block w-8 text-gray-100 mb-4' />}
                                 <p className='leading-relaxed mb-6'>{a.tools}</p>
                                 <h2 className='text-gray-100 text-sm uppercase'>{a.name}</h2>
                                 <div className='inline-flex'>
@@ -67,10 +68,10 @@ const Software2 = () => {
                     {softwareList.map((a) => (
                         <div className='p-4 md:w-1/2 w-full' key={a.id}>
                             <div className='h-full bg-gray-800 bg-opacity-40 p-8 rounded'>
-                                {<TerminalIcon className='block w-8 text-gray-100 mb-4' />}
+                                {/* {<TerminalIcon className='block w-8 text-gray-100 mb-4' />} */}
                                 <p className='leading-relaxed mb-6'>{a.tools}</p>
                                 <h2 className='text-gray-100 text-sm uppercase'>{a.name}</h2>
-                                <div className='inline-flex'>
+                                <div className='img-fluid'>
                                     <img
                                         src={a.image}
                                         title='softwareInfo'

@@ -47,13 +47,14 @@ export default function FormPro() {
     const handleOnSubmit = (e) => {
         // @ts-ignore
         // const formspree = process.env.REACT_APP_FORM_ID;
+        const fkey = process.env.REACT_APP_KEY;
         e.preventDefault();
         setStatus((prevStatus) => ({ ...prevStatus, submitting: true }));
         axios({
             method: 'POST',
-            // url: `https://formspree.io/f/${key2}`, || url: {formspree},
+            // url: `https://formspree.io/f/${fkey}`, //|| url: {formspree},
             // url: `${formspree} || https://formspree.io/f/xrgjabgr`,
-            // url: `${formspree}`,
+            // url: ${formspree},
             url: `https://formspree.io/f/xrgjabgr`,
             data: inputs,
         })
@@ -71,8 +72,8 @@ export default function FormPro() {
                     <img width='100%' height='300' src='https://i.imgur.com/qkdpN.png' alt='logo' />
                     {/* <img src='/rocket.png' alt='logo card' /> */}
                 </div>
-                <h1>Contact Me Today</h1>
             </header>
+            <h1>Contact Me Today</h1>
             <hr />
             <form onSubmit={handleOnSubmit} method='POST'>
                 <label htmlFor='email'>Email</label>
