@@ -14,7 +14,7 @@ function CardMain() {
             <CardMedia
                 sx={{ height: 'fit-content', paddingTop: '56.25%' }}
                 component='img'
-                height='fit-content'
+                height='150'
                 image='/himacard.png'
                 title='Skills List'
             />

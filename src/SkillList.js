@@ -1,12 +1,5 @@
 import JavascriptSharpIcon from '@mui/icons-material/JavascriptSharp';
-import {
-    HtmlSharp,
-    PlaylistAddCheckRounded,
-    GitHub,
-    DeveloperModeOutlined,
-    CssTwoTone,
-    PunchClock,
-} from '@mui/icons-material';
+import { HtmlSharp, GitHub, DeveloperModeOutlined, CssTwoTone, PunchClock } from '@mui/icons-material';
 import React from 'react';
 import { Divider } from '@mui/material';
 
@@ -14,7 +7,8 @@ export const SkillInfo = [
     {
         Name: 'JavaScript',
         Description: 'JavaScript is a programming language that conforms to the ECMAScript specification.',
-        Skills: ['ES6', 'ES5', 'JSX', 'TypeScript', 'JSON'],
+        // Skills: ['ES6', 'ES5', 'JSX', 'TypeScript', 'JSON'],
+        Skills: ['ES6 JSX TypeScript JSON'],
         Id: 0,
         Icon: <JavascriptSharpIcon className='text-blue-300 w-6 h-6 flex-shrink-0 mr-4' />,
         Time: '2 years',
@@ -25,7 +19,7 @@ export const SkillInfo = [
         Name: 'HTML5 and CSS3',
         Description: 'HTML5 is the fifth and current version of the HTML standard.',
         Icon: [<HtmlSharp key='1a' className='text-blue-300 w-6 h-6 flex-shrink-0 mr-4' />, <CssTwoTone key='1b' />],
-        Skills: ['HTML5', 'CSS3', 'Bootstrap', 'Material-UI', 'TailwindCss'],
+        Skills: ['HTML5 CSS3 Bootstrap Mui TailwindCss'],
         Id: 1,
         Time: '2 years',
         Length: <PunchClock />,
@@ -60,20 +54,21 @@ const SkillList = () => {
                 <div className='text-center mb-20'>
                     {SkillInfo.map((s) => (
                         <div key={s.Id} className='p-2 sm:w-1/2 w-full'>
-                            <div className='bg-gray-800 rounded flex p-4 h-full items-center'>
+                            <div className='bg-gray-800 rounded flex-row p-2 h-full items-center justify-around'>
                                 <span className='title-font font-medium text-red-700'>{s.Name}</span>
+                                <span className='title-font font-medium text-red-700'>{s.Icon}</span>
                                 <span className='text-gray-500'>
                                     {' '}
                                     {s.Time} {s.Length}{' '}
                                 </span>
-                                <span className='text-gray-500'> {s.Description}</span>
+                                {/* <span className='text-gray-500'> {s.Description}</span> */}
                             </div>
                             <div className='inline-flex'>
-                                <span className='flex-grow flex flex-col pl-4'>{s.Skills}</span>
+                                <span className='flex-grow flex flex-row pl-4'>{s.Skills}</span>
+                                {/* <PlaylistAddCheckRounded /> */}
                             </div>
                             <Divider />
                             <div className='inline-flex'>
-                                <PlaylistAddCheckRounded />
                                 <img
                                     src={s.image}
                                     alt='gallery'
@@ -84,14 +79,6 @@ const SkillList = () => {
                                     height='200'
                                     className='w-30 flex-shrink-0 object-cover object-center'
                                 />
-                                <img
-                                    src={s.image}
-                                    title='SoftwarePic2'
-                                    loading='lazy'
-                                    alt='software'
-                                    className='w-40 flex-shrink-0 object-cover object-center'
-                                />
-                                <span className='flex-grow flex flex-col pl-4'>{s.Icon}</span>
                             </div>
                         </div>
                     ))}

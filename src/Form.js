@@ -2,14 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 // import './styles/Form.css';
 import './styles/Info.css';
-// const key3 = process.env.KEY;
-// const key2 = process.env.FORM_ID;
-// const key = process.env.REACT_APP_FORM_ID;
-// const projectId = process.env.REACT_APP_PROJID;
-import CardMain from './components/CardMain';
 
 export default function FormPro() {
-    // const FormPro = () => {
     const [status, setStatus] = useState({
         submitted: false,
         submitting: false,
@@ -51,15 +45,17 @@ export default function FormPro() {
         });
     };
     const handleOnSubmit = (e) => {
+        // @ts-ignore
+        // const formspree = process.env.REACT_APP_FORM_ID;
         e.preventDefault();
         setStatus((prevStatus) => ({ ...prevStatus, submitting: true }));
         axios({
             method: 'POST',
-            // url: `https://formspree.io/f/${key2}`,
+            // url: `https://formspree.io/f/${key2}`, || url: {formspree},
+            // url: `${formspree} || https://formspree.io/f/xrgjabgr`,
+            // url: `${formspree}`,
             url: `https://formspree.io/f/xrgjabgr`,
-            // url: `${key}`,
             data: inputs,
-            // proxy:
         })
             .then((response) => {
                 handleServerResponse(true, 'Message Submitted Successfully. Thank you!');
@@ -70,16 +66,14 @@ export default function FormPro() {
     };
     return (
         <>
-            <header>
+            <header id='contact'>
                 <div>
-                    <img src='/rocket.png' alt='logo card' />
                     <img width='100%' height='300' src='https://i.imgur.com/qkdpN.png' alt='logo' />
+                    {/* <img src='/rocket.png' alt='logo card' /> */}
                 </div>
                 <h1>Contact Me Today</h1>
             </header>
-            <CardMain />
             <hr />
-            {/* <form onSubmit={handleOnSubmit} method='POST' key={key2}> */}
             <form onSubmit={handleOnSubmit} method='POST'>
                 <label htmlFor='email'>Email</label>
                 <input

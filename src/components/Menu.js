@@ -12,15 +12,45 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
-// import { ScrollTop } from './Scroll';
-
-// import Fab from '@mui/material/Fab';
-// import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-// import Zoom from '@mui/material/Zoom';
-
-const pages = ['About Me', 'Contact', 'Projects'];
-const settings = ['Azure', 'Jira', 'React', 'Webpack5', 'Babel'];
+// import AdbIcon from '@mui/icons-material/Adb';
+import ButtonGroup from '@mui/material/ButtonGroup';
+import MenuTwoToneIcon from '@mui/icons-material/MenuTwoTone';
+import MenuBookSharpIcon from '@mui/icons-material/MenuBookSharp';
+// const pages = ['About Me', 'Contact', 'Projects'];
+const pages2 = [
+    {
+        About: (
+            <a href='#about' className='py-2 px-6 flex-wrap text-black hover:text-black'>
+                About
+            </a>
+        ),
+        Projects: (
+            <a href='#projects' className='py-2 px-6 flex-wrap text-black hover:text-black'>
+                Projects
+            </a>
+        ),
+        Progress: (
+            <a href='#progress' className='py-2 px-6 flex-wrap text-black hover:text-black'>
+                Progress
+            </a>
+        ),
+    },
+];
+// const settings = ['Azure', 'Jira', 'React', 'Webpack5', 'Babel'];
+const settings2 = [
+    {
+        Contact: <a href='#contact'>Contact</a>,
+        id: 5,
+    },
+    {
+        Skills: <a href='#skills'>Skills</a>,
+        id: 6,
+    },
+    {
+        Software: <a href='#software'>Software</a>,
+        id: 7,
+    },
+];
 
 const MenuBar = () => {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -42,10 +72,10 @@ const MenuBar = () => {
     };
 
     return (
-        <AppBar position='static'>
+        <AppBar position='fixed'>
             <Container maxWidth='xl'>
                 <Toolbar disableGutters>
-                    <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+                    <MenuTwoToneIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
                     <Typography
                         variant='h6'
                         noWrap
@@ -90,19 +120,26 @@ const MenuBar = () => {
                             sx={{
                                 display: { xs: 'block', md: 'none' },
                             }}>
-                            {pages.map((page) => (
+                            {/* {pages.map((page) => (
                                 <MenuItem key={page} onClick={handleCloseNavMenu}>
                                     <Typography textAlign='center'>{page}</Typography>
+                                </MenuItem>
+                            ))} */}
+                            {pages2.map((page) => (
+                                <MenuItem key={page.id} onClick={handleCloseNavMenu}>
+                                    <Typography textAlign='left'>{page.About}</Typography>
+                                    <Typography textAlign='center'>{page.Progress}</Typography>
+                                    <Typography textAlign='right'>{page.Projects}</Typography>
                                 </MenuItem>
                             ))}
                         </Menu>
                     </Box>
-                    <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+                    <MenuBookSharpIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
                     <Typography
                         variant='h5'
                         noWrap
                         component='a'
-                        href=''
+                        href='//#endregion'
                         sx={{
                             mr: 2,
                             display: { xs: 'flex', md: 'none' },
@@ -116,20 +153,33 @@ const MenuBar = () => {
                         Hima
                     </Typography>
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-                        {pages.map((page) => (
+                        {pages2.map((page, key = 5) => (
+                            <ButtonGroup key={2} variant='outlined' aria-label='outlined button group'>
+                                <Button onClick={handleCloseNavMenu} sx={{ my: 2, color: 'white', display: 'block' }}>
+                                    {page.About}
+                                </Button>
+                                <Button onClick={handleCloseNavMenu} sx={{ my: 2, color: 'white', display: 'block' }}>
+                                    {page.Progress}
+                                </Button>
+                                <Button onClick={handleCloseNavMenu} sx={{ my: 2, color: 'white', display: 'block' }}>
+                                    {page.Project}
+                                </Button>
+                            </ButtonGroup>
+                        ))}
+                        {/* {pages.map((page) => (
                             <Button
                                 key={page}
                                 onClick={handleCloseNavMenu}
                                 sx={{ my: 2, color: 'white', display: 'block' }}>
                                 {page}
                             </Button>
-                        ))}
+                        ))} */}
                     </Box>
 
                     <Box sx={{ flexGrow: 0 }}>
                         <Tooltip title='Open settings'>
                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                <Avatar alt='Remy Sharp' src='/rocket.png' />
+                                <Avatar alt='Icon' src='/rocket.png' />
                             </IconButton>
                         </Tooltip>
                         <Menu
@@ -147,9 +197,11 @@ const MenuBar = () => {
                             }}
                             open={Boolean(anchorElUser)}
                             onClose={handleCloseUserMenu}>
-                            {settings.map((setting) => (
-                                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                                    <Typography textAlign='center'>{setting}</Typography>
+                            {settings2.map((setting) => (
+                                <MenuItem key={setting.id} onClick={handleCloseUserMenu}>
+                                    <Typography textAlign='center'>{setting.Contact}</Typography>
+                                    <Typography textAlign='center'>{setting.Software}</Typography>
+                                    <Typography textAlign='center'>{setting.Skills}</Typography>
                                 </MenuItem>
                             ))}
                         </Menu>

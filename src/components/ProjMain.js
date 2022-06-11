@@ -18,8 +18,6 @@ const ProjMain = () => {
                             <img
                                 src={project.image}
                                 alt='gallery'
-                                width='100%'
-                                height='300'
                                 className='w-40 flex-shrink-0 object-cover object-center'
                             />
                         </div>
