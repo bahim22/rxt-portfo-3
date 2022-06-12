@@ -50,13 +50,13 @@ module.exports = {
                         loader: 'css-loader',
                         options: {
                             importLoaders: 1,
-                            // sourceMap: true,
+                            sourceMap: true,
                         },
                     },
                     {
                         loader: 'postcss-loader',
                         options: {
-                            // sourceMap: true,
+                            sourceMap: true,
                         },
                     },
                 ],
@@ -113,7 +113,7 @@ module.exports = {
                     options: {
                         name: '[path][name].[ext]',
                         // outputPath: 'images',
-                        // esModule: true,
+                        esModule: true,
                     },
                 },
             },
@@ -224,7 +224,7 @@ module.exports = {
             maxAsyncRequests: 20, // for HTTP2
             cacheGroups: {
                 vendors: {
-                    test: /[\\/]@tailwindcss[\\/]|[\\/]@mui\/material[\\/]|[\\/]@emotionreact[\\/]|[\\/]@emotion[\\/]|[\\/]@mui[\\/]|[\\/]@mui\/icons-material[\\/]/,
+                    test: /[\\/]@tailwindcss[\\/]|[\\/]@mui\/material[\\/]|[\\/]@emotionreact[\\/]|[\\/]@emotion[\\/]/,
                     name: false,
                     chunks: 'all',
                     idHint: 'usedVendors',
