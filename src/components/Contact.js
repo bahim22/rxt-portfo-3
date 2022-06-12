@@ -19,7 +19,7 @@ const Contact = () => {
                     </Typography>
                     <Typography>
                         <Link href='https://forms.office.com/Pages/AnalysisPage.aspx?AnalyzerToken=pmJOsezZXc5CYi8EhyrHfQ0mljOJhK6e&id=R_nkmWwVKU2oUbLcTQ9XnngdfUa9-rlAmSxh5KMiCLJUNUZINUpQQ0tKVTY2QldGS1ZBOExLM0ZGUS4u'>
-                            Feedback Form
+                            <strong>Feedback Form</strong>
                         </Link>
                     </Typography>
                 </Box>

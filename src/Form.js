@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 // import './styles/Form.css';
 import './styles/Info.css';
+import ScopedCssBaseline from '@mui/material/ScopedCssBaseline';
 
 export default function FormPro() {
     const [status, setStatus] = useState({
@@ -47,7 +48,7 @@ export default function FormPro() {
     const handleOnSubmit = (e) => {
         // @ts-ignore
         // const formspree = process.env.REACT_APP_FORM_ID;
-        const fkey = process.env.REACT_APP_KEY;
+        // const fkey = process.env.REACT_APP_KEY;
         e.preventDefault();
         setStatus((prevStatus) => ({ ...prevStatus, submitting: true }));
         axios({
@@ -66,7 +67,7 @@ export default function FormPro() {
             });
     };
     return (
-        <>
+        <ScopedCssBaseline>
             <header id='contact'>
                 <div>
                     <img width='100%' height='300' src='https://i.imgur.com/qkdpN.png' alt='logo' />
@@ -93,7 +94,7 @@ export default function FormPro() {
             </form>
             {status.info.error && <div className='error'>Error: {status.info.msg}</div>}
             {!status.info.error && status.info.msg && <p>{status.info.msg}</p>}
-        </>
+        </ScopedCssBaseline>
     );
 }
 

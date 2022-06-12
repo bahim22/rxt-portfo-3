@@ -13,7 +13,6 @@ import { Container, CssBaseline } from '@mui/material';
 const Skills = () => {
     return (
         <>
-            <CssBaseline />
             <section id='skills'>
                 <div className='container px-5 py-10 mx-auto'>
                     <div className='text-center mb-20'>

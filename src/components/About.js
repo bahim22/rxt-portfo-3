@@ -35,6 +35,8 @@ const About = () => {
                     <img
                         className='object-cover object-center rounded'
                         alt='hima b'
+                        title='hima b'
+                        loading='eager'
                         src='/hima2.jpeg'
                         width='100%'
                         height='300'
