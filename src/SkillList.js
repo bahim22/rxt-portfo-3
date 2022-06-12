@@ -49,7 +49,7 @@ export const SkillInfo = [
 
 const SkillList = () => {
     return (
-        <div>
+        <div id='skillList'>
             <div className='container px-5 py-10 mx-auto'>
                 <div className='text-center mb-20'>
                     {SkillInfo.map((s) => (

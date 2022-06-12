@@ -11,6 +11,7 @@ import ProjMain from './components/ProjMain.js';
 import SkillList from './SkillList';
 import MenuBar from './components/Menu';
 import FormPro from './Form';
+import Copyright from './components/CopyrightFoot';
 
 // import ContactForm from './ContactForm';
 
@@ -22,11 +23,12 @@ function App() {
             <About />
             <Projects />
             <ProjMain />
-            <Software2 />
             <Skills />
             <SkillList />
+            <Software2 />
             <FormPro />
             <Contact />
+            <Copyright />
         </main>
     );
 }

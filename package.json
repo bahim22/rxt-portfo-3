@@ -2,6 +2,11 @@
     "name": "rxt-portfo-3",
     "version": "4.0.0",
     "main": "index.js",
+    "private": true,
+    "engines": {
+        "node": ">=12.0.0",
+        "npm": ">=6.0.0"
+    },
     "license": "MIT",
     "description": "Hima Dionysus Balde customized and optimized React.js Portfolio Web App.",
     "scripts": {

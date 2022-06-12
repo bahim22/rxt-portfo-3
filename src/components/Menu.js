@@ -16,23 +16,25 @@ import MenuItem from '@mui/material/MenuItem';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import MenuTwoToneIcon from '@mui/icons-material/MenuTwoTone';
 import MenuBookSharpIcon from '@mui/icons-material/MenuBookSharp';
+import Link from '@mui/material/Link';
+
 // const pages = ['About Me', 'Contact', 'Projects'];
 const pages2 = [
     {
         About: (
-            <a href='#about' className='py-2 px-6 flex-wrap text-black hover:text-black'>
+            <Link href='#about' className='py-2 px-6 flex-col text-black hover:text-blue-400'>
                 About
-            </a>
+            </Link>
         ),
         Projects: (
-            <a href='#projects' className='py-2 px-6 flex-wrap text-black hover:text-black'>
+            <Link href='#projects' className='py-2 px-6 flex-col text-black hover:text-blue-400'>
                 Projects
-            </a>
+            </Link>
         ),
         Progress: (
-            <a href='#progress' className='py-2 px-6 flex-wrap text-black hover:text-black'>
+            <Link href='#progress' className='py-2 px-6 flex-wracolp text-black hover:text-blue-400'>
                 Progress
-            </a>
+            </Link>
         ),
     },
 ];
@@ -43,7 +45,11 @@ const settings2 = [
         id: 5,
     },
     {
-        Skills: <a href='#skills'>Skills</a>,
+        Skills: <a href='#skills'>Dev + Design</a>,
+        id: 6,
+    },
+    {
+        Coding: <a href='#skillList'>OOP Skills</a>,
         id: 6,
     },
     {
@@ -202,6 +208,7 @@ const MenuBar = () => {
                                     <Typography textAlign='center'>{setting.Contact}</Typography>
                                     <Typography textAlign='center'>{setting.Software}</Typography>
                                     <Typography textAlign='center'>{setting.Skills}</Typography>
+                                    <Typography textAlign='center'>{setting.Coding}</Typography>
                                 </MenuItem>
                             ))}
                         </Menu>

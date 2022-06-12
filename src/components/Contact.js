@@ -1,14 +1,29 @@
-import { Link } from '@mui/material';
+import { Link, Typography } from '@mui/material';
 import React from 'react';
-// import ContactForm from './ContactForm'
-
-// const info = {
-//     email: 'Hima Email',
-// };
+import Box from '@mui/material/Box';
+import Avatar from '@mui/material/Avatar';
 
 const Contact = () => {
     return (
-        <section id='contact' className='relative'>
+        <section id='contact'>
+            <Box sx={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between' }}>
+                <Box sx={{ mr: 2, display: 'flex', alignItems: 'center' }}>
+                    <Avatar
+                        alt='Hima Avatar'
+                        title='Hima Avatar'
+                        src='https://readyplayer.me/gallery/Fin2iIPGx'
+                        sx={{ width: 34, height: 34, marginRight: 2.75 }}
+                    />
+                    <Typography variant='body2' sx={{ color: 'common.white' }}>
+                        Anne Burke
+                    </Typography>
+                    <Typography>
+                        <Link href='https://forms.office.com/Pages/AnalysisPage.aspx?AnalyzerToken=pmJOsezZXc5CYi8EhyrHfQ0mljOJhK6e&id=R_nkmWwVKU2oUbLcTQ9XnngdfUa9-rlAmSxh5KMiCLJUNUZINUpQQ0tKVTY2QldGS1ZBOExLM0ZGUS4u'>
+                            Feedback Form
+                        </Link>
+                    </Typography>
+                </Box>
+            </Box>
             <div className='container px-5 py-10 mx-auto flex sm:flex-wrap flex-wrap'>
                 <div className='sm:min-w-fit lg:min-w-full bg-gray-400 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-center justify-around fixed shadow-md shadow-teal-400'>
                     <iframe
