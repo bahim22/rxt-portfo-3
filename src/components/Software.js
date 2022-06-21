@@ -4,26 +4,17 @@ import { styled } from '@mui/material/styles';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
+
 const softwareList = [
     {
-        name: 'Azure',
-        tools: 'DevOps, SAAS, IAAS',
+        name: 'GitHub, Azure',
+        tools: 'Dev, SAAS, IAAS, hosting, collab, Version Control',
         image: '/himacard.png',
     },
     {
-        name: 'GitHub',
-        tools: 'Dev, hosting, collab, Version Control',
-        image: '/himacard.png',
-    },
-    {
-        name: 'Jira',
+        name: 'Jira, Microsoft 365',
         tools: 'Dev, Planning, workflow, Kanban Board',
-        image: '/himacard.png',
-    },
-    {
-        name: 'Office 365',
-        tools: 'office, excel, powerpoint, Planning, Admin',
-        image: '/himacard.png',
+        image: '/bbman.jpeg',
     },
 ];
 
@@ -49,11 +40,11 @@ const Software2 = () => {
                                 <Grid item xs={6}>
                                     <Item>
                                         <h2 className='text-gray-100 text-sm uppercase'>{a.name}</h2>
-                                        <span className='flex-grow flex flex-col pl-4'>{a.tools}</span>
+                                        <span className='flex-grow flex flex-row pl-4'>{a.tools}</span>
                                     </Item>
                                     <Item>
                                         <h2 className='text-gray-100 text-sm uppercase'>{a.name}</h2>
-                                        <span className='flex-grow flex flex-col pl-4'></span>
+                                        <span className='flex-grow flex flex-row pl-4'></span>
                                     </Item>
                                 </Grid>
                                 <Grid item xs={6}>
@@ -77,6 +68,34 @@ const Software2 = () => {
 };
 
 export default Software2;
+
+export const Software = () => {
+    return (
+        <section id='software'>
+            <div className='container px-5 py-10 mx-auto text-center'>
+                <h1 className='sm:text-4xl text-3xl font-medium title-font text-white mb-12'>Software and Services</h1>
+                <div className='flex flex-wrap m-4'>
+                    {softwareList.map((a) => (
+                        <div className='p-4 md:w-1/2 w-full' key={a.id}>
+                            <div className='h-full bg-gray-800 bg-opacity-40 p-8 rounded'>
+                                <p className='leading-relaxed mb-6'>{a.tools}</p>
+                                <h2 className='text-gray-100 text-sm uppercase'>{a.name}</h2>
+                                <div className='inline-flex'>
+                                    <img
+                                        src={a.image}
+                                        alt='software'
+                                        className='w-40 flex-shrink-0 object-cover object-center'
+                                    />
+                                    <span className='flex-grow flex flex-col pl-4'></span>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </section>
+    );
+};
 
 // const Software2 = () => {
 //     return (

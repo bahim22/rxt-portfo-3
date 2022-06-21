@@ -16,7 +16,7 @@ export const SkillInfo = [
         image: '/logoDed.png',
     },
     {
-        Name: 'HTML5 and CSS3',
+        Name: 'HTML+CSS',
         Description: 'HTML5 is the fifth and current version of the HTML standard.',
         Icon: <HtmlSharp key='1a' className='text-blue-300 w-6 h-6 flex-shrink-0 mr-4' />,
         Skills: ['HTML5 CSS3 Bootstrap Mui TailwindCss'],
@@ -54,7 +54,7 @@ const SkillList = () => {
                 <div className='text-center mb-20'>
                     {SkillInfo.map((s) => (
                         <div key={s.Id} className='p-2 sm:w-1/2 w-full'>
-                            <div className='bg-gray-800 rounded flex-row p-2 h-full items-center justify-around'>
+                            <div className='bg-gray-800 rounded flex-row p-2 h-full items-center justify-center'>
                                 <span className='title-font font-medium text-red-700'>{s.Name}</span>
                                 <span className='title-font font-medium text-red-700'>{s.Icon}</span>
                                 <span className='text-gray-500'> {s.Time} </span>
@@ -66,7 +66,7 @@ const SkillList = () => {
                                 {/* <PlaylistAddCheckRounded /> */}
                                 <Divider />
                             </div>
-                            <div className='inline-flex'>
+                            <div className='fit-content inline-flex'>
                                 <img
                                     src={s.image}
                                     alt='gallery'

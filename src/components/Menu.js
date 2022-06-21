@@ -28,12 +28,12 @@ const pages2 = [
         ),
         Projects: (
             <Link href='#projects' className='py-2 px-6 flex-col text-black hover:text-blue-400'>
-                Projects
+                Prod
             </Link>
         ),
         Progress: (
-            <Link href='#progress' className='py-2 px-6 flex-wracolp text-black hover:text-blue-400'>
-                Progress
+            <Link href='#progress' className='py-2 px-6 flex-col text-black hover:text-blue-400'>
+                Dev
             </Link>
         ),
     },
@@ -158,7 +158,7 @@ const MenuBar = () => {
                         }}>
                         Hima
                     </Typography>
-                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', lg: 'flex' } }}>
                         {pages2.map((page, key = 5) => (
                             <ButtonGroup key={2} variant='outlined' aria-label='outlined button group'>
                                 <Button onClick={handleCloseNavMenu} sx={{ my: 2, color: 'white', display: 'block' }}>
@@ -182,9 +182,9 @@ const MenuBar = () => {
                         ))} */}
                     </Box>
 
-                    <Box sx={{ flexGrow: 0 }}>
-                        <Tooltip title='Open settings'>
-                            <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                    <Box sx={{ flexGrow: 1 }}>
+                        <Tooltip title='Skills Section'>
+                            <IconButton onClick={handleOpenUserMenu} sx={{ p: 1 }}>
                                 <Avatar alt='Icon' src='/rocket.png' />
                             </IconButton>
                         </Tooltip>
@@ -205,10 +205,10 @@ const MenuBar = () => {
                             onClose={handleCloseUserMenu}>
                             {settings2.map((setting) => (
                                 <MenuItem key={setting.id} onClick={handleCloseUserMenu}>
-                                    <Typography textAlign='center'>{setting.Contact}</Typography>
                                     <Typography textAlign='center'>{setting.Software}</Typography>
                                     <Typography textAlign='center'>{setting.Skills}</Typography>
                                     <Typography textAlign='center'>{setting.Coding}</Typography>
+                                    <Typography textAlign='center'>{setting.Contact}</Typography>
                                 </MenuItem>
                             ))}
                         </Menu>

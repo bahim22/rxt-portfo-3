@@ -15,9 +15,9 @@ const About = () => {
                     <p className='mb-8 leading-relaxed'>
                         Website developer and designer. Currently building websites and web Apps using JAMstack and{' '}
                         Fullstack tools. I research each step of the development process and take ideas from concept to{' '}
-                        production with a one man team.
+                        production. with a one man team.
                     </p>
-                    <div className='flex justify-center'>
+                    {/* <div className='flex justify-center'>
                         <a
                             href='#contact'
                             className='inline-flex text-black bg-red-800 border-1 py-2 px-6 focus:outline-none hover:bg-blue-400 rounded text-2xl'>
@@ -29,17 +29,17 @@ const About = () => {
                             className='ml-4 inline-flex  bg-red-800 border-1 py-2 px-6 focus:outline-none hover:bg-gray-700 hover:text-blue-400 rounded  text-black text-2xl'>
                             Projects
                         </a>
-                    </div>
+                    </div>*/}
                 </div>
-                <div className='lg:max-w-lg lg:w-full md:w-1/2 w-5/6'>
+                <div className='lg:min-w-fit lg:w-fit md:w-1/2 w-5/6'>
                     <img
                         className='object-cover object-center rounded'
                         alt='hima b'
                         title='hima b'
                         loading='eager'
                         src='/hima2.jpeg'
-                        width='100%'
-                        height='300'
+                        // width='100%'
+                        // height='300'
                     />
                 </div>
             </div>

@@ -167,20 +167,20 @@ module.exports = {
         //     ],
         // }),
         new webpack.BannerPlugin({
-            banner: 'DedOps Webpack5 Dev Sprint',
+            banner: 'DedOps Webpack5 06/20',
         }),
         new BundleAnalyzerPlugin({
-            analyzerMode: 'json',
-            openAnalyzer: false,
-            reportFilename: '/Docs/Analysis/bundle.json',
-            generateStatsFile: true,
-            statsFilename: '/Docs/Analysis/stats.json',
+            analyzerMode: 'static',
+            openAnalyzer: true,
+            // reportFilename: '/Docs/Analysis/bundle.json',
+            // generateStatsFile: true,
+            // statsFilename: '/Docs/Analysis/stats.json',
         }),
     ],
     optimization: {
         nodeEnv: 'development',
     },
-    performance: {
-        hints: 'warning',
-    },
+    // performance: {
+    //     hints: 'warning',
+    // },
 };

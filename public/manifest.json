@@ -2,7 +2,7 @@
     "name": "Hima Dionysus Balde",
     "lang": "en-us",
     "short_name": "rxt-portfo-3",
-    "description": "This is a JAMstack, progressive web app using React.js, Webpack 5 and much more. Coded by Ibrahima Balde, Dionysus Era Dev, ",
+    "description": "A custom made React app bundled with Webpack and styled with CSS, Mui, TailwindCss. Coded with Visual Studio Code on MacOS and deployed to Netlify.",
     "start_url": "/",
     "scope": "/",
     "display": "standalone",
@@ -11,18 +11,18 @@
     "orientation": "any",
     "icons": [
         {
-            "src": "\/favicon16.ico",
+            "src": "/favicon16.ico",
             "sizes": "16x16",
             "type": "image\/x-icon",
             "density": "1.0"
         },
         {
-            "src": "\/favicon32.ico",
+            "src": "/favicon32.ico",
             "sizes": "32x32 24x24",
             "type": "image\/x-icon"
         },
         {
-            "src": "\/favicon.ico",
+            "src": "/favicon.ico",
             "sizes": "48x48",
             "type": "image\/x-icon"
         },
@@ -37,6 +37,11 @@
             "type": "image\/png"
         },
         {
+            "src": "\/logo18.png",
+            "sizes": "144x144",
+            "type": "image\/png"
+        },
+        {
             "src": "\/logo192.png",
             "sizes": "192x192",
             "type": "image\/png"
@@ -47,12 +52,17 @@
             "type": "image\/png"
         },
         {
+            "src": "\/logoDed.png",
+            "sizes": "200x200",
+            "type": "image\/png"
+        },
+        {
             "src": "\/logo512.png",
             "sizes": "512x512",
             "type": "image\/png"
         },
         {
-            "src": "\/logo320.png",
+            "src": "\/logo678.png",
             "sizes": "320x320",
             "type": "image\/png"
         },

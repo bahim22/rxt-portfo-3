@@ -26,6 +26,26 @@ module.exports = {
     },
     // devtool: 'source-map', // ? change before deploy
     cache: true,
+    // cache: {
+    //     // type: 'filesystem',
+    //     // cacheUnaffected: true, // ? fs
+    //     // maxGenerations: 100, // ? fs
+    //     type: 'memory', // ! filesystem | in-memory
+    //     cacheDirectory: path.resolve(__dirname, 'cache'),
+    //     cacheLocation: path.resolve(__dirname, 'cache'),
+    //     compression: true,
+    //     maxAge: '1d',
+    //     maxMemoryGenerations: 3,
+    //     memoryCacheUnaffected: true,
+    //     allowCollectingMemory: true,
+    //     profile: true,
+    //     store: true,
+    //     version: '1.0.0',
+
+    //     buildDependencies: {
+    //         config: ['./package.json'],
+    //     },
+    // },
     module: {
         rules: [
             {
@@ -154,11 +174,6 @@ module.exports = {
                     globOptions: {
                         ignore: ['*.js', '*.css'],
                     },
-                    // transform: {
-                    //     transformer(content, path) {
-                    //         return Promise.resolve(optimize(content));
-                    //     },
-                    // },
                 },
             ],
         }),
@@ -237,13 +252,13 @@ module.exports = {
                     idHint: 'defaultVendors',
                     // filename: 'vendors/[name].bundle.js',
                 },
-                // default: {
-                //     minChunks: 2,
-                //     idHint: 'default',
-                //     name: false,
-                //     // priority: -20,
-                //     reuseExistingChunk: true,
-                // },
+                default: {
+                    // minChunks: 2,
+                    idHint: 'default',
+                    name: false,
+                    // priority: -20,
+                    reuseExistingChunk: true,
+                },
             },
         },
     },

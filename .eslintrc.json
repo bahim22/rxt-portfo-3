@@ -13,12 +13,11 @@
         "ecmaVersion": "latest",
         "sourceType": "module"
     },
-    "plugins": ["import", "react", "jsx-a11y", "prettier"],
+    "plugins": ["import", "react", "prettier"],
     "extends": [
         "eslint:recommended",
         "plugin:react/recommended",
         "plugin:import/errors",
-        "plugin:jsx-a11y/recommended",
         "plugin:prettier/recommended"
     ],
     "rules": {
