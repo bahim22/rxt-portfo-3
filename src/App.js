@@ -4,9 +4,9 @@ import './App.css';
 import About from './components/About';
 import Contact from './components/Contact';
 import Projects from './components/Projects';
-// import Skills2, { Skills } from './components/Skills';
-import { Software } from './components/Software';
-// import {Software} from './components/Software';
+// import Skills2  from './components/Skills';
+// import Software2  from './components/Software';
+// import { Software } from './components/Software';
 // import ProjMain from './components/ProjMain.js';
 // import SkillList from './SkillList';
 import MenuBar from './components/Menu';
@@ -26,11 +26,11 @@ function App() {
             {/* <ProjMain /> */}
             {/* <SkillList /> */}
             {/* <Skills /> */}
-            <Software />
+            {/* <Software /> */}
             {/* <Skills2 /> */}
             {/* <Software2 /> */}
-            <FormPro />
             <Contact />
+            <FormPro />
             <Copyright />
         </>
     );

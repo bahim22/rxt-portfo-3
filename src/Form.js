@@ -69,20 +69,23 @@ export default function FormPro() {
     return (
         <ScopedCssBaseline>
             <header id='contact'>
-                <div>
-                    {/* <img width='100%' height='300' src='https://i.imgur.com/qkdpN.png' alt='logo' /> */}
-                    <img
+                {/* <div> */}
+                <div className='lg:min-w-fit lg:w-fit md:w-fit w-fit'>
+                    {/* <img width='100%' height='100' src='https://i.imgur.com/qkdpN.png' alt='logo' /> */}
+                    <img width='100%' height='100' title='my puppy' src='/pup.jpeg' alt='logo' />
+                    {/* <img
                         src='https://lists.office.com/Images/99e4f947-156c-4d29-a851-b2dc4d0f579e/467d1d78-fabd-40b9-992c-61e4a32208b2/T5FH5JPCKJU66BWFKVA8LK3FFQ/6fa7a51b-2dd0-4786-9687-4eef36143313'
                         alt='365 Form'
                         title='365 Form'
                         loading='lazy'
                         width='100%'
                         height='100'
-                    />
-                    {/* <img src='/rocket.png' alt='logo card' /> */}
+                    /> */}
+                    {/* <img src='/pup.jpeg' alt='logo card' /> */}
                 </div>
             </header>
-            <h1 className='title-font sm:text-4xl text-3xl mb-4 font-medium text-white'>Contact Me Today</h1>
+            <br />
+            <h1 className='title-font sm:text-2xl text-3xl mb-4 font-medium text-blue-400'>Contact Me Today</h1>
             <hr />
             <form onSubmit={handleOnSubmit} method='POST'>
                 <label htmlFor='email'>Email</label>

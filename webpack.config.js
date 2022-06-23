@@ -198,6 +198,7 @@ module.exports = {
             // new CssMinimizerPlugin(), '...',
             new TerserPlugin({
                 parallel: true,
+                // minify: require('TerserPlugin.swcMinify'),
                 minify: TerserPlugin.swcMinify,
                 terserOptions: {
                     parse: { ecma: 2017 },

@@ -5,7 +5,7 @@ import Avatar from '@mui/material/Avatar';
 
 const Contact = () => {
     return (
-        <section id='contact'>
+        <section id='map'>
             <div className='container px-5 py-10 mx-auto flex sm:flex-wrap flex-wrap'>
                 <div className='sm:min-w-full lg:min-w-full bg-gray-400 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-center justify-around shadow-md shadow-teal-400'>
                     <iframe
@@ -38,10 +38,10 @@ const Contact = () => {
                             title='Hima Avatar'
                             src='/hima2.jpeg'
                             // src='/gravatar.png'
-                            sx={{ width: 75, height: 75, marginRight: 2.75 }}
+                            sx={{ width: 65, height: 65, marginRight: 2.75 }}
                         />
                     </Box>
-                    <Box sx={{ mr: 2, display: 'flex', alignItems: 'center' }}>
+                    {/* <Box sx={{ mr: 2, display: 'flex', alignItems: 'center' }}>
                         <Typography variant='body2' sx={{ color: 'common.white' }}>
                             Microsoft 365:
                         </Typography>
@@ -51,26 +51,30 @@ const Contact = () => {
                                 <strong>Feedback Form</strong>
                             </Link>
                         </Typography>
-                    </Box>
-                    <div className='lg:w-1/2 px-6 lg:mt-0'>
-                        <h4 className='title-font font-semibold text-white tracking-widest text-sm'>Email: </h4>
+                    </Box> */}
+                    <br />
+                    <div id='form' className='lg:w-1/2 px-6 lg:mt-0'>
+                        {/* <h4 className='title-font font-semibold text-white tracking-widest text-sm'>Email: </h4> */}
                         <Link
                             href='mailto:ibalde@dionysuseradev.onmicrosoft.com'
                             className='text-slate-500 leading-relaxed'>
-                            <strong>Hima</strong>
+                            <strong>Send Me an Email</strong>
                         </Link>
-                        <hr />
+                        <br />
+                        <Link href='https://forms.office.com/r/16Fh6afNmV' className='text-slate-500 leading-relaxed'>
+                            <strong>Microsoft 365 Feedback Form</strong>
+                        </Link>
+                        <br />
                         {/* <h5 className='title-font font-semibold text-white tracking-widest text-sm'>
                             Send me an Email
                         </h5> */}
-                        <h5 className='title-font font-semibold text-white tracking-widest text-sm'>
+                        {/* <h5 className='title-font font-semibold text-white tracking-widest text-sm'>
                             <strong>Google Business Page: </strong>
-                        </h5>
-                        <hr />
+                        </h5> */}
                         <Link
                             href='https://g.page/r/CXfswPHp0DDEEAE/review'
                             className='text-slate-500 leading-relaxed '>
-                            <strong>Google Review</strong>
+                            <strong>Google Business Page Review</strong>
                         </Link>
                         <hr />
                         <br />

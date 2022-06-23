@@ -4,11 +4,19 @@ const About = () => {
     return (
         <section id='about'>
             <div className='container mx-auto flex px-10 py-20 md:flex-row flex-col items-center'>
+                {/* <div className='max-w-3xl px-4 mx-auto sm:px-6 xl:max-w-5xl xl:px-0'>Dionysus Era</div> */}
+                <h1 className='text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-5xl md:leading-14'>
+                    Hima Balde Portfolio
+                </h1>
+                <h2 className='text-2xl font-bold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-3xl sm:leading-10 md:text-4xl md:leading-14'>
+                    Dionysus Era Dev
+                </h2>
                 <div className='lg: flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center'>
-                    <h1 className='title-font sm:text-4xl text-3xl mb-4 font-medium text-white'>
+                    {/* <h1 className='title-font sm:text-4xl text-3xl mb-4 font-medium text-white'>
                         {' '}
-                        Welcome to my portfolio <br className='hidden md:inline-block' />
-                    </h1>
+                        Welcome!
+                    </h1> */}
+                    <br className='md:inline-block' />
                     <h2 className='mb-8 leading-relaxed '>
                         Custom Web App Built with React, Webpack, Babel, ESLint, Prettier and more!
                     </h2>

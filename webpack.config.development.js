@@ -2,7 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
     mode: 'development',
@@ -66,6 +66,12 @@ module.exports = {
                             sourceMap: true,
                         },
                     },
+                    // {
+                    //     loader: require.resolve('postcss-loader'),
+                    //     options: {
+                    //         sourceMap: true,
+                    //     },
+                    // },
                 ],
             },
             { test: /\.txt$/, use: 'raw-loader' },
@@ -131,51 +137,49 @@ module.exports = {
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify('development'),
         }),
-        new HtmlWebpackPlugin({
-            template: path.join(__dirname, 'public', 'index.html'),
-            favicon: './public/logod2.ico',
-            filename: 'dev.html',
-            cache: true,
-            hash: true,
-            inject: 'body',
-            esModule: true,
-        }),
+        // new HtmlWebpackPlugin({
+        //     template: path.join(__dirname, 'public', 'index.html'),
+        //     favicon: './public/logod2.ico',
+        //     filename: 'dev.html',
+        //     cache: true,
+        //     hash: true,
+        //     inject: 'body',
+        //     esModule: true,
+        // }),
         new HtmlWebpackPlugin({
             fileName: 'index.html',
             title: '419 Dev Ded',
             template: './public/index.html',
             favicon: './public/logod2.ico',
-            // cache: true,
-            // inject: true,
+            cache: true,
+            inject: true,
+            esModule: true,
             minify: {
                 collapseWhitespace: true,
                 minifyJS: true,
                 minifyCSS: true,
             },
         }),
-        // new CopyWebpackPlugin({
-        //     patterns: [
-        //         {
-        //             from: 'src/assets',
-        //             globOptions: {
-        //                 ignore: ['*.js', '*.css'],
-        //             },
-        //             to: 'assets',
-        //             // force: true,
-        //             // toType: 'template'
-        //         },
-        //     ],
-        // }),
-        new webpack.BannerPlugin({
-            banner: 'DedOps Webpack5 06/20',
+        new CopyWebpackPlugin({
+            patterns: [
+                {
+                    from: 'src/assets',
+                    globOptions: {
+                        ignore: ['*.js', '*.css'],
+                    },
+                },
+            ],
         }),
-        new BundleAnalyzerPlugin({
+        new webpack.BannerPlugin({
+            banner: 'DedOps Webpack5 06/22',
+        }),
+        /* new BundleAnalyzerPlugin({
             analyzerMode: 'static',
             openAnalyzer: true,
             // reportFilename: '/Docs/Analysis/bundle.json',
             // generateStatsFile: true,
             // statsFilename: '/Docs/Analysis/stats.json',
-        }),
+        }), */
     ],
     optimization: {
         nodeEnv: 'development',

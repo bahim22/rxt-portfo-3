@@ -21,39 +21,27 @@ import Link from '@mui/material/Link';
 // const pages = ['About Me', 'Contact', 'Projects'];
 const pages2 = [
     {
-        About: (
-            <Link href='#about' className='py-2 px-6 flex-col text-black hover:text-blue-400'>
-                About
-            </Link>
-        ),
-        Projects: (
-            <Link href='#projects' className='py-2 px-6 flex-col text-black hover:text-blue-400'>
-                Prod
-            </Link>
-        ),
-        Progress: (
-            <Link href='#progress' className='py-2 px-6 flex-col text-black hover:text-blue-400'>
-                Dev
-            </Link>
-        ),
+        About: <Link href='#about'>About</Link>,
+        Projects: <Link href='#projects'>Projects</Link>,
+        Contact: <Link href='#contact'>Contact</Link>,
     },
 ];
 // const settings = ['Azure', 'Jira', 'React', 'Webpack5', 'Babel'];
 const settings2 = [
     {
-        Contact: <a href='#contact'>Contact</a>,
+        About: <a href='#about'>About</a>,
         id: 5,
     },
+    // {
+    //     Skills: <a href='#projects'>Dev + Design</a>,
+    //     id: 6,
+    // },
     {
-        Skills: <a href='#skills'>Dev + Design</a>,
+        Map: <a href='#map'>Google Map</a>,
         id: 6,
     },
     {
-        Coding: <a href='#skillList'>OOP Skills</a>,
-        id: 6,
-    },
-    {
-        Software: <a href='#software'>Software</a>,
+        Forms: <a href='#form'>Forms</a>,
         id: 7,
     },
 ];
@@ -81,9 +69,9 @@ const MenuBar = () => {
         <AppBar position='fixed'>
             <Container maxWidth='xl'>
                 <Toolbar disableGutters>
-                    <MenuTwoToneIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+                    <MenuTwoToneIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 0 }} />
                     <Typography
-                        variant='h6'
+                        variant='h5'
                         noWrap
                         component='a'
                         href='/'
@@ -93,7 +81,7 @@ const MenuBar = () => {
                             fontFamily: 'monospace',
                             fontWeight: 700,
                             letterSpacing: '.3rem',
-                            color: 'inherit',
+                            color: 'whitesmoke',
                             textDecoration: 'none',
                         }}>
                         DED
@@ -102,7 +90,7 @@ const MenuBar = () => {
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
                         <IconButton
                             size='large'
-                            aria-label='account of current user'
+                            aria-label='menu icon'
                             aria-controls='menu-appbar'
                             aria-haspopup='true'
                             onClick={handleOpenNavMenu}
@@ -113,18 +101,19 @@ const MenuBar = () => {
                             id='menu-appbar'
                             anchorEl={anchorElNav}
                             anchorOrigin={{
-                                vertical: 'bottom',
-                                horizontal: 'left',
+                                vertical: 'top',
+                                horizontal: 'right',
                             }}
                             keepMounted
                             transformOrigin={{
                                 vertical: 'top',
-                                horizontal: 'left',
+                                horizontal: 'right',
                             }}
                             open={Boolean(anchorElNav)}
                             onClose={handleCloseNavMenu}
                             sx={{
-                                display: { xs: 'block', md: 'none' },
+                                display: { xs: 'flex', md: 'none' },
+                                mx: 1,
                             }}>
                             {/* {pages.map((page) => (
                                 <MenuItem key={page} onClick={handleCloseNavMenu}>
@@ -134,15 +123,15 @@ const MenuBar = () => {
                             {pages2.map((page) => (
                                 <MenuItem key={page.id} onClick={handleCloseNavMenu}>
                                     <Typography textAlign='left'>{page.About}</Typography>
-                                    <Typography textAlign='center'>{page.Progress}</Typography>
-                                    <Typography textAlign='right'>{page.Projects}</Typography>
+                                    <Typography textAlign='center'>{page.Projects}</Typography>
+                                    <Typography textAlign='right'>{page.Contact}</Typography>
                                 </MenuItem>
                             ))}
                         </Menu>
                     </Box>
-                    <MenuBookSharpIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+                    <MenuBookSharpIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 2 }} />
                     <Typography
-                        variant='h5'
+                        variant='h4'
                         noWrap
                         component='a'
                         href='//#endregion'
@@ -150,7 +139,7 @@ const MenuBar = () => {
                             mr: 2,
                             display: { xs: 'flex', md: 'none' },
                             flexGrow: 1,
-                            fontFamily: 'Georgia',
+                            fontFamily: 'Inter',
                             fontWeight: 700,
                             letterSpacing: '.2rem',
                             color: 'inherit',
@@ -161,14 +150,14 @@ const MenuBar = () => {
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', lg: 'flex' } }}>
                         {pages2.map((page, key = 5) => (
                             <ButtonGroup key={2} variant='outlined' aria-label='outlined button group'>
-                                <Button onClick={handleCloseNavMenu} sx={{ my: 2, color: 'white', display: 'block' }}>
+                                <Button onClick={handleCloseNavMenu} sx={{ my: 2, color: 'inheret', display: 'block' }}>
                                     {page.About}
                                 </Button>
-                                <Button onClick={handleCloseNavMenu} sx={{ my: 2, color: 'white', display: 'block' }}>
-                                    {page.Progress}
+                                <Button onClick={handleCloseNavMenu} sx={{ my: 2, color: 'green', display: 'block' }}>
+                                    {page.Projects}
                                 </Button>
-                                <Button onClick={handleCloseNavMenu} sx={{ my: 2, color: 'white', display: 'block' }}>
-                                    {page.Project}
+                                <Button onClick={handleCloseNavMenu} sx={{ my: 2, color: 'inheret', display: 'block' }}>
+                                    {page.Contact}
                                 </Button>
                             </ButtonGroup>
                         ))}
@@ -183,7 +172,7 @@ const MenuBar = () => {
                     </Box>
 
                     <Box sx={{ flexGrow: 1 }}>
-                        <Tooltip title='Skills Section'>
+                        <Tooltip title='Bottom Section'>
                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 1 }}>
                                 <Avatar alt='Icon' src='/rocket.png' />
                             </IconButton>
@@ -205,10 +194,10 @@ const MenuBar = () => {
                             onClose={handleCloseUserMenu}>
                             {settings2.map((setting) => (
                                 <MenuItem key={setting.id} onClick={handleCloseUserMenu}>
-                                    <Typography textAlign='center'>{setting.Software}</Typography>
-                                    <Typography textAlign='center'>{setting.Skills}</Typography>
-                                    <Typography textAlign='center'>{setting.Coding}</Typography>
-                                    <Typography textAlign='center'>{setting.Contact}</Typography>
+                                    <Typography textAlign='left'>{setting.About}</Typography>
+                                    <Typography textAlign='center'>{setting.Map}</Typography>
+                                    <Typography textAlign='right'>{setting.Forms}</Typography>
+                                    {/* <Typography textAlign='center'>{setting.Contact}</Typography> */}
                                 </MenuItem>
                             ))}
                         </Menu>
