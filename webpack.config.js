@@ -4,8 +4,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
-// const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+// const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 process.env.NODE_ENV == 'production';
@@ -24,28 +24,8 @@ module.exports = {
         clean: true,
         assetModuleFilename: '[hash][ext]',
     },
-    // devtool: 'source-map', // ? change before deploy
+    devtool: 'source-map', // ? change before deploy
     cache: true,
-    // cache: {
-    //     // type: 'filesystem',
-    //     // cacheUnaffected: true, // ? fs
-    //     // maxGenerations: 100, // ? fs
-    //     type: 'memory', // ! filesystem | in-memory
-    //     cacheDirectory: path.resolve(__dirname, 'cache'),
-    //     cacheLocation: path.resolve(__dirname, 'cache'),
-    //     compression: true,
-    //     maxAge: '1d',
-    //     maxMemoryGenerations: 3,
-    //     memoryCacheUnaffected: true,
-    //     allowCollectingMemory: true,
-    //     profile: true,
-    //     store: true,
-    //     version: '1.0.0',
-
-    //     buildDependencies: {
-    //         config: ['./package.json'],
-    //     },
-    // },
     module: {
         rules: [
             {
@@ -198,7 +178,6 @@ module.exports = {
             // new CssMinimizerPlugin(), '...',
             new TerserPlugin({
                 parallel: true,
-                // minify: require('TerserPlugin.swcMinify'),
                 minify: TerserPlugin.swcMinify,
                 terserOptions: {
                     parse: { ecma: 2017 },
@@ -215,8 +194,7 @@ module.exports = {
                     },
                     keep_classnames: false,
                     keep_fnames: false,
-                    // ecma: 2020,
-                    // nameCache: "./node_modules/.cache/terser-webpack-plugin",
+                    ecma: 2020,
                     module: true,
                 },
                 include: /[\\/].min[\\/].js$/,
@@ -237,7 +215,7 @@ module.exports = {
             chunks: 'all',
             automaticNameDelimiter: '~',
             maxInitialRequests: 20, // for HTTP2
-            maxAsyncRequests: 20, // for HTTP2
+            maxAsyncRequests: 20,
             cacheGroups: {
                 vendors: {
                     test: /[\\/]@tailwindcss[\\/]|[\\/]@mui\/material[\\/]|[\\/]@emotionreact[\\/]|[\\/]@emotion[\\/]/,
@@ -247,17 +225,17 @@ module.exports = {
                 },
                 defaultVendors: {
                     test: /[\\/]node_modules[\\/]|[\\/]vendors[\\/]/,
-                    // priority: -10,
+                    priority: -10,
                     reuseExistingChunk: true,
                     name: false,
                     idHint: 'defaultVendors',
                     // filename: 'vendors/[name].bundle.js',
                 },
                 default: {
-                    // minChunks: 2,
+                    minChunks: 2,
                     idHint: 'default',
                     name: false,
-                    // priority: -20,
+                    priority: -20,
                     reuseExistingChunk: true,
                 },
             },

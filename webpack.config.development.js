@@ -2,7 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
     mode: 'development',
@@ -66,12 +66,6 @@ module.exports = {
                             sourceMap: true,
                         },
                     },
-                    // {
-                    //     loader: require.resolve('postcss-loader'),
-                    //     options: {
-                    //         sourceMap: true,
-                    //     },
-                    // },
                 ],
             },
             { test: /\.txt$/, use: 'raw-loader' },
@@ -173,13 +167,13 @@ module.exports = {
         new webpack.BannerPlugin({
             banner: 'DedOps Webpack5 06/22',
         }),
-        /* new BundleAnalyzerPlugin({
+        new BundleAnalyzerPlugin({
             analyzerMode: 'static',
             openAnalyzer: true,
             // reportFilename: '/Docs/Analysis/bundle.json',
             // generateStatsFile: true,
             // statsFilename: '/Docs/Analysis/stats.json',
-        }), */
+        }),
     ],
     optimization: {
         nodeEnv: 'development',

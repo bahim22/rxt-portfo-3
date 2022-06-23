@@ -13,7 +13,11 @@
         "ecmaVersion": "latest",
         "sourceType": "module"
     },
-    "plugins": ["import", "react", "prettier"],
+    "plugins": [
+        "import",
+        "react",
+        "prettier"
+    ],
     "extends": [
         "eslint:recommended",
         "plugin:react/recommended",
@@ -29,25 +33,19 @@
         "no-restricted-imports": [
             "error",
             {
-                "patterns": ["@mui/*/*/*", "!@mui/material/test-utils/*"]
+                "patterns": [
+                    "@mui/*/*/*",
+                    "!@mui/material/test-utils/*"
+                ]
             }
         ]
-        //"no-tabs": ["off", {"allowIndentationTabs": true}]
-        //"no-confusing-arrow": ["warning", { "allowParens": false }]
     },
-    "ignorePatterns": ["node_modules/"],
+    "ignorePatterns": [
+        "node_modules/"
+    ],
     "settings": {
         "react": {
             "version": "detect"
         }
-        // "import/resolver": {
-        //     "webpack": {
-        //         "config": "webpack.config.production.js",
-        //         "env": {
-        //             "NODE_ENV": "local",
-        //             "production": true
-        //         }
-        //     }
-        // }
     }
 }

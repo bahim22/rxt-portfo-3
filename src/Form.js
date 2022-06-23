@@ -70,7 +70,7 @@ export default function FormPro() {
         <ScopedCssBaseline>
             <header id='contact'>
                 {/* <div> */}
-                <div className='lg:min-w-fit lg:w-fit md:w-fit w-fit'>
+                <div className='lg:min-w-fit lg:w-fit md:w-fit sm:w-fit xs:min-w-fit'>
                     {/* <img width='100%' height='100' src='https://i.imgur.com/qkdpN.png' alt='logo' /> */}
                     <img width='100%' height='100' title='my puppy' src='/pup.jpeg' alt='logo' />
                     {/* <img
