@@ -12,6 +12,9 @@ ___
 | ------- | -------- | --------- | -------- |
 | React-ded-boiler ⚛️ | Personal Portfolio | Master 🏁 | macOS / Windows 11 ✔️ |
 ___
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/8b9a408e-9f0d-429c-9ad1-5ba4c69d41ec/deploy-status)](https://app.netlify.com/sites/himabalde/deploys)
+
 ___
 |_Development Toolchain_|_Optimizations for Production_|
 | ---------- | ---------- |
