@@ -23,7 +23,7 @@ module.exports = {
         // filename: '[name].[chunkhash].js',
         filename: 'bundle.js',
     },
-    devtool: 'source-map',
+    //devtool: 'source-map',
     cache: true,
     // stats: true,
     devServer: {
@@ -38,6 +38,9 @@ module.exports = {
             'Access-Control-Max-Age': '3600',
             'Access-Control-Allow-Credentials': true,
         },
+        //host: '0.0.0.0',
+        compress: true,
+        allowedHosts: ['https://4wv453-7222.csb.app/', '.csb.app'],
     },
     // open: true,
     // compress: true,
