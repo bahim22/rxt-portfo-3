@@ -6,22 +6,22 @@ const softwareList = [
     {
         name: 'Azure',
         tools: 'DevOps, SAAS, IAAS',
-        image: '/himacard.png',
+        image: '../assets/himacard.png',
     },
     {
         name: 'GitHub',
         tools: 'Dev, hosting, collab, Version Control',
-        image: '/himacard.png',
+        image: '../assets/himacard.png',
     },
     {
         name: 'Jira',
         tools: 'Dev, Planning, workflow, Kanban Board',
-        image: '/himacard.png',
+        image: '../assets/himacard.png',
     },
     {
         name: 'Office 365',
         tools: 'office, excel, powerpoint, Planning, Admin',
-        image: '/himacard.png',
+        image: '../assets/himacard.png',
     },
 ];
 

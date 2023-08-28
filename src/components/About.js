@@ -35,7 +35,7 @@ const About = () => {
                     <img
                         className='object-cover object-center rounded'
                         alt='hima b'
-                        src='/hima.jpg'
+                        src='../assets/hima.jpg'
                         width='100%'
                         height='300'
                     />

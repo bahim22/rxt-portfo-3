@@ -3,6 +3,8 @@
 
 `Dionysus Era Development (DED)`
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/8b9a408e-9f0d-429c-9ad1-5ba4c69d41ec/deploy-status)](https://app.netlify.com/sites/himabalde/deploys)
+
 ___
 | Title            | Initial Commit       | Author       | Description            |
 | --------- | ---------- | ------------ | ----------- |
@@ -13,16 +15,14 @@ ___
 | React-ded-boiler ⚛️ | Personal Portfolio | Master 🏁 | macOS / Windows 11 ✔️ |
 ___
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/8b9a408e-9f0d-429c-9ad1-5ba4c69d41ec/deploy-status)](https://app.netlify.com/sites/himabalde/deploys)
-
 ___
 |_Development Toolchain_|_Optimizations for Production_|
 | ---------- | ---------- |
 
-| [1. Updates](#Updates) | [2. Fixes](#bug-fixes) | [3. Updated Features](#New-Features) |
+| [1. Updates](#updates) | [2. Fixes](#bug-fixes) | [3. Updated Features](#new-features) |
 | --- | --- | --- |
 ___
-| [4. Custom Toolchain](#Custom-Toolchain) | [5. App Info](#App-Info) | [6. Current Projects](#Current-Github-Repos) |
+| [4. Custom Toolchain](#custom-toolchain) | [5. App Info](#app-info) | [6. Current Projects](#current-github-repos) |
 | --- | --- | --- |
 ___
 
@@ -90,7 +90,7 @@ ___
 | UI/UX          | `headlessui` `Tailwindcss` `heroIcons` `typography`            | [ ] customizable          |
 | Deployable     | `Vercel` `Azure` `GitHub Pages`                                | [ ] Build for Production  |
 | Folders        | _Root, Src, Posts, Public_                                     | [ ] customizable          |
-| Outline        | _Components, Layout, Configuration, Testing_                   | [x] completed             |
+| Outline        | _Components, Layout, Configuration, Testing_                   | [X] completed             |
 
 ___
 

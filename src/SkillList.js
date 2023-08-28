@@ -21,8 +21,8 @@ export const SkillInfo = [
         Skills: ['ES6', 'ES5', 'JSX', 'TypeScript', 'JSON'],
         Id: 0,
         Time: '2 years',
-        image: '/himaPropng.png',
-        icon: '/jsIcons.svg',
+        image: '../assets/himaPropng.png',
+        icon: <JavascriptSharpIcon />,
     },
     {
         Name: 'HTML5 and CSS3',
@@ -31,7 +31,7 @@ export const SkillInfo = [
         Skills: ['HTML5', 'CSS3', 'Bootstrap', 'Material-UI', 'TailwindCss'],
         Id: 1,
         Time: '2 years',
-        image: '/himaPropng.png',
+        image: '../assets/himaPropng.png',
         icon: '/jsIcons.svg',
     },
     {
@@ -41,7 +41,7 @@ export const SkillInfo = [
         Skills: ['Bash', 'PowerShell'],
         Id: 2,
         Time: '2 years',
-        image: '/himaPropng.png',
+        image: '../assets/himaPropng.png',
         icon: '/gitBlck.png',
     },
     {
@@ -51,7 +51,7 @@ export const SkillInfo = [
         Skills: ['Django'],
         Id: 3,
         Time: '1 year',
-        image: '/crbnNxtBoil.png',
+        image: '../assets/crbnNxtBoil.png',
         icon: '/pylc.svg',
     },
 ];
