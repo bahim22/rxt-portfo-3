@@ -102,18 +102,18 @@ const MenuBar = () => {
                             anchorEl={anchorElNav}
                             anchorOrigin={{
                                 vertical: 'top',
-                                horizontal: 'right',
+                                horizontal: 'left',
                             }}
                             keepMounted
                             transformOrigin={{
                                 vertical: 'top',
-                                horizontal: 'right',
+                                horizontal: 'left',
                             }}
                             open={Boolean(anchorElNav)}
                             onClose={handleCloseNavMenu}
                             sx={{
-                                display: { xs: 'flex', md: 'none' },
-                                mx: 1,
+                                display: { xs: 'flex-wrap', lg: 'flex', md: 'none' },
+                                mx: 2,
                             }}>
                             {/* {pages.map((page) => (
                                 <MenuItem key={page} onClick={handleCloseNavMenu}>
@@ -123,8 +123,9 @@ const MenuBar = () => {
                             {pages2.map((page) => (
                                 <MenuItem key={page.id} onClick={handleCloseNavMenu}>
                                     <Typography textAlign='left'>{page.About}</Typography>
-                                    <Typography textAlign='center'>{page.Projects}</Typography>
-                                    <Typography textAlign='right'>{page.Contact}</Typography>
+                                    <br/>
+                                    <Typography textAlign='left'>{page.Projects}</Typography>
+                                    <Typography textAlign='left'>{page.Contact}</Typography>
                                 </MenuItem>
                             ))}
                         </Menu>
@@ -147,7 +148,7 @@ const MenuBar = () => {
                         }}>
                         Hima
                     </Typography>
-                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', lg: 'flex' } }}>
+                    <Box sx={{ flexWrap: 1, display: { xs: 'none', md: 'flex', lg: 'flex' } }}>
                         {pages2.map((page, key = 5) => (
                             <ButtonGroup key={2} variant='outlined' aria-label='outlined button group'>
                                 <Button onClick={handleCloseNavMenu} sx={{ my: 2, color: 'inheret', display: 'block' }}>
@@ -172,13 +173,13 @@ const MenuBar = () => {
                     </Box>
 
                     <Box sx={{ flexGrow: 1 }}>
-                        <Tooltip title='Bottom Section'>
-                            <IconButton onClick={handleOpenUserMenu} sx={{ p: 1 }}>
+                        <Tooltip title='Bottom Web Page Modules'>
+                            <IconButton onClick={handleOpenUserMenu} sx={{ px: 1 }}>
                                 <Avatar alt='Icon' src='/rocket.png' />
                             </IconButton>
                         </Tooltip>
                         <Menu
-                            sx={{ mt: '45px' }}
+                            sx={{ my: '45px' }}
                             id='menu-appbar'
                             anchorEl={anchorElUser}
                             anchorOrigin={{
